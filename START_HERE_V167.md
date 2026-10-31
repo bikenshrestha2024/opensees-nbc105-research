@@ -5,7 +5,9 @@ This V167 handoff identifies the current project baseline and validation status;
 ## Entry points
 
 - Main ETABS-to-OpenSeesPy workflow: `01_START_ETABS_TO_OPENSEES.py` and `RUN_ETABS_TO_OPENSEES.py`.
+- Ordered launchers and the recommended analysis progression: `00_READ_FIRST_RUN_ORDER.md`.
 - Building exploratory nonlinear time-history GUI: `18_BUILDING_FULL_NONLINEAR.py`.
+- Independent literature component demonstration: `17_LITERATURE_COMPONENT_DEMO.py` (`RUN_LITERATURE_DEMO.py` remains a compatibility alias).
 - Building research implementation: `components/nonlinear_time_history/building_exploratory.py`.
 - Research building material assignments: `components/nonlinear_time_history/research_building_materials.py`.
 - Component/device mechanics: `components/sections/devices.py`.

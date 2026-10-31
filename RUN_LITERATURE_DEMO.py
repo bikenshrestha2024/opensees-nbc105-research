@@ -1,7 +1,8 @@
-"""Launch the isolated published-parameter nonlinear demonstration."""
-import tkinter as tk
-from OpenSees_Literature_Demo_GUI_V137 import launch
-if __name__ == '__main__':
-    root=tk.Tk();root.withdraw();window=launch(root)
-    window.protocol('WM_DELETE_WINDOW',root.destroy)
-    root.mainloop()
+"""Compatibility launcher; use 17_LITERATURE_COMPONENT_DEMO.py for the ordered entry point."""
+from pathlib import Path
+import runpy
+import sys
+
+ROOT = Path(__file__).resolve().parent
+sys.path.insert(0, str(ROOT))
+runpy.run_path(str(ROOT / "17_LITERATURE_COMPONENT_DEMO.py"), run_name="__main__")
