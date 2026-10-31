@@ -15,6 +15,7 @@ from OpenSees_Nonlinear_Time_History_NBC105_V116 import (
 from components.nonlinear_time_history.building_exploratory import (
     TRANSIENT_SYSTEMS,
     configure_transient_system,
+    profile_for_config,
 )
 
 
@@ -90,6 +91,16 @@ class MaterialSensitivityTests(unittest.TestCase):
             self.assertEqual(ops.calls, [expected])
         with self.assertRaisesRegex(ValueError, "transient_system"):
             configure_transient_system(FakeOps(), "Mumps")
+
+    def test_incomplete_report_profile_matches_wall_configuration(self):
+        self.assertEqual(
+            profile_for_config({"nonlinear_walls": True}),
+            "LITERATURE_BUILDING_NL_V161",
+        )
+        self.assertEqual(
+            profile_for_config({"nonlinear_walls": False}),
+            "LITERATURE_FRAME_NL_ELASTIC_WALL_V138",
+        )
 
 
 if __name__ == "__main__":

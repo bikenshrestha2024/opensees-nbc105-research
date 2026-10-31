@@ -14,6 +14,10 @@ def configure_transient_system(ops,system):
     if system=='SparseGeneral':ops.system('SparseGeneral','-piv')
     else:ops.system('UmfPack')
 
+def profile_for_config(config):
+    """Return the research profile selected by the exploratory configuration."""
+    return 'LITERATURE_BUILDING_NL_V161' if bool(config.get('nonlinear_walls',False)) else PROFILE
+
 def run(config):
     if config.get('limit_state')=='Both':
         base=Path(config['output_dir']);base.mkdir(parents=True,exist_ok=True);results={}
@@ -34,7 +38,7 @@ def run(config):
     from OpenSees_Step13_Analysis_Basis_V115 import rayleigh_coefficients
     from OpenSees_Response_Checks_V132 import export_history_checks
     full_wall=bool(config.get('nonlinear_walls',False))
-    profile='LITERATURE_BUILDING_NL_V161' if full_wall else PROFILE
+    profile=profile_for_config(config)
     import os
     os.environ['OPENSEES_RESEARCH_MATERIAL_BASIS']=config.get('material_basis','PUBLISHED_REFERENCE')
     source=Path(config['model_folder']).resolve();out=Path(config['output_dir']).resolve();out.mkdir(parents=True,exist_ok=True)
@@ -185,4 +189,4 @@ if __name__=='__main__':
     try:run(config)
     except Exception as exc:
         out=Path(config['output_dir']);out.mkdir(parents=True,exist_ok=True)
-        (out/'INCOMPLETE.json').write_text(json.dumps(dict(status='INCOMPLETE',error=str(exc),profile=PROFILE),indent=2));raise
+        (out/'INCOMPLETE.json').write_text(json.dumps(dict(status='INCOMPLETE',error=str(exc),profile=profile_for_config(config)),indent=2));raise
