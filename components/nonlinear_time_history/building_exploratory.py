@@ -25,6 +25,9 @@ def run(config):
     transient_system=config.get('transient_system','UmfPack')
     if transient_system not in TRANSIENT_SYSTEMS:
         raise ValueError('transient_system must be one of: '+', '.join(TRANSIENT_SYSTEMS))
+    gravity_system=config.get('gravity_system','UmfPack')
+    if gravity_system not in TRANSIENT_SYSTEMS:
+        raise ValueError('gravity_system must be one of: '+', '.join(TRANSIENT_SYSTEMS))
     from OpenSees_Complete_Export_V118 import build_complete_model
     from OpenSees_Input_Records_V130 import _read_peer_text_record
     from OpenSees_Nonlinear_Time_History_NBC105_V116 import _advance_nonlinear_interval,_configure_nonlinear_transient
@@ -59,7 +62,10 @@ def run(config):
     for orientation in config.get('orientations',['XY','YX']):
         if orientation not in ('XY','YX'):raise ValueError('Orientation must be XY or YX')
         case=out/orientation;case.mkdir(exist_ok=True);print('[EXPLORATORY START]',orientation,'no calibration or design approval implied',flush=True)
-        build_complete_model(model,mode='nonlinear',preload=True,limit_state=config.get('limit_state','ULS'),research_profile=profile)
+        build_complete_model(
+            model, mode='nonlinear', preload=True,
+            limit_state=config.get('limit_state','ULS'),
+            research_profile=profile, gravity_system=gravity_system)
         import openseespy.opensees as ops
         if full_wall:
             shutil.copy2(model/'Research_Material_Assignment_V161.json',case/'Research_Material_Assignment_V161.json')
@@ -136,7 +142,7 @@ def run(config):
                 writer=csv.DictWriter(stream,fieldnames=list(action_rows[0]));writer.writeheader();writer.writerows(action_rows)
         deformation={str(n):list(ops.nodeDisp(int(n))) for n in data['nodes']}
         (case/('Deformation_EXPLORATORY_'+orientation+'_V132.json')).write_text(json.dumps(dict(nodes=data['nodes'],elements=[e['nodes'] for e in data['frames']+data['shells']],displacements=deformation,dof_availability=[True]*6,note='EXPLORATORY assumed literature materials; total final response at t='+str(ops.getTime())+' s. Not design acceptance.')),encoding='utf-8')
-        result=dict(orientation=orientation,wall_model='E_SFI_MVLEM_3D' if full_wall else 'ELASTIC',frame_model='LITERATURE_CONCRETE01_NOMINAL_FE500' if full_wall else 'NONLINEAR_ILLUSTRATIVE_RC_FIBERS',transient_system=transient_system,status='COMPLETED_TRUNCATED_TRIAL' if end<record_end else 'COMPLETED_EXPLORATORY_RECORD',physical_time_s=end,full_record_duration_s=record_end,elapsed_s=time.perf_counter()-case_start,peak_roof_UX_m=max(abs(r[stories[-1]['story_name']+'_UX_m']) for r in rows),peak_roof_UY_m=max(abs(r[stories[-1]['story_name']+'_UY_m']) for r in rows),periods_inspected_s=periods,initial_damping_ratios=[alpha/(2*math.sqrt(v))+beta*math.sqrt(v)/2 for v in eigenvalues],diagnostics=diag,scope=assumptions['scope'])
+        result=dict(orientation=orientation,wall_model='E_SFI_MVLEM_3D' if full_wall else 'ELASTIC',frame_model='LITERATURE_CONCRETE01_NOMINAL_FE500' if full_wall else 'NONLINEAR_ILLUSTRATIVE_RC_FIBERS',gravity_system=gravity_system,transient_system=transient_system,status='COMPLETED_TRUNCATED_TRIAL' if end<record_end else 'COMPLETED_EXPLORATORY_RECORD',physical_time_s=end,full_record_duration_s=record_end,elapsed_s=time.perf_counter()-case_start,peak_roof_UX_m=max(abs(r[stories[-1]['story_name']+'_UX_m']) for r in rows),peak_roof_UY_m=max(abs(r[stories[-1]['story_name']+'_UY_m']) for r in rows),periods_inspected_s=periods,initial_damping_ratios=[alpha/(2*math.sqrt(v))+beta*math.sqrt(v)/2 for v in eigenvalues],diagnostics=diag,scope=assumptions['scope'])
         from OpenSees_Building_Response_V144 import plot_response
         plot_response(history,case,tracked)
         (case/'Case_Summary.json').write_text(json.dumps(result,indent=2));summary.append(result);print('[EXPLORATORY COMPLETE]',json.dumps(result),flush=True);ops.wipe()

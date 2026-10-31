@@ -22,7 +22,10 @@ __release__ = '134'
 # https://openseespydoc.readthedocs.io/en/latest/src/rigidDiaphragm.html
 # loadConst sequencing: https://openseespydoc.readthedocs.io/en/latest/src/loadConst.html
 # See README_V110.md for the limits and meaning of each analysis stage.
+import json
+import math
 import time
+from pathlib import Path
 
 ANALYSIS_MODE_CHOICES = (
     "LINEAR_ELASTIC_CHECK",
@@ -36,7 +39,7 @@ DEFAULT_NUMBERER = "RCM"
 DEFAULT_CONSTRAINTS = "Transformation"
 
 
-def _configure_common(ops, *, system=DEFAULT_SYSTEM,
+def _configure_common(ops, *, system=DEFAULT_SYSTEM, system_options=(),
                       numberer=DEFAULT_NUMBERER,
                       constraints=DEFAULT_CONSTRAINTS):
     """Reset analysis objects and configure the common equation solution stack."""
@@ -44,15 +47,100 @@ def _configure_common(ops, *, system=DEFAULT_SYSTEM,
     # Transformation is required for the model's rigid-diaphragm MP constraints.
     ops.constraints(str(constraints))
     ops.numberer(str(numberer))
-    ops.system(str(system))
+    ops.system(str(system), *tuple(system_options))
+
+
+def save_gravity_diagnostics(ops, output_path, *, last_committed_factor,
+                             attempted_factor, return_code, system,
+                             system_options=(), element_labels=None,
+                             max_items=40):
+    """Persist a bounded first-failure snapshot; responses may be trial state."""
+    report = {
+        "status": "FAILED_GRAVITY_SOLVE_DIAGNOSTIC_SNAPSHOT",
+        "scope": "Solver failure evidence only; not a stiffness or connectivity diagnosis",
+        "last_committed_load_factor": float(last_committed_factor),
+        "attempted_load_factor": float(attempted_factor),
+        "analysis_time_after_failure": float(ops.getTime()),
+        "return_code": int(return_code),
+        "linear_system": str(system),
+        "linear_system_options": list(system_options),
+        "response_state_warning": (
+            "A failed analysis may revert to committed state; element responses "
+            "are diagnostic samples and may not represent a valid equilibrium state."
+        ),
+        "nodes_scanned": 0,
+        "elements_scanned": 0,
+        "nonfinite_nodes": [],
+        "node_response_errors": [],
+        "largest_displacement_nodes": [],
+        "nonfinite_element_responses": [],
+        "element_response_errors": [],
+    }
+    element_labels = element_labels or {}
+    node_rows = []
+    for tag in ops.getNodeTags():
+        try:
+            displacement = [float(value) for value in ops.nodeDisp(tag)]
+        except Exception as exc:
+            report["node_response_errors"].append({
+                "tag": int(tag),
+                "error": f"{type(exc).__name__}: {exc}",
+            })
+            continue
+        report["nodes_scanned"] += 1
+        if not all(math.isfinite(value) for value in displacement):
+            report["nonfinite_nodes"].append({
+                "tag": int(tag), "displacement": displacement
+            })
+        else:
+            magnitude = math.sqrt(sum(value * value for value in displacement[:3]))
+            node_rows.append((magnitude, int(tag), displacement))
+    node_rows.sort(reverse=True)
+    report["largest_displacement_nodes"] = [
+        {"tag": tag, "translation_norm_model_units": magnitude,
+         "displacement": displacement}
+        for magnitude, tag, displacement in node_rows[:max_items]
+    ]
+    for tag in ops.getEleTags():
+        report["elements_scanned"] += 1
+        for response_name in ("localForce", "basicDeformation"):
+            try:
+                raw = ops.eleResponse(tag, response_name)
+                if raw is None:
+                    continue
+                values = [float(value) for value in raw]
+            except Exception as exc:
+                report["element_response_errors"].append({
+                    "tag": int(tag), "response": response_name,
+                    "error": f"{type(exc).__name__}: {exc}",
+                })
+                if int(tag) in element_labels:
+                    report["element_response_errors"][-1]["model_element"] = element_labels[int(tag)]
+                continue
+            if not all(math.isfinite(value) for value in values):
+                report["nonfinite_element_responses"].append({
+                    "tag": int(tag), "response": response_name,
+                    "values": values,
+                })
+                if int(tag) in element_labels:
+                    report["nonfinite_element_responses"][-1]["model_element"] = element_labels[int(tag)]
+    for key in ("nonfinite_nodes", "node_response_errors", "element_response_errors",
+                "nonfinite_element_responses"):
+        report[key] = report[key][:max_items]
+    report["output_path"] = str(Path(output_path))
+    target = Path(output_path)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(json.dumps(report, indent=2), encoding="utf-8")
+    return report
 
 
 def configure_nonlinear_static(ops, *, tolerance=1.0e-8, max_iterations=50,
                                nsteps=10, algorithm="Newton", system=DEFAULT_SYSTEM,
+                               system_options=(),
                                numberer=DEFAULT_NUMBERER,
                                constraints=DEFAULT_CONSTRAINTS):
     """Configure nonlinear, load-controlled static analysis (e.g. gravity)."""
-    _configure_common(ops, system=system, numberer=numberer,
+    _configure_common(ops, system=system, system_options=system_options, numberer=numberer,
                      constraints=constraints)
     ops.test("NormDispIncr", float(tolerance), int(max_iterations), 0)
     ops.algorithm(str(algorithm))
@@ -64,8 +152,9 @@ def configure_nonlinear_static(ops, *, tolerance=1.0e-8, max_iterations=50,
 
 def run_static_analysis(ops, nsteps, *, tolerance=1.0e-8,
                         max_iterations=50, algorithm="Newton",
-                        system=DEFAULT_SYSTEM, numberer=DEFAULT_NUMBERER,
-                        constraints=DEFAULT_CONSTRAINTS):
+                        system=DEFAULT_SYSTEM, system_options=(), numberer=DEFAULT_NUMBERER,
+                        constraints=DEFAULT_CONSTRAINTS, diagnostic_path=None,
+                        element_labels=None):
     """Run static steps and raise if OpenSees reports failure.
 
     For incremental gravity, set nsteps and the LoadControl increment to suit
@@ -74,7 +163,7 @@ def run_static_analysis(ops, nsteps, *, tolerance=1.0e-8,
     nsteps = int(nsteps)
     if nsteps < 1:
         raise ValueError("nsteps must be a positive integer")
-    _configure_common(ops, system=system, numberer=numberer,
+    _configure_common(ops, system=system, system_options=system_options, numberer=numberer,
                      constraints=constraints)
     ops.test("NormDispIncr", float(tolerance), int(max_iterations), 0)
     ops.algorithm(str(algorithm))
@@ -82,10 +171,22 @@ def run_static_analysis(ops, nsteps, *, tolerance=1.0e-8,
     ops.analysis("Static")
     status = int(ops.analyze(nsteps))
     if status != 0:
+        diagnostic_note = ""
+        if diagnostic_path is not None:
+            committed_factor = float(ops.getTime())
+            save_gravity_diagnostics(
+                ops, diagnostic_path,
+                last_committed_factor=committed_factor,
+                attempted_factor=committed_factor + 1.0 / nsteps,
+                return_code=status, system=system,
+                system_options=system_options,
+                element_labels=element_labels,
+            )
+            diagnostic_note = f" First-failure snapshot: {diagnostic_path}."
         raise RuntimeError(
             f"Static analysis failed: OpenSees returned {status} after "
             f"requesting {nsteps} steps. Check load factors, constraints, "
-            "convergence, and model stability."
+            "convergence, and model stability." + diagnostic_note
         )
     return status
 
@@ -99,7 +200,8 @@ def run_gravity_stage(ops, support_nodes, total_applied_vertical_load_kN, *,
                      model_nodes=None, nsteps=10, tolerance=1.0e-8, max_iterations=50,
                      algorithm="Newton", equilibrium_tolerance_percent=0.5,
                      freeze=True, system=DEFAULT_SYSTEM, numberer=DEFAULT_NUMBERER,
-                     constraints=DEFAULT_CONSTRAINTS, adaptive=False):
+                     constraints=DEFAULT_CONSTRAINTS, system_options=(),
+                     diagnostic_path=None, element_labels=None, adaptive=False):
     """Run incremental gravity, check vertical equilibrium, and freeze loads.
 
     ``total_applied_vertical_load_kN`` is the verified positive magnitude of
@@ -123,8 +225,10 @@ def run_gravity_stage(ops, support_nodes, total_applied_vertical_load_kN, *,
     if float(equilibrium_tolerance_percent) < 0.0:
         raise ValueError("equilibrium_tolerance_percent cannot be negative")
     started = time.perf_counter()
+    diagnostics = None
     if adaptive:
-        _configure_common(ops,system=system,numberer=numberer,constraints=constraints)
+        _configure_common(ops,system=system,system_options=system_options,
+                          numberer=numberer,constraints=constraints)
         ops.test('NormDispIncr',float(tolerance),int(max_iterations),0)
         ops.algorithm('Newton');ops.integrator('LoadControl',1./int(nsteps));ops.analysis('Static')
         increment=1./int(nsteps);minimum=increment/128.;last=started;accepted=0;recoveries=0
@@ -134,12 +238,36 @@ def run_gravity_stage(ops, support_nodes, total_applied_vertical_load_kN, *,
             code=ops.analyze(1)
             if code:
                 recoveries+=1
+                if diagnostic_path is not None:
+                    if diagnostics is None:
+                        diagnostics = save_gravity_diagnostics(
+                            ops, diagnostic_path,
+                            last_committed_factor=before,
+                            attempted_factor=before + step,
+                            return_code=code, system=system,
+                            system_options=system_options,
+                            element_labels=element_labels,
+                        )
+                        diagnostics["failed_attempts"] = []
+                    diagnostics["failed_attempts"].append({
+                        "last_committed_factor": float(before),
+                        "attempted_increment": float(step),
+                        "return_code": int(code),
+                    })
+                    Path(diagnostic_path).write_text(
+                        json.dumps(diagnostics, indent=2), encoding="utf-8"
+                    )
                 # analyze(1) reverts a failed trial to the last committed state.
                 # Never freeze a partial gravity state or relax equilibrium.
                 if abs(ops.getTime()-before)>1e-9:raise RuntimeError('Unexpected gravity time after failed step')
                 increment=step/2.
                 print(f'[GRAVITY RECOVERY] committed factor={before:.6f}; retry increment={increment:g}; code={code}',flush=True)
-                if increment<minimum:raise RuntimeError(f'Nonlinear gravity cannot converge at factor {before:g}; minimum increment reached')
+                if increment<minimum:
+                    detail = f"; first-failure snapshot: {diagnostic_path}" if diagnostic_path else ""
+                    raise RuntimeError(
+                        f"Nonlinear gravity cannot converge at factor {before:g}; "
+                        f"minimum increment reached{detail}"
+                    )
                 continue
             accepted+=1
             if time.perf_counter()-last>5:
@@ -148,7 +276,9 @@ def run_gravity_stage(ops, support_nodes, total_applied_vertical_load_kN, *,
     else:
         run_static_analysis(
             ops,nsteps=nsteps,tolerance=tolerance,max_iterations=max_iterations,
-            algorithm=algorithm,system=system,numberer=numberer,constraints=constraints)
+            algorithm=algorithm,system=system,system_options=system_options,
+            numberer=numberer,constraints=constraints,
+            diagnostic_path=diagnostic_path,element_labels=element_labels)
     ops.reactions()
     reaction = sum(float(ops.nodeReaction(n, 3)) for n in supports)
     error_percent = 100.0 * abs(reaction - applied) / applied
@@ -288,5 +418,3 @@ def configure_analysis_mode(ops, mode=PRIMARY_ANALYSIS_MODE, *, stage="transient
             max_iterations=30 if max_iterations is None else max_iterations,
             algorithm=algorithm, gamma=gamma, beta=beta, system=system,
             numberer=numberer, constraints=constraints)
-
-

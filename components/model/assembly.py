@@ -602,7 +602,8 @@ def export_gravity_beam_actions(ops,data,folder,limit_state,mode):
 
 
 @timed_outputs('Model construction and optional gravity preload','folder')
-def build_complete_model(folder, *, mode='elastic', preload=False, limit_state='ULS', research_profile=None):
+def build_complete_model(folder, *, mode='elastic', preload=False, limit_state='ULS',
+                        research_profile=None, gravity_system='UmfPack'):
     """Build all supported structural families, loads, mass and diaphragms."""
     research=research_profile in ('LITERATURE_EXPLORATORY_V138','LITERATURE_FRAME_NL_ELASTIC_WALL_V138','LITERATURE_BUILDING_NL_V161')
     research_elastic_walls=research_profile=='LITERATURE_FRAME_NL_ELASTIC_WALL_V138'
@@ -623,6 +624,8 @@ def build_complete_model(folder, *, mode='elastic', preload=False, limit_state='
         raise ValueError('Model config changed after assembly. Use Rebuild from saved export before running analysis.')
     if limit_state not in ('ULS','SLS'):raise ValueError('limit_state must be ULS or SLS')
     if mode not in ('elastic','nonlinear'): raise ValueError('Unknown model mode')
+    if gravity_system not in ('UmfPack', 'SparseGeneral'):
+        raise ValueError('gravity_system must be UmfPack or SparseGeneral')
     if mode=='nonlinear' and not research and not cfg.get('nonlinear_parameters_reviewed'):
         raise ValueError('Nonlinear model requires reviewed frame and wall constitutive inputs. Set nonlinear_materials_file and nonlinear_wall_fsam_tags in OpenSees_Complete_Model_Config_V118.json after calibration. The elastic assembled model is available for conversion/gravity checks.')
     from OpenSees_Mapping_Audit_V125 import read as read_mapping,OVERRIDES,add_device
@@ -653,9 +656,12 @@ def build_complete_model(folder, *, mode='elastic', preload=False, limit_state='
             if not material_file.is_absolute(): material_file=folder/material_file
             result=runpy.run_path(str(material_file)); result['define_materials'](ops)
     section_tags={'SHS_350x350x16_STEEL_FIBER':701,'RC_BEAM_600x800_FIBER':611,'RC_COLUMN_1100x1100_FIBER':621,'RC_COLUMN_1250x1250_FIBER':631}
-    tag=100000; used_sections={}; element_map={}
+    tag=100000; used_sections={}; element_map={}; element_labels={}
     for e in data['frames']:
         tag+=1; p=e['properties']
+        element_labels[tag] = dict(
+            source_object=str(e['object']), category=e['category'],
+            nodes=e['nodes'], property=p.get('section'))
         selection=overrides.get('SOLVER:'+str(tag),overrides.get('FRAME:'+str(e['object']),{}))
         if mode=='nonlinear' and selection.get('target') in ('FVD_MAXWELL','BRB_STEEL02'):
             if 'SOLVER:'+str(tag) not in overrides and sum(q['object']==e['object'] for q in data['frames'])!=1:
@@ -684,6 +690,9 @@ def build_complete_model(folder, *, mode='elastic', preload=False, limit_state='
         element_map.setdefault('FRAME:'+e['object'],[]).append(tag)
     for e in data['shells']:
         tag+=1; p=e['properties']; key=p['property']
+        element_labels[tag] = dict(
+            source_object=str(e['object']), category=e['category'],
+            nodes=e['nodes'], property=key)
         if mode=='nonlinear' and e['category']=='SHEAR WALL' and not research_elastic_walls:
             fsam=int(research_wall['property_tags'][key] if research_profile=='LITERATURE_BUILDING_NL_V161' else research_wall['tags']['fsam_web'] if research else cfg['nonlinear_wall_fsam_tags'][key]); width=math.dist(data['nodes'][str(e['nodes'][0])],data['nodes'][str(e['nodes'][1])])
             fibers=int(cfg.get('wall_macro_fibers',5))
@@ -703,7 +712,20 @@ def build_complete_model(folder, *, mode='elastic', preload=False, limit_state='
         for n,vector in values.items(): ops.load(int(n),*vector)
     if preload:
         from OpenSees_Analysis_Stack_V110 import run_gravity_stage
-        gravity_report=run_gravity_stage(ops,[int(n) for n,v in data['supports'].items() if v[2]],data['total_downward_load_kN'],model_nodes=list(map(int,data['nodes'])),nsteps=20,system='UmfPack',adaptive=research_profile=='LITERATURE_BUILDING_NL_V161')
+        gravity_system_options = ('-piv',) if gravity_system == 'SparseGeneral' else ()
+        diagnostic_path = folder / ('Gravity_Failure_Diagnostics_' + limit_state + '.json')
+        print('[GRAVITY SOLVER]', gravity_system,
+              'options=' + repr(gravity_system_options),
+              '| adaptive=' + str(research_profile == 'LITERATURE_BUILDING_NL_V161'),
+              flush=True)
+        gravity_report=run_gravity_stage(
+            ops, [int(n) for n,v in data['supports'].items() if v[2]],
+            data['total_downward_load_kN'], model_nodes=list(map(int,data['nodes'])),
+            nsteps=20, system=gravity_system,
+            system_options=gravity_system_options,
+            diagnostic_path=diagnostic_path,
+            element_labels=element_labels,
+            adaptive=research_profile=='LITERATURE_BUILDING_NL_V161')
         from OpenSees_Model_Audit_V130 import check_kinematics
         gravity_report['diaphragm_kinematics']=check_kinematics(ops,data)
         gravity_report['gravity_context']=gravity_context
