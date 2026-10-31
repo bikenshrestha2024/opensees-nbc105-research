@@ -47,6 +47,21 @@ class V133Checks(unittest.TestCase):
             def getNodeTags(self):return []
         ops=Fake();seen=[];diag={};count=_advance_nonlinear_interval(ops,.1,on_accept=lambda:seen.append(ops.t),diagnostics=diag)
         self.assertEqual(count,2);self.assertEqual(seen,[.05,.1]);self.assertEqual(diag['bisections'],1)
+    def test_failed_step_stops_when_element_response_is_nonfinite(self):
+        class Fake:
+            def __init__(self):self.algorithms=[]
+            def test(self,*a):pass
+            def algorithm(self,name):self.algorithms.append(name)
+            def analyze(self,*a):return -3
+            def getTime(self):return 0.
+            def getNodeTags(self):return []
+            def getEleTags(self):return [17]
+            def eleResponse(self,tag,response):
+                return [float("nan")] if response=="basicDeformation" else [0.]
+        ops=Fake()
+        with self.assertRaisesRegex(RuntimeError,"basicDeformation.*element 17"):
+            _advance_nonlinear_interval(ops,.005)
+        self.assertEqual(ops.algorithms,["Newton"])
     @unittest.skipUnless(importlib.util.find_spec("openseespy"), "OpenSeesPy is not installed")
     def test_reused_solver_matches_rebuilt_on_cyclic_nonlinear_model(self):
         import openseespy.opensees as ops

@@ -139,6 +139,23 @@ def _advance_nonlinear_interval(ops, dt, depth=0, max_depth=5, on_accept=None, d
                     f"Non-finite nodal displacement after {algorithm} failure "
                     f"at node {node}, t={ops.getTime():.6g}s. "
                     "Stopping rather than retrying a contaminated model state.")
+        get_element_tags = getattr(ops, "getEleTags", None)
+        element_response = getattr(ops, "eleResponse", None)
+        if callable(get_element_tags) and callable(element_response):
+            for element in get_element_tags():
+                for response_name in ("localForce", "basicDeformation"):
+                    response = element_response(element, response_name)
+                    if response is None:
+                        continue
+                    try:
+                        values = tuple(float(value) for value in response)
+                    except TypeError:
+                        values = (float(response),)
+                    if any(not math.isfinite(value) for value in values):
+                        raise RuntimeError(
+                            f"Non-finite element {response_name} after {algorithm} "
+                            f"failure at element {element}, t={ops.getTime():.6g}s. "
+                            "Stopping rather than retrying a contaminated model state.")
     if depth >= max_depth:
         raise RuntimeError(f"Nonlinear step failed at t={ops.getTime():.6g}s, dt={dt:.6g}s after {depth} subdivision levels: " + "; ".join(failures))
     diagnostics['bisections']=diagnostics.get('bisections',0)+1
@@ -707,6 +724,5 @@ def main():
 
 
 if __name__ == "__main__": main()
-
 
 
