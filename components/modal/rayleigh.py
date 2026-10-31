@@ -18,13 +18,18 @@ import hashlib
 
 
 @timed_outputs('Preliminary Rayleigh X-Y analysis','folder')
-def run(folder, awx, awy, reference_fraction=.01):
+def run(folder, awx, awy, reference_fraction=.01, limit_state='ULS',
+        output_dir=None):
     import openseespy.opensees as ops
     from OpenSees_Complete_Export_V118 import build_complete_model
     from OpenSees_Analysis_Stack_V110 import configure_nonlinear_static
     from openpyxl import Workbook
     from matplotlib.figure import Figure
-    folder=Path(folder);out=folder/'OpenSees_Analysis_Results';out.mkdir(exist_ok=True)
+    folder=Path(folder)
+    state=str(limit_state).strip().upper()
+    if state not in ('ULS','SLS'):raise ValueError('limit_state must be ULS or SLS')
+    out=Path(output_dir) if output_dir is not None else folder/'OpenSees_Analysis_Results'
+    out.mkdir(parents=True,exist_ok=True)
     reference_fraction=float(reference_fraction)
     if not math.isfinite(reference_fraction) or reference_fraction<=0:raise ValueError('Reference fraction must be finite and positive.')
     model=folder/'OpenSees_Complete_Model_Data_V118.json'
@@ -32,7 +37,8 @@ def run(folder, awx, awy, reference_fraction=.01):
     rows.sort(key=lambda r:float(r['height_m']))
     weights=[float(r['dead_load_kN'])+.6*float(r['storage_live_load_kN'])+.3*float(r['other_live_load_kN']) for r in rows]
     if any(w<=0 for w in weights):raise ValueError('Positive reconciled seismic story weights are required.')
-    H=max(float(r['height_m']) for r in rows);result={'story_weights_sha256':hashlib.sha256((folder/'NBC105_ESM_Story_Weights_Assembled_V118.csv').read_bytes()).hexdigest(),'standard':'NBC 105:2025 §5.1.1','model_sha256':hashlib.sha256(model.read_bytes()).hexdigest(),'gravity_state':'assembled sustained gravity','torsion':'diaphragm rotations restrained during reference lateral perturbation','diagnostic_only':True}
+    H=max(float(r['height_m']) for r in rows);result={'story_weights_sha256':hashlib.sha256((folder/'NBC105_ESM_Story_Weights_Assembled_V118.csv').read_bytes()).hexdigest(),'standard':'NBC 105:2025 §5.1.1','model_sha256':hashlib.sha256(model.read_bytes()).hexdigest(),'gravity_state':'assembled sustained gravity','limit_state':state,'torsion':'diaphragm rotations restrained during reference lateral perturbation','diagnostic_only':True}
+    prefix='NBC105_Rayleigh_Preliminary_V123'+('' if state=='ULS' else '_'+state)
     wb=Workbook();summary=wb.active;summary.title='Summary';summary.append(['Axis','Aw (m2)','Empirical T (s)','Amplified empirical T (s)','Rayleigh T (s)','Adopted T (s)'])
     fig=Figure(figsize=(11,6),layout='constrained');axes=fig.subplots(1,2)
     for axis,aw in [('X',awx),('Y',awy)]:
@@ -42,7 +48,7 @@ def run(folder, awx, awy, reference_fraction=.01):
         k=1. if empirical<=.5 else 2. if empirical>=2.5 else 1.+(empirical-.5)/2.
         shape=[w*float(r['height_m'])**k for w,r in zip(weights,rows)]
         forces=[reference_fraction*sum(weights)*s/sum(shape) for s in shape]
-        build_complete_model(folder,mode='elastic',preload=True)
+        build_complete_model(folder,mode='elastic',preload=True,limit_state=state)
         dof=1 if axis=='X' else 2
         masters=[int(r['master_node_tag']) for r in rows]
         # Establish the torsion-suppressed gravity equilibrium BEFORE taking
@@ -75,17 +81,19 @@ def run(folder, awx, awy, reference_fraction=.01):
     for ax in axes:ax.grid(alpha=.25);ax.legend();ax.set_ylabel('Elevation (m)')
     axes[0].set(title='Reference lateral displacement profiles',xlabel='Incremental translation (mm)')
     axes[1].set(title='Reference lateral floor forces',xlabel='Reference force Fi (kN)')
-    fig.suptitle('NBC 105:2025 Rayleigh period estimate | preliminary elastic perturbation')
-    for ext in ('png','pdf'):fig.savefig(out/('NBC105_Rayleigh_Preliminary_V123.'+ext),dpi=300)
+    fig.suptitle(f'NBC 105:2025 Rayleigh period estimate | {state} preliminary elastic perturbation')
+    for ext in ('png','pdf'):fig.savefig(out/(prefix+'.'+ext),dpi=300)
     for sheet in wb:sheet.freeze_panes='A2';sheet.auto_filter.ref=sheet.dimensions
-    wb.save(out/'NBC105_Rayleigh_Preliminary_V123.xlsx')
+    wb.save(out/(prefix+'.xlsx'))
     result['method_version']=124
     result['reference_fraction']=reference_fraction
     result['baseline_method']='Equilibrate torsion-suppressed gravity before applying reference forces; use incremental translation.'
-    (out/'NBC105_Rayleigh_Preliminary_V123.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
+    (out/(prefix+'.json')).write_text(json.dumps(result,indent=2),encoding='utf-8')
     return result
 
 
 if __name__=='__main__':
     import sys
-    print(json.dumps(run(sys.argv[1],float(sys.argv[2]),float(sys.argv[3])),indent=2))
+    print(json.dumps(run(sys.argv[1],float(sys.argv[2]),float(sys.argv[3]),
+                         reference_fraction=float(sys.argv[4]) if len(sys.argv)>4 else .01,
+                         limit_state=sys.argv[5] if len(sys.argv)>5 else 'ULS'),indent=2))

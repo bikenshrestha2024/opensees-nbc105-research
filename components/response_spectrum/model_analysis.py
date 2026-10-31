@@ -37,7 +37,8 @@ def run_model_spectrum(folder,config,output_dir):
     if not 0<float(config.get('damping',.05))<=.05:raise ValueError('Damping must be positive and no greater than 5 percent.')
     import hashlib
     from OpenSees_Model_Audit_V130 import implementation_digest,modal_numeric_digest
-    source_signature=implementation_digest(Path(__file__).parent);numeric_signature=modal_numeric_digest(Path(__file__).parent)
+    source_root=Path(__file__).resolve().parents[2]
+    source_signature=implementation_digest(source_root);numeric_signature=modal_numeric_digest(source_root)
     model_signature=hashlib.sha256((folder/'OpenSees_Complete_Model_Data_V118.json').read_bytes()).hexdigest()
     print('[STIFFNESS REVIEW] Production elastic wall shells retain source gross in-plane stiffness. Review NBC Table 3-1 effective wall EI and match ETABS before design use.',flush=True)
     results={}
