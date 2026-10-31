@@ -37,6 +37,11 @@ def run(config):
     from OpenSees_Nonlinear_Time_History_NBC105_V116 import _advance_nonlinear_interval,_configure_nonlinear_transient
     from OpenSees_Step13_Analysis_Basis_V115 import rayleigh_coefficients
     from OpenSees_Response_Checks_V132 import export_history_checks
+    excitation=str(config.get('diagnostic_excitation','XY')).upper()
+    if excitation not in ('XY','X','Y','ZERO'):
+        raise ValueError('diagnostic_excitation must be XY, X, Y or ZERO')
+    if config.get('diagnostic_zero_damping') and config.get('diagnostic_mass_damping'):
+        raise ValueError('Select only one diagnostic damping override')
     full_wall=bool(config.get('nonlinear_walls',False))
     profile=profile_for_config(config)
     import os
@@ -82,10 +87,17 @@ def run(config):
         if dt>bound:raise ValueError(f'Chosen dt {dt} exceeds inspected-mode screen {bound:g}s; reduce dt')
         alpha,beta=rayleigh_coefficients(max(periods),min(periods),.05)
         if config.get('diagnostic_mass_damping'):alpha,beta=2*.05*min(math.sqrt(v) for v in eigenvalues),0.
+        if config.get('diagnostic_zero_damping'):alpha,beta=0.,0.
+        print('[TRANSIENT PROBE]', 'excitation='+excitation, 'zero_damping='+str(bool(config.get('diagnostic_zero_damping'))), 'system='+transient_system, flush=True)
         (case/'Initial_Modal_Damping.json').write_text(json.dumps(dict(eigenvalues=eigenvalues,periods_s=periods,alphaM=alpha,betaKcomm=beta,dt_screen_s=bound),indent=2))
         ops.rayleigh(alpha,0.,0.,beta)
         for direction,r in enumerate(records if orientation=='XY' else records[::-1],1):
-            values,step,units=r;tag=900000+direction;ops.timeSeries('Path',tag,'-dt',step,'-values',*values.tolist(),'-factor',unit_factor[units]*scale);ops.pattern('UniformExcitation',tag,direction,'-accel',tag)
+            values,step,units=r
+            if excitation=='ZERO' or (excitation=='X' and direction!=1) or (excitation=='Y' and direction!=2):
+                values=np.zeros_like(values)
+            tag=900000+direction
+            ops.timeSeries('Path',tag,'-dt',step,'-values',*values.tolist(),'-factor',unit_factor[units]*scale)
+            ops.pattern('UniformExcitation',tag,direction,'-accel',tag)
         _configure_nonlinear_transient(ops)
         configure_transient_system(ops,transient_system)
         diag={};rows=[];last=time.perf_counter();case_start=last
