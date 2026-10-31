@@ -2280,6 +2280,7 @@ class App:
         ttk.Button(sections_col,text='Saved component graphs - all 8 materials / devices',command=lambda:__import__('components.validation.research_results_gui',fromlist=['launch']).launch(self.root)).pack(fill='x',pady=3)
         ttk.Button(sections_col,text='Individual material / device setup and tuning',command=lambda:__import__('components.validation.parameter_gui',fromlist=['launch']).launch(self.root,self.out.get())).pack(fill='x',pady=3)
         ttk.Button(sections_col,text='Experimental Steel02 calibration - run / graphs / Excel',command=lambda:__import__('components.validation.steel_calibration_gui',fromlist=['launch']).launch(self.root,self.out.get())).pack(fill='x',pady=3)
+        ttk.Button(sections_col,text='Material grade / bar sensitivity case planner',command=lambda:__import__('components.validation.material_sensitivity',fromlist=['launch']).launch(self.root,self.out.get())).pack(fill='x',pady=3)
         ttk.Button(sections_col,text='Visual validation - Concrete01 / Steel02 / FVD / BRB / walls',command=lambda:__import__('components.validation.visual_workbench',fromlist=['launch']).launch(self.root)).pack(fill='x',pady=3)
         ttk.Button(sections_col,text='Wall validation - Kolozvari 2023 / Lu 2015',command=lambda:__import__('OpenSees_Wall_Validation_V147').launch(self.root)).pack(fill='x',pady=3)
         ttk.Button(sections_col,text="OpenSees material + section library — RC, walls, slab, SHS, FVD, BRB",command=self._open_material_values).pack(fill="x",pady=3)
@@ -2988,7 +2989,6 @@ def main():
     if __import__('os').environ.get('OPENSEES_STARTUP_SMOKE')=='1':root.after(1500,root.destroy)
     root.mainloop()
 if __name__=="__main__": main()
-
 
 
 

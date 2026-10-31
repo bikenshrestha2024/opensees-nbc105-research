@@ -39,6 +39,7 @@ from OpenSees_Step13_Analysis_Basis_V115 import rayleigh_coefficients, NBC105_MA
 # X-only screening remains available separately. Preserve records at scale 1.0.
 # ---------------------------------------------------------------------------
 RUN_NONLINEAR_TIME_HISTORY = False
+LINEAR_SYSTEMS = ("UmfPack", "SparseGeneral", "BandGeneral")
 from OpenSees_Input_Records_V130 import (
     LTH_DEFAULT_MODE,LTH_X_ONLY_MODE,LTH_MATCHING_METADATA,
     LTH_DEFAULT_X_RECORDS,LTH_DEFAULT_Y_RECORDS,LTH_DEFAULT_PEER_PAIRS,
@@ -96,11 +97,14 @@ def _require_nonlinear_readiness(config):
     return {"path": str(path), "model_script": str(model), "check_count": len(keys)}
 
 
-def _configure_nonlinear_transient(ops, algorithm="Newton", tolerance=1.0e-7, max_iterations=40):
+def _configure_nonlinear_transient(ops, algorithm="Newton", tolerance=1.0e-7, max_iterations=40,
+                                   linear_solver="UmfPack"):
+    if linear_solver not in LINEAR_SYSTEMS:
+        raise ValueError("linear_solver must be one of: " + ", ".join(LINEAR_SYSTEMS))
     ops.wipeAnalysis()
     ops.constraints("Transformation")
     ops.numberer("RCM")
-    ops.system("UmfPack")
+    ops.system(linear_solver)
     ops.test("NormDispIncr", float(tolerance), int(max_iterations), 0)
     ops.algorithm(str(algorithm))
     ops.integrator("Newmark", 0.5, 0.25)
@@ -169,6 +173,8 @@ def _advance_nonlinear_interval(ops, dt, depth=0, max_depth=5, on_accept=None, d
 def _run_analysis(config):
     if not config.get("execute_nonlinear_time_history", False):
         raise RuntimeError("Execution is OFF by default. Enable nonlinear time history only after completing the model-readiness manifest.")
+    if config.get("linear_solver", "UmfPack") not in LINEAR_SYSTEMS:
+        raise ValueError("linear_solver must be one of: " + ", ".join(LINEAR_SYSTEMS))
     readiness = _require_nonlinear_readiness(config)
     start = time.perf_counter()
     out = Path(config["output_dir"]); out.mkdir(parents=True, exist_ok=True)
@@ -284,7 +290,8 @@ def _run_analysis(config):
                 nsteps = int(math.ceil(duration / dt))
                 # SECTION 18.4 — Nonlinear Newmark. NBC §9.3.2.4 keeps Tn as
                 # an independent step bound; it is not Tn/100.
-                _configure_nonlinear_transient(ops)
+                linear_solver = config.get("linear_solver", "UmfPack")
+                _configure_nonlinear_transient(ops, linear_solver=linear_solver)
                 # Record every accepted adaptive substep, including intermediate peaks.
                 gravity_offsets={s["node"]:list(ops.nodeDisp(s["node"])) for s in stories}
                 csv_path=out / f"NBC105_NLTHA_{case}_history.csv"
@@ -346,6 +353,7 @@ def _run_analysis(config):
                     "drift_screen_X": "PASS" if max(abs(r[f"{s['story_name']}_drift_X"]) for r in lines for s in stories) <= drift_limit else "REVIEW",
                     "drift_screen_Y": "PASS" if max(abs(r[f"{s['story_name']}_drift_Y"]) for r in lines for s in stories) <= drift_limit else "REVIEW",
                     "damping_model":damping_model,"damping_check_scope":"Initial eigenmodes; committed-stiffness Rayleigh ratios can change during yielding",
+                    "linear_solver": linear_solver,
                     "rayleigh_alphaM_s-1": alpha_m, "rayleigh_betaKcommitted_s": beta_kc,
                     "rayleigh_calibration_periods_s": periods, "checked_modal_damping": modal_damping,
                     "history_csv": str(csv_path), "model_readiness_manifest": readiness["path"]}
@@ -413,6 +421,7 @@ def _run_analysis(config):
         "model_length_unit": model_length_unit, "model_acceleration_unit": model_acceleration_unit,
         "clauses": ["3.2.3", "8.1.1", "8.1.2", "8.1.3", "9.3.2", "9.3.3"],
         "model_script": config["model_script"], "model_readiness_manifest": readiness, "limit_state_context": config["limit_state"], "torsion_sensitive": config["torsion_sensitive"],
+        "linear_solver": config.get("linear_solver", "UmfPack"),
         "record_pairs": len(motions) if config.get("motion_mode") != "X_ONLY_SCREENING" else 0,
         "individual_record_count": len(motions), "motion_case_count": len(records),
         "pair_aggregation_guidance": "For each orthogonal pair, the two required swapped-orientation analyses are enveloped by taking the larger peak demand for each response quantity. NBC §8.1.3 then selects maximum for fewer than 7 pairs or arithmetic mean for more than 7 pairs. The supplied combined suite has 8 pairs; near-field (6) and far-field (2) subgroup statistics are reported separately for comparison. Exactly 7 is left flagged because the clause wording does not specify it.",
@@ -509,6 +518,7 @@ class NonlinearTimeHistoryGUI:
         self.model_length_unit = tk.StringVar(value="m")
         self.manifest = tk.StringVar(); self.stories = tk.StringVar(); self.output = tk.StringVar(); self.readiness = tk.StringVar()
         self.damping_model=tk.StringVar(value="Rayleigh committed")
+        self.linear_solver=tk.StringVar(value="UmfPack")
         self.damping = tk.StringVar(value="5.0"); self.p1 = tk.StringVar(); self.p2 = tk.StringVar()
         self.t1x = tk.StringVar(); self.t1y = tk.StringVar(); self.tnx = tk.StringVar(); self.tny = tk.StringVar()
         self.nmodes = tk.StringVar(value="20"); self.ls = tk.StringVar(value="ULS")
@@ -578,6 +588,10 @@ class NonlinearTimeHistoryGUI:
         ttk.Label(damping_row,text='Nonlinear viscous damping model').pack(side='left')
         ttk.Combobox(damping_row,textvariable=self.damping_model,values=['Rayleigh committed','Modal (initial eigenbasis)'],state='readonly',width=30).pack(side='left')
         ttk.Label(params,text='Damping is a project assumption: 5% is a limit, not a measured value. Modal damping uses converged Newton iterations; explicit FVD damping remains separate. See Chopra & McKenna (2016), doi:10.1002/eqe.2622.',wraplength=1060).pack(anchor='w')
+        solver_row=ttk.Frame(params);solver_row.pack(fill="x",pady=3)
+        ttk.Label(solver_row,text="Sparse linear equation solver").pack(side="left")
+        ttk.Combobox(solver_row,textvariable=self.linear_solver,values=LINEAR_SYSTEMS,state="readonly",width=20).pack(side="left",padx=6)
+        ttk.Label(solver_row,text="UmfPack is the default. Compare SparseGeneral or BandGeneral on this model; runtime depends on size and sparsity. Mumps is unavailable in the tested OpenSeesPy 3.8.0 environment.",wraplength=760).pack(side="left",padx=6)
         grid = ttk.Frame(params); grid.pack(fill="x")
         fields = [("ULS/SLS context", self.ls), ("Damping target (%) — max 5", self.damping), ("Rayleigh period 1 (s)", self.p1), ("Rayleigh period 2 (s)", self.p2),
                   ("T1 X (s)", self.t1x), ("T1 Y (s)", self.t1y), ("Tn X (s), ≥90% mass", self.tnx), ("Tn Y (s), ≥90% mass", self.tny), ("Modes to check for ζ≤5%", self.nmodes)]
@@ -639,6 +653,7 @@ class NonlinearTimeHistoryGUI:
             values = {"modal_input_reference_status": getattr(self,"modal_reference_status",{}), "model_script": self.model.get().strip(), "python": self.python.get().strip(), "model_length_unit": self.model_length_unit.get(), "motion_manifest": self.manifest.get().strip(),
                 "story_nodes_csv": self.stories.get().strip(), "model_readiness_json": self.readiness.get().strip(), "output_dir": self.output.get().strip(), "limit_state": self.ls.get(),
                 "damping_ratio_percent": float(self.damping.get()), "damping_period_1_s": float(self.p1.get()), "damping_period_2_s": float(self.p2.get()),
+                "linear_solver": self.linear_solver.get(),
                 "T1_x_s": float(self.t1x.get()), "T1_y_s": float(self.t1y.get()) if self.t1y.get().strip() else None,
                 "Tn_x_s": float(self.tnx.get()), "Tn_y_s": float(self.tny.get()) if self.tny.get().strip() else None,
                 "modes_to_check": int(self.nmodes.get()), "torsion_sensitive": bool(self.torsion.get()),
@@ -724,5 +739,3 @@ def main():
 
 
 if __name__ == "__main__": main()
-
-

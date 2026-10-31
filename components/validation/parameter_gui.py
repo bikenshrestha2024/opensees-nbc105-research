@@ -13,6 +13,7 @@ def launch(parent,folder=None,initial_card=None):
   if path:out.set(path)
  ttk.Button(bar,text='Browse',command=choose_out).pack(side='left')
  ttk.Label(win,text='Each tab has its own card and results. Starting values are illustrative, not grade-specific experimental calibrations. Stress uses MPa for coupons; component force uses kN and length m. Fit requires ordered measured x,y CSV and specimen/citation. Wall and FVD use manual tuning; no automatic project assignment.',wraplength=1150).pack(fill='x')
+ ttk.Button(win,text='Plan M30–M45 / Fe415–Fe550 / bar-size sensitivity cases',command=lambda:__import__('components.validation.material_sensitivity',fromlist=['launch']).launch(win,out.get())).pack(anchor='w',padx=6,pady=4)
  book=ttk.Notebook(win);book.pack(fill='both',expand=True);panels={}
  for model in SCHEMAS:
   frame=ttk.Frame(book);book.add(frame,text=model)
