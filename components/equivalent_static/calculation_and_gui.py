@@ -71,20 +71,20 @@ def write_outputs(template_path, rows, result, direction, polarity, accidental, 
     report["accidental_torsion_included"]=bool(accidental and int(breadth[1])!=0)
     report["accidental_eccentricity_sign"]=int(breadth[1]) if accidental else 0
     report["accidental_eccentricity_m"]=0.05*float(breadth[0])*abs(int(breadth[1])) if accidental else 0.0
-    report["note"]="Story gravity totals are user-verified ETABS inputs. This calculation is not an independent code-compliance certification."
+    report["note"]="Story gravity totals are user-verified ETABS inputs. Site subsoil status is reported separately; this calculation is not an independent code-compliance certification."
     out_json=out/f"NBC105_ESM_Calculation_{suffix}_V111.json"
     safe_write(out_json,json.dumps(report,indent=2,ensure_ascii=False))
     out_csv=out/f"NBC105_ESM_Storey_Forces_{suffix}_V111.csv"
     out_png=out/f"NBC105_ESM_Force_Profile_{suffix}_V111.png"
     out_xlsx=out/f"NBC105_ESM_Calculation_{suffix}_V111.xlsx"
-    fields=["limit_state","location","z_source","soil_type","Z","story_number","story_name","master_node_tag","height_m","dead_load_kN","storage_live_load_kN","storage_factor","other_live_load_kN","other_live_factor","roof_live_load_kN_ignored","seismic_weight_kN","k","floor_force_kN","storey_shear_kN","lateral_force_kN","torsional_moment_kNm"]
+    fields=["limit_state","location","z_source","soil_type","Vs30_m_s","soil_type_from_Vs30","N_SPT_blow_30cm","soil_type_from_N_SPT","site_subsoil_status","Z","story_number","story_name","master_node_tag","height_m","dead_load_kN","storage_live_load_kN","storage_factor","other_live_load_kN","other_live_factor","roof_live_load_kN_ignored","seismic_weight_kN","k","floor_force_kN","storey_shear_kN","lateral_force_kN","torsional_moment_kNm"]
     with open(out_csv,"w",newline="",encoding="utf-8-sig") as f:
         w=csv.DictWriter(f,fieldnames=fields); w.writeheader()
         for story_index,r in enumerate(result["stories"]):
             fx=r["lateral_force_kN"]*polarity
             e=0.05*float(breadth[0])*int(breadth[1]) if accidental else 0.0
             mz=(-fx*e if direction=="X" else fx*e) if accidental else 0.0
-            w.writerow({"limit_state":result["limit_state"],"location":result.get("location_name",""),"z_source":result.get("zoning_factor_source",""),"soil_type":result["soil_type"],"Z":result["zoning_factor_Z"],"story_number":r["story_number"],"story_name":r["story_name"],"master_node_tag":r["master_node_tag"],"height_m":r["height_m"],"dead_load_kN":r["dead_load_kN"],"storage_live_load_kN":r["storage_live_load_kN"],"storage_factor":0.60,"other_live_load_kN":r["other_live_load_kN"],"other_live_factor":0.30,"roof_live_load_kN_ignored":r["roof_live_load_kN_ignored"],"seismic_weight_kN":r["seismic_weight_kN"],"k":r["distribution_exponent_k"],"floor_force_kN":r["lateral_force_kN"],"storey_shear_kN":sum(x["lateral_force_kN"] for x in result["stories"][story_index:]),"lateral_force_kN":fx,"torsional_moment_kNm":mz})
+            w.writerow({"limit_state":result["limit_state"],"location":result.get("location_name",""),"z_source":result.get("zoning_factor_source",""),"soil_type":result["soil_type"],"Vs30_m_s":result.get("vs30_m_s"),"soil_type_from_Vs30":result.get("soil_type_from_vs30"),"N_SPT_blow_30cm":result.get("n_spt_blow_30cm"),"soil_type_from_N_SPT":result.get("soil_type_from_n_spt"),"site_subsoil_status":result["site_subsoil_status"],"Z":result["zoning_factor_Z"],"story_number":r["story_number"],"story_name":r["story_name"],"master_node_tag":r["master_node_tag"],"height_m":r["height_m"],"dead_load_kN":r["dead_load_kN"],"storage_live_load_kN":r["storage_live_load_kN"],"storage_factor":0.60,"other_live_load_kN":r["other_live_load_kN"],"other_live_factor":0.30,"roof_live_load_kN_ignored":r["roof_live_load_kN_ignored"],"seismic_weight_kN":r["seismic_weight_kN"],"k":r["distribution_exponent_k"],"floor_force_kN":r["lateral_force_kN"],"storey_shear_kN":sum(x["lateral_force_kN"] for x in result["stories"][story_index:]),"lateral_force_kN":fx,"torsional_moment_kNm":mz})
     # Immediate visualization and workbook for the NBC calculation, before
     # launching the OpenSees structural response runner.
     try:
@@ -104,7 +104,7 @@ def write_outputs(template_path, rows, result, direction, polarity, accidental, 
     try:
         from openpyxl import Workbook
         wb=Workbook(); ws=wb.active; ws.title="NBC ESM Summary"
-        for row in (("Item","Value"),("Standard",result["standard"]),("Limit state",result["limit_state"]),("Location",result.get("location_name","")),("Z source",result.get("zoning_factor_source","")),("Z",result["zoning_factor_Z"]),("Soil type",result["soil_type"]),("T1 (s)",result["period_s"]),("Ch(T1)",result["spectral_shape_Ch"]),("Cd(T1)",result["design_coefficient_Cd"]),("Seismic weight W (kN)",result["total_seismic_weight_kN"]),("Base shear V (kN)",result["base_shear_kN"]),("Exponent k",result["period_exponent_k"]),("ESM eligibility",result["esm_eligibility"])): ws.append(row)
+        for row in (("Item","Value"),("Standard",result["standard"]),("Limit state",result["limit_state"]),("Location",result.get("location_name","")),("Z source",result.get("zoning_factor_source","")),("Z",result["zoning_factor_Z"]),("Soil type",result["soil_type"]),("Vs,30 (m/s)",result.get("vs30_m_s")),("Soil type from Vs,30",result.get("soil_type_from_vs30")),("N-SPT (blows/30 cm)",result.get("n_spt_blow_30cm")),("Soil type from N-SPT",result.get("soil_type_from_n_spt")),("Site subsoil status",result["site_subsoil_status"]),("T1 (s)",result["period_s"]),("Ch(T1)",result["spectral_shape_Ch"]),("Cd(T1)",result["design_coefficient_Cd"]),("Seismic weight W (kN)",result["total_seismic_weight_kN"]),("Base shear V (kN)",result["base_shear_kN"]),("Exponent k",result["period_exponent_k"]),("ESM eligibility",result["esm_eligibility"])): ws.append(row)
         wf=wb.create_sheet("Storey Forces")
         with open(out_csv,newline="",encoding="utf-8-sig") as f:
             for row in csv.reader(f): wf.append(row)
@@ -275,7 +275,7 @@ class ESMGui:
         self.state=tk.StringVar(value="Both"); self.soil=tk.StringVar(value="D")
         self.T=tk.StringVar(value=""); self.Z=tk.StringVar(value="")
         self.location=tk.StringVar(value=""); self.z_source=tk.StringVar(value="Annex C municipality table")
-        self.I=tk.StringVar(value=""); self.system=tk.StringVar(value="Select / determine from Table 5-2")
+        self.I=tk.StringVar(value=""); self.vs30=tk.StringVar(value=""); self.n_spt=tk.StringVar(value=""); self.system=tk.StringVar(value="Select / determine from Table 5-2")
         self.rmu=tk.StringVar(value=""); self.omegau=tk.StringVar(value=""); self.omegas=tk.StringVar(value="")
         self.irregular=tk.StringVar(value="Unknown — confirm")
         self.use_workbook_periods=tk.BooleanVar(value=True); self.period_sources={}; self.awx=tk.StringVar(); self.awy=tk.StringVar(); self.period_factor=tk.StringVar(value="1.25")
@@ -361,7 +361,9 @@ class ESMGui:
         self._field(calc,"Ωs (SLS)",self.omegas,5,0)
         ttk.Label(calc,text="ULS regularity (§5.4)").grid(row=5,column=2,sticky="w",padx=5,pady=4)
         ttk.Combobox(calc,textvariable=self.irregular,values=["Unknown — confirm","Regular","Irregular"],state="readonly",width=30).grid(row=5,column=3,sticky="ew",padx=5)
-        ttk.Label(calc,text="Choose a Nepal municipality and use its Annex C PGA (Z); otherwise select Figure 4-3 interpolation. Enter the verified Z explicitly. Site soil A–D comes from geotechnical classification (Table 4-1 / §4.1.3), not the municipality. For H>40 m, §4.1.3.1 requires Vs,30.",foreground="#8a341c",wraplength=1000).grid(row=6,column=0,columnspan=4,sticky="w",padx=5,pady=5)
+        self._field(calc,"Measured Vs,30 (m/s; required if H>40 m)",self.vs30,6,0)
+        self._field(calc,"N-SPT (blows/30 cm; alternative if H<=40 m)",self.n_spt,7,0)
+        ttk.Label(calc,text="Choose a Nepal municipality and use its Annex C PGA (Z); otherwise select Figure 4-3 interpolation. Enter the verified Z explicitly. Site soil A–D comes from geotechnical classification (Table 4-2 / §4.1.3), not the municipality. Vs,30 is required for H>40 m; otherwise N-SPT may be used when Vs,30 is unavailable. A missing value or mismatch is flagged in the outputs; results remain exploratory until resolved.",foreground="#8a341c",wraplength=1000).grid(row=8,column=0,columnspan=4,sticky="w",padx=5,pady=5)
         tors=ttk.LabelFrame(top,text="4. Direction and accidental eccentricity",padding=8); tors.pack(fill="x",pady=5)
         ttk.Label(tors,text="Earthquake direction").grid(row=0,column=0,sticky="w",padx=5,pady=4); ttk.Combobox(tors,textvariable=self.direction,values=["Both X/Y","X","Y"],state="readonly",width=8).grid(row=0,column=1,sticky="w",padx=4)
         ttk.Label(tors,text="Polarity").grid(row=0,column=2,sticky="w",padx=5); ttk.Combobox(tors,textvariable=self.polarity,values=["Both ±","+1 (+ direction)","-1 (- direction)"],state="readonly",width=18).grid(row=0,column=3,sticky="w",padx=4)
@@ -631,8 +633,8 @@ class ESMGui:
             height=max(float(r['height_m']) for r in rows)
             for axis,awvar,rayvar in [('X',self.awx,self.rayleigh_tx),('Y',self.awy,self.rayleigh_ty)]:
                 adopted=self._adopted_axis_period(axis,height)
-                reference=calculate_esm(rows,period_s=adopted,soil_type=self.soil.get(),zoning_factor_z=float(self.Z.get()),importance_factor_i=float(self.I.get()),limit_state='ULS',r_mu=float(self.rmu.get()),omega_u=float(self.omegau.get()),diagnostic_reference=True)
-                references[axis]=dict(period_s=adopted,stories=reference['stories'],basis='NBC ULS coefficient and floor distribution used only as a diagnostic EL reference; high-rise design requires the applicable dynamic method.',code_eligible=reference['code_eligible'])
+                reference=calculate_esm(rows,period_s=adopted,soil_type=self.soil.get(),zoning_factor_z=float(self.Z.get()),importance_factor_i=float(self.I.get()),limit_state='ULS',r_mu=float(self.rmu.get()),omega_u=float(self.omegau.get()),vs30_m_s=self.vs30.get(),n_spt_blow_30cm=self.n_spt.get(),diagnostic_reference=True)
+                references[axis]=dict(period_s=adopted,stories=reference['stories'],basis='NBC ULS coefficient and floor distribution used only as a diagnostic EL reference; high-rise design requires the applicable dynamic method.',code_eligible=reference['code_eligible'],site_subsoil_status=reference['site_subsoil_status'])
             safe_write(Path(self.model_script.get()).parent/'OpenSees_Initial_PDelta_Input_V124.json',json.dumps(references,indent=2))
             H=max(float(r["height_m"]) for r in rows)
             selected=self.state.get(); states=["ULS","SLS"] if selected=="Both" else [selected]
@@ -648,8 +650,9 @@ class ESMGui:
             made=[]; summaries=[]; failures=[]; self.last_runners=[]
             for state in states:
                 try:
-                    result=calculate_esm(rows,period_s=self._adopted_axis_period(self.direction.get(),H),soil_type=self.soil.get(),zoning_factor_z=float(self.Z.get()),importance_factor_i=float(self.I.get()),limit_state=state,r_mu=float(self.rmu.get() or 1.0),omega_u=float(self.omegau.get() or 1.0),omega_s=float(self.omegas.get() or 1.0),irregular=irr,location_name=self.location.get(),zoning_source=self.z_source.get(),diagnostic_reference=True)
+                    result=calculate_esm(rows,period_s=self._adopted_axis_period(self.direction.get(),H),soil_type=self.soil.get(),zoning_factor_z=float(self.Z.get()),importance_factor_i=float(self.I.get()),limit_state=state,r_mu=float(self.rmu.get() or 1.0),omega_u=float(self.omegau.get() or 1.0),omega_s=float(self.omegas.get() or 1.0),irregular=irr,location_name=self.location.get(),zoning_source=self.z_source.get(),vs30_m_s=self.vs30.get(),n_spt_blow_30cm=self.n_spt.get(),diagnostic_reference=True)
                     if not result["code_eligible"]:summaries.append("ULS COMPARISON ONLY: "+result["esm_eligibility"])
+                    if not result["site_subsoil_verified"]:summaries.append("SITE CLASSIFICATION NOT VERIFIED: "+result["site_subsoil_status"])
                     result["period_source"]=self.period_sources.get(self.direction.get(),"Directional Rayleigh/empirical calculation")
                     result["input_provenance"]=getattr(self,"project_input_audit",{})
                     result["period_selection"]={"direction":self.direction.get(),"empirical_Aw_X_m2":self.awx.get() or None,"empirical_Aw_Y_m2":self.awy.get() or None,"empirical_multiplier":self.period_factor.get(),"Rayleigh_T1_X_s":self.rayleigh_tx.get() or None,"Rayleigh_T1_Y_s":self.rayleigh_ty.get() or None,"ETABS_or_Excel_reference_T1_X_s":self.etabs_tx.get() or None,"ETABS_or_Excel_reference_T1_Y_s":self.etabs_ty.get() or None,"ETABS_modal_metadata":self.etabs_modal_metadata,"selected_period_s":self.T.get(),"selection_rule":"NBC §5.1: adopt the lesser of 1.25 times the empirical period and the directional Rayleigh period. ETABS eigenperiod is a comparison only."}
@@ -707,8 +710,6 @@ class ESMGui:
 def main():
     root=tk.Tk(); ESMGui(root); root.mainloop()
 if __name__=="__main__": main()
-
-
 
 
 

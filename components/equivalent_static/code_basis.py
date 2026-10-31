@@ -271,6 +271,32 @@ def esm_period_exponent(period_s):
     return 1.0 + (T - 0.5) / 2.0
 
 
+def soil_type_from_vs30(vs30_m_s):
+    """Classify a site by NBC 105:2025 Table 4-2 Vs,30 thresholds."""
+    value = float(vs30_m_s)
+    if not math.isfinite(value) or value <= 0:
+        raise ValueError("Vs,30 must be a finite positive value in m/s.")
+    if value > 800.0:
+        return "A"
+    if value > 350.0:
+        return "B"
+    if value > 150.0:
+        return "C"
+    return "D"
+
+
+def soil_type_from_n_spt(n_spt_blow_30cm):
+    """Classify a non-rock site by NBC 105:2025 Table 4-2 N-SPT ranges."""
+    value = float(n_spt_blow_30cm)
+    if not math.isfinite(value) or value < 0:
+        raise ValueError("N-SPT must be a finite nonnegative blow count per 30 cm.")
+    if value > 50.0:
+        return "B"
+    if value >= 10.0:
+        return "C"
+    return "D"
+
+
 def esm_eligibility(height_m, period_s, limit_state, irregular=None):
     """Return (permitted, explanation) under NBC 105:2025 §3.2.1.
 
@@ -305,7 +331,8 @@ def esm_eligibility(height_m, period_s, limit_state, irregular=None):
 def calculate_esm(stories, *, period_s, soil_type, zoning_factor_z,
                   importance_factor_i, limit_state="ULS", r_mu=4.0,
                   omega_u=1.5, omega_s=1.25, irregular=None,
-                  location_name="", zoning_source="Annex C municipality table", diagnostic_reference=False):
+                  location_name="", zoning_source="Annex C municipality table",
+                  vs30_m_s=None, n_spt_blow_30cm=None, diagnostic_reference=False):
     """Calculate NBC 105 story seismic weights, base shear and floor forces.
 
     Each story record requires ``height_m``, ``dead_load_kN``,
@@ -340,6 +367,34 @@ def calculate_esm(stories, *, period_s, soil_type, zoning_factor_z,
     if any(b<=a for a,b in zip(heights,heights[1:])):
         raise ValueError("Story heights must be unique and strictly increasing.")
     H=max(heights)
+    if n_spt_blow_30cm is None or str(n_spt_blow_30cm).strip()=="":
+        n_spt_value=None
+        site_class_from_n_spt=None
+    else:
+        n_spt_value=float(n_spt_blow_30cm)
+        site_class_from_n_spt=soil_type_from_n_spt(n_spt_value)
+    if vs30_m_s is None or str(vs30_m_s).strip()=="":
+        vs30_value=None
+        site_class_from_vs30=None
+        if H>40.0:
+            site_subsoil_status="NOT VERIFIED: NBC §4.1.3.1 requires Vs,30 for buildings higher than 40 m."
+        elif site_class_from_n_spt is not None:
+            site_subsoil_status=(
+                "VERIFIED: N-SPT class matches selected soil type."
+                if site_class_from_n_spt==str(soil_type).strip().upper() else
+                f"MISMATCH: N-SPT indicates Soil Type {site_class_from_n_spt}, not selected Soil Type {str(soil_type).strip().upper()}."
+            )
+        else:
+            site_subsoil_status="NOT VERIFIED: record the Table 4-2 geotechnical classification basis."
+    else:
+        vs30_value=float(vs30_m_s)
+        site_class_from_vs30=soil_type_from_vs30(vs30_value)
+        site_subsoil_status=(
+            "VERIFIED: measured Vs,30 class matches selected soil type."
+            if site_class_from_vs30==str(soil_type).strip().upper() else
+            f"MISMATCH: Vs,30 indicates Soil Type {site_class_from_vs30}, not selected Soil Type {str(soil_type).strip().upper()}."
+        )
+    site_subsoil_verified=site_subsoil_status.startswith("VERIFIED:")
     permitted,eligibility_note=esm_eligibility(H,T,state,irregular)
     if not permitted and not diagnostic_reference:
         raise ValueError(eligibility_note)
@@ -364,6 +419,10 @@ def calculate_esm(stories, *, period_s, soil_type, zoning_factor_z,
     return {
         "standard":"NBC 105:2025", "clauses":"§§3.2.1, 4.1.1-4.1.5, 4.2, 5.1-5.2, 6.1-6.4",
         "limit_state":state,"soil_type":str(soil_type).upper(),"period_s":T,
+        "vs30_m_s":vs30_value,"soil_type_from_vs30":site_class_from_vs30,
+        "n_spt_blow_30cm":n_spt_value,"soil_type_from_n_spt":site_class_from_n_spt,
+        "site_subsoil_status":site_subsoil_status,
+        "site_subsoil_verified":site_subsoil_verified,
         "location_name":str(location_name).strip(),
         "zoning_factor_source":str(zoning_source).strip(),
         "zoning_factor_Z":Z,"importance_factor_I":I,"spectral_shape_Ch":Ch,
@@ -381,8 +440,4 @@ def calculate_esm(stories, *, period_s, soil_type, zoning_factor_z,
         "live_load_factors":dict(NBC105_ESM_TABLE5_1_FACTORS),"stories":normalized,
         "source_pdf":NBC105_DOCUMENTATION_URL,
     }
-
-
-
-
 

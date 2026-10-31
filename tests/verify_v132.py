@@ -4,7 +4,7 @@ import numpy as np
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT))
 from OpenSees_Model_Response_Spectrum_V132 import cqc_matrix,combine,design_cd
 from OpenSees_Response_Checks_V132 import drift_check,irregularity
-from NBC105_Analysis_Settings_V109 import calculate_esm
+from NBC105_Analysis_Settings_V109 import calculate_esm,soil_type_from_vs30,soil_type_from_n_spt
 
 class V132Checks(unittest.TestCase):
     def test_cqc_single_mode(self):
@@ -20,6 +20,29 @@ class V132Checks(unittest.TestCase):
         rows=[dict(story_number=1,height_m=95.,dead_load_kN=100.,other_live_load_kN=10.)]
         r=calculate_esm(rows,period_s=2.,soil_type='C',zoning_factor_z=.35,importance_factor_i=1.,limit_state='ULS',irregular=True,diagnostic_reference=True)
         self.assertFalse(r['code_eligible']);self.assertTrue(r['diagnostic_reference_only']);self.assertGreater(r['base_shear_kN'],0.)
+        self.assertEqual(r['site_subsoil_status'],'NOT VERIFIED: NBC §4.1.3.1 requires Vs,30 for buildings higher than 40 m.')
+    def test_vs30_site_class_thresholds_and_mismatch(self):
+        self.assertEqual([soil_type_from_vs30(v) for v in (800.1,800.,350.1,350.,150.1,150.)],['A','B','B','C','C','D'])
+        rows=[dict(story_number=1,height_m=95.,dead_load_kN=100.,other_live_load_kN=10.)]
+        result=calculate_esm(rows,period_s=2.,soil_type='C',zoning_factor_z=.35,importance_factor_i=1.,vs30_m_s=250.,diagnostic_reference=True)
+        self.assertTrue(result['site_subsoil_verified'])
+        mismatch=calculate_esm(rows,period_s=2.,soil_type='C',zoning_factor_z=.35,importance_factor_i=1.,vs30_m_s=100.,diagnostic_reference=True)
+        self.assertFalse(mismatch['site_subsoil_verified'])
+        self.assertIn('indicates Soil Type D',mismatch['site_subsoil_status'])
+    def test_n_spt_is_alternative_only_at_or_below_40_m(self):
+        self.assertEqual([soil_type_from_n_spt(v) for v in (51.,50.,10.,9.9,0.)],['B','C','C','D','D'])
+        short=[dict(story_number=1,height_m=40.,dead_load_kN=100.,other_live_load_kN=10.)]
+        result=calculate_esm(short,period_s=.4,soil_type='C',zoning_factor_z=.35,importance_factor_i=1.,n_spt_blow_30cm=25.)
+        self.assertTrue(result['site_subsoil_verified'])
+        tall=[dict(story_number=1,height_m=40.01,dead_load_kN=100.,other_live_load_kN=10.)]
+        result=calculate_esm(tall,period_s=.4,soil_type='C',zoning_factor_z=.35,importance_factor_i=1.,n_spt_blow_30cm=25.,diagnostic_reference=True)
+        self.assertFalse(result['site_subsoil_verified'])
+        self.assertIn('requires Vs,30',result['site_subsoil_status'])
+    def test_invalid_vs30_rejected(self):
+        rows=[dict(story_number=1,height_m=95.,dead_load_kN=100.,other_live_load_kN=10.)]
+        for value in (0.,-1.,float('nan'),float('inf')):
+            with self.assertRaises(ValueError):
+                calculate_esm(rows,period_s=2.,soil_type='C',zoning_factor_z=.35,importance_factor_i=1.,vs30_m_s=value)
     def test_drift_limits(self):
         self.assertEqual(drift_check([dict(design_drift_ratio=.007)],'SLS')[0]['status'],'EXCEEDS')
         self.assertEqual(drift_check([dict(design_drift_ratio=.024)],'ULS')[0]['status'],'PASS')
