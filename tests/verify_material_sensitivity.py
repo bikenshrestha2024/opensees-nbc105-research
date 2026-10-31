@@ -12,6 +12,10 @@ from OpenSees_Nonlinear_Time_History_NBC105_V116 import (
     LINEAR_SYSTEMS,
     _configure_nonlinear_transient,
 )
+from components.nonlinear_time_history.building_exploratory import (
+    TRANSIENT_SYSTEMS,
+    configure_transient_system,
+)
 
 
 class MaterialSensitivityTests(unittest.TestCase):
@@ -70,6 +74,22 @@ class MaterialSensitivityTests(unittest.TestCase):
             self.assertIn(("system", (solver,)), ops.calls)
         with self.assertRaisesRegex(ValueError, "linear_solver"):
             _configure_nonlinear_transient(FakeOps(), linear_solver="Mumps")
+
+    def test_exploratory_solver_selection_and_validation(self):
+        class FakeOps:
+            def __init__(self):
+                self.calls = []
+
+            def system(self, *args):
+                self.calls.append(args)
+
+        for solver in TRANSIENT_SYSTEMS:
+            ops = FakeOps()
+            configure_transient_system(ops, solver)
+            expected = ("SparseGeneral", "-piv") if solver == "SparseGeneral" else ("UmfPack",)
+            self.assertEqual(ops.calls, [expected])
+        with self.assertRaisesRegex(ValueError, "transient_system"):
+            configure_transient_system(FakeOps(), "Mumps")
 
 
 if __name__ == "__main__":

@@ -5,6 +5,14 @@ from pathlib import Path
 import json,math,time,csv,shutil,hashlib,datetime
 import numpy as np
 PROFILE='LITERATURE_FRAME_NL_ELASTIC_WALL_V138'
+TRANSIENT_SYSTEMS=('UmfPack','SparseGeneral')
+
+def configure_transient_system(ops,system):
+    """Select a supported transient matrix solver without silent fallbacks."""
+    if system not in TRANSIENT_SYSTEMS:
+        raise ValueError('transient_system must be one of: '+', '.join(TRANSIENT_SYSTEMS))
+    if system=='SparseGeneral':ops.system('SparseGeneral','-piv')
+    else:ops.system('UmfPack')
 
 def run(config):
     if config.get('limit_state')=='Both':
@@ -14,6 +22,9 @@ def run(config):
             results[state]=run(dict(config,limit_state=state,output_dir=str(base/state)))
             (base/'Research_Batch_Summary_V161.json').write_text(json.dumps(results,indent=2),encoding='utf8')
         return results
+    transient_system=config.get('transient_system','UmfPack')
+    if transient_system not in TRANSIENT_SYSTEMS:
+        raise ValueError('transient_system must be one of: '+', '.join(TRANSIENT_SYSTEMS))
     from OpenSees_Complete_Export_V118 import build_complete_model
     from OpenSees_Input_Records_V130 import _read_peer_text_record
     from OpenSees_Nonlinear_Time_History_NBC105_V116 import _advance_nonlinear_interval,_configure_nonlinear_transient
@@ -66,7 +77,7 @@ def run(config):
         for direction,r in enumerate(records if orientation=='XY' else records[::-1],1):
             values,step,units=r;tag=900000+direction;ops.timeSeries('Path',tag,'-dt',step,'-values',*values.tolist(),'-factor',unit_factor[units]*scale);ops.pattern('UniformExcitation',tag,direction,'-accel',tag)
         _configure_nonlinear_transient(ops)
-        if config.get('transient_system')=='SparseGeneral':ops.system('SparseGeneral','-piv')
+        configure_transient_system(ops,transient_system)
         diag={};rows=[];last=time.perf_counter();case_start=last
         stories=[dict(node=g['master_tag'],story_name='Storey_'+str(g['storey_number']),height=g['master_xyz'][2]-(groups[i-1]['master_xyz'][2] if i else data['base_z_m'])) for i,g in enumerate(groups)]
         wall_tags=[100001+len(data['frames'])+i for i,e in enumerate(data['shells']) if e['category']=='SHEAR WALL']
@@ -125,7 +136,7 @@ def run(config):
                 writer=csv.DictWriter(stream,fieldnames=list(action_rows[0]));writer.writeheader();writer.writerows(action_rows)
         deformation={str(n):list(ops.nodeDisp(int(n))) for n in data['nodes']}
         (case/('Deformation_EXPLORATORY_'+orientation+'_V132.json')).write_text(json.dumps(dict(nodes=data['nodes'],elements=[e['nodes'] for e in data['frames']+data['shells']],displacements=deformation,dof_availability=[True]*6,note='EXPLORATORY assumed literature materials; total final response at t='+str(ops.getTime())+' s. Not design acceptance.')),encoding='utf-8')
-        result=dict(orientation=orientation,wall_model='E_SFI_MVLEM_3D' if full_wall else 'ELASTIC',frame_model='LITERATURE_CONCRETE01_NOMINAL_FE500' if full_wall else 'NONLINEAR_ILLUSTRATIVE_RC_FIBERS',status='COMPLETED_TRUNCATED_TRIAL' if end<record_end else 'COMPLETED_EXPLORATORY_RECORD',physical_time_s=end,full_record_duration_s=record_end,elapsed_s=time.perf_counter()-case_start,peak_roof_UX_m=max(abs(r[stories[-1]['story_name']+'_UX_m']) for r in rows),peak_roof_UY_m=max(abs(r[stories[-1]['story_name']+'_UY_m']) for r in rows),periods_inspected_s=periods,initial_damping_ratios=[alpha/(2*math.sqrt(v))+beta*math.sqrt(v)/2 for v in eigenvalues],diagnostics=diag,scope=assumptions['scope'])
+        result=dict(orientation=orientation,wall_model='E_SFI_MVLEM_3D' if full_wall else 'ELASTIC',frame_model='LITERATURE_CONCRETE01_NOMINAL_FE500' if full_wall else 'NONLINEAR_ILLUSTRATIVE_RC_FIBERS',transient_system=transient_system,status='COMPLETED_TRUNCATED_TRIAL' if end<record_end else 'COMPLETED_EXPLORATORY_RECORD',physical_time_s=end,full_record_duration_s=record_end,elapsed_s=time.perf_counter()-case_start,peak_roof_UX_m=max(abs(r[stories[-1]['story_name']+'_UX_m']) for r in rows),peak_roof_UY_m=max(abs(r[stories[-1]['story_name']+'_UY_m']) for r in rows),periods_inspected_s=periods,initial_damping_ratios=[alpha/(2*math.sqrt(v))+beta*math.sqrt(v)/2 for v in eigenvalues],diagnostics=diag,scope=assumptions['scope'])
         from OpenSees_Building_Response_V144 import plot_response
         plot_response(history,case,tracked)
         (case/'Case_Summary.json').write_text(json.dumps(result,indent=2));summary.append(result);print('[EXPLORATORY COMPLETE]',json.dumps(result),flush=True);ops.wipe()

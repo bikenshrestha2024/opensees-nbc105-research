@@ -36,6 +36,9 @@ def launch(parent,model_folder,output_folder=None):
         ttk.Label(bar,text=label).pack(side='left');ttk.Combobox(bar,textvariable=var,values=values,state='readonly',width=width).pack(side='left')
     settings=ttk.Frame(win);settings.pack(fill='x',padx=8)
     for label,var in [('dt (s)',dt),('Trial duration (s); 0=full record',duration),('Motion scale (units handled separately)',scale)]:ttk.Label(settings,text=label).pack(side='left');ttk.Entry(settings,textvariable=var,width=8).pack(side='left')
+    transient_system=tk.StringVar(value='UmfPack')
+    ttk.Label(settings,text='Transient solver').pack(side='left',padx=(10,2))
+    ttk.Combobox(settings,textvariable=transient_system,values=['UmfPack','SparseGeneral'],state='readonly',width=14).pack(side='left')
     tracked=tk.StringVar(value='100001');ttk.Label(settings,text='Tracked frame solver tag').pack(side='left');ttk.Entry(settings,textvariable=tracked,width=9).pack(side='left')
     full=tk.BooleanVar(value=True);basis=tk.StringVar(value='PUBLISHED_REFERENCE')
     materialbar=ttk.Frame(win);materialbar.pack(fill='x',padx=8)
@@ -72,7 +75,7 @@ def launch(parent,model_folder,output_folder=None):
             source=Path(folder.get()).resolve()
             if not (source/'OpenSees_Complete_Model_Data_V118.json').is_file():raise ValueError('Select an assembled export folder')
             dest=Path(out.get())/('EXPLORATORY_FRAME_NL_'+datetime.datetime.now().strftime('%Y%m%d_%H%M%S'));dest.mkdir(parents=True,exist_ok=False)
-            config=dict(model_folder=str(source),output_dir=str(dest),x_path=x.get(),y_path=y.get(),dt_s=float(dt.get()),duration_s=float(duration.get()) or None,scale=float(scale.get()),orientations=['XY','YX'] if orientation.get()=='XY + YX' else [orientation.get()],limit_state=ls.get(),tracked_frame_tag=int(tracked.get()),nonlinear_walls=full.get(),material_basis=basis.get())
+            config=dict(model_folder=str(source),output_dir=str(dest),x_path=x.get(),y_path=y.get(),dt_s=float(dt.get()),duration_s=float(duration.get()) or None,scale=float(scale.get()),orientations=['XY','YX'] if orientation.get()=='XY + YX' else [orientation.get()],limit_state=ls.get(),tracked_frame_tag=int(tracked.get()),nonlinear_walls=full.get(),material_basis=basis.get(),transient_system=transient_system.get())
             configpath=dest/'Requested_Config.json';configpath.write_text(json.dumps(config,indent=2),encoding='utf-8');state.update(running=True,last=dest);button.configure(state='disabled');status.set('Running exploratory model in separate process. Outputs: '+str(dest))
         except Exception as e:messagebox.showerror('Exploratory inputs',str(e),parent=win);return
         def worker():
