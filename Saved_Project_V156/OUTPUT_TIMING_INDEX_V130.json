@@ -1,0 +1,233 @@
+{
+  "Gravity_Source_Load_Detail_V131.csv": {
+    "stage": "Model construction and optional gravity preload",
+    "started_at": "2026-10-25T10:52:32.683+05:45",
+    "finished_at": "2026-10-25T10:54:17.760+05:45",
+    "elapsed_seconds": 105.07613030000357,
+    "status": "completed",
+    "error": null,
+    "time_scope": "Entire named processing stage, not individual file-write latency",
+    "artifact": "Gravity_Source_Load_Detail_V131.csv",
+    "size_bytes": 477281
+  },
+  "Gravity_Storey_Load_Breakdown_V131.csv": {
+    "stage": "Model construction and optional gravity preload",
+    "started_at": "2026-10-25T10:52:32.683+05:45",
+    "finished_at": "2026-10-25T10:54:17.760+05:45",
+    "elapsed_seconds": 105.07613030000357,
+    "status": "completed",
+    "error": null,
+    "time_scope": "Entire named processing stage, not individual file-write latency",
+    "artifact": "Gravity_Storey_Load_Breakdown_V131.csv",
+    "size_bytes": 7549
+  },
+  "Gravity_Storey_Load_Breakdown_V131.json": {
+    "stage": "Model construction and optional gravity preload",
+    "started_at": "2026-10-25T10:52:32.683+05:45",
+    "finished_at": "2026-10-25T10:54:17.760+05:45",
+    "elapsed_seconds": 105.07613030000357,
+    "status": "completed",
+    "error": null,
+    "time_scope": "Entire named processing stage, not individual file-write latency",
+    "artifact": "Gravity_Storey_Load_Breakdown_V131.json",
+    "size_bytes": 1538063
+  },
+  "Gravity_Storey_Load_Breakdown_V131.xlsx": {
+    "stage": "Model construction and optional gravity preload",
+    "started_at": "2026-10-25T10:52:32.683+05:45",
+    "finished_at": "2026-10-25T10:54:17.760+05:45",
+    "elapsed_seconds": 105.07613030000357,
+    "status": "completed",
+    "error": null,
+    "time_scope": "Entire named processing stage, not individual file-write latency",
+    "artifact": "Gravity_Storey_Load_Breakdown_V131.xlsx",
+    "size_bytes": 7396044
+  },
+  "LOAD_PATH_AND_DIAPHRAGM_AUDIT_V130.json": {
+    "stage": "Model assembly and export",
+    "started_at": "2026-10-25T10:48:30.301+05:45",
+    "finished_at": "2026-10-25T10:48:59.796+05:45",
+    "elapsed_seconds": 29.495329700002912,
+    "status": "completed",
+    "error": null,
+    "time_scope": "Entire named processing stage, not individual file-write latency",
+    "artifact": "LOAD_PATH_AND_DIAPHRAGM_AUDIT_V130.json",
+    "size_bytes": 485630
+  },
+  "OpenSees_Device_and_Parameter_Library_V125.json": {
+    "stage": "Model assembly and export",
+    "started_at": "2026-10-25T10:48:30.301+05:45",
+    "finished_at": "2026-10-25T10:48:59.796+05:45",
+    "elapsed_seconds": 29.495329700002912,
+    "status": "completed",
+    "error": null,
+    "time_scope": "Entire named processing stage, not individual file-write latency",
+    "artifact": "OpenSees_Device_and_Parameter_Library_V125.json",
+    "size_bytes": 68376
+  },
+  "OpenSees_Property_Element_Load_Audit_V125.xlsx": {
+    "stage": "Model assembly and export",
+    "started_at": "2026-10-25T10:48:30.301+05:45",
+    "finished_at": "2026-10-25T10:48:59.796+05:45",
+    "elapsed_seconds": 29.495329700002912,
+    "status": "completed",
+    "error": null,
+    "time_scope": "Entire named processing stage, not individual file-write latency",
+    "artifact": "OpenSees_Property_Element_Load_Audit_V125.xlsx",
+    "size_bytes": 935325
+  },
+  "NBC105_ESM_Story_Weights_Assembled_V118.csv": {
+    "stage": "Model assembly and export",
+    "started_at": "2026-10-25T10:48:30.301+05:45",
+    "finished_at": "2026-10-25T10:48:59.796+05:45",
+    "elapsed_seconds": 29.495329700002912,
+    "status": "completed",
+    "error": null,
+    "time_scope": "Entire named processing stage, not individual file-write latency",
+    "artifact": "NBC105_ESM_Story_Weights_Assembled_V118.csv",
+    "size_bytes": 6322
+  },
+  "OpenSees_Complete_Export_Report_V118.json": {
+    "stage": "Model assembly and export",
+    "started_at": "2026-10-25T10:48:30.301+05:45",
+    "finished_at": "2026-10-25T10:48:59.796+05:45",
+    "elapsed_seconds": 29.495329700002912,
+    "status": "completed",
+    "error": null,
+    "time_scope": "Entire named processing stage, not individual file-write latency",
+    "artifact": "OpenSees_Complete_Export_Report_V118.json",
+    "size_bytes": 2108252
+  },
+  "OpenSees_Complete_Gravity_Model.py": {
+    "stage": "Model assembly and export",
+    "started_at": "2026-10-25T10:48:30.301+05:45",
+    "finished_at": "2026-10-25T10:48:59.796+05:45",
+    "elapsed_seconds": 29.495329700002912,
+    "status": "completed",
+    "error": null,
+    "time_scope": "Entire named processing stage, not individual file-write latency",
+    "artifact": "OpenSees_Complete_Gravity_Model.py",
+    "size_bytes": 1240
+  },
+  "OpenSees_Complete_Linear_Model.py": {
+    "stage": "Model assembly and export",
+    "started_at": "2026-10-25T10:48:30.301+05:45",
+    "finished_at": "2026-10-25T10:48:59.796+05:45",
+    "elapsed_seconds": 29.495329700002912,
+    "status": "completed",
+    "error": null,
+    "time_scope": "Entire named processing stage, not individual file-write latency",
+    "artifact": "OpenSees_Complete_Linear_Model.py",
+    "size_bytes": 1239
+  },
+  "OpenSees_Complete_Model_Config_V118.json": {
+    "stage": "Model assembly and export",
+    "started_at": "2026-10-25T10:48:30.301+05:45",
+    "finished_at": "2026-10-25T10:48:59.796+05:45",
+    "elapsed_seconds": 29.495329700002912,
+    "status": "completed",
+    "error": null,
+    "time_scope": "Entire named processing stage, not individual file-write latency",
+    "artifact": "OpenSees_Complete_Model_Config_V118.json",
+    "size_bytes": 1093
+  },
+  "OpenSees_Complete_Model_Data_V118.json": {
+    "stage": "Model assembly and export",
+    "started_at": "2026-10-25T10:48:30.301+05:45",
+    "finished_at": "2026-10-25T10:48:59.796+05:45",
+    "elapsed_seconds": 29.495329700002912,
+    "status": "completed",
+    "error": null,
+    "time_scope": "Entire named processing stage, not individual file-write latency",
+    "artifact": "OpenSees_Complete_Model_Data_V118.json",
+    "size_bytes": 44724450
+  },
+  "OpenSees_Complete_Nonlinear_Model.py": {
+    "stage": "Model assembly and export",
+    "started_at": "2026-10-25T10:48:30.301+05:45",
+    "finished_at": "2026-10-25T10:48:59.796+05:45",
+    "elapsed_seconds": 29.495329700002912,
+    "status": "completed",
+    "error": null,
+    "time_scope": "Entire named processing stage, not individual file-write latency",
+    "artifact": "OpenSees_Complete_Nonlinear_Model.py",
+    "size_bytes": 1241
+  },
+  "OpenSees_Complete_Story_Masters_V118.csv": {
+    "stage": "Model assembly and export",
+    "started_at": "2026-10-25T10:48:30.301+05:45",
+    "finished_at": "2026-10-25T10:48:59.796+05:45",
+    "elapsed_seconds": 29.495329700002912,
+    "status": "completed",
+    "error": null,
+    "time_scope": "Entire named processing stage, not individual file-write latency",
+    "artifact": "OpenSees_Complete_Story_Masters_V118.csv",
+    "size_bytes": 1298
+  },
+  "OpenSees_Export_Manifest_V118.json": {
+    "stage": "Model assembly and export",
+    "started_at": "2026-10-25T10:48:30.301+05:45",
+    "finished_at": "2026-10-25T10:48:59.796+05:45",
+    "elapsed_seconds": 29.495329700002912,
+    "status": "completed",
+    "error": null,
+    "time_scope": "Entire named processing stage, not individual file-write latency",
+    "artifact": "OpenSees_Export_Manifest_V118.json",
+    "size_bytes": 599
+  },
+  "OpenSees_ID_and_Support_Audit.xlsx": {
+    "stage": "Model assembly and export",
+    "started_at": "2026-10-25T10:48:30.301+05:45",
+    "finished_at": "2026-10-25T10:48:59.796+05:45",
+    "elapsed_seconds": 29.495329700002912,
+    "status": "completed",
+    "error": null,
+    "time_scope": "Entire named processing stage, not individual file-write latency",
+    "artifact": "OpenSees_ID_and_Support_Audit.xlsx",
+    "size_bytes": 162602
+  },
+  "OpenSees_ID_Lookup.html": {
+    "stage": "Model assembly and export",
+    "started_at": "2026-10-25T10:48:30.301+05:45",
+    "finished_at": "2026-10-25T10:48:59.796+05:45",
+    "elapsed_seconds": 29.495329700002912,
+    "status": "completed",
+    "error": null,
+    "time_scope": "Entire named processing stage, not individual file-write latency",
+    "artifact": "OpenSees_ID_Lookup.html",
+    "size_bytes": 437960
+  },
+  "RUN_EXPORTED_PROJECT_GUI.py": {
+    "stage": "Model assembly and export",
+    "started_at": "2026-10-25T10:48:30.301+05:45",
+    "finished_at": "2026-10-25T10:48:59.796+05:45",
+    "elapsed_seconds": 29.495329700002912,
+    "status": "completed",
+    "error": null,
+    "time_scope": "Entire named processing stage, not individual file-write latency",
+    "artifact": "RUN_EXPORTED_PROJECT_GUI.py",
+    "size_bytes": 425
+  },
+  "OpenSees_Complete_Element_Map_V118.json": {
+    "stage": "Model construction and optional gravity preload",
+    "started_at": "2026-10-25T10:52:32.683+05:45",
+    "finished_at": "2026-10-25T10:54:17.760+05:45",
+    "elapsed_seconds": 105.07613030000357,
+    "status": "completed",
+    "error": null,
+    "time_scope": "Entire named processing stage, not individual file-write latency",
+    "artifact": "OpenSees_Complete_Element_Map_V118.json",
+    "size_bytes": 213310
+  },
+  "OpenSees_Complete_Gravity_Check_V118.json": {
+    "stage": "Model construction and optional gravity preload",
+    "started_at": "2026-10-25T10:52:32.683+05:45",
+    "finished_at": "2026-10-25T10:54:17.760+05:45",
+    "elapsed_seconds": 105.07613030000357,
+    "status": "completed",
+    "error": null,
+    "time_scope": "Entire named processing stage, not individual file-write latency",
+    "artifact": "OpenSees_Complete_Gravity_Check_V118.json",
+    "size_bytes": 576
+  }
+}

@@ -1,0 +1,7 @@
+﻿check,status,reason
+Vertical earthquake,NOT EVALUATED,NBC 3.6.3 / 4.3 applicability and signed vertical actions must be reviewed
+Wind,NOT EVALUATED,Applicable wind code and combinations require separate project basis
+Long-term vertical deflection,NOT EVALUATED,"Creep, shrinkage, construction stages, finishes/partitions and support-chord reference required"
+Nonlinear component acceptance,NOT EVALUATED,"Force-controlled brittle actions and deformation-controlled ductile actions require calibrated acceptance limits, suite coverage and performance objective; no automatic IO/LS/CP thresholds"
+Linear reinforcement demand,NOT EVALUATED,"Requires approved RC material strengths, actual bar layout, cover, transverse steel, concurrent axial/biaxial actions and material-code design engine; illustrative fiber templates are insufficient"
+ULS stability and capacity design,NOT EVALUATED,"Buckling, P-Delta, joints, anchorage, ductile detailing and capacity-design checks are separate from drift"

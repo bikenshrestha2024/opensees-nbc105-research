@@ -1,0 +1,141 @@
+{
+  "input": {
+    "model": "SteelMPF",
+    "parameters": {
+      "fyp": 413.6854375901016,
+      "fyn": 413.6854375901016,
+      "E0": 199947.96150188247,
+      "bp": 0.02,
+      "bn": 0.02,
+      "R0": 20.0,
+      "cR1": 0.925,
+      "cR2": 0.15,
+      "a1": 0.0,
+      "a2": 1.0,
+      "a3": 0.0,
+      "a4": 1.0
+    },
+    "parameter_basis": "DIRECT PUBLISHED NUMERICAL EXAMPLE | Not Fe500 equivalence. Wiki cR1=.925 is used; do not silently copy the inconsistent 18.5 example entry printed in the PEER appendix.",
+    "specimen_id": "SteelMPF author command example",
+    "citation": "Example command; optional isotropic parameters use documented defaults",
+    "source": "https://opensees.berkeley.edu/wiki/index.php/SteelMPF_-_Menegotto_and_Pinto_%281973%29_Model_Extended_by_Filippou_et_al._%281983%29",
+    "protocol_csv": "",
+    "measured_csv": "",
+    "fit_bounds": {},
+    "train_fraction": 0.75,
+    "scope": "Ordered same-specimen fit is not independent validation or project design approval",
+    "wall_formulation": "SFI_MVLEM_3D",
+    "targets": [
+      0.0005,
+      -0.0005,
+      0.002,
+      -0.002,
+      0.005,
+      -0.005,
+      0.0
+    ],
+    "samples_per_leg": 30,
+    "dt_s": 0.005,
+    "profile_id": "Official_SteelMPF",
+    "project_transfer_approved": false,
+    "provenance": {
+      "fyp": {
+        "value": 413.6854375901016,
+        "unit": "MPa",
+        "basis": "DIRECT PUBLISHED NUMERICAL EXAMPLE",
+        "source": "https://opensees.berkeley.edu/wiki/index.php/SteelMPF_-_Menegotto_and_Pinto_%281973%29_Model_Extended_by_Filippou_et_al._%281983%29",
+        "locator": "Example command; optional isotropic parameters use documented defaults"
+      },
+      "fyn": {
+        "value": 413.6854375901016,
+        "unit": "MPa",
+        "basis": "DIRECT PUBLISHED NUMERICAL EXAMPLE",
+        "source": "https://opensees.berkeley.edu/wiki/index.php/SteelMPF_-_Menegotto_and_Pinto_%281973%29_Model_Extended_by_Filippou_et_al._%281983%29",
+        "locator": "Example command; optional isotropic parameters use documented defaults"
+      },
+      "E0": {
+        "value": 199947.96150188247,
+        "unit": "MPa",
+        "basis": "DIRECT PUBLISHED NUMERICAL EXAMPLE",
+        "source": "https://opensees.berkeley.edu/wiki/index.php/SteelMPF_-_Menegotto_and_Pinto_%281973%29_Model_Extended_by_Filippou_et_al._%281983%29",
+        "locator": "Example command; optional isotropic parameters use documented defaults"
+      },
+      "bp": {
+        "value": 0.02,
+        "unit": "dimensionless",
+        "basis": "DIRECT PUBLISHED NUMERICAL EXAMPLE",
+        "source": "https://opensees.berkeley.edu/wiki/index.php/SteelMPF_-_Menegotto_and_Pinto_%281973%29_Model_Extended_by_Filippou_et_al._%281983%29",
+        "locator": "Example command; optional isotropic parameters use documented defaults"
+      },
+      "bn": {
+        "value": 0.02,
+        "unit": "dimensionless",
+        "basis": "DIRECT PUBLISHED NUMERICAL EXAMPLE",
+        "source": "https://opensees.berkeley.edu/wiki/index.php/SteelMPF_-_Menegotto_and_Pinto_%281973%29_Model_Extended_by_Filippou_et_al._%281983%29",
+        "locator": "Example command; optional isotropic parameters use documented defaults"
+      },
+      "R0": {
+        "value": 20.0,
+        "unit": "dimensionless",
+        "basis": "DIRECT PUBLISHED NUMERICAL EXAMPLE",
+        "source": "https://opensees.berkeley.edu/wiki/index.php/SteelMPF_-_Menegotto_and_Pinto_%281973%29_Model_Extended_by_Filippou_et_al._%281983%29",
+        "locator": "Example command; optional isotropic parameters use documented defaults"
+      },
+      "cR1": {
+        "value": 0.925,
+        "unit": "dimensionless",
+        "basis": "DIRECT PUBLISHED NUMERICAL EXAMPLE",
+        "source": "https://opensees.berkeley.edu/wiki/index.php/SteelMPF_-_Menegotto_and_Pinto_%281973%29_Model_Extended_by_Filippou_et_al._%281983%29",
+        "locator": "Example command; optional isotropic parameters use documented defaults"
+      },
+      "cR2": {
+        "value": 0.15,
+        "unit": "dimensionless",
+        "basis": "DIRECT PUBLISHED NUMERICAL EXAMPLE",
+        "source": "https://opensees.berkeley.edu/wiki/index.php/SteelMPF_-_Menegotto_and_Pinto_%281973%29_Model_Extended_by_Filippou_et_al._%281983%29",
+        "locator": "Example command; optional isotropic parameters use documented defaults"
+      },
+      "a1": {
+        "value": 0.0,
+        "unit": "dimensionless",
+        "basis": "DIRECT PUBLISHED NUMERICAL EXAMPLE",
+        "source": "https://opensees.berkeley.edu/wiki/index.php/SteelMPF_-_Menegotto_and_Pinto_%281973%29_Model_Extended_by_Filippou_et_al._%281983%29",
+        "locator": "Example command; optional isotropic parameters use documented defaults"
+      },
+      "a2": {
+        "value": 1.0,
+        "unit": "dimensionless",
+        "basis": "DIRECT PUBLISHED NUMERICAL EXAMPLE",
+        "source": "https://opensees.berkeley.edu/wiki/index.php/SteelMPF_-_Menegotto_and_Pinto_%281973%29_Model_Extended_by_Filippou_et_al._%281983%29",
+        "locator": "Example command; optional isotropic parameters use documented defaults"
+      },
+      "a3": {
+        "value": 0.0,
+        "unit": "dimensionless",
+        "basis": "DIRECT PUBLISHED NUMERICAL EXAMPLE",
+        "source": "https://opensees.berkeley.edu/wiki/index.php/SteelMPF_-_Menegotto_and_Pinto_%281973%29_Model_Extended_by_Filippou_et_al._%281983%29",
+        "locator": "Example command; optional isotropic parameters use documented defaults"
+      },
+      "a4": {
+        "value": 1.0,
+        "unit": "dimensionless",
+        "basis": "DIRECT PUBLISHED NUMERICAL EXAMPLE",
+        "source": "https://opensees.berkeley.edu/wiki/index.php/SteelMPF_-_Menegotto_and_Pinto_%281973%29_Model_Extended_by_Filippou_et_al._%281983%29",
+        "locator": "Example command; optional isotropic parameters use documented defaults"
+      }
+    },
+    "source_native_values": {
+      "fyp_ksi": 60,
+      "fyn_ksi": 60,
+      "E0_ksi": 29000,
+      "ksi_to_MPa": 6.894757293168361
+    },
+    "_output": "C:\\Users\\User\\Documents\\Codex\\2026-10-20\\can\\outputs\\OpenSees_NBC105_V159\\Verification_V159\\Official_SteelMPF"
+  },
+  "optimizer": {},
+  "metrics": {},
+  "status": "NUMERICAL_PARAMETER_STUDY",
+  "elapsed_s": 0.8164463999855798,
+  "finished_at": "2026-10-28T06:45:46.754610+05:45",
+  "project_transfer_approved": false
+}

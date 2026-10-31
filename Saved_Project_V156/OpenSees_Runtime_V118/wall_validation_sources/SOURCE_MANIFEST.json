@@ -1,0 +1,26 @@
+[
+  {
+    "file": "RCshearwall.py",
+    "sha256": "f7c6e816eaa06237d1f43dbc5141eceedfdf1aa6d5bd5388adfd0e28dc6e7024",
+    "source": "https://github.com/zhuminjie/OpenSeesPyDoc/blob/master/pyExamples/RCshearwall.py",
+    "retrieved": "2026-10-26",
+    "attribution": "Lu et al. 2015; Python conversion Anurag Upadhyay; retained source comments",
+    "scope": "Official specimen source/data; not project properties"
+  },
+  {
+    "file": "RCshearwall_Load_input.txt",
+    "sha256": "d0ad0b2a86eb9a5fdcdaf5529f0c9882c0eee89a6ebc8441ec376c8ece69566e",
+    "source": "https://github.com/zhuminjie/OpenSeesPyDoc/blob/master/pyExamples/RCshearwall_Load_input.txt",
+    "retrieved": "2026-10-26",
+    "attribution": "Lu et al. 2015; Python conversion Anurag Upadhyay; retained source comments",
+    "scope": "Official specimen source/data; not project properties"
+  },
+  {
+    "file": "RCshearwall_TestOutput.txt",
+    "sha256": "77fd5d10030af1318892800fb613c5cbca12805c2c754f7140d5ecbbccca9a20",
+    "source": "https://github.com/zhuminjie/OpenSeesPyDoc/blob/master/pyExamples/RCshearwall_TestOutput.txt",
+    "retrieved": "2026-10-26",
+    "attribution": "Lu et al. 2015; Python conversion Anurag Upadhyay; retained source comments",
+    "scope": "Official specimen source/data; not project properties"
+  }
+]

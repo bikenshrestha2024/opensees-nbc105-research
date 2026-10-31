@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-22",
+  "regression_checks_passed": 11,
+  "opensees_version": "3.8.0",
+  "gui_checks": [
+    "Main",
+    "Gravity autofill",
+    "Modal autofill",
+    "ESM autofill",
+    "Linear TH autofill",
+    "Nonlinear TH autofill"
+  ],
+  "saved_export_check": "Portable assembled elastic model: gravity equilibrium and three positive eigenvalues passed",
+  "limitations": "No fresh ETABS COM test or whole-building nonlinear material/device validation in this verification."
+}

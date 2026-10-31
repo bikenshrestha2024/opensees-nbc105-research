@@ -1,0 +1,13 @@
+{
+  "version": 118,
+  "report": "OpenSees_Complete_Export_Report_V118.json",
+  "gravity_model_script": "OpenSees_Complete_Gravity_Model.py",
+  "modal_model_script": "OpenSees_Complete_Linear_Model.py",
+  "linear_model_script": "OpenSees_Complete_Linear_Model.py",
+  "nonlinear_model_script": "OpenSees_Complete_Nonlinear_Model.py",
+  "story_master_csv": "OpenSees_Complete_Story_Masters_V118.csv",
+  "esm_story_weight_csv": "NBC105_ESM_Story_Weights_Assembled_V118.csv",
+  "readiness_manifest": "OpenSees_Model_Readiness_Template_V116.json",
+  "elastic_assembled": true,
+  "nonlinear_ready": false
+}

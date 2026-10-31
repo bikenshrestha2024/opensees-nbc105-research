@@ -1,0 +1,16 @@
+{
+  "native_default_runs": {
+    "Concrete01": "COMPLETED_NUMERICAL_EXAMPLE",
+    "Concrete02": "COMPLETED_NUMERICAL_EXAMPLE",
+    "ConcreteCM": "COMPLETED_NUMERICAL_EXAMPLE",
+    "Steel02": "COMPLETED_NUMERICAL_EXAMPLE",
+    "SteelMPF": "COMPLETED_NUMERICAL_EXAMPLE",
+    "FVD": "COMPLETED_NUMERICAL_EXAMPLE",
+    "BRB": "COMPLETED_NUMERICAL_EXAMPLE"
+  },
+  "original_SFI": "FAILED_CYCLIC_STEP_78_MINUS3",
+  "E_SFI": "COMPLETED_NUMERICAL_EXAMPLE",
+  "GUI": "Eight tabs constructed; Concrete02 GUI subprocess completed with exports",
+  "optimizer": "Synthetic Steel02 b recovery to 0.01 within numerical precision; not an experimental test",
+  "scope": "No project transfer or independent wall validation"
+}

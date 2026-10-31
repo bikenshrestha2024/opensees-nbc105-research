@@ -1,0 +1,2 @@
+[TIMING] Model construction and optional gravity preload | completed | elapsed=0.390 s | start=2026-10-24T12:21:01.272+05:45 | finish=2026-10-24T12:21:01.656+05:45
+[GRAVITY] PASS | steps=20 | applied=286447.788933 kN | support reactions=286447.788933 kN | equilibrium error=4.8566e-12% | max downward Uz=-0.009579955894637476 m | frozen=True | elapsed=14.103 s

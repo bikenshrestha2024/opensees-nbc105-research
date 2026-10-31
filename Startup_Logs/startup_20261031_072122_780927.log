@@ -1,0 +1,44 @@
+V155 startup | D:\condaenvs\etabs_env312\python.exe
+Root: C:\Users\User\Downloads\OpenSees_NBC105_V166_Research
+V161 GUI constructed; entering event loop
+[TIMING] ETABS source metadata | completed | elapsed=5.053 s | start=2026-10-31T07:21:57.296+05:45 | finish=2026-10-31T07:22:02.355+05:45
+[STOREY GRAVITY] 26 levels | applied=286447.788933 kN | reconciliation=1.07684e-08 kN
+[TIMING] Storey gravity load classification and workbook | completed | elapsed=15.137 s | start=2026-10-31T07:22:23.010+05:45 | finish=2026-10-31T07:22:38.150+05:45
+[TIMING] Load path and diaphragm assembly audit | completed | elapsed=0.123 s | start=2026-10-31T07:22:38.176+05:45 | finish=2026-10-31T07:22:38.295+05:45
+[TIMING] Mapping and load audit workbook | completed | elapsed=5.765 s | start=2026-10-31T07:22:45.507+05:45 | finish=2026-10-31T07:22:51.279+05:45
+[TIMING] Model assembly and export | completed | elapsed=48.853 s | start=2026-10-31T07:22:02.481+05:45 | finish=2026-10-31T07:22:51.330+05:45
+[TIMING] ETABS complete conversion | completed | elapsed=85.943 s | start=2026-10-31T07:21:30.161+05:45 | finish=2026-10-31T07:22:56.105+05:45
+Traceback (most recent call last):
+  File "D:\condaenvs\etabs_env312\Lib\tkinter\__init__.py", line 1968, in __call__
+    return self.func(*args)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Downloads\OpenSees_NBC105_V166_Research\components\ui\application.py", line 2356, in <lambda>
+    ttk.Button(bar,text="Open full formula/citation document",command=lambda: os.startfile(str(Path(__file__).resolve().with_name("NBC105_FORMULA_REFERENCE_V116.md")))).pack(side="left")
+                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] The system cannot find the file specified: 'C:\\Users\\User\\Downloads\\OpenSees_NBC105_V166_Research\\NBC105_FORMULA_REFERENCE_V116.md'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\User\Downloads\OpenSees_NBC105_V166_Research\RUN_ETABS_TO_OPENSEES.py", line 24, in main
+    runpy.run_path(str(ROOT/'ETABS_to_OpenSeesPy_Section_Review_V116_NBC105_Area_NLTHA.py'),run_name='__main__')
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\User\Downloads\OpenSees_NBC105_V166_Research\ETABS_to_OpenSeesPy_Section_Review_V116_NBC105_Area_NLTHA.py", line 8, in <module>
+    exec(compile(_component_source.read_text(encoding='utf-8'), str(_component_source), 'exec'), globals(), globals())
+  File "C:\Users\User\Downloads\OpenSees_NBC105_V166_Research\components\ui\application.py", line 2990, in <module>
+    if __name__=="__main__": main()
+                             ^^^^^^
+  File "C:\Users\User\Downloads\OpenSees_NBC105_V166_Research\components\ui\application.py", line 2989, in main
+    root.mainloop()
+  File "D:\condaenvs\etabs_env312\Lib\tkinter\__init__.py", line 1505, in mainloop
+    self.tk.mainloop(n)
+  File "D:\condaenvs\etabs_env312\Lib\tkinter\__init__.py", line 1972, in __call__
+    self.widget._report_exception()
+  File "D:\condaenvs\etabs_env312\Lib\tkinter\__init__.py", line 1688, in _report_exception
+    root.report_callback_exception(exc, val, tb)
+  File "C:\Users\User\Downloads\OpenSees_NBC105_V166_Research\components\ui\application.py", line 2981, in <lambda>
+    root.report_callback_exception=lambda typ,value,tb: _report_gui_error(root,typ,value,tb)
+                                                        ^^^^^^^^^^^^^^^^^
+NameError: name '_report_gui_error' is not defined

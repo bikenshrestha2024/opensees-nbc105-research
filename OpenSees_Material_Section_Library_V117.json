@@ -1,0 +1,122 @@
+{
+  "schema_version": 125,
+  "units": "Section geometry is mm; material stress is MPa in metadata. Convert explicitly to the active OpenSees unit system before definition.",
+  "principle": "ETABS property names are source identifiers. Every OpenSees target is a separate constitutive/section definition and must be independently reviewed.",
+  "frame_sections": [
+    {
+      "name": "RC_BEAM_600x800_FIBER",
+      "family": "RC beam fiber section",
+      "source_input": "ETABS beam section audit + reinforcement details",
+      "material_models": [
+        "Concrete01 or Concrete02 (calibrated cover/core)",
+        "Steel02 or SteelMPF (calibrated rebar)"
+      ],
+      "status": "illustrative geometry preset; verify all bars, ties, confinement, material units and section orientation"
+    },
+    {
+      "name": "RC_COLUMN_1100x1100_FIBER",
+      "family": "RC column fiber section",
+      "source_input": "ETABS column section audit + reinforcement details",
+      "material_models": [
+        "Concrete01 or Concrete02 (calibrated cover/core)",
+        "Steel02 or SteelMPF (calibrated rebar)"
+      ],
+      "status": "illustrative geometry preset; verify all bars, ties, confinement, material units and section orientation"
+    },
+    {
+      "name": "RC_COLUMN_1250x1250_FIBER",
+      "family": "RC column fiber section",
+      "source_input": "ETABS column section audit + reinforcement details",
+      "material_models": [
+        "Concrete01 or Concrete02 (calibrated cover/core)",
+        "Steel02 or SteelMPF (calibrated rebar)"
+      ],
+      "status": "illustrative geometry preset; verify all bars, ties, confinement, material units and section orientation"
+    },
+    {
+      "name": "SHS_350x350x16_STEEL_FIBER",
+      "family": "SHS steel fiber section",
+      "source_input": "ETABS brace property and verified steel grade",
+      "material_models": [
+        "Steel02"
+      ],
+      "status": "geometry preset; confirm section dimensions, steel grade, fabrication and local axes"
+    }
+  ],
+  "area_sections": [
+    {
+      "name": "RC_WALL_600_E_SFI_MVLEM3D",
+      "family": "E-SFI_MVLEM_3D wall panel + FSAM",
+      "source_input": "ETABS area wall property and exported area mesh",
+      "material_models": [
+        "ConcreteCM",
+        "SteelMPF",
+        "FSAM"
+      ],
+      "reinforcement_layout_candidate": "2 curtains; Ø20 at 200 mm each way; 25 mm clear cover each face",
+      "status": "project geometry input; FSAM tag, material calibration, panel orientation and opening/coupling-beam treatment must be confirmed. The solid-wall PEER benchmark is not the opening-core calibration."
+    }
+  ],
+  "devices": [
+    {
+      "name": "FVD",
+      "element": "twoNodeLink",
+      "material": "ViscousDamper",
+      "required_parameters": [
+        "K",
+        "Cd",
+        "alpha"
+      ],
+      "source_required": "device datasheet or tested device model; units and line of action",
+      "status": "no generic numeric defaults; provide project-specific values",
+      "mapping_target": "FVD_MAXWELL",
+      "citation": "https://opensees.berkeley.edu/wiki/index.php/ViscousDamper_Material",
+      "assignment_file": "OpenSees_Element_Overrides_V125.json",
+      "selection_scope": "Individual BRACE object or exact solver segment; inactive by default"
+    },
+    {
+      "name": "BRB",
+      "element": "corotTruss",
+      "material": "Steel02 with isotropic hardening (or validated BRB model)",
+      "required_parameters": [
+        "core_area",
+        "Fy",
+        "E0",
+        "b",
+        "R0",
+        "cR1",
+        "cR2",
+        "a1",
+        "a2",
+        "a3",
+        "a4"
+      ],
+      "source_required": "manufacturer qualification/cyclic test or cited validated model",
+      "status": "no generic numeric defaults; model core and gusset/connection assumptions explicitly",
+      "mapping_target": "BRB_STEEL02",
+      "citation": "https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html",
+      "assignment_file": "OpenSees_Element_Overrides_V125.json",
+      "selection_scope": "Individual BRACE object or exact solver segment; inactive by default"
+    }
+  ],
+  "validation_references": [
+    {
+      "citation": "Kolozvari, López & Massone (2023), Engineering Structures 294, 116700",
+      "doi": "https://doi.org/10.1016/j.engstruct.2023.116700",
+      "use": "E-SFI-MVLEM 3D formulation and experimental comparisons",
+      "limit": "Benchmark fit alone does not validate a perforated high-rise core."
+    },
+    {
+      "citation": "López, Massone & Kolozvari (2022), Engineering Structures 252, 113590",
+      "doi": "https://doi.org/10.1016/j.engstruct.2021.113590",
+      "use": "Planar wall validation data and model checks",
+      "limit": "Match specimen axial load, aspect ratio, reinforcement, material and loading range."
+    },
+    {
+      "citation": "Kolozvari, Orakcal & Wallace (2015), PEER Report 2015/12, Appendix B.3",
+      "url": "https://peer.berkeley.edu/publications/2015-12",
+      "use": "Reproducible RW-A15-P10-S78 solid-wall benchmark inputs",
+      "limit": "Reference-only benchmark; do not use its strengths or reinforcement as project calibration without evidence."
+    }
+  ]
+}

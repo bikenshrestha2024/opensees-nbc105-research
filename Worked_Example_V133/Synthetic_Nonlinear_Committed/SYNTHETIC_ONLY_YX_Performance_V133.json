@@ -1,0 +1,24 @@
+{
+  "case": "SYNTHETIC_ONLY_YX",
+  "analysis": "nonlinear",
+  "status": "completed",
+  "error": null,
+  "started_at": "2026-10-24T07:14:22.919+05:45",
+  "finished_at": "2026-10-24T07:14:23.068+05:45",
+  "elapsed_seconds": 0.1490951999949175,
+  "stages_seconds": {
+    "model_and_gravity": 0.002148800005670637,
+    "damping_eigenanalysis": 6.0200000007171184e-05,
+    "transient_with_recording": 0.002874399993743282,
+    "case_exports_and_drift": 0.14136770000186516
+  },
+  "accepted_internal_steps": 114,
+  "recording_seconds": 0.00026950001483783126,
+  "solver_diagnostics": {
+    "attempts": 114,
+    "algorithm_Newton": 114,
+    "minimum_accepted_dt_s": 0.0027999999999994696,
+    "max_convergence_iterations": 2
+  },
+  "scope": "Measured wall time on this machine; solve stages include native solver and Python call overhead. ETA is current-case extrapolation, not a nonlinear suite guarantee."
+}

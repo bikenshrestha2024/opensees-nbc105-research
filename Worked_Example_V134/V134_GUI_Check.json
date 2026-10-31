@@ -1,0 +1,19 @@
+{
+  "spectrum": {
+    "embedded_plot": true,
+    "SLS_omega": "1.2"
+  },
+  "completed_linear_run": {
+    "saved_summary_loaded": true,
+    "case_count": 2
+  },
+  "response_viewer": {
+    "constructed": true,
+    "six_dof_count": 6
+  },
+  "irregularity_rows": 509,
+  "ESM": {
+    "two_rows": true,
+    "case_count": 24
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "stage": "Linear time history",
+  "started_at": "2026-10-24T07:20:27.221+05:45",
+  "finished_at": "2026-10-24T07:21:20.857+05:45",
+  "elapsed_seconds": 53.63343039999745,
+  "status": "completed",
+  "error": null,
+  "time_scope": "Entire named processing stage, not individual file-write latency",
+  "artifact": "SYNTHETIC_PIPELINE_ONLY_YX_Performance_V133.json",
+  "size_bytes": 769
+}

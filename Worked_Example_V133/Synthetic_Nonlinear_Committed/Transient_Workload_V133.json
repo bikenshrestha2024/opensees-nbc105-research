@@ -1,0 +1,37 @@
+{
+  "cases": [
+    {
+      "case": "SYNTHETIC_ONLY_XY",
+      "dt_s": 0.0044,
+      "duration_s": 0.5,
+      "requested_steps": 114,
+      "controlling_bounds": [
+        "T1_over_100"
+      ],
+      "bounds_s": {
+        "digitization": 0.005,
+        "T1_over_100": 0.0044,
+        "Tn": 0.36,
+        "absolute_maximum": 0.01
+      }
+    },
+    {
+      "case": "SYNTHETIC_ONLY_YX",
+      "dt_s": 0.0044,
+      "duration_s": 0.5,
+      "requested_steps": 114,
+      "controlling_bounds": [
+        "T1_over_100"
+      ],
+      "bounds_s": {
+        "digitization": 0.005,
+        "T1_over_100": 0.0044,
+        "Tn": 0.36,
+        "absolute_maximum": 0.01
+      }
+    }
+  ],
+  "total_cases": 2,
+  "total_requested_steps": 228,
+  "note": "One selected pair runs both XY and YX. Nonlinear substeps/iterations are additional; elapsed nonlinear time cannot be inferred from linear time alone."
+}

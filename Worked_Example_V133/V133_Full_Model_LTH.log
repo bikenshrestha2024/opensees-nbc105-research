@@ -1,0 +1,50 @@
+[WORKLOAD] 2 cases | 18 requested steps | integration bounds retained
+[SCOPE] PRELIMINARY setup check | pairs: SYNTHETIC_PIPELINE_ONLY | each pair runs XY and YX
+[START] SYNTHETIC_PIPELINE_ONLY_XY: rebuilding model and preparing linear transient analysis
+[GRAVITY] PASS | steps=20 | applied=286447.788933 kN | support reactions=286447.788933 kN | equilibrium error=4.8566e-12% | max downward Uz=-0.009579955894637476 m | frozen=True | elapsed=16.255 s
+[TIMING] Model construction and optional gravity preload | completed | elapsed=16.650 s | start=2026-10-24T07:20:27.331+05:45 | finish=2026-10-24T07:20:43.982+05:45
+[PROGRESS] SYNTHETIC_PIPELINE_ONLY_XY: 1/9 steps, t=0.005s
+[PERFORMANCE] SYNTHETIC_PIPELINE_ONLY_XY: 1/9 | 1.54 requested steps/s | elapsed=0.7s | case ETA=5.2s
+[PROGRESS] SYNTHETIC_PIPELINE_ONLY_XY: 2/9 steps, t=0.010s
+[PERFORMANCE] SYNTHETIC_PIPELINE_ONLY_XY: 2/9 | 1.74 requested steps/s | elapsed=1.1s | case ETA=4.0s
+[PROGRESS] SYNTHETIC_PIPELINE_ONLY_XY: 3/9 steps, t=0.015s
+[PERFORMANCE] SYNTHETIC_PIPELINE_ONLY_XY: 3/9 | 1.82 requested steps/s | elapsed=1.6s | case ETA=3.3s
+[PROGRESS] SYNTHETIC_PIPELINE_ONLY_XY: 4/9 steps, t=0.020s
+[PERFORMANCE] SYNTHETIC_PIPELINE_ONLY_XY: 4/9 | 1.88 requested steps/s | elapsed=2.1s | case ETA=2.7s
+[PROGRESS] SYNTHETIC_PIPELINE_ONLY_XY: 5/9 steps, t=0.025s
+[PERFORMANCE] SYNTHETIC_PIPELINE_ONLY_XY: 5/9 | 1.91 requested steps/s | elapsed=2.6s | case ETA=2.1s
+[PROGRESS] SYNTHETIC_PIPELINE_ONLY_XY: 6/9 steps, t=0.030s
+[PERFORMANCE] SYNTHETIC_PIPELINE_ONLY_XY: 6/9 | 1.92 requested steps/s | elapsed=3.1s | case ETA=1.6s
+[PROGRESS] SYNTHETIC_PIPELINE_ONLY_XY: 7/9 steps, t=0.035s
+[PERFORMANCE] SYNTHETIC_PIPELINE_ONLY_XY: 7/9 | 1.93 requested steps/s | elapsed=3.6s | case ETA=1.0s
+[PROGRESS] SYNTHETIC_PIPELINE_ONLY_XY: 8/9 steps, t=0.040s
+[PERFORMANCE] SYNTHETIC_PIPELINE_ONLY_XY: 8/9 | 1.93 requested steps/s | elapsed=4.1s | case ETA=0.5s
+[PROGRESS] SYNTHETIC_PIPELINE_ONLY_XY: 9/9 steps, t=0.045s
+[PERFORMANCE] SYNTHETIC_PIPELINE_ONLY_XY: 9/9 | 1.94 requested steps/s | elapsed=4.6s | case ETA=0.0s
+[CASE TIMING] SYNTHETIC_PIPELINE_ONLY_XY | completed | elapsed=26.728s | stages={"model_and_gravity": 16.74028879999969, "damping_eigenanalysis": 4.346367700003611, "transient_with_recording": 4.634102100004384, "case_exports_and_drift": 0.9182037000064156}
+[OK] SYNTHETIC_PIPELINE_ONLY_XY: steps=9, dt=0.005s, peak drifts X/Y=6.47475e-07/1.85218e-07
+[START] SYNTHETIC_PIPELINE_ONLY_YX: rebuilding model and preparing linear transient analysis
+[GRAVITY] PASS | steps=20 | applied=286447.788933 kN | support reactions=286447.788933 kN | equilibrium error=4.8566e-12% | max downward Uz=-0.009579955894637476 m | frozen=True | elapsed=16.426 s
+[TIMING] Model construction and optional gravity preload | completed | elapsed=16.538 s | start=2026-10-24T07:20:54.038+05:45 | finish=2026-10-24T07:21:10.575+05:45
+[PROGRESS] SYNTHETIC_PIPELINE_ONLY_YX: 1/9 steps, t=0.005s
+[PERFORMANCE] SYNTHETIC_PIPELINE_ONLY_YX: 1/9 | 1.77 requested steps/s | elapsed=0.6s | case ETA=4.5s
+[PROGRESS] SYNTHETIC_PIPELINE_ONLY_YX: 2/9 steps, t=0.010s
+[PERFORMANCE] SYNTHETIC_PIPELINE_ONLY_YX: 2/9 | 1.90 requested steps/s | elapsed=1.1s | case ETA=3.7s
+[PROGRESS] SYNTHETIC_PIPELINE_ONLY_YX: 3/9 steps, t=0.015s
+[PERFORMANCE] SYNTHETIC_PIPELINE_ONLY_YX: 3/9 | 1.94 requested steps/s | elapsed=1.5s | case ETA=3.1s
+[PROGRESS] SYNTHETIC_PIPELINE_ONLY_YX: 4/9 steps, t=0.020s
+[PERFORMANCE] SYNTHETIC_PIPELINE_ONLY_YX: 4/9 | 1.96 requested steps/s | elapsed=2.0s | case ETA=2.5s
+[PROGRESS] SYNTHETIC_PIPELINE_ONLY_YX: 5/9 steps, t=0.025s
+[PERFORMANCE] SYNTHETIC_PIPELINE_ONLY_YX: 5/9 | 1.99 requested steps/s | elapsed=2.5s | case ETA=2.0s
+[PROGRESS] SYNTHETIC_PIPELINE_ONLY_YX: 6/9 steps, t=0.030s
+[PERFORMANCE] SYNTHETIC_PIPELINE_ONLY_YX: 6/9 | 2.02 requested steps/s | elapsed=3.0s | case ETA=1.5s
+[PROGRESS] SYNTHETIC_PIPELINE_ONLY_YX: 7/9 steps, t=0.035s
+[PERFORMANCE] SYNTHETIC_PIPELINE_ONLY_YX: 7/9 | 2.03 requested steps/s | elapsed=3.5s | case ETA=1.0s
+[PROGRESS] SYNTHETIC_PIPELINE_ONLY_YX: 8/9 steps, t=0.040s
+[PERFORMANCE] SYNTHETIC_PIPELINE_ONLY_YX: 8/9 | 2.03 requested steps/s | elapsed=3.9s | case ETA=0.5s
+[PROGRESS] SYNTHETIC_PIPELINE_ONLY_YX: 9/9 steps, t=0.045s
+[PERFORMANCE] SYNTHETIC_PIPELINE_ONLY_YX: 9/9 | 2.04 requested steps/s | elapsed=4.4s | case ETA=0.0s
+[CASE TIMING] SYNTHETIC_PIPELINE_ONLY_YX | completed | elapsed=26.273s | stages={"model_and_gravity": 16.60093919999781, "damping_eigenanalysis": 4.888378799994825, "transient_with_recording": 4.410402800000156, "case_exports_and_drift": 0.28463900000497233}
+[OK] SYNTHETIC_PIPELINE_ONLY_YX: steps=9, dt=0.005s, peak drifts X/Y=1.9073e-07/6.30641e-07
+[COMPLETE] 2 motion/orientation cases; elapsed=53.10s; output=C:\Users\User\Documents\Codex\2026-10-20\can\work\V133_Project_Check\OpenSees_Analysis_Results\Synthetic_Pipeline_Check
+[TIMING] Linear time history | completed | elapsed=53.633 s | start=2026-10-24T07:20:27.221+05:45 | finish=2026-10-24T07:21:20.857+05:45

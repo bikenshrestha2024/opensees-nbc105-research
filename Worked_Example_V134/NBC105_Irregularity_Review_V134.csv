@@ -1,0 +1,510 @@
+﻿clause,check,storey,value,threshold,status,note
+5.4.1.5,Mass irregularity,1,1.0286875228938754,1.5,PASS,Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption.
+5.4.1.3,LFRS extent X,1,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.3,LFRS extent Y,1,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.5,Mass irregularity,2,1.0,1.5,PASS,Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption.
+5.4.1.3,LFRS extent X,2,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.3,LFRS extent Y,2,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.5,Mass irregularity,3,1.0286875228938754,1.5,PASS,Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption.
+5.4.1.3,LFRS extent X,3,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.3,LFRS extent Y,3,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.5,Mass irregularity,4,1.0,1.5,PASS,Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption.
+5.4.1.3,LFRS extent X,4,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.3,LFRS extent Y,4,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.5,Mass irregularity,5,1.0,1.5,PASS,Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption.
+5.4.1.3,LFRS extent X,5,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.3,LFRS extent Y,5,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.5,Mass irregularity,6,1.0,1.5,PASS,Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption.
+5.4.1.3,LFRS extent X,6,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.3,LFRS extent Y,6,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.5,Mass irregularity,7,1.0,1.5,PASS,Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption.
+5.4.1.3,LFRS extent X,7,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.3,LFRS extent Y,7,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.5,Mass irregularity,8,1.0000000000000002,1.5,PASS,Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption.
+5.4.1.3,LFRS extent X,8,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.3,LFRS extent Y,8,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.5,Mass irregularity,9,1.0,1.5,PASS,Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption.
+5.4.1.3,LFRS extent X,9,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.3,LFRS extent Y,9,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.5,Mass irregularity,10,1.0000000000000002,1.5,PASS,Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption.
+5.4.1.3,LFRS extent X,10,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.3,LFRS extent Y,10,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.5,Mass irregularity,11,1.0000000000000002,1.5,PASS,Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption.
+5.4.1.3,LFRS extent X,11,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.3,LFRS extent Y,11,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.5,Mass irregularity,12,1.0000000000000002,1.5,PASS,Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption.
+5.4.1.3,LFRS extent X,12,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.3,LFRS extent Y,12,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.5,Mass irregularity,13,1.0000000000000002,1.5,PASS,Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption.
+5.4.1.3,LFRS extent X,13,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.3,LFRS extent Y,13,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.5,Mass irregularity,14,1.0000000000000002,1.5,PASS,Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption.
+5.4.1.3,LFRS extent X,14,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.3,LFRS extent Y,14,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.5,Mass irregularity,15,1.0000000000000002,1.5,PASS,Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption.
+5.4.1.3,LFRS extent X,15,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.3,LFRS extent Y,15,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.5,Mass irregularity,16,1.0000000000000004,1.5,PASS,Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption.
+5.4.1.3,LFRS extent X,16,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.3,LFRS extent Y,16,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.5,Mass irregularity,17,1.0,1.5,PASS,Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption.
+5.4.1.3,LFRS extent X,17,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.3,LFRS extent Y,17,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.5,Mass irregularity,18,1.0,1.5,PASS,Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption.
+5.4.1.3,LFRS extent X,18,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.3,LFRS extent Y,18,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.5,Mass irregularity,19,1.0,1.5,PASS,Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption.
+5.4.1.3,LFRS extent X,19,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.3,LFRS extent Y,19,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.5,Mass irregularity,20,1.0,1.5,PASS,Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption.
+5.4.1.3,LFRS extent X,20,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.3,LFRS extent Y,20,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.5,Mass irregularity,21,1.0000000000000007,1.5,PASS,Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption.
+5.4.1.3,LFRS extent X,21,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.3,LFRS extent Y,21,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.5,Mass irregularity,22,1.0000000000000002,1.5,PASS,Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption.
+5.4.1.3,LFRS extent X,22,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.3,LFRS extent Y,22,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.5,Mass irregularity,23,1.0286875228938748,1.5,PASS,Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption.
+5.4.1.3,LFRS extent X,23,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.3,LFRS extent Y,23,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.5,Mass irregularity,24,1.1960834974851928,1.5,PASS,Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption.
+5.4.1.3,LFRS extent X,24,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.3,LFRS extent Y,24,1.0,1.3,PASS,Geometry extent screen; continuity/member roles require review.
+5.4.1.4,In-plane discontinuity,ALL,,,NOT EVALUATED,Requires floor-edge center-of-mass response or reviewed plan/vertical load-path geometry; not inferred from bounding box.
+5.4.2.3,Re-entrant projection X,1,0.16666666666666666,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection Y,1,0.3333333333333333,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection X,2,0.16666666666666666,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection Y,2,0.3333333333333333,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection X,3,0.16666666666666666,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection Y,3,0.3333333333333333,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection X,4,0.16666666666666666,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection Y,4,0.3333333333333333,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection X,5,0.16666666666666666,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection Y,5,0.3333333333333333,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection X,6,0.16666666666666666,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection Y,6,0.3333333333333333,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection X,7,0.16666666666666666,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection Y,7,0.3333333333333333,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection X,8,0.16666666666666666,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection Y,8,0.3333333333333333,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection X,9,0.16666666666666666,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection Y,9,0.3333333333333333,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection X,10,0.16666666666666666,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection Y,10,0.3333333333333333,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection X,11,0.16666666666666666,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection Y,11,0.3333333333333333,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection X,12,0.16666666666666666,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection Y,12,0.3333333333333333,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection X,13,0.16666666666666666,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection Y,13,0.3333333333333333,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection X,14,0.16666666666666666,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection Y,14,0.3333333333333333,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection X,15,0.16666666666666666,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection Y,15,0.3333333333333333,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection X,16,0.16666666666666666,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection Y,16,0.3333333333333333,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection X,17,0.16666666666666666,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection Y,17,0.3333333333333333,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection X,18,0.16666666666666666,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection Y,18,0.3333333333333333,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection X,19,0.16666666666666666,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection Y,19,0.3333333333333333,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection X,20,0.16666666666666666,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection Y,20,0.3333333333333333,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection X,21,0.16666666666666666,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection Y,21,0.3333333333333333,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection X,22,0.16666666666666666,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection Y,22,0.3333333333333333,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection X,23,0.16666666666666666,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection Y,23,0.3333333333333333,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection X,24,0.16666666666666666,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection Y,24,0.3333333333333333,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection X,25,0.16666666666666666,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.2.3,Re-entrant projection Y,25,0.3333333333333333,0.15,IRREGULAR,"Exterior slab-cell union, adjacent projections at concave corners / overall extent. Internal holes are not exterior re-entrant corners; disconnected floor components require diaphragm/load-path review."
+5.4.1.1,Weak storey X,ALL,,0.8,NOT EVALUATED,Requires lateral-strength capacities; cannot infer from elastic stiffness. Use the capacity template.
+5.4.1.1,Weak storey Y,ALL,,0.8,NOT EVALUATED,Requires lateral-strength capacities; cannot infer from elastic stiffness. Use the capacity template.
+5.4.2.1,SLS X Torsion,1,1.0000000000000018,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS X Extreme torsion,1,1.0000000000000018,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS X Torsion,2,1.0000000000000022,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS X Extreme torsion,2,1.0000000000000022,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS X Torsion,3,1.0000000000000018,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS X Extreme torsion,3,1.0000000000000018,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS X Torsion,4,1.0000000000000009,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS X Extreme torsion,4,1.0000000000000009,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS X Torsion,5,1.0,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS X Extreme torsion,5,1.0,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS X Torsion,6,1.0,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS X Extreme torsion,6,1.0,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS X Torsion,7,1.0000000000000004,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS X Extreme torsion,7,1.0000000000000004,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS X Torsion,8,1.0000000000000002,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS X Extreme torsion,8,1.0000000000000002,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS X Torsion,9,1.0000000000000002,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS X Extreme torsion,9,1.0000000000000002,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS X Torsion,10,1.0000000000000004,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS X Extreme torsion,10,1.0000000000000004,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS X Torsion,11,1.0000000000000004,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS X Extreme torsion,11,1.0000000000000004,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS X Torsion,12,1.0,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS X Extreme torsion,12,1.0,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS X Torsion,13,1.0,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS X Extreme torsion,13,1.0,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS X Torsion,14,1.0000000000000002,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS X Extreme torsion,14,1.0000000000000002,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS X Torsion,15,1.0000000000000002,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS X Extreme torsion,15,1.0000000000000002,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS X Torsion,16,1.0000000000000004,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS X Extreme torsion,16,1.0000000000000004,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS X Torsion,17,1.0000000000000004,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS X Extreme torsion,17,1.0000000000000004,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS X Torsion,18,1.0000000000000004,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS X Extreme torsion,18,1.0000000000000004,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS X Torsion,19,1.0000000000000004,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS X Extreme torsion,19,1.0000000000000004,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS X Torsion,20,1.0,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS X Extreme torsion,20,1.0,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS X Torsion,21,1.0000000000000002,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS X Extreme torsion,21,1.0000000000000002,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS X Torsion,22,1.0,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS X Extreme torsion,22,1.0,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS X Torsion,23,1.0,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS X Extreme torsion,23,1.0,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS X Torsion,24,1.0,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS X Extreme torsion,24,1.0,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS X Torsion,25,1.0,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS X Extreme torsion,25,1.0,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.1.2,SLS X Soft story adjacent above,1,1.6303626480094817,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story three above,1,1.8471850494491993,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story adjacent above,2,1.0408204715194969,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story three above,2,1.3404100002329953,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story adjacent above,3,1.398353555783756,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story three above,3,1.5930281586942199,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story adjacent above,4,1.1640273444305782,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story three above,4,1.2815737041273858,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story adjacent above,5,1.109498787483287,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story three above,5,1.2055784827636942,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story adjacent above,6,1.0944429888905298,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story three above,6,1.1753144760953926,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story adjacent above,7,1.0784949891872029,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story three above,7,1.149912546831397,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story adjacent above,8,1.0702495843846782,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story three above,8,1.1344593228602124,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story adjacent above,9,1.0625983420093403,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story three above,9,1.122440020003251,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story adjacent above,10,1.0584594142865096,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story three above,10,1.1155304088471496,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story adjacent above,11,1.0552675647085992,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story three above,11,1.1114914157063585,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story adjacent above,12,1.0542169421043408,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story three above,12,1.1111420389041848,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story adjacent above,13,1.054347531448472,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story three above,13,1.1138577069838558,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story adjacent above,14,1.056358056367507,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story three above,14,1.1204719177508367,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story adjacent above,15,1.0599938464452314,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story three above,15,1.131361329978155,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story adjacent above,16,1.0660664301435083,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story three above,16,1.148124698407602,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story adjacent above,17,1.0748215225094695,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story three above,17,1.1725927963326244,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story adjacent above,18,1.0879196638922188,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story three above,18,1.2089700329932989,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story adjacent above,19,1.1065548725951984,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story three above,19,1.2636215151028147,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story adjacent above,20,1.1354318569618251,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story three above,20,1.3518464735697457,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story adjacent above,21,1.1799893862512656,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story three above,21,1.5055230730904257,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story adjacent above,22,1.2606020125272301,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story three above,22,1.83688059296579,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story adjacent above,23,1.421508379395247,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS X Soft story adjacent above,24,1.979723111456298,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.2.1,SLS Y Torsion,1,1.0000000000000002,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS Y Extreme torsion,1,1.0000000000000002,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS Y Torsion,2,1.0,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS Y Extreme torsion,2,1.0,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS Y Torsion,3,1.0000000000000004,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS Y Extreme torsion,3,1.0000000000000004,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS Y Torsion,4,1.0000000000000004,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS Y Extreme torsion,4,1.0000000000000004,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS Y Torsion,5,1.0000000000000013,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS Y Extreme torsion,5,1.0000000000000013,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS Y Torsion,6,1.0000000000000009,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS Y Extreme torsion,6,1.0000000000000009,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS Y Torsion,7,1.0,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS Y Extreme torsion,7,1.0,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS Y Torsion,8,1.0000000000000009,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS Y Extreme torsion,8,1.0000000000000009,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS Y Torsion,9,1.0000000000000004,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS Y Extreme torsion,9,1.0000000000000004,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS Y Torsion,10,1.0000000000000007,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS Y Extreme torsion,10,1.0000000000000007,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS Y Torsion,11,1.0,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS Y Extreme torsion,11,1.0,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS Y Torsion,12,1.0000000000000004,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS Y Extreme torsion,12,1.0000000000000004,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS Y Torsion,13,1.0000000000000002,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS Y Extreme torsion,13,1.0000000000000002,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS Y Torsion,14,1.0000000000000002,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS Y Extreme torsion,14,1.0000000000000002,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS Y Torsion,15,1.0,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS Y Extreme torsion,15,1.0,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS Y Torsion,16,1.0000000000000004,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS Y Extreme torsion,16,1.0000000000000004,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS Y Torsion,17,1.0,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS Y Extreme torsion,17,1.0,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS Y Torsion,18,1.0,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS Y Extreme torsion,18,1.0,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS Y Torsion,19,1.0,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS Y Extreme torsion,19,1.0,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS Y Torsion,20,1.0000000000000002,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS Y Extreme torsion,20,1.0000000000000002,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS Y Torsion,21,1.0,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS Y Extreme torsion,21,1.0,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS Y Torsion,22,1.0000000000000007,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS Y Extreme torsion,22,1.0000000000000007,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS Y Torsion,23,1.000000000000001,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS Y Extreme torsion,23,1.000000000000001,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS Y Torsion,24,1.0000000000000009,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS Y Extreme torsion,24,1.0000000000000009,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,SLS Y Torsion,25,1.0000000000000004,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,SLS Y Extreme torsion,25,1.0000000000000004,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.1.2,SLS Y Soft story adjacent above,1,1.9180177808373253,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story three above,1,2.4240483092052956,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story adjacent above,2,1.2640165780286752,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story three above,2,1.6129786036026048,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story adjacent above,3,1.3579088836060702,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story three above,3,1.5887262580170767,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story adjacent above,4,1.1983483469514666,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story three above,4,1.3528784666266778,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story adjacent above,5,1.1436515502028783,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story three above,5,1.2658717367663512,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story adjacent above,6,1.1168087582894597,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story three above,6,1.219285356672073,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story adjacent above,7,1.098740339763245,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story three above,7,1.1880924573717424,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story adjacent above,8,1.0864309909805925,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story three above,8,1.1669134712932454,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story adjacent above,9,1.0778854155199666,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story three above,9,1.152540274593887,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story adjacent above,10,1.072105196168722,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story three above,10,1.1433227042622374,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story adjacent above,11,1.0685174351641609,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story three above,11,1.1383627750426677,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story adjacent above,12,1.0668246201078997,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story three above,12,1.1372592776924564,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story adjacent above,13,1.0669157879099453,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story three above,13,1.139982811407219,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story adjacent above,14,1.0688356932716212,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story three above,14,1.1468542254340885,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story adjacent above,15,1.0727877855828796,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story three above,15,1.158603986129085,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story adjacent above,16,1.0791726203139242,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story three above,16,1.1765374146788472,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story adjacent above,17,1.0886762107906909,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story three above,17,1.2028827832784228,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story adjacent above,18,1.1024495338538547,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story three above,18,1.241523615080158,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story adjacent above,19,1.1224781089849087,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story three above,19,1.2996409728050136,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story adjacent above,20,1.1524189193167576,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story three above,20,1.3919646478090728,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story adjacent above,21,1.199679801099663,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story three above,21,1.5534380622880832,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story adjacent above,22,1.2820605458556125,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story three above,22,1.9026950602505222,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story adjacent above,23,1.4529699697723668,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,SLS Y Soft story adjacent above,24,2.0656039266378947,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.2.1,ULS X Torsion,1,1.0000000000000027,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS X Extreme torsion,1,1.0000000000000027,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS X Torsion,2,1.0000000000000013,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS X Extreme torsion,2,1.0000000000000013,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS X Torsion,3,1.0000000000000007,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS X Extreme torsion,3,1.0000000000000007,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS X Torsion,4,1.0000000000000009,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS X Extreme torsion,4,1.0000000000000009,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS X Torsion,5,1.0,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS X Extreme torsion,5,1.0,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS X Torsion,6,1.0000000000000007,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS X Extreme torsion,6,1.0000000000000007,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS X Torsion,7,1.0000000000000007,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS X Extreme torsion,7,1.0000000000000007,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS X Torsion,8,1.0000000000000007,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS X Extreme torsion,8,1.0000000000000007,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS X Torsion,9,1.0000000000000007,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS X Extreme torsion,9,1.0000000000000007,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS X Torsion,10,1.0000000000000009,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS X Extreme torsion,10,1.0000000000000009,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS X Torsion,11,1.0000000000000007,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS X Extreme torsion,11,1.0000000000000007,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS X Torsion,12,1.0000000000000007,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS X Extreme torsion,12,1.0000000000000007,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS X Torsion,13,1.0000000000000007,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS X Extreme torsion,13,1.0000000000000007,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS X Torsion,14,1.0000000000000007,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS X Extreme torsion,14,1.0000000000000007,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS X Torsion,15,1.0000000000000009,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS X Extreme torsion,15,1.0000000000000009,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS X Torsion,16,1.0000000000000009,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS X Extreme torsion,16,1.0000000000000009,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS X Torsion,17,1.000000000000001,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS X Extreme torsion,17,1.000000000000001,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS X Torsion,18,1.000000000000001,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS X Extreme torsion,18,1.000000000000001,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS X Torsion,19,1.0000000000000013,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS X Extreme torsion,19,1.0000000000000013,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS X Torsion,20,1.0000000000000016,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS X Extreme torsion,20,1.0000000000000016,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS X Torsion,21,1.0000000000000018,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS X Extreme torsion,21,1.0000000000000018,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS X Torsion,22,1.0000000000000018,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS X Extreme torsion,22,1.0000000000000018,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS X Torsion,23,1.0000000000000018,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS X Extreme torsion,23,1.0000000000000018,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS X Torsion,24,1.0000000000000016,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS X Extreme torsion,24,1.0000000000000016,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS X Torsion,25,1.0000000000000016,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS X Extreme torsion,25,1.0000000000000016,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.1.2,ULS X Soft story adjacent above,1,1.6185307166366152,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story three above,1,1.8241664403088702,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story adjacent above,2,1.0256506657601405,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story three above,2,1.3326615572615341,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story adjacent above,3,1.4195656038798896,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story three above,3,1.6179534345271926,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story adjacent above,4,1.1654506727511034,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story three above,4,1.2822915182066033,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story adjacent above,5,1.1084129819413517,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story three above,5,1.2039347422620499,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story adjacent above,6,1.0942903719264117,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story three above,6,1.1741552040574172,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story adjacent above,7,1.0774544892279796,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story three above,7,1.147884952013144,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story adjacent above,8,1.069465034871291,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story three above,8,1.1325106661584725,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story adjacent above,9,1.0614883589709723,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story three above,9,1.1201530082557964,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story adjacent above,10,1.0574166376869554,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story three above,10,1.1132189562431927,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story adjacent above,11,1.0540782020465678,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story three above,11,1.1089988073087962,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story adjacent above,12,1.0530271925111143,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story three above,12,1.1085766224022435,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story adjacent above,13,1.0530659251997492,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story three above,13,1.1111433012216478,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story adjacent above,14,1.0550434283926127,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story three above,14,1.117641733873087,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story adjacent above,15,1.0585915226820874,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story three above,15,1.1283580710747756,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story adjacent above,16,1.06461102164258,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story three above,16,1.14495671490561,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story adjacent above,17,1.0732528710290412,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story three above,17,1.16918813907034,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story adjacent above,18,1.086290808381351,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story three above,18,1.205344089912944,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story adjacent above,19,1.1047505591222417,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story three above,19,1.2596347395409393,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story adjacent above,20,1.1335959814399206,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story three above,20,1.3475690168984258,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story adjacent above,21,1.1778112887821004,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story three above,21,1.5004657324056496,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story adjacent above,22,1.258545294269765,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story three above,22,1.8289970375247866,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story adjacent above,23,1.4180531005925778,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS X Soft story adjacent above,24,1.9636225841008468,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.2.1,ULS Y Torsion,1,1.0000000000000053,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS Y Extreme torsion,1,1.0000000000000053,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS Y Torsion,2,1.0000000000000022,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS Y Extreme torsion,2,1.0000000000000022,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS Y Torsion,3,1.0000000000000016,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS Y Extreme torsion,3,1.0000000000000016,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS Y Torsion,4,1.0000000000000004,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS Y Extreme torsion,4,1.0000000000000004,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS Y Torsion,5,1.0000000000000007,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS Y Extreme torsion,5,1.0000000000000007,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS Y Torsion,6,1.0000000000000022,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS Y Extreme torsion,6,1.0000000000000022,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS Y Torsion,7,1.0000000000000016,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS Y Extreme torsion,7,1.0000000000000016,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS Y Torsion,8,1.0000000000000009,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS Y Extreme torsion,8,1.0000000000000009,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS Y Torsion,9,1.0000000000000013,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS Y Extreme torsion,9,1.0000000000000013,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS Y Torsion,10,1.0000000000000013,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS Y Extreme torsion,10,1.0000000000000013,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS Y Torsion,11,1.0000000000000022,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS Y Extreme torsion,11,1.0000000000000022,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS Y Torsion,12,1.0000000000000013,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS Y Extreme torsion,12,1.0000000000000013,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS Y Torsion,13,1.000000000000001,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS Y Extreme torsion,13,1.000000000000001,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS Y Torsion,14,1.0000000000000016,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS Y Extreme torsion,14,1.0000000000000016,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS Y Torsion,15,1.0000000000000018,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS Y Extreme torsion,15,1.0000000000000018,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS Y Torsion,16,1.0000000000000018,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS Y Extreme torsion,16,1.0000000000000018,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS Y Torsion,17,1.000000000000002,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS Y Extreme torsion,17,1.000000000000002,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS Y Torsion,18,1.0000000000000022,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS Y Extreme torsion,18,1.0000000000000022,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS Y Torsion,19,1.000000000000002,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS Y Extreme torsion,19,1.000000000000002,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS Y Torsion,20,1.000000000000002,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS Y Extreme torsion,20,1.000000000000002,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS Y Torsion,21,1.0000000000000022,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS Y Extreme torsion,21,1.0000000000000022,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS Y Torsion,22,1.0000000000000018,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS Y Extreme torsion,22,1.0000000000000018,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS Y Torsion,23,1.0000000000000016,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS Y Extreme torsion,23,1.0000000000000016,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS Y Torsion,24,1.0000000000000016,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS Y Extreme torsion,24,1.0000000000000016,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.1,ULS Y Torsion,25,1.0000000000000016,1.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.2.2,ULS Y Extreme torsion,25,1.0000000000000016,2.5,PASS,Centered CM reference loading; end displacement ratio. Extreme torsion requires configuration revision.
+5.4.1.2,ULS Y Soft story adjacent above,1,1.9039619027518884,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story three above,1,2.3989805827917223,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story adjacent above,2,1.2532124134551723,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story three above,2,1.606493229642435,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story adjacent above,3,1.3686614719572396,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story three above,3,1.6010883391015946,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story adjacent above,4,1.198489146769924,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story three above,4,1.3520625597391307,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story adjacent above,5,1.1428162529675656,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story three above,5,1.2638424138846953,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story adjacent above,6,1.1158052943854404,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story three above,6,1.2170113258956312,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story adjacent above,7,1.0976220380814063,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story three above,7,1.1857030700116955,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story adjacent above,8,1.085291972113345,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story three above,8,1.1645279679264007,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story adjacent above,9,1.0767528397901232,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story three above,9,1.1501913086621116,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story adjacent above,10,1.070990964454732,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story three above,10,1.1410172080093086,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story adjacent above,11,1.0674214437337626,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story three above,11,1.1360905508074333,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story adjacent above,12,1.0657410198883923,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story three above,12,1.135001596558964,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story adjacent above,13,1.0658353715377011,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story three above,13,1.1377159730148316,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story adjacent above,14,1.0677474089173227,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story three above,14,1.1445515233377257,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story adjacent above,15,1.0716794965452092,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story three above,15,1.1562364896560258,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story adjacent above,16,1.0780314897476728,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story three above,16,1.174074042618574,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story adjacent above,17,1.0874888203895612,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story three above,17,1.2002895889007852,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story adjacent above,18,1.101201854506411,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story three above,18,1.2387624544933142,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story adjacent above,19,1.1211546721837449,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story three above,19,1.2966633379712131,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story adjacent above,20,1.1510030264953663,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story three above,20,1.3887092078849477,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story adjacent above,21,1.1981397124581605,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story three above,21,1.5497307139717074,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story adjacent above,22,1.2803760208162909,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story three above,22,1.8977158334919009,0.8,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story adjacent above,23,1.4507336460480038,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.
+5.4.1.2,ULS Y Soft story adjacent above,24,2.0590246081182095,0.7,PASS,V/interstorey displacement under 1% W height-distributed perturbation about gravity. Numerical stiffness screen; not a strength capacity.

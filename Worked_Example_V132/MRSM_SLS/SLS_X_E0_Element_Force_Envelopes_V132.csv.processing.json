@@ -1,0 +1,11 @@
+{
+  "stage": "Model modal response spectrum analysis",
+  "started_at": "2026-10-23T23:59:09.017+05:45",
+  "finished_at": "2026-10-24T00:01:20.121+05:45",
+  "elapsed_seconds": 131.1075428999975,
+  "status": "completed",
+  "error": null,
+  "time_scope": "Entire named processing stage, not individual file-write latency",
+  "artifact": "SLS_X_E0_Element_Force_Envelopes_V132.csv",
+  "size_bytes": 19655541
+}

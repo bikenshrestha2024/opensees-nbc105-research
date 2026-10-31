@@ -1,0 +1,14 @@
+{
+  "formula_counts": {
+    "Storey totals": 494,
+    "Source detail": 6074,
+    "Read me": 0,
+    "Surface load formulas": 119000,
+    "Loaded node path": 112000,
+    "Member weight formulas": 7724,
+    "Vertical load path": 0
+  },
+  "floor_load_formula_kN": 50400.0,
+  "floor_load_provenance_kN": 50400.0,
+  "note": "Formula structures and independent arithmetic checked; Excel recalc is requested on opening. No cached Excel recalculation claimed."
+}

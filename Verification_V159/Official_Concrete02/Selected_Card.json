@@ -1,0 +1,90 @@
+{
+  "model": "Concrete02",
+  "parameters": {
+    "fpc_MPa": -47.09,
+    "epsc0": -0.00232,
+    "fpcu_MPa": 0.0,
+    "epsU": -0.037,
+    "unloading_ratio": 0.1,
+    "ft_MPa": 2.13,
+    "Ets_MPa": 1738.33
+  },
+  "parameter_basis": "DIRECT PUBLISHED NUMERICAL EXAMPLE | These are that example material values; epsU=-0.037 must not be treated as an unconfined project strain capacity.",
+  "specimen_id": "OpenSees MEFI example: unconfined material 4",
+  "citation": "Pushover example: uniaxialMaterial Concrete02 tag 4",
+  "source": "https://openseesdocumentation.readthedocs.io/en/latest/user/manual/model/elements/MEFI.html",
+  "protocol_csv": "",
+  "measured_csv": "",
+  "fit_bounds": {},
+  "train_fraction": 0.75,
+  "scope": "Ordered same-specimen fit is not independent validation or project design approval",
+  "wall_formulation": "SFI_MVLEM_3D",
+  "targets": [
+    -0.0005,
+    0.0,
+    -0.001,
+    0.0,
+    -0.002,
+    0.0,
+    -0.004,
+    0.0,
+    -0.006,
+    0.0,
+    0.001
+  ],
+  "samples_per_leg": 30,
+  "dt_s": 0.005,
+  "profile_id": "Official_Concrete02",
+  "project_transfer_approved": false,
+  "provenance": {
+    "fpc_MPa": {
+      "value": -47.09,
+      "unit": "MPa",
+      "basis": "DIRECT PUBLISHED NUMERICAL EXAMPLE",
+      "source": "https://openseesdocumentation.readthedocs.io/en/latest/user/manual/model/elements/MEFI.html",
+      "locator": "Pushover example: uniaxialMaterial Concrete02 tag 4"
+    },
+    "epsc0": {
+      "value": -0.00232,
+      "unit": "dimensionless",
+      "basis": "DIRECT PUBLISHED NUMERICAL EXAMPLE",
+      "source": "https://openseesdocumentation.readthedocs.io/en/latest/user/manual/model/elements/MEFI.html",
+      "locator": "Pushover example: uniaxialMaterial Concrete02 tag 4"
+    },
+    "fpcu_MPa": {
+      "value": 0.0,
+      "unit": "MPa",
+      "basis": "DIRECT PUBLISHED NUMERICAL EXAMPLE",
+      "source": "https://openseesdocumentation.readthedocs.io/en/latest/user/manual/model/elements/MEFI.html",
+      "locator": "Pushover example: uniaxialMaterial Concrete02 tag 4"
+    },
+    "epsU": {
+      "value": -0.037,
+      "unit": "dimensionless",
+      "basis": "DIRECT PUBLISHED NUMERICAL EXAMPLE",
+      "source": "https://openseesdocumentation.readthedocs.io/en/latest/user/manual/model/elements/MEFI.html",
+      "locator": "Pushover example: uniaxialMaterial Concrete02 tag 4"
+    },
+    "unloading_ratio": {
+      "value": 0.1,
+      "unit": "dimensionless",
+      "basis": "DIRECT PUBLISHED NUMERICAL EXAMPLE",
+      "source": "https://openseesdocumentation.readthedocs.io/en/latest/user/manual/model/elements/MEFI.html",
+      "locator": "Pushover example: uniaxialMaterial Concrete02 tag 4"
+    },
+    "ft_MPa": {
+      "value": 2.13,
+      "unit": "MPa",
+      "basis": "DIRECT PUBLISHED NUMERICAL EXAMPLE",
+      "source": "https://openseesdocumentation.readthedocs.io/en/latest/user/manual/model/elements/MEFI.html",
+      "locator": "Pushover example: uniaxialMaterial Concrete02 tag 4"
+    },
+    "Ets_MPa": {
+      "value": 1738.33,
+      "unit": "MPa",
+      "basis": "DIRECT PUBLISHED NUMERICAL EXAMPLE",
+      "source": "https://openseesdocumentation.readthedocs.io/en/latest/user/manual/model/elements/MEFI.html",
+      "locator": "Pushover example: uniaxialMaterial Concrete02 tag 4"
+    }
+  }
+}

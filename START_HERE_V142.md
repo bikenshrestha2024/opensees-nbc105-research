@@ -1,0 +1,9 @@
+V142 export hotfix: fresh in-memory integer node tags and JSON string node tags are both supported by the load-path workbook. Fixed KeyError 1103. Fresh source-audit rebuild tested without an existing assembled data file; no live export modified. Rebuild saved export after refreshing runtime. This is an export regression fix, not a new structural analysis or design validation.
+
+# V142
+Close old V138 windows. Extract the complete ZIP to a new folder. Start root RUN_ETABS_TO_OPENSEES.py, or Saved_Project_V142/RUN_LATEST_V142.py for the bundled project. The title must show V142.
+For an existing export choose Refresh selected export runtime / diagnose versions. Re-export the source EDB if its saved assignment audit is empty, then rebuild and rerun.
+Both ULS/SLS, log scrollbars, readiness evidence autofill and slab-outline controls are present. Your screenshots show V138 and the old 236047.788933 kN inventory. The included project has 1050 load components and 286447.788933 kN. No live D: export was modified here.
+The new case review exports saved drift/deflection comparisons and 312 combination coverage entries. These entries are NOT completed solves. Full concurrent combined member outputs, conditional action inputs and complete case-specific PDelta reruns remain pending where explicit results are absent.
+Gravity profiles AS_CONFIGURED, GRAVITY_1.2D_1.5L and UPLIFT_0.9D rebuild preload while preserving seismic mass; provenance is recorded. Linear transient about preload is not full nonlinear geometric analysis. Missing calibration checks remain unapproved.
+Verified: syntax, modal Both/scrollbars, bundled repair/viewer with 1050 components, evidence discovery and coverage export. Profile arithmetic gives 286447.788933, 398457.346720 and 244843.010040 kN with unchanged mass. No new full earthquake or complete combination batch was run. Previous V141 refined-gravity evidence remains included.

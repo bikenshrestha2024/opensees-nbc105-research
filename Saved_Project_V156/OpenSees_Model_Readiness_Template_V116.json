@@ -1,0 +1,25 @@
+{
+  "schema": "OpenSees_NLTHA_Readiness_V116",
+  "approved_for_nltha": false,
+  "model_script": "absolute path to the selected nonlinear model-builder.py",
+  "project": "Kirtipur high-rise RC core with openings and damped outrigger study",
+  "checks": {
+    "etabs_topology_and_story_mapping_reviewed": false,
+    "wall_opening_and_coupling_beam_mesh_reviewed": false,
+    "wall_nonlinear_materials_and_reinforcement_cited_calibrated": false,
+    "frame_concrete_and_rebar_materials_reviewed": false,
+    "slab_and_diaphragm_idealization_compatible": false,
+    "area_and_frame_gravity_loads_reconciled_to_etabs": false,
+    "seismic_mass_reconciled_to_etabs_by_storey": false,
+    "support_conditions_and_foundation_assumptions_reviewed": false,
+    "is16700_initial_pdelta_plus_minus_cases_completed": false,
+    "p_delta_and_gravity_preload_completed": false,
+    "modal_periods_modes_and_mass_participation_reviewed": false,
+    "brace_fvd_brb_case_matches_selected_scenario": false,
+    "device_properties_cited_calibrated_or_devices_disabled": false,
+    "rayleigh_damping_and_device_damping_not_double_counted": false,
+    "single_element_and_wall_benchmark_checks_passed": false,
+    "record_pair_units_scales_and_nbc_limits_reviewed": false
+  },
+  "review_notes": "This checklist is a user sign-off gate, not automatic verification or engineering approval. Keep false until the stated work is evidenced in the audit outputs."
+}

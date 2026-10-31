@@ -1,0 +1,40 @@
+{
+  "scope": "6m square elastic shell panel on four edge beams; corner supports; rigid in-plane constraint; q=4 kN/m2. Numerical mesh demonstration, not project validation.",
+  "results": [
+    {
+      "subdivisions": 1,
+      "total_load_kN": 144,
+      "support_reaction_kN": 144.0,
+      "max_beam_end_bending_kNm": 0.0,
+      "max_downward_Uz_m": 0.0
+    },
+    {
+      "subdivisions": 2,
+      "total_load_kN": 144,
+      "support_reaction_kN": 144.0,
+      "max_beam_end_bending_kNm": 7.869300392781923,
+      "max_downward_Uz_m": -7.516152308031862e-05
+    },
+    {
+      "subdivisions": 4,
+      "total_load_kN": 144,
+      "support_reaction_kN": 144.00000000000003,
+      "max_beam_end_bending_kNm": 19.588323156124076,
+      "max_downward_Uz_m": -0.0008017200934710483
+    },
+    {
+      "subdivisions": 8,
+      "total_load_kN": 144,
+      "support_reaction_kN": 144.00000000000188,
+      "max_beam_end_bending_kNm": 22.610875507773944,
+      "max_downward_Uz_m": -0.0008404040567423688
+    },
+    {
+      "subdivisions": 16,
+      "total_load_kN": 144,
+      "support_reaction_kN": 144.00000000001035,
+      "max_beam_end_bending_kNm": 23.122248094800497,
+      "max_downward_Uz_m": -0.0008499552054245445
+    }
+  ]
+}

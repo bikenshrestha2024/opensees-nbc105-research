@@ -1,0 +1,15 @@
+﻿check,status,reason
+Vertical earthquake,NOT EVALUATED,NBC 3.6.3 / 4.3 applicability and signed vertical actions must be reviewed
+Wind,NOT EVALUATED,Applicable wind code and combinations require separate project basis
+Long-term vertical deflection,NOT EVALUATED,"Creep, shrinkage, construction stages, finishes/partitions and support-chord reference required"
+Nonlinear component acceptance,NOT EVALUATED,"Force-controlled brittle actions and deformation-controlled ductile actions require calibrated acceptance limits, suite coverage and performance objective; no automatic IO/LS/CP thresholds"
+Linear reinforcement demand,NOT EVALUATED,"Requires approved RC material strengths, actual bar layout, cover, transverse steel, concurrent axial/biaxial actions and material-code design engine; illustrative fiber templates are insufficient"
+ULS stability and capacity design,NOT EVALUATED,"Buckling, P-Delta, joints, anchorage, ductile detailing and capacity-design checks are separate from drift"
+Seismic drift,NOT EVALUATED,No saved drift results found; run ULS and SLS analysis cases
+ULS drift coverage,NOT EVALUATED,No saved results in this limit state
+SLS drift coverage,NOT EVALUATED,No saved results in this limit state
+Gravity versus seismic mass,REVIEW COMBINATION BASIS,NBC 5.2 / Table 5-1 mass participation is not a universal gravity load combination. AS_CONFIGURED 0.3LL preload must be justified separately from 3.6 design cases.
+Elastic wall effective stiffness,ACTION REQUIRED,"NBC Table 3-1: cracked wall EI ULS 0.50, SLS 0.70; uncracked 0.80/0.90. Current slab bending section does not modify wall in-plane membrane bending. Match a justified wall idealization in both ETABS and OpenSees before design comparison."
+Conventional slab bending factors,VERIFY SLAB TYPE AND SOURCE,IS 16700:2023 Table 5: Ig factors 0.25 strength / 0.35 serviceability; gross membrane EA retained; physical self-weight uses original thickness; NBC Table 3-1 flat-slab factors 0.25/0.50 are not automatically applicable to a conventional beam-supported slab.
+Section adequacy,NOT VERIFIED,"Equilibrium and modal mass coverage do not establish PMM, shear, stability, anchorage or ductile detailing adequacy."
+Wall nonlinear calibration,REQUIRES PROJECT EVIDENCE,Kolozvari et al. 2023 E-SFI-MVLEM-3D; Lu et al. 2015 layered-shell alternative. Published example parameters are not project calibration.

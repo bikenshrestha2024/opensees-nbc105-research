@@ -1,0 +1,88 @@
+{
+  "profile_id": "PEER2015_RW-A15-P10-S78",
+  "status": "LITERATURE_BENCHMARK_ONLY_NOT_PROJECT_CALIBRATED",
+  "source_citation": "Kolozvari, K., Orakcal, K., and Wallace, J. (2015). Shear-Flexure Interaction Modeling for Reinforced Concrete Structural Walls and Columns under Reversed Cyclic Loading. PEER Report 2015-12, Appendix B.3.",
+  "source_url": "https://peer.berkeley.edu/publications/2015-12",
+  "specimen": "RW-A15-P10-S78 (Tran and Wallace, 2012)",
+  "source_units": "kip, in, sec, ksi",
+  "specimen_geometry_in": {
+    "thickness": 6.0,
+    "length": 48.0,
+    "height": 72.0
+  },
+  "ksi_to_mpa": 6.894757293,
+  "concrete_unconfined": {
+    "fc_ksi": 8.09,
+    "epsc0": -0.002371,
+    "Ec_ksi": 5403.2172,
+    "rc": 15.0,
+    "xcrn": 1.022,
+    "ft_ksi": 0.335798,
+    "et": 8e-05,
+    "rt": 1.2,
+    "xcrp": 10000.0,
+    "gap_close": 0
+  },
+  "concrete_confined": {
+    "fc_ksi": 10.479723,
+    "epsc0": -0.005873,
+    "Ec_ksi": 5953.9187,
+    "rc": 12.072964,
+    "xcrn": 1.023,
+    "ft_ksi": 0.335798,
+    "et": 8e-05,
+    "rt": 1.2,
+    "xcrp": 10000.0,
+    "gap_close": 0
+  },
+  "steel": {
+    "fy_web_x_ksi": 58.4103,
+    "fy_web_y_ksi": 58.4103,
+    "fy_boundary_y_ksi": 69.0,
+    "E0_ksi": 29000.0,
+    "b_web_x": 0.02,
+    "b_web_y": 0.02,
+    "b_boundary_y": 0.005,
+    "R0": 20.0,
+    "a1": 18.5,
+    "a2": 0.0015
+  },
+  "reinforcement_ratio": {
+    "rouX_web": 0.0074,
+    "rouY_web": 0.0074,
+    "rouX_boundary": 0.0082,
+    "rouY_boundary": 0.0587
+  },
+  "fsam": {
+    "rho": 0.0,
+    "nu": 0.8,
+    "alfadow": 0.01
+  },
+  "tags": {
+    "steel_x": 901,
+    "steel_y_web": 902,
+    "steel_y_boundary": 903,
+    "concrete_web": 904,
+    "concrete_boundary": 905,
+    "fsam_web": 906,
+    "fsam_boundary": 907
+  },
+  "limitations": [
+    "Benchmark wall is planar, solid, moderately slender, and has no opening.",
+    "Do not transfer specimen reinforcement ratios to the project core without checking drawings/ETABS.",
+    "This creates SteelMPF, ConcreteCM, and FSAM material objects only; no wall elements, geometry, openings, or mesh are created.",
+    "Verify the OpenSees build includes SteelMPF, ConcreteCM, and FSAM before use.",
+    "Calibrate and validate against project material tests/details and an opening-wall benchmark before thesis NLTHA."
+  ],
+  "verification": "Compared source values against PEER 2015/12 Appendix B.3, printed pp.90-92, PDF pages 102-104 (1-based).",
+  "verified_source_pdf": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+  "verified_on": "2026-10-24",
+  "usage": "Benchmark material definitions only. No project configuration, approvals or wall-property maps are edited.",
+  "derived_MPa": {
+    "unconfined_fc": 55.77858650037,
+    "confined_fc": 72.25514658286984,
+    "web_fy": 402.72484191131787,
+    "boundary_fy": 475.73825321699996,
+    "steel_E": 199947.96149699998
+  }
+}

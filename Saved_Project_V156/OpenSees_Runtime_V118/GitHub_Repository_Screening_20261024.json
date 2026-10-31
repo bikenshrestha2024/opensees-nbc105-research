@@ -1,0 +1,182 @@
+[
+  {
+    "repository": "bikenshrestha2024/web-page-dumper",
+    "url": "https://github.com/bikenshrestha2024/web-page-dumper",
+    "screened_at": "2026-10-24",
+    "scope": "inventory relevance only",
+    "upstream": null,
+    "license": null,
+    "default_branch": "main"
+  },
+  {
+    "repository": "bikenshrestha2024/OpenSees_course",
+    "url": "https://github.com/bikenshrestha2024/OpenSees_course",
+    "screened_at": "2026-10-24",
+    "scope": "root tree and repository metadata; focused relevant files",
+    "upstream": "https://github.com/lfgurzua/OpenSees_course",
+    "license": null,
+    "default_branch": "main"
+  },
+  {
+    "repository": "bikenshrestha2024/OpenSeesPy-Tutorials",
+    "url": "https://github.com/bikenshrestha2024/OpenSeesPy-Tutorials",
+    "screened_at": "2026-10-24",
+    "scope": "root tree and repository metadata; focused relevant files",
+    "upstream": "https://github.com/Ashim-Paudel/OpenSeesPy-Tutorials",
+    "license": "NOASSERTION",
+    "default_branch": "main"
+  },
+  {
+    "repository": "bikenshrestha2024/OpenSeesPyTutorials",
+    "url": "https://github.com/bikenshrestha2024/OpenSeesPyTutorials",
+    "screened_at": "2026-10-24",
+    "scope": "root tree and repository metadata; focused relevant files",
+    "upstream": "https://github.com/cslotboom/OpenSeesPyTutorials",
+    "license": null,
+    "default_branch": "master"
+  },
+  {
+    "repository": "bikenshrestha2024/sketchup-mcp",
+    "url": "https://github.com/bikenshrestha2024/sketchup-mcp",
+    "screened_at": "2026-10-24",
+    "scope": "inventory relevance only",
+    "upstream": null,
+    "license": null,
+    "default_branch": "main"
+  },
+  {
+    "repository": "bikenshrestha2024/limitstates",
+    "url": "https://github.com/bikenshrestha2024/limitstates",
+    "screened_at": "2026-10-24",
+    "scope": "root tree and repository metadata; focused relevant files",
+    "upstream": "https://github.com/cslotboom/limitstates",
+    "license": "GPL-3.0",
+    "default_branch": "main"
+  },
+  {
+    "repository": "bikenshrestha2024/GFPLAIN",
+    "url": "https://github.com/bikenshrestha2024/GFPLAIN",
+    "screened_at": "2026-10-24",
+    "scope": "inventory relevance only",
+    "upstream": null,
+    "license": null,
+    "default_branch": "master"
+  },
+  {
+    "repository": "bikenshrestha2024/OpenSees-Examples",
+    "url": "https://github.com/bikenshrestha2024/OpenSees-Examples",
+    "screened_at": "2026-10-24",
+    "scope": "root tree and repository metadata; focused relevant files",
+    "upstream": "https://github.com/u-anurag/OpenSees-Examples",
+    "license": "MIT",
+    "default_branch": "master"
+  },
+  {
+    "repository": "bikenshrestha2024/OPENSEES_SALAR",
+    "url": "https://github.com/bikenshrestha2024/OPENSEES_SALAR",
+    "screened_at": "2026-10-24",
+    "scope": "root tree and repository metadata; focused relevant files",
+    "upstream": "https://github.com/salardelavar/OPENSEES_SALAR",
+    "license": "MIT",
+    "default_branch": "main"
+  },
+  {
+    "repository": "bikenshrestha2024/SALAR_PYTHON-CODE",
+    "url": "https://github.com/bikenshrestha2024/SALAR_PYTHON-CODE",
+    "screened_at": "2026-10-24",
+    "scope": "root tree and repository metadata; focused relevant files",
+    "upstream": "https://github.com/salardelavar/SALAR_PYTHON-CODE",
+    "license": null,
+    "default_branch": "main"
+  },
+  {
+    "repository": "bikenshrestha2024/SEISMOSTRUCT_SALAR",
+    "url": "https://github.com/bikenshrestha2024/SEISMOSTRUCT_SALAR",
+    "screened_at": "2026-10-24",
+    "scope": "root tree and repository metadata; focused relevant files",
+    "upstream": "https://github.com/salardelavar/SEISMOSTRUCT_SALAR",
+    "license": null,
+    "default_branch": "main"
+  },
+  {
+    "repository": "bikenshrestha2024/SALAR_EXCEL-CODE",
+    "url": "https://github.com/bikenshrestha2024/SALAR_EXCEL-CODE",
+    "screened_at": "2026-10-24",
+    "scope": "root tree and repository metadata; focused relevant files",
+    "upstream": "https://github.com/salardelavar/SALAR_EXCEL-CODE",
+    "license": null,
+    "default_branch": "main"
+  },
+  {
+    "repository": "bikenshrestha2024/FM-2D",
+    "url": "https://github.com/bikenshrestha2024/FM-2D",
+    "screened_at": "2026-10-24",
+    "scope": "root tree and repository metadata; focused relevant files",
+    "upstream": "https://github.com/amaelkady/FM-2D",
+    "license": "GPL-3.0",
+    "default_branch": "master"
+  },
+  {
+    "repository": "bikenshrestha2024/vfo",
+    "url": "https://github.com/bikenshrestha2024/vfo",
+    "screened_at": "2026-10-24",
+    "scope": "root tree and repository metadata; focused relevant files",
+    "upstream": "https://github.com/u-anurag/vfo",
+    "license": "MIT",
+    "default_branch": "main"
+  },
+  {
+    "repository": "bikenshrestha2024/pyRevit",
+    "url": "https://github.com/bikenshrestha2024/pyRevit",
+    "screened_at": "2026-10-24",
+    "scope": "inventory relevance only",
+    "upstream": null,
+    "license": null,
+    "default_branch": "develop"
+  },
+  {
+    "repository": "bikenshrestha2024/photocraft",
+    "url": "https://github.com/bikenshrestha2024/photocraft",
+    "screened_at": "2026-10-24",
+    "scope": "inventory relevance only",
+    "upstream": null,
+    "license": null,
+    "default_branch": "main"
+  },
+  {
+    "repository": "bikenshrestha2024/rea",
+    "url": "https://github.com/bikenshrestha2024/rea",
+    "screened_at": "2026-10-24",
+    "scope": "inventory relevance only",
+    "upstream": null,
+    "license": null,
+    "default_branch": "main"
+  },
+  {
+    "repository": "bikenshrestha2024/GPR_SDoF_Maxwell_FVD",
+    "url": "https://github.com/bikenshrestha2024/GPR_SDoF_Maxwell_FVD",
+    "screened_at": "2026-10-24",
+    "scope": "root tree and repository metadata; focused relevant files",
+    "upstream": "https://github.com/bchalarcae/GPR_SDoF_Maxwell_FVD",
+    "license": null,
+    "default_branch": "main"
+  },
+  {
+    "repository": "bikenshrestha2024/opstool",
+    "url": "https://github.com/bikenshrestha2024/opstool",
+    "screened_at": "2026-10-24",
+    "scope": "root tree and repository metadata; focused relevant files",
+    "upstream": "https://github.com/yexiang92/opstool",
+    "license": "GPL-3.0",
+    "default_branch": "master"
+  },
+  {
+    "repository": "bikenshrestha2024/OpenSeesPy-Official-Structural-Examples",
+    "url": "https://github.com/bikenshrestha2024/OpenSeesPy-Official-Structural-Examples",
+    "screened_at": "2026-10-24",
+    "scope": "root tree and repository metadata; focused relevant files",
+    "upstream": "https://github.com/ashishthapaweb/OpenSeesPy-Official-Structural-Examples",
+    "license": null,
+    "default_branch": "main"
+  }
+]

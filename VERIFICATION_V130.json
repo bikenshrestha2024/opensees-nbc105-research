@@ -1,0 +1,21 @@
+{
+  "release": 130,
+  "regression_tests_passed": 28,
+  "compatibility_imports_passed": 38,
+  "gui_constructors_passed": [
+    "main",
+    "modal",
+    "linear_time_history",
+    "nonlinear_time_history"
+  ],
+  "analysis_windows_have_modal_grab": false,
+  "source_function_inventory": 421,
+  "validation_document": "VALIDATION_V130.md",
+  "not_verified": [
+    "full MRSM member forces",
+    "full-building V130 time-history ensemble",
+    "full-building nonlinear calibration",
+    "roof live absent from source"
+  ],
+  "source_export_modified": false
+}

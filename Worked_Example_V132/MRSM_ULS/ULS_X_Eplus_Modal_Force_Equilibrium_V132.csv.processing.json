@@ -1,0 +1,11 @@
+{
+  "stage": "Model modal response spectrum analysis",
+  "started_at": "2026-10-23T23:56:53.374+05:45",
+  "finished_at": "2026-10-23T23:59:08.976+05:45",
+  "elapsed_seconds": 135.59868600000118,
+  "status": "completed",
+  "error": null,
+  "time_scope": "Entire named processing stage, not individual file-write latency",
+  "artifact": "ULS_X_Eplus_Modal_Force_Equilibrium_V132.csv",
+  "size_bytes": 3740
+}

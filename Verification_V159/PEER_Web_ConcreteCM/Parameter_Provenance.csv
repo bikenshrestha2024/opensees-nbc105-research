@@ -1,0 +1,10 @@
+﻿group,parameter,value,unit,basis,source,locator
+parameters,fpcc,-55.778586501732036,MPa,PUBLISHED SPECIMEN MATERIAL INPUT,https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf,Appendix B.3 material input listing
+parameters,epcc,-0.002371,dimensionless,PUBLISHED SPECIMEN MATERIAL INPUT,https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf,Appendix B.3 material input listing
+parameters,Ec,37253.87119627273,MPa,PUBLISHED SPECIMEN MATERIAL INPUT,https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf,Appendix B.3 material input listing
+parameters,rc,15.0,dimensionless,PUBLISHED SPECIMEN MATERIAL INPUT,https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf,Appendix B.3 material input listing
+parameters,xcrn,1.022,dimensionless,PUBLISHED SPECIMEN MATERIAL INPUT,https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf,Appendix B.3 material input listing
+parameters,ft,2.3152457095313492,MPa,PUBLISHED SPECIMEN MATERIAL INPUT,https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf,Appendix B.3 material input listing
+parameters,et,8e-05,dimensionless,PUBLISHED SPECIMEN MATERIAL INPUT,https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf,Appendix B.3 material input listing
+parameters,rt,1.2,dimensionless,PUBLISHED SPECIMEN MATERIAL INPUT,https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf,Appendix B.3 material input listing
+parameters,xcrp,10000.0,dimensionless,PUBLISHED SPECIMEN MATERIAL INPUT,https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf,Appendix B.3 material input listing

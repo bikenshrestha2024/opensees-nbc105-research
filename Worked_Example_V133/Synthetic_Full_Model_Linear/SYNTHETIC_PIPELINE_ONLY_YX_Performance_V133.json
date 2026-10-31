@@ -1,0 +1,19 @@
+{
+  "case": "SYNTHETIC_PIPELINE_ONLY_YX",
+  "analysis": "linear",
+  "status": "completed",
+  "error": null,
+  "started_at": "2026-10-24T07:20:54.035+05:45",
+  "finished_at": "2026-10-24T07:21:20.308+05:45",
+  "elapsed_seconds": 26.27329639999516,
+  "stages_seconds": {
+    "model_and_gravity": 16.60093919999781,
+    "damping_eigenanalysis": 4.888378799994825,
+    "transient_with_recording": 4.410402800000156,
+    "case_exports_and_drift": 0.28463900000497233
+  },
+  "accepted_internal_steps": 9,
+  "recording_seconds": 0.001973199992789887,
+  "solver_diagnostics": {},
+  "scope": "Measured wall time on this machine; solve stages include native solver and Python call overhead. ETA is current-case extrapolation, not a nonlinear suite guarantee."
+}

@@ -1,0 +1,1 @@
+ops.uniaxialMaterial('ViscousDamper', 960001, 300000.0, 2226.502041932161, 0.3)

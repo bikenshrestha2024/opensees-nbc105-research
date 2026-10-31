@@ -1,0 +1,26 @@
+{
+  "parsed_python_sources": 130,
+  "mapped_modules_imported": 57,
+  "gravity_plot_canvas_px": [
+    1196,
+    705
+  ],
+  "comparison_GUI_built": true,
+  "exploratory_GUI_built": true,
+  "building_transient_trials": {
+    "XY": {
+      "duration_s": 0.05,
+      "requested_steps": 10,
+      "completed": true
+    },
+    "YX": {
+      "duration_s": 0.05,
+      "requested_steps": 10,
+      "completed": true
+    }
+  },
+  "building_walls_in_completed_trials": "ELASTIC",
+  "full_FSAM_building": "FAILED: five-fiber case at gravity factor0.25; unresolved",
+  "full_building_record_run": false,
+  "portable_history_geometry_checks": "passed"
+}

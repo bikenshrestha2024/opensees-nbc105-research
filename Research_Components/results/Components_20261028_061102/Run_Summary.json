@@ -1,0 +1,34 @@
+{
+  "Concrete01": {
+    "exit_code": 0,
+    "output": "C:\\Users\\User\\Documents\\Codex\\2026-10-20\\can\\outputs\\Outrigger_Research_Basis_V157\\results\\Components_20261028_061102\\Concrete01"
+  },
+  "Concrete02": {
+    "exit_code": 0,
+    "output": "C:\\Users\\User\\Documents\\Codex\\2026-10-20\\can\\outputs\\Outrigger_Research_Basis_V157\\results\\Components_20261028_061102\\Concrete02"
+  },
+  "ConcreteCM": {
+    "exit_code": 0,
+    "output": "C:\\Users\\User\\Documents\\Codex\\2026-10-20\\can\\outputs\\Outrigger_Research_Basis_V157\\results\\Components_20261028_061102\\ConcreteCM"
+  },
+  "Steel02": {
+    "exit_code": 0,
+    "output": "C:\\Users\\User\\Documents\\Codex\\2026-10-20\\can\\outputs\\Outrigger_Research_Basis_V157\\results\\Components_20261028_061102\\Steel02"
+  },
+  "SteelMPF": {
+    "exit_code": 0,
+    "output": "C:\\Users\\User\\Documents\\Codex\\2026-10-20\\can\\outputs\\Outrigger_Research_Basis_V157\\results\\Components_20261028_061102\\SteelMPF"
+  },
+  "FVD": {
+    "exit_code": 0,
+    "output": "C:\\Users\\User\\Documents\\Codex\\2026-10-20\\can\\outputs\\Outrigger_Research_Basis_V157\\results\\Components_20261028_061102\\FVD"
+  },
+  "BRB": {
+    "exit_code": 0,
+    "output": "C:\\Users\\User\\Documents\\Codex\\2026-10-20\\can\\outputs\\Outrigger_Research_Basis_V157\\results\\Components_20261028_061102\\BRB"
+  },
+  "SFI_MVLEM_3D": {
+    "exit_code": 0,
+    "output": "C:\\Users\\User\\Documents\\Codex\\2026-10-20\\can\\outputs\\Outrigger_Research_Basis_V157\\results\\Components_20261028_061102\\SFI_MVLEM_3D"
+  }
+}

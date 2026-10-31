@@ -1,0 +1,79 @@
+{
+  "storeys": 25,
+  "height_m": 95.0,
+  "geometry_basis": "User prior model; confirm active export and exact elevations",
+  "roof_cap_storey": 25,
+  "positions": [
+    3,
+    6,
+    9,
+    12,
+    15,
+    18,
+    21,
+    23,
+    24
+  ],
+  "configurations": {
+    "O": "conventional outrigger",
+    "O_B": "outrigger plus belt",
+    "O_B_C": "outrigger plus belt plus roof cap"
+  },
+  "devices": [
+    "RIGID",
+    "FVD",
+    "BRB"
+  ],
+  "pairs": 8,
+  "orientations": [
+    "XY",
+    "YX"
+  ],
+  "hazards": [
+    "ULS",
+    "SLS"
+  ],
+  "mass_rule": "Keep gravity and mass reference consistent; add actual device/truss physical weights once",
+  "objective": "Minimize governing state normalized paired-record mean peak edge drift; acceleration/residual drift/device demand reported separately",
+  "FVD_research_sizing": {
+    "Fref_kN_per_device": 1000.0,
+    "vref_m_s": 0.3,
+    "alpha": 0.3,
+    "Cd": 1435.0387341664473,
+    "K_kN_m": 100000.0,
+    "basis": "Hypothetical study budget, not manufacturer data or optimum"
+  },
+  "sensitivity": {
+    "concrete_cylinder_strength_MPa": [
+      21.0,
+      24.0,
+      30.0
+    ],
+    "steel_yield_MPa": [
+      500.0,
+      550.0
+    ],
+    "steel_b": [
+      0.005,
+      0.01,
+      0.02
+    ],
+    "background_damping_ratio": [
+      0.01,
+      0.02,
+      0.03
+    ],
+    "wall_web_reinforcement_ratio_scale": [
+      0.8,
+      1.0,
+      1.2
+    ],
+    "FSAM_friction": [
+      0.6,
+      0.8,
+      1.0
+    ],
+    "status": "Research sensitivity ranges; not statistical confidence limits"
+  },
+  "scope": "Planner only. Does not modify ETABS, transfer specimen bars, autoapprove production readiness, or launch full-building batch"
+}

@@ -1,0 +1,104 @@
+[WORKLOAD] 2 cases | 228 requested steps | integration bounds retained
+[SCOPE] PRELIMINARY setup check | pairs: SYNTHETIC_ONLY | each pair runs XY and YX
+[START] SYNTHETIC_ONLY_XY: rebuilding nonlinear model and preparing transient analysis
+[SYNTHETIC ONLY] No building calibration or design claim; stiffness case=SLS
+WARNING TwoNodeLink::setUp() - element: 1
+ignoring nodes and using specified local x vector to determine orientation
+[PROGRESS] SYNTHETIC_ONLY_XY: 5/114 steps, t=0.022s
+[PERFORMANCE] SYNTHETIC_ONLY_XY: 5/114 | 19968.05 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_XY: 10/114 steps, t=0.044s
+[PERFORMANCE] SYNTHETIC_ONLY_XY: 10/114 | 27151.78 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_XY: 15/114 steps, t=0.066s
+[PERFORMANCE] SYNTHETIC_ONLY_XY: 15/114 | 30223.65 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_XY: 20/114 steps, t=0.088s
+[PERFORMANCE] SYNTHETIC_ONLY_XY: 20/114 | 32113.04 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_XY: 25/114 steps, t=0.110s
+[PERFORMANCE] SYNTHETIC_ONLY_XY: 25/114 | 32291.40 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_XY: 30/114 steps, t=0.132s
+[PERFORMANCE] SYNTHETIC_ONLY_XY: 30/114 | 33285.25 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_XY: 35/114 steps, t=0.154s
+[PERFORMANCE] SYNTHETIC_ONLY_XY: 35/114 | 33251.00 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_XY: 40/114 steps, t=0.176s
+[PERFORMANCE] SYNTHETIC_ONLY_XY: 40/114 | 32967.94 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_XY: 45/114 steps, t=0.198s
+[PERFORMANCE] SYNTHETIC_ONLY_XY: 45/114 | 33667.51 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_XY: 50/114 steps, t=0.220s
+[PERFORMANCE] SYNTHETIC_ONLY_XY: 50/114 | 34069.23 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_XY: 55/114 steps, t=0.242s
+[PERFORMANCE] SYNTHETIC_ONLY_XY: 55/114 | 30827.87 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_XY: 60/114 steps, t=0.264s
+[PERFORMANCE] SYNTHETIC_ONLY_XY: 60/114 | 30742.43 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_XY: 65/114 steps, t=0.286s
+[PERFORMANCE] SYNTHETIC_ONLY_XY: 65/114 | 31385.80 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_XY: 70/114 steps, t=0.308s
+[PERFORMANCE] SYNTHETIC_ONLY_XY: 70/114 | 31818.18 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_XY: 75/114 steps, t=0.330s
+[PERFORMANCE] SYNTHETIC_ONLY_XY: 75/114 | 32198.51 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_XY: 80/114 steps, t=0.352s
+[PERFORMANCE] SYNTHETIC_ONLY_XY: 80/114 | 32754.67 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_XY: 85/114 steps, t=0.374s
+[PERFORMANCE] SYNTHETIC_ONLY_XY: 85/114 | 33226.49 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_XY: 90/114 steps, t=0.396s
+[PERFORMANCE] SYNTHETIC_ONLY_XY: 90/114 | 33692.72 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_XY: 95/114 steps, t=0.418s
+[PERFORMANCE] SYNTHETIC_ONLY_XY: 95/114 | 34069.72 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_XY: 100/114 steps, t=0.440s
+[PERFORMANCE] SYNTHETIC_ONLY_XY: 100/114 | 34387.90 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_XY: 105/114 steps, t=0.462s
+[PERFORMANCE] SYNTHETIC_ONLY_XY: 105/114 | 34705.01 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_XY: 110/114 steps, t=0.484s
+[PERFORMANCE] SYNTHETIC_ONLY_XY: 110/114 | 35031.85 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[CASE TIMING] SYNTHETIC_ONLY_XY | completed | elapsed=0.867s | stages={"model_and_gravity": 0.28752649999660207, "damping_eigenanalysis": 0.0005106000025989488, "transient_with_recording": 0.003235800002585165, "case_exports_and_drift": 0.5594170999975177}
+[OK] SYNTHETIC_ONLY_XY: steps=114, dt=0.0044s, peak drifts X/Y=0.00820572/0.0072222
+[START] SYNTHETIC_ONLY_YX: rebuilding nonlinear model and preparing transient analysis
+[SYNTHETIC ONLY] No building calibration or design claim; stiffness case=SLS
+WARNING TwoNodeLink::setUp() - element: 1
+ignoring nodes and using specified local x vector to determine orientation
+[PROGRESS] SYNTHETIC_ONLY_YX: 5/114 steps, t=0.022s
+[PERFORMANCE] SYNTHETIC_ONLY_YX: 5/114 | 27218.29 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_YX: 10/114 steps, t=0.044s
+[PERFORMANCE] SYNTHETIC_ONLY_YX: 10/114 | 33602.15 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_YX: 15/114 steps, t=0.066s
+[PERFORMANCE] SYNTHETIC_ONLY_YX: 15/114 | 36791.76 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_YX: 20/114 steps, t=0.088s
+[PERFORMANCE] SYNTHETIC_ONLY_YX: 20/114 | 37474.24 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_YX: 25/114 steps, t=0.110s
+[PERFORMANCE] SYNTHETIC_ONLY_YX: 25/114 | 37838.66 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_YX: 30/114 steps, t=0.132s
+[PERFORMANCE] SYNTHETIC_ONLY_YX: 30/114 | 38895.37 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_YX: 35/114 steps, t=0.154s
+[PERFORMANCE] SYNTHETIC_ONLY_YX: 35/114 | 39714.06 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_YX: 40/114 steps, t=0.176s
+[PERFORMANCE] SYNTHETIC_ONLY_YX: 40/114 | 40281.97 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_YX: 45/114 steps, t=0.198s
+[PERFORMANCE] SYNTHETIC_ONLY_YX: 45/114 | 40753.49 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_YX: 50/114 steps, t=0.220s
+[PERFORMANCE] SYNTHETIC_ONLY_YX: 50/114 | 41179.38 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_YX: 55/114 steps, t=0.242s
+[PERFORMANCE] SYNTHETIC_ONLY_YX: 55/114 | 41518.83 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_YX: 60/114 steps, t=0.264s
+[PERFORMANCE] SYNTHETIC_ONLY_YX: 60/114 | 41794.37 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_YX: 65/114 steps, t=0.286s
+[PERFORMANCE] SYNTHETIC_ONLY_YX: 65/114 | 40749.80 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_YX: 70/114 steps, t=0.308s
+[PERFORMANCE] SYNTHETIC_ONLY_YX: 70/114 | 38727.52 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_YX: 75/114 steps, t=0.330s
+[PERFORMANCE] SYNTHETIC_ONLY_YX: 75/114 | 38755.68 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_YX: 80/114 steps, t=0.352s
+[PERFORMANCE] SYNTHETIC_ONLY_YX: 80/114 | 38583.97 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_YX: 85/114 steps, t=0.374s
+[PERFORMANCE] SYNTHETIC_ONLY_YX: 85/114 | 38043.24 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_YX: 90/114 steps, t=0.396s
+[PERFORMANCE] SYNTHETIC_ONLY_YX: 90/114 | 38446.75 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_YX: 95/114 steps, t=0.418s
+[PERFORMANCE] SYNTHETIC_ONLY_YX: 95/114 | 38622.60 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_YX: 100/114 steps, t=0.440s
+[PERFORMANCE] SYNTHETIC_ONLY_YX: 100/114 | 38965.09 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_YX: 105/114 steps, t=0.462s
+[PERFORMANCE] SYNTHETIC_ONLY_YX: 105/114 | 39225.94 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[PROGRESS] SYNTHETIC_ONLY_YX: 110/114 steps, t=0.484s
+[PERFORMANCE] SYNTHETIC_ONLY_YX: 110/114 | 39457.64 requested steps/s | elapsed=0.0s | case ETA=0.0s
+[CASE TIMING] SYNTHETIC_ONLY_YX | completed | elapsed=0.149s | stages={"model_and_gravity": 0.002148800005670637, "damping_eigenanalysis": 6.0200000007171184e-05, "transient_with_recording": 0.002874399993743282, "case_exports_and_drift": 0.14136770000186516}
+[OK] SYNTHETIC_ONLY_YX: steps=114, dt=0.0044s, peak drifts X/Y=0.00756582/0.00780714
+[COMPLETE] 2 motion/orientation cases; elapsed=1.04s; output=C:\Users\User\Documents\Codex\2026-10-20\can\work\V133_Synthetic_Nonlinear_Pipeline
+[TIMING] Nonlinear time history | completed | elapsed=1.478 s | start=2026-10-24T07:14:22.031+05:45 | finish=2026-10-24T07:14:23.509+05:45

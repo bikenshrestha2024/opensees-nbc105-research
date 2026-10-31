@@ -1,0 +1,7 @@
+{
+  "release": 135,
+  "entry": "RUN_ETABS_TO_OPENSEES.py",
+  "new_module": "components/validation/design_checks.py",
+  "scope": "Evidence-aware checking dashboard; not a full reinforcement or nonlinear performance design engine",
+  "live_D_files_modified": false
+}

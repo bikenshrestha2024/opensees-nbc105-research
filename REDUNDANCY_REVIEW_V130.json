@@ -1,0 +1,24 @@
+{
+  "unreachable_blocks_removed": [
+    {
+      "file": "ETABS_to_OpenSeesPy_Section_Review_V116_NBC105_Area_NLTHA.py",
+      "function": "_open_fvd_brb_guide",
+      "removed_lines": 18
+    },
+    {
+      "file": "ETABS_to_OpenSeesPy_Section_Review_V116_NBC105_Area_NLTHA.py",
+      "function": "_open_material_values",
+      "removed_lines": 115
+    },
+    {
+      "file": "ETABS_to_OpenSeesPy_Section_Review_V116_NBC105_Area_NLTHA.py",
+      "function": "_open_section_mapping",
+      "removed_lines": 287
+    },
+    {
+      "file": "ETABS_to_OpenSeesPy_Section_Review_V116_NBC105_Area_NLTHA.py",
+      "function": "_open_load_audit_explanation",
+      "removed_lines": 13
+    }
+  ]
+}

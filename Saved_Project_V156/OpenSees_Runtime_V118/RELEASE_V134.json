@@ -1,0 +1,9 @@
+{
+  "release": 134,
+  "implementation_modules": 51,
+  "function_inventory": 530,
+  "entry": "RUN_ETABS_TO_OPENSEES.py",
+  "source_map": "SOURCE_CODE_MAP_V134.md",
+  "validation": "VALIDATION_V134.md",
+  "live_D_files_modified": false
+}

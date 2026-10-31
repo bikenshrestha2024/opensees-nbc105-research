@@ -1,0 +1,190 @@
+{
+  "status": "completed",
+  "model_script": "C:\\Users\\User\\Documents\\Codex\\2026-10-20\\can\\work\\V133_Project_Check\\OpenSees_Complete_Linear_Model.py",
+  "limit_state": "ULS",
+  "stories": [
+    {
+      "story_number": 1,
+      "story_name": "Storey_1",
+      "node": 7041,
+      "elevation": 3.8,
+      "height": 3.8
+    },
+    {
+      "story_number": 2,
+      "story_name": "Storey_2",
+      "node": 7042,
+      "elevation": 7.6,
+      "height": 3.8
+    },
+    {
+      "story_number": 3,
+      "story_name": "Storey_3",
+      "node": 7043,
+      "elevation": 11.399999999999999,
+      "height": 3.799999999999999
+    },
+    {
+      "story_number": 4,
+      "story_name": "Storey_4",
+      "node": 7044,
+      "elevation": 15.2,
+      "height": 3.8000000000000007
+    },
+    {
+      "story_number": 5,
+      "story_name": "Storey_5",
+      "node": 7045,
+      "elevation": 18.999999999999996,
+      "height": 3.799999999999997
+    },
+    {
+      "story_number": 6,
+      "story_name": "Storey_6",
+      "node": 7046,
+      "elevation": 22.799999999999997,
+      "height": 3.8000000000000007
+    },
+    {
+      "story_number": 7,
+      "story_name": "Storey_7",
+      "node": 7047,
+      "elevation": 26.599999999999998,
+      "height": 3.8000000000000007
+    },
+    {
+      "story_number": 8,
+      "story_name": "Storey_8",
+      "node": 7048,
+      "elevation": 30.4,
+      "height": 3.8000000000000007
+    },
+    {
+      "story_number": 9,
+      "story_name": "Storey_9",
+      "node": 7049,
+      "elevation": 34.199999999999996,
+      "height": 3.799999999999997
+    },
+    {
+      "story_number": 10,
+      "story_name": "Storey_10",
+      "node": 7050,
+      "elevation": 37.99999999999999,
+      "height": 3.799999999999997
+    },
+    {
+      "story_number": 11,
+      "story_name": "Storey_11",
+      "node": 7051,
+      "elevation": 41.79999999999999,
+      "height": 3.799999999999997
+    },
+    {
+      "story_number": 12,
+      "story_name": "Storey_12",
+      "node": 7052,
+      "elevation": 45.599999999999994,
+      "height": 3.8000000000000043
+    },
+    {
+      "story_number": 13,
+      "story_name": "Storey_13",
+      "node": 7053,
+      "elevation": 49.39999999999999,
+      "height": 3.799999999999997
+    },
+    {
+      "story_number": 14,
+      "story_name": "Storey_14",
+      "node": 7054,
+      "elevation": 53.199999999999996,
+      "height": 3.8000000000000043
+    },
+    {
+      "story_number": 15,
+      "story_name": "Storey_15",
+      "node": 7055,
+      "elevation": 56.99999999999999,
+      "height": 3.799999999999997
+    },
+    {
+      "story_number": 16,
+      "story_name": "Storey_16",
+      "node": 7056,
+      "elevation": 60.8,
+      "height": 3.8000000000000043
+    },
+    {
+      "story_number": 17,
+      "story_name": "Storey_17",
+      "node": 7057,
+      "elevation": 64.6,
+      "height": 3.799999999999997
+    },
+    {
+      "story_number": 18,
+      "story_name": "Storey_18",
+      "node": 7058,
+      "elevation": 68.39999999999999,
+      "height": 3.799999999999997
+    },
+    {
+      "story_number": 19,
+      "story_name": "Storey_19",
+      "node": 7059,
+      "elevation": 72.19999999999999,
+      "height": 3.799999999999997
+    },
+    {
+      "story_number": 20,
+      "story_name": "Storey_20",
+      "node": 7060,
+      "elevation": 75.99999999999999,
+      "height": 3.799999999999997
+    },
+    {
+      "story_number": 21,
+      "story_name": "Storey_21",
+      "node": 7061,
+      "elevation": 79.79999999999998,
+      "height": 3.799999999999997
+    },
+    {
+      "story_number": 22,
+      "story_name": "Storey_22",
+      "node": 7062,
+      "elevation": 83.59999999999998,
+      "height": 3.799999999999997
+    },
+    {
+      "story_number": 23,
+      "story_name": "Storey_23",
+      "node": 7063,
+      "elevation": 87.39999999999999,
+      "height": 3.8000000000000114
+    },
+    {
+      "story_number": 24,
+      "story_name": "Storey_24",
+      "node": 7064,
+      "elevation": 91.19999999999999,
+      "height": 3.799999999999997
+    },
+    {
+      "story_number": 25,
+      "story_name": "Storey_25",
+      "node": 7065,
+      "elevation": 94.99999999999999,
+      "height": 3.799999999999997
+    }
+  ],
+  "model_data_sha256": "a56dac47f9fce6ce614c3e9d72429b5ac4d698558b06def293808c818bd3be0c",
+  "displacement_reference": "Gravity-preloaded baseline subtracted",
+  "sample_scope": "All accepted adaptive substeps for nonlinear; every accepted step for linear",
+  "units": {
+    "translation": "m",
+    "rotation": "rad",
+    "time": "s"
+  }
+}

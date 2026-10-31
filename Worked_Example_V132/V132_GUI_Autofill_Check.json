@@ -1,0 +1,45 @@
+{
+  "LinearTimeHistoryGUI": {
+    "model": "C:\\Users\\User\\Documents\\Codex\\2026-10-20\\can\\work\\V132_Project_Check\\OpenSees_Complete_Linear_Model.py",
+    "python": "D:\\condaenvs\\etabs_env312\\python.exe",
+    "output": "C:\\Users\\User\\Documents\\Codex\\2026-10-20\\can\\work\\V132_Project_Check\\OpenSees_Analysis_Results",
+    "stories": "C:\\Users\\User\\Documents\\Codex\\2026-10-20\\can\\work\\V132_Project_Check\\OpenSees_Complete_Story_Masters_V118.csv",
+    "t1x": "2.03856740011866",
+    "t1y": "1.921979776706312",
+    "tnx": "0.14612924237108904",
+    "tny": "0.16714542143206584",
+    "p1": "1.5573775010175028",
+    "p2": "0.07356591166660352"
+  },
+  "NonlinearTimeHistoryGUI": {
+    "model": "C:\\Users\\User\\Documents\\Codex\\2026-10-20\\can\\work\\V132_Project_Check\\OpenSees_Complete_Nonlinear_Model.py",
+    "python": "D:\\condaenvs\\etabs_env312\\python.exe",
+    "output": "C:\\Users\\User\\Documents\\Codex\\2026-10-20\\can\\work\\V132_Project_Check\\OpenSees_Analysis_Results",
+    "stories": "C:\\Users\\User\\Documents\\Codex\\2026-10-20\\can\\work\\V132_Project_Check\\OpenSees_Complete_Story_Masters_V118.csv",
+    "t1x": "2.03856740011866",
+    "t1y": "1.921979776706312",
+    "tnx": "0.14612924237108904",
+    "tny": "0.16714542143206584",
+    "p1": "1.5573775010175028",
+    "p2": "0.07356591166660352"
+  },
+  "gravity": {
+    "model": "C:\\Users\\User\\Documents\\Codex\\2026-10-20\\can\\work\\V132_Project_Check\\OpenSees_Complete_Gravity_Model.py",
+    "applied_load": "286447.79"
+  },
+  "modal": {
+    "model": "C:\\Users\\User\\Documents\\Codex\\2026-10-20\\can\\work\\V132_Project_Check\\OpenSees_Complete_Linear_Model.py",
+    "H": "94.99999999999999",
+    "AwX": "1.9582936288088642",
+    "AwY": "2.2030803324099724"
+  },
+  "site_spectra": {
+    "soil": "C",
+    "z": "0.35",
+    "imp": "1",
+    "rmu": "3.5",
+    "omega": "1.4",
+    "t1x": "2.03856740011866",
+    "t1y": "1.921979776706312"
+  }
+}

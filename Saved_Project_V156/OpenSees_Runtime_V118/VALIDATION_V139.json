@@ -1,0 +1,7 @@
+{
+  "python_syntax": "pass",
+  "area_object_mock_success_and_error": "pass",
+  "modal_both_mock_orchestration": "pass",
+  "live_etabs_export": "not_run",
+  "new_numerical_analyses": "not_run"
+}

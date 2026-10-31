@@ -1,0 +1,180 @@
+{
+  "model": "SFI_MVLEM_3D",
+  "parameters": {
+    "width_m": 1.2,
+    "height_m": 0.3,
+    "thickness_m": 0.15,
+    "fibers": 5,
+    "axial_kN": 60.0,
+    "rho_x": 0.0074,
+    "rho_y": 0.0074,
+    "nu": 0.25,
+    "CoR": 0.4,
+    "ThickMod": 0.63,
+    "steel_Fy_MPa": 402.7248419211519,
+    "steel_E_MPa": 199947.96150188247,
+    "concrete_fc_MPa": -55.778586501732036
+  },
+  "parameter_basis": "PUBLISHED MATERIAL / ASSUMED PATCH | Only web constitutive values and ratios come from PEER. 1.2 x .3 x .15 m patch, 60 kN axial force and cyclic protocol are numerical choices; neither RW wall nor SD-06 experiment reproduced. No actual core openings/corners.",
+  "specimen_id": "PEER web material + E-SFI numerical patch",
+  "citation": "Appendix B.3 web materials; E-SFI formulation Kolozvari et al. (2023)",
+  "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+  "protocol_csv": "",
+  "measured_csv": "",
+  "fit_bounds": {},
+  "train_fraction": 0.75,
+  "scope": "Ordered same-specimen fit is not independent validation or project design approval",
+  "wall_formulation": "E_SFI_MVLEM_3D",
+  "targets": [
+    1e-05,
+    -1e-05,
+    0.0001,
+    -0.0001,
+    0.0
+  ],
+  "samples_per_leg": 30,
+  "dt_s": 0.005,
+  "wall_concrete": {
+    "fpcc": -55.778586501732036,
+    "epcc": -0.002371,
+    "Ec": 37253.87119627273,
+    "rc": 15.0,
+    "xcrn": 1.022,
+    "ft": 2.3152457095313492,
+    "et": 8e-05,
+    "rt": 1.2,
+    "xcrp": 10000.0
+  },
+  "wall_steel": {
+    "fyp": 402.7248419211519,
+    "fyn": 402.7248419211519,
+    "E0": 199947.96150188247,
+    "bp": 0.02,
+    "bn": 0.02,
+    "R0": 20.0,
+    "cR1": 18.5,
+    "cR2": 0.0015,
+    "a1": 0.0,
+    "a2": 1.0,
+    "a3": 0.0,
+    "a4": 1.0
+  },
+  "fsam": {
+    "nu": 0.8,
+    "alpha": 0.01
+  },
+  "boundary_scope": "Base fixed; top out-of-plane and torsional DOFs restrained; equal top UX. Numerical planar patch, not a nonplanar core specimen. Reinforcement ratios and 1.2m x 0.3m geometry are PATCH ASSUMPTIONS only, not the building.",
+  "sources": {
+    "Mander_theory_1988": "https://doi.org/10.1061/(ASCE)0733-9445(1988)114:8(1804)",
+    "Mander_experiment_1988": "https://doi.org/10.1061/(ASCE)0733-9445(1988)114:8(1827)",
+    "Concrete02": "https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete02.html",
+    "ConcreteCM": "https://openseespydoc.readthedocs.io/en/latest/src/ConcreteCM.html",
+    "Steel02": "https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html",
+    "SteelMPF": "https://openseespydoc.readthedocs.io/en/latest/src/SteelMPF.html",
+    "FSAM": "https://openseespydoc.readthedocs.io/en/latest/src/FSAM.html",
+    "E_SFI_2023": "https://doi.org/10.1016/j.engstruct.2023.116700",
+    "E_SFI_authors": "https://kkolozvari.github.io/E-SFI-MVLEM-3D/",
+    "PEER_2015": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+    "FVD": "https://opensees.berkeley.edu/wiki/index.php?title=ViscousDamper_Material",
+    "BRB": "https://peer.berkeley.edu/publications/2002-08",
+    "Outrigger_optimization_2021": "https://doi.org/10.1016/j.engstruct.2021.112868",
+    "Outrigger_2010": "https://doi.org/10.1061/(ASCE)ST.1943-541X.0000247",
+    "NBC2025": "https://ebps.kathmandu.gov.np/UploadFiles/NBC_105_2025_Sesmic_Design.pdf",
+    "Diaphragm": "https://opensees.berkeley.edu/wiki/index.php/Modeling_Diaphragms_in_2D_Models_with_Linear_and_Nonlinear_Elements%2C_Oct_2011"
+  },
+  "project_transfer_approved": false,
+  "profile_id": "PEER_Web_ESFI_Patch",
+  "provenance": {
+    "width_m": {
+      "value": 1.2,
+      "unit": "m",
+      "basis": "ASSUMED NUMERICAL PATCH",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+      "locator": "OR157 patch definition; not specimen geometry"
+    },
+    "height_m": {
+      "value": 0.3,
+      "unit": "m",
+      "basis": "ASSUMED NUMERICAL PATCH",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+      "locator": "OR157 patch definition; not specimen geometry"
+    },
+    "thickness_m": {
+      "value": 0.15,
+      "unit": "m",
+      "basis": "ASSUMED NUMERICAL PATCH",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+      "locator": "OR157 patch definition; not specimen geometry"
+    },
+    "fibers": {
+      "value": 5,
+      "unit": "dimensionless",
+      "basis": "ASSUMED NUMERICAL PATCH",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+      "locator": "OR157 patch definition; not specimen geometry"
+    },
+    "axial_kN": {
+      "value": 60.0,
+      "unit": "kN",
+      "basis": "ASSUMED NUMERICAL PATCH",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+      "locator": "OR157 patch definition; not specimen geometry"
+    },
+    "rho_x": {
+      "value": 0.0074,
+      "unit": "dimensionless",
+      "basis": "PUBLISHED MATERIAL / ASSUMED PATCH",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+      "locator": "Appendix B.3 web materials; E-SFI formulation Kolozvari et al. (2023)"
+    },
+    "rho_y": {
+      "value": 0.0074,
+      "unit": "dimensionless",
+      "basis": "PUBLISHED MATERIAL / ASSUMED PATCH",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+      "locator": "Appendix B.3 web materials; E-SFI formulation Kolozvari et al. (2023)"
+    },
+    "nu": {
+      "value": 0.25,
+      "unit": "dimensionless",
+      "basis": "PUBLISHED MATERIAL / ASSUMED PATCH",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+      "locator": "Appendix B.3 web materials; E-SFI formulation Kolozvari et al. (2023)"
+    },
+    "CoR": {
+      "value": 0.4,
+      "unit": "dimensionless",
+      "basis": "PUBLISHED MATERIAL / ASSUMED PATCH",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+      "locator": "Appendix B.3 web materials; E-SFI formulation Kolozvari et al. (2023)"
+    },
+    "ThickMod": {
+      "value": 0.63,
+      "unit": "dimensionless",
+      "basis": "PUBLISHED MATERIAL / ASSUMED PATCH",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+      "locator": "Appendix B.3 web materials; E-SFI formulation Kolozvari et al. (2023)"
+    },
+    "steel_Fy_MPa": {
+      "value": 402.7248419211519,
+      "unit": "MPa",
+      "basis": "PUBLISHED MATERIAL / ASSUMED PATCH",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+      "locator": "Appendix B.3 web materials; E-SFI formulation Kolozvari et al. (2023)"
+    },
+    "steel_E_MPa": {
+      "value": 199947.96150188247,
+      "unit": "MPa",
+      "basis": "PUBLISHED MATERIAL / ASSUMED PATCH",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+      "locator": "Appendix B.3 web materials; E-SFI formulation Kolozvari et al. (2023)"
+    },
+    "concrete_fc_MPa": {
+      "value": -55.778586501732036,
+      "unit": "MPa",
+      "basis": "PUBLISHED MATERIAL / ASSUMED PATCH",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+      "locator": "Appendix B.3 web materials; E-SFI formulation Kolozvari et al. (2023)"
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "input": {
+    "model": "Concrete01",
+    "parameters": {
+      "fpc_MPa": -34.473786465841805,
+      "epsc0": -0.002,
+      "fpcu_MPa": 0.0,
+      "epsU": -0.006
+    },
+    "parameter_basis": "DIRECT PUBLISHED NUMERICAL EXAMPLE | No confinement; not an M30 specimen or experimental fit.",
+    "specimen_id": "OpenSees primer: unconfined cover",
+    "citation": "Example 3.1 RC frame gravity; cover material tag 2",
+    "source": "https://opensees.berkeley.edu/OpenSees/OpenSeesExamples1.1.pdf",
+    "protocol_csv": "",
+    "measured_csv": "",
+    "fit_bounds": {},
+    "train_fraction": 0.75,
+    "scope": "Ordered same-specimen fit is not independent validation or project design approval",
+    "wall_formulation": "SFI_MVLEM_3D",
+    "targets": [
+      -0.0005,
+      0.0,
+      -0.001,
+      0.0,
+      -0.002,
+      0.0,
+      -0.004,
+      0.0,
+      -0.006,
+      0.0,
+      0.001
+    ],
+    "samples_per_leg": 30,
+    "dt_s": 0.005,
+    "profile_id": "Official_Concrete01",
+    "project_transfer_approved": false,
+    "provenance": {
+      "fpc_MPa": {
+        "value": -34.473786465841805,
+        "unit": "MPa",
+        "basis": "DIRECT PUBLISHED NUMERICAL EXAMPLE",
+        "source": "https://opensees.berkeley.edu/OpenSees/OpenSeesExamples1.1.pdf",
+        "locator": "Example 3.1 RC frame gravity; cover material tag 2"
+      },
+      "epsc0": {
+        "value": -0.002,
+        "unit": "dimensionless",
+        "basis": "DIRECT PUBLISHED NUMERICAL EXAMPLE",
+        "source": "https://opensees.berkeley.edu/OpenSees/OpenSeesExamples1.1.pdf",
+        "locator": "Example 3.1 RC frame gravity; cover material tag 2"
+      },
+      "fpcu_MPa": {
+        "value": 0.0,
+        "unit": "MPa",
+        "basis": "DIRECT PUBLISHED NUMERICAL EXAMPLE",
+        "source": "https://opensees.berkeley.edu/OpenSees/OpenSeesExamples1.1.pdf",
+        "locator": "Example 3.1 RC frame gravity; cover material tag 2"
+      },
+      "epsU": {
+        "value": -0.006,
+        "unit": "dimensionless",
+        "basis": "DIRECT PUBLISHED NUMERICAL EXAMPLE",
+        "source": "https://opensees.berkeley.edu/OpenSees/OpenSeesExamples1.1.pdf",
+        "locator": "Example 3.1 RC frame gravity; cover material tag 2"
+      }
+    },
+    "source_native_values": {
+      "fpc_ksi": -5,
+      "epsc0": -0.002,
+      "fpcu_ksi": 0,
+      "epsU": -0.006,
+      "ksi_to_MPa": 6.894757293168361
+    },
+    "_output": "C:\\Users\\User\\Documents\\Codex\\2026-10-20\\can\\outputs\\OpenSees_NBC105_V159\\Verification_V159\\Official_Concrete01"
+  },
+  "optimizer": {},
+  "metrics": {},
+  "status": "NUMERICAL_PARAMETER_STUDY",
+  "elapsed_s": 0.7211710999836214,
+  "finished_at": "2026-10-28T06:45:42.113742+05:45",
+  "project_transfer_approved": false
+}

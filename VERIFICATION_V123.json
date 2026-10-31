@@ -1,0 +1,20 @@
+{
+  "version": 123,
+  "regression_checks_passed": 14,
+  "syntax": "All root Python modules parsed",
+  "gui": "ESM, gravity, modal, linear TH and nonlinear TH constructors exercised; ESM at Tk scaling 2.0",
+  "workbook_import": "Current seven wall bays reproduce supplied Aw; formula blanks and ambiguous B16/B17 not accepted as modal/Rayleigh results",
+  "gravity_output": "Existing successful result regenerated as 10 figure tabs/21 PNG-PDF files and an Excel workbook with support provenance",
+  "active_story_weight_kN": 284524.34455573093,
+  "mass_ledger_difference_percent": 4.909892206603754e-13,
+  "Rayleigh_X_s": 2.5653944515918683,
+  "Rayleigh_Y_s": 3.6399185887227814,
+  "generated_runner": "Actual run reaches missing signed P-Delta evidence gate; no ModuleNotFoundError",
+  "remaining": [
+    "Live ETABS COM attachment not validated in this run",
+    "Cross-program ETABS equivalence",
+    "Four signed initial P-Delta analyses",
+    "Applicable high-rise MRSM checks",
+    "Calibrated whole-building nonlinear/device scenarios and NLTHA"
+  ]
+}

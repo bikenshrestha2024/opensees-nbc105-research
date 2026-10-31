@@ -1,0 +1,7 @@
+{
+  "sparse_vs_native_relative_error": 3.4516295805315374e-16,
+  "esm_hand_case_ULS_kN": 40.00000000000001,
+  "esm_hand_case_SLS_kN": 32.66666666666667,
+  "spectrum_boundary_checks": 12,
+  "scope": "Targeted equation and solver verification; not whole-building compliance certification"
+}

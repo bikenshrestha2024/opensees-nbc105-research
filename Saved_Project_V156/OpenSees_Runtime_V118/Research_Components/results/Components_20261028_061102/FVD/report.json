@@ -1,0 +1,61 @@
+{
+  "input": {
+    "model": "FVD",
+    "parameters": {
+      "K_kN_m": 300000.0,
+      "Cd": 2226.502041932161,
+      "alpha": 0.3
+    },
+    "parameter_basis": "Official OpenSees example-device card: K300kN/mm, Cd280.3kN(s/mm)^0.3; converted to metre basis. Component verification only; not building sizing.",
+    "specimen_id": "M30_Fe500_NOMINAL_RESEARCH_BASELINE_NOT_EXPERIMENT",
+    "citation": "See 02_MODELLING_BASIS.md and Parameter_Register.csv; source supports formulation, not experimental verification of all selected numbers",
+    "source": "https://openseespydoc.readthedocs.io/en/latest/src/ViscousDamper.html",
+    "protocol_csv": "",
+    "measured_csv": "",
+    "fit_bounds": {},
+    "train_fraction": 0.75,
+    "scope": "Ordered same-specimen fit is not independent validation or project design approval",
+    "wall_formulation": "SFI_MVLEM_3D",
+    "targets": [
+      -0.0005,
+      0.0,
+      -0.001,
+      0.0,
+      -0.002,
+      0.0,
+      -0.004,
+      0.0,
+      -0.006,
+      0.0,
+      0.001
+    ],
+    "samples_per_leg": 30,
+    "dt_s": 0.005,
+    "sources": {
+      "Mander_theory_1988": "https://doi.org/10.1061/(ASCE)0733-9445(1988)114:8(1804)",
+      "Mander_experiment_1988": "https://doi.org/10.1061/(ASCE)0733-9445(1988)114:8(1827)",
+      "Concrete02": "https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete02.html",
+      "ConcreteCM": "https://openseespydoc.readthedocs.io/en/latest/src/ConcreteCM.html",
+      "Steel02": "https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html",
+      "SteelMPF": "https://openseespydoc.readthedocs.io/en/latest/src/SteelMPF.html",
+      "FSAM": "https://openseespydoc.readthedocs.io/en/latest/src/FSAM.html",
+      "E_SFI_2023": "https://doi.org/10.1016/j.engstruct.2023.116700",
+      "E_SFI_authors": "https://kkolozvari.github.io/E-SFI-MVLEM-3D/",
+      "PEER_2015": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+      "FVD": "https://opensees.berkeley.edu/wiki/index.php?title=ViscousDamper_Material",
+      "BRB": "https://peer.berkeley.edu/publications/2002-08",
+      "Outrigger_optimization_2021": "https://doi.org/10.1016/j.engstruct.2021.112868",
+      "Outrigger_2010": "https://doi.org/10.1061/(ASCE)ST.1943-541X.0000247",
+      "NBC2025": "https://ebps.kathmandu.gov.np/UploadFiles/NBC_105_2025_Sesmic_Design.pdf",
+      "Diaphragm": "https://opensees.berkeley.edu/wiki/index.php/Modeling_Diaphragms_in_2D_Models_with_Linear_and_Nonlinear_Elements%2C_Oct_2011"
+    },
+    "project_transfer_approved": false,
+    "_output": "C:\\Users\\User\\Documents\\Codex\\2026-10-20\\can\\outputs\\Outrigger_Research_Basis_V157\\results\\Components_20261028_061102\\FVD"
+  },
+  "optimizer": {},
+  "metrics": {},
+  "status": "NUMERICAL_PARAMETER_STUDY",
+  "elapsed_s": 0.8600519000028726,
+  "finished_at": "2026-10-28T06:11:11.594315+05:45",
+  "project_transfer_approved": false
+}

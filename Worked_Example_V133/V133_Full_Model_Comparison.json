@@ -1,0 +1,58 @@
+[
+  {
+    "case": "SYNTHETIC_PIPELINE_ONLY_XY",
+    "quantity": "peak_roof_UX_m",
+    "V132": 1.2736341367826637e-05,
+    "V133": 1.2736341367826621e-05,
+    "absolute_difference": 1.5246593050577406e-20
+  },
+  {
+    "case": "SYNTHETIC_PIPELINE_ONLY_XY",
+    "quantity": "peak_roof_UY_m",
+    "V132": 3.1823938534511495e-06,
+    "V133": 3.1823938534511474e-06,
+    "absolute_difference": 2.117582368135751e-21
+  },
+  {
+    "case": "SYNTHETIC_PIPELINE_ONLY_XY",
+    "quantity": "peak_story_drift_X",
+    "V132": 6.474747542560405e-07,
+    "V133": 6.474747542560405e-07,
+    "absolute_difference": 0.0
+  },
+  {
+    "case": "SYNTHETIC_PIPELINE_ONLY_XY",
+    "quantity": "peak_story_drift_Y",
+    "V132": 1.852175475965686e-07,
+    "V133": 1.852175475965686e-07,
+    "absolute_difference": 0.0
+  },
+  {
+    "case": "SYNTHETIC_PIPELINE_ONLY_YX",
+    "quantity": "peak_roof_UX_m",
+    "V132": 3.1823201273648733e-06,
+    "V133": 3.18232012736487e-06,
+    "absolute_difference": 3.3881317890172014e-21
+  },
+  {
+    "case": "SYNTHETIC_PIPELINE_ONLY_YX",
+    "quantity": "peak_roof_UY_m",
+    "V132": 1.2737971324036879e-05,
+    "V133": 1.273797132403687e-05,
+    "absolute_difference": 8.470329472543003e-21
+  },
+  {
+    "case": "SYNTHETIC_PIPELINE_ONLY_YX",
+    "quantity": "peak_story_drift_X",
+    "V132": 1.9073042523484194e-07,
+    "V133": 1.9073042523484194e-07,
+    "absolute_difference": 0.0
+  },
+  {
+    "case": "SYNTHETIC_PIPELINE_ONLY_YX",
+    "quantity": "peak_story_drift_Y",
+    "V132": 6.306412155168909e-07,
+    "V133": 6.306412155168909e-07,
+    "absolute_difference": 0.0
+  }
+]

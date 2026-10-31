@@ -1,0 +1,39 @@
+[GRAVITY PROFILE] {"profile": "AS_CONFIGURED", "factors": {"Self Weight": 1.0, "Dead": 1.0, "DL": 1.0, "Super Dead": 1.0, "SDead": 1.0, "Floor Finish": 1.0, "Wall": 1.0, "Partition": 1.0, "Live": 0.3, "Roof Live": 0.0}, "scope": "Configured gravity preload, separate from mass_factors. NBC 8.1.1.2 / 9.3.1.2 refer TH gravity to 5.2; this is not the 1.2D+1.5L gravity strength combination. Review occupancy, roof and selected analysis purpose."}
+[RESEARCH MATERIALS] PUBLISHED_REFERENCE | nonlinear frames AND E_SFI_MVLEM_3D walls | material assignment exported
+[GRAVITY PROGRESS] factor=0.050000/1; accepted=1; recoveries=0; wall=14.5s
+[GRAVITY PROGRESS] factor=0.100000/1; accepted=2; recoveries=0; wall=20.6s
+[GRAVITY PROGRESS] factor=0.150000/1; accepted=3; recoveries=0; wall=26.9s
+[GRAVITY PROGRESS] factor=0.200000/1; accepted=4; recoveries=0; wall=33.3s
+[GRAVITY PROGRESS] factor=0.250000/1; accepted=5; recoveries=0; wall=40.0s
+[GRAVITY PROGRESS] factor=0.300000/1; accepted=6; recoveries=0; wall=46.6s
+[GRAVITY PROGRESS] factor=0.350000/1; accepted=7; recoveries=0; wall=53.0s
+[GRAVITY PROGRESS] factor=0.400000/1; accepted=8; recoveries=0; wall=59.4s
+[GRAVITY PROGRESS] factor=0.450000/1; accepted=9; recoveries=0; wall=65.6s
+[GRAVITY PROGRESS] factor=0.500000/1; accepted=10; recoveries=0; wall=71.9s
+[GRAVITY PROGRESS] factor=0.550000/1; accepted=11; recoveries=0; wall=78.1s
+[GRAVITY PROGRESS] factor=0.600000/1; accepted=12; recoveries=0; wall=86.3s
+[GRAVITY PROGRESS] factor=0.650000/1; accepted=13; recoveries=0; wall=94.8s
+[GRAVITY PROGRESS] factor=0.700000/1; accepted=14; recoveries=0; wall=103.2s
+[GRAVITY PROGRESS] factor=0.750000/1; accepted=15; recoveries=0; wall=111.4s
+[GRAVITY PROGRESS] factor=0.800000/1; accepted=16; recoveries=0; wall=119.6s
+[GRAVITY PROGRESS] factor=0.850000/1; accepted=17; recoveries=0; wall=127.7s
+[GRAVITY PROGRESS] factor=0.900000/1; accepted=18; recoveries=0; wall=135.8s
+[GRAVITY PROGRESS] factor=0.950000/1; accepted=19; recoveries=0; wall=143.8s
+[GRAVITY PROGRESS] factor=1.000000/1; accepted=20; recoveries=0; wall=152.4s
+[GRAVITY STEPS] accepted=20 recovery_attempts=0
+[GRAVITY] PASS | steps=20 | applied=286447.788933 kN | support reactions=286447.788932 kN | equilibrium error=6.29001e-10% | max downward Uz=-0.01634202890701878 m | frozen=True | elapsed=152.486 s
+[TIMING] Model construction and optional gravity preload | completed | elapsed=154.754 s | start=2026-10-30T07:56:03.444+05:45 | finish=2026-10-30T07:58:38.198+05:45
+[DIAGNOSTIC] running eigenanalysis before transient
+[EIGEN START] solver=PythonSparse modes=20 nodes=11097 elements=14262
+[EIGEN SPARSE] equations=37650 nonzeros=1767528 modes=20; sparse shift-invert factorization
+[EIGEN FACTORIZED] elapsed=1.604s; solving 20 modes
+[EIGEN COMPLETE] sparse solve=9.023s max relative residual=4.09e-07
+[EIGEN RETURN] elapsed=10.465s modes=20
+[DIAGNOSTIC INPUT] 1 4095 0.01 g 9.80665
+[DIAGNOSTIC INPUT] 2 4095 0.01 g 9.80665
+[DIAGNOSTIC] motion=True, zero damping, eigenanalysis=True; attempting one 0.005 s step
+WARNING: numeric analysis returns 1 -- Umfpackgenlinsolver::solve
+WARNING NewtonRaphson::solveCurrentStep() -the LinearSysOfEqn failed in solve()
+DirectIntegrationAnalysis::analyze() - the Algorithm failed at time 0.005
+OpenSees > analyze failed, returned: -3 error flag
+[DIAGNOSTIC RESULT] {"return_code": -3, "time_s": 0.0, "elapsed_s": 6.454557600023691}

@@ -1,0 +1,447 @@
+{
+  "standard": "NBC 105:2025",
+  "analysis": "Elastic linear time history",
+  "input_mode": "PAIRED_3D",
+  "directional_scope": "1 selected orthogonal 3D pairs; XY and YX orientations",
+  "record_metadata": {
+    "site_soil": "C",
+    "period_range_s": [
+      0.05,
+      6.0
+    ],
+    "record_set": "Near- and far-field orthogonal pairs; both horizontal components matched in SeismoMatch; user-provided"
+  },
+  "model_length_unit": "m",
+  "model_acceleration_unit": "m/s2",
+  "clauses": [
+    "3.2.3",
+    "8.1.1",
+    "8.1.2",
+    "8.1.3",
+    "9.3.2",
+    "9.3.3"
+  ],
+  "model_script": "D:\\Thesis Opensees\\Etabs Nodes Export\\OpenSees_Complete_Linear_Model.py",
+  "limit_state_context": "ULS",
+  "torsion_sensitive": true,
+  "record_pairs": 1,
+  "individual_record_count": 1,
+  "motion_case_count": 2,
+  "pair_aggregation_guidance": "For each orthogonal pair, the two required swapped-orientation analyses are enveloped by taking the larger peak demand for each response quantity. NBC \u00a78.1.3 then selects maximum for fewer than 7 pairs or arithmetic mean for more than 7 pairs. The supplied combined suite has 8 pairs; near-field (6) and far-field (2) subgroup statistics are reported separately for comparison. Exactly 7 is left flagged because the clause wording does not specify it.",
+  "response_aggregation_by_record_set": {
+    "all_selected_pairs": {
+      "set": "all selected records",
+      "pair_count": 1,
+      "statistic": "maximum of pair-level orientation envelopes (fewer than 7 pairs)",
+      "response_demands": {
+        "peak_roof_UX_m": 0.2765615244228714,
+        "peak_roof_UY_m": 0.3775256012844779,
+        "peak_story_drift_X": 0.003688177737322088,
+        "peak_story_drift_Y": 0.005209049339473194,
+        "drift_screen_X": "PASS",
+        "drift_screen_Y": "PASS"
+      }
+    },
+    "far_field_subset": {
+      "set": "Far-field",
+      "pair_count": 1,
+      "statistic": "maximum of pair-level orientation envelopes (fewer than 7 pairs)",
+      "response_demands": {
+        "peak_roof_UX_m": 0.2765615244228714,
+        "peak_roof_UY_m": 0.3775256012844779,
+        "peak_story_drift_X": 0.003688177737322088,
+        "peak_story_drift_Y": 0.005209049339473194,
+        "drift_screen_X": "PASS",
+        "drift_screen_Y": "PASS"
+      }
+    }
+  },
+  "pair_level_orientation_envelopes": [
+    {
+      "pair_id": "RSN767_LOMAP",
+      "field_type": "Far-field",
+      "orientations_included": [
+        "XY",
+        "YX"
+      ],
+      "peak_roof_UX_m": 0.2765615244228714,
+      "peak_roof_UY_m": 0.3775256012844779,
+      "peak_story_drift_X": 0.003688177737322088,
+      "peak_story_drift_Y": 0.005209049339473194
+    }
+  ],
+  "X_only_screening_envelope": null,
+  "T1_x_s": 2.0385674,
+  "T1_y_s": 1.92197978,
+  "Tn_x_s": 0.14612924237108904,
+  "Tn_y_s": 0.16714542143206584,
+  "damping_target_percent": 5.0,
+  "time_step_rule": "min(record digitization interval, T1/100, Tn, 0.01 s)",
+  "member_action_rule": "For ULS member strength evaluation, elastic member actions are divided by R\u03bc per NBC \u00a78.1.3.2. This tool reports displacement/drift histories and does not calculate/design member actions.",
+  "records": [
+    {
+      "case": "RSN767_LOMAP_XY",
+      "pair_id": "RSN767_LOMAP",
+      "field_type": "Far-field",
+      "orientation": "XY",
+      "scale_factor": 1.0,
+      "acceleration_units": "g",
+      "record_dt_min_s": 0.005,
+      "analysis_dt_s": 0.005,
+      "duration_s": 39.980000000000004,
+      "steps": 7997,
+      "peak_roof_UX_m": 0.2765615244228714,
+      "peak_roof_UY_m": 0.35323375765017795,
+      "minimum_roof_UX_m": -0.2765615244228714,
+      "maximum_roof_UX_m": 0.27011686444957533,
+      "minimum_roof_UY_m": -0.3337444952677228,
+      "maximum_roof_UY_m": 0.35323375765017795,
+      "peak_story_drift_X": 0.003688177737322088,
+      "peak_story_drift_Y": 0.004734886468600118,
+      "minimum_story_drift_X": -0.003685717713950924,
+      "maximum_story_drift_X": 0.0034702915644167515,
+      "minimum_story_drift_Y": -0.00446701467463719,
+      "maximum_story_drift_Y": 0.004732526747274461,
+      "drift_limit_ratio": 0.025,
+      "drift_screen_X": "PASS",
+      "drift_screen_Y": "PASS",
+      "rayleigh_alphaM_s-1": 0.3852485167979621,
+      "rayleigh_betaKcommitted_s": 0.001118025621478709,
+      "rayleigh_calibration_periods_s": [
+        1.5573775010175028,
+        0.07356591166660352
+      ],
+      "checked_modal_damping": [
+        {
+          "mode": 1,
+          "omega_rad_s": 4.034465184631389,
+          "period_s": 1.5573775010165696,
+          "damping_ratio_percent": 4.999999999997274
+        },
+        {
+          "mode": 2,
+          "omega_rad_s": 5.7057867130152085,
+          "period_s": 1.1011952642476628,
+          "damping_ratio_percent": 3.69490643789048
+        },
+        {
+          "mode": 3,
+          "omega_rad_s": 6.258432633010756,
+          "period_s": 1.003955091573291,
+          "damping_ratio_percent": 3.4276898549887096
+        },
+        {
+          "mode": 4,
+          "omega_rad_s": 17.3732419577371,
+          "period_s": 0.36165876941473185,
+          "damping_ratio_percent": 2.0799274921156132
+        },
+        {
+          "mode": 5,
+          "omega_rad_s": 19.41460692059566,
+          "period_s": 0.3236318578520472,
+          "damping_ratio_percent": 2.077462914666543
+        },
+        {
+          "mode": 6,
+          "omega_rad_s": 21.121245926193332,
+          "period_s": 0.29748175506008134,
+          "damping_ratio_percent": 2.092697582239177
+        },
+        {
+          "mode": 7,
+          "omega_rad_s": 33.82295176654733,
+          "period_s": 0.18576691208228568,
+          "damping_ratio_percent": 2.46025386705961
+        },
+        {
+          "mode": 8,
+          "omega_rad_s": 36.32166259324241,
+          "period_s": 0.17298727146781445,
+          "damping_ratio_percent": 2.560756327591839
+        },
+        {
+          "mode": 9,
+          "omega_rad_s": 37.59113024662367,
+          "period_s": 0.16714542143206573,
+          "damping_ratio_percent": 2.613811775940118
+        },
+        {
+          "mode": 10,
+          "omega_rad_s": 42.997453522846456,
+          "period_s": 0.14612924237108718,
+          "damping_ratio_percent": 2.851602656611532
+        },
+        {
+          "mode": 11,
+          "omega_rad_s": 48.58676709987568,
+          "period_s": 0.12931885948006744,
+          "damping_ratio_percent": 3.1125166821111216
+        },
+        {
+          "mode": 12,
+          "omega_rad_s": 58.350742526421996,
+          "period_s": 0.10767961186328479,
+          "damping_ratio_percent": 3.5919957527783284
+        },
+        {
+          "mode": 13,
+          "omega_rad_s": 58.36373299505255,
+          "period_s": 0.10765564477707769,
+          "damping_ratio_percent": 3.5926484604737596
+        },
+        {
+          "mode": 14,
+          "omega_rad_s": 63.61367660664242,
+          "period_s": 0.09877098200174626,
+          "damping_ratio_percent": 3.858889231848607
+        },
+        {
+          "mode": 15,
+          "omega_rad_s": 69.25016010843893,
+          "period_s": 0.09073170801830258,
+          "damping_ratio_percent": 4.149329795389138
+        },
+        {
+          "mode": 16,
+          "omega_rad_s": 74.8408979236588,
+          "period_s": 0.08395390062781886,
+          "damping_ratio_percent": 4.44108040755889
+        },
+        {
+          "mode": 17,
+          "omega_rad_s": 77.65699259872382,
+          "period_s": 0.08090945962389537,
+          "damping_ratio_percent": 4.5891703334124765
+        },
+        {
+          "mode": 18,
+          "omega_rad_s": 78.7805195863025,
+          "period_s": 0.07975557079560107,
+          "damping_ratio_percent": 4.648439442486739
+        },
+        {
+          "mode": 19,
+          "omega_rad_s": 82.57844542009889,
+          "period_s": 0.07608747385852717,
+          "damping_ratio_percent": 4.849503039501058
+        },
+        {
+          "mode": 20,
+          "omega_rad_s": 85.40892330206717,
+          "period_s": 0.07356591166660349,
+          "damping_ratio_percent": 5.000000000000003
+        }
+      ],
+      "history_csv": "D:\\Thesis Opensees\\Etabs Nodes Export\\OpenSees_Analysis_Results\\LTH_ULS_Trial_20261024_084636_087149\\NBC105_LTH_RSN767_LOMAP_XY_history.csv",
+      "master_peak_story_drift_X": 0.003685717713950924,
+      "floor_edge_peak_story_drift_X": 0.003688177737322088,
+      "master_peak_story_drift_Y": 0.004732526747274461,
+      "floor_edge_peak_story_drift_Y": 0.004734886468600118,
+      "performance": {
+        "case": "RSN767_LOMAP_XY",
+        "analysis": "linear",
+        "status": "completed",
+        "error": null,
+        "started_at": "2026-10-24T08:46:36.344+05:45",
+        "finished_at": "2026-10-24T09:50:06.678+05:45",
+        "elapsed_seconds": 3810.3357350000006,
+        "stages_seconds": {
+          "model_and_gravity": 14.552813200003584,
+          "damping_eigenanalysis": 15.333356499999354,
+          "transient_with_recording": 3778.4635660999993,
+          "case_exports_and_drift": 1.8456646999984514
+        },
+        "accepted_internal_steps": 7996,
+        "recording_seconds": 1.743676900070568,
+        "solver_diagnostics": {},
+        "scope": "Measured wall time on this machine; solve stages include native solver and Python call overhead. ETA is current-case extrapolation, not a nonlinear suite guarantee."
+      }
+    },
+    {
+      "case": "RSN767_LOMAP_YX",
+      "pair_id": "RSN767_LOMAP",
+      "field_type": "Far-field",
+      "orientation": "YX",
+      "scale_factor": 1.0,
+      "acceleration_units": "g",
+      "record_dt_min_s": 0.005,
+      "analysis_dt_s": 0.005,
+      "duration_s": 39.980000000000004,
+      "steps": 7997,
+      "peak_roof_UX_m": 0.26429639456837606,
+      "peak_roof_UY_m": 0.3775256012844779,
+      "minimum_roof_UX_m": -0.26429639456837606,
+      "maximum_roof_UX_m": 0.2573644961248035,
+      "minimum_roof_UY_m": -0.35817762439099793,
+      "maximum_roof_UY_m": 0.3775256012844779,
+      "peak_story_drift_X": 0.003479652330782512,
+      "peak_story_drift_Y": 0.005209049339473194,
+      "minimum_story_drift_X": -0.0034780717477872944,
+      "maximum_story_drift_X": 0.0033612534930229127,
+      "minimum_story_drift_Y": -0.004811933168774672,
+      "maximum_story_drift_Y": 0.005204592982715301,
+      "drift_limit_ratio": 0.025,
+      "drift_screen_X": "PASS",
+      "drift_screen_Y": "PASS",
+      "rayleigh_alphaM_s-1": 0.3852485167979621,
+      "rayleigh_betaKcommitted_s": 0.001118025621478709,
+      "rayleigh_calibration_periods_s": [
+        1.5573775010175028,
+        0.07356591166660352
+      ],
+      "checked_modal_damping": [
+        {
+          "mode": 1,
+          "omega_rad_s": 4.034465184628971,
+          "period_s": 1.5573775010175033,
+          "damping_ratio_percent": 5.000000000000002
+        },
+        {
+          "mode": 2,
+          "omega_rad_s": 5.705786713015388,
+          "period_s": 1.1011952642476281,
+          "damping_ratio_percent": 3.6949064378903844
+        },
+        {
+          "mode": 3,
+          "omega_rad_s": 6.258432633013054,
+          "period_s": 1.0039550915729223,
+          "damping_ratio_percent": 3.4276898549877073
+        },
+        {
+          "mode": 4,
+          "omega_rad_s": 17.37324195773681,
+          "period_s": 0.3616587694147379,
+          "damping_ratio_percent": 2.079927492115616
+        },
+        {
+          "mode": 5,
+          "omega_rad_s": 19.4146069206532,
+          "period_s": 0.32363185785108806,
+          "damping_ratio_percent": 2.0774629146668193
+        },
+        {
+          "mode": 6,
+          "omega_rad_s": 21.12124592619294,
+          "period_s": 0.2974817550600869,
+          "damping_ratio_percent": 2.0926975822391727
+        },
+        {
+          "mode": 7,
+          "omega_rad_s": 33.822951766554404,
+          "period_s": 0.1857669120822468,
+          "damping_ratio_percent": 2.460253867059886
+        },
+        {
+          "mode": 8,
+          "omega_rad_s": 36.32166259324244,
+          "period_s": 0.17298727146781429,
+          "damping_ratio_percent": 2.560756327591841
+        },
+        {
+          "mode": 9,
+          "omega_rad_s": 37.5911302466237,
+          "period_s": 0.1671454214320656,
+          "damping_ratio_percent": 2.6138117759401194
+        },
+        {
+          "mode": 10,
+          "omega_rad_s": 42.997453522845994,
+          "period_s": 0.14612924237108876,
+          "damping_ratio_percent": 2.851602656611511
+        },
+        {
+          "mode": 11,
+          "omega_rad_s": 48.58676709987665,
+          "period_s": 0.12931885948006483,
+          "damping_ratio_percent": 3.1125166821111683
+        },
+        {
+          "mode": 12,
+          "omega_rad_s": 58.350742526422174,
+          "period_s": 0.10767961186328447,
+          "damping_ratio_percent": 3.591995752778337
+        },
+        {
+          "mode": 13,
+          "omega_rad_s": 58.36373299505263,
+          "period_s": 0.10765564477707755,
+          "damping_ratio_percent": 3.5926484604737636
+        },
+        {
+          "mode": 14,
+          "omega_rad_s": 63.61367660665907,
+          "period_s": 0.09877098200172042,
+          "damping_ratio_percent": 3.858889231849458
+        },
+        {
+          "mode": 15,
+          "omega_rad_s": 69.25016010843943,
+          "period_s": 0.09073170801830192,
+          "damping_ratio_percent": 4.149329795389164
+        },
+        {
+          "mode": 16,
+          "omega_rad_s": 74.84089792365882,
+          "period_s": 0.08395390062781885,
+          "damping_ratio_percent": 4.441080407558891
+        },
+        {
+          "mode": 17,
+          "omega_rad_s": 77.65699259872383,
+          "period_s": 0.08090945962389536,
+          "damping_ratio_percent": 4.589170333412477
+        },
+        {
+          "mode": 18,
+          "omega_rad_s": 78.78051958630094,
+          "period_s": 0.07975557079560265,
+          "damping_ratio_percent": 4.648439442486656
+        },
+        {
+          "mode": 19,
+          "omega_rad_s": 82.57844542009917,
+          "period_s": 0.0760874738585269,
+          "damping_ratio_percent": 4.849503039501073
+        },
+        {
+          "mode": 20,
+          "omega_rad_s": 85.40892330206704,
+          "period_s": 0.0735659116666036,
+          "damping_ratio_percent": 4.999999999999996
+        }
+      ],
+      "history_csv": "D:\\Thesis Opensees\\Etabs Nodes Export\\OpenSees_Analysis_Results\\LTH_ULS_Trial_20261024_084636_087149\\NBC105_LTH_RSN767_LOMAP_YX_history.csv",
+      "master_peak_story_drift_X": 0.0034780717477872944,
+      "floor_edge_peak_story_drift_X": 0.003479652330782512,
+      "master_peak_story_drift_Y": 0.005204592982715301,
+      "floor_edge_peak_story_drift_Y": 0.005209049339473194,
+      "performance": {
+        "case": "RSN767_LOMAP_YX",
+        "analysis": "linear",
+        "status": "completed",
+        "error": null,
+        "started_at": "2026-10-24T09:50:06.707+05:45",
+        "finished_at": "2026-10-24T10:55:16.133+05:45",
+        "elapsed_seconds": 3909.4303341999985,
+        "stages_seconds": {
+          "model_and_gravity": 15.99718479999865,
+          "damping_eigenanalysis": 17.096117900000536,
+          "transient_with_recording": 3874.742299400001,
+          "case_exports_and_drift": 1.446318299997074
+        },
+        "accepted_internal_steps": 7996,
+        "recording_seconds": 1.798192699723586,
+        "solver_diagnostics": {},
+        "scope": "Measured wall time on this machine; solve stages include native solver and Python call overhead. ETA is current-case extrapolation, not a nonlinear suite guarantee."
+      }
+    }
+  ],
+  "elapsed_seconds": 7719.963791500006,
+  "selected_pair_ids": [
+    "RSN767_LOMAP"
+  ],
+  "preliminary_selection": true,
+  "assessment_scope": "PRELIMINARY SETUP CHECK \u2014 not a completed suite assessment"
+}

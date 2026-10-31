@@ -1,0 +1,9 @@
+{
+  "release": 131,
+  "implementation_modules": 39,
+  "function_inventory": 425,
+  "changes": "CHANGES_V131.md",
+  "source_map": "SOURCE_CODE_MAP_V131.md",
+  "live_export_modified": false,
+  "superseded_by": "RELEASE_V133.json"
+}

@@ -1,0 +1,14 @@
+{
+  "matTestAllParamsReadStrain.tcl": {
+    "git_blob_sha": "d9f9e7a6a11952113cc6e70bdb167dc63d9aa010",
+    "url": "https://github.com/NHERI-SimCenter/quoFEM/blob/master/Examples/qfem-0019/src/matTestAllParamsReadStrain.tcl"
+  },
+  "stress.1.coords": {
+    "git_blob_sha": "40dab400a42d4d5c6788b88a185405d9c21b6fed",
+    "url": "https://github.com/NHERI-SimCenter/quoFEM/blob/master/Examples/qfem-0019/src/stress.1.coords"
+  },
+  "calDataField.csv": {
+    "git_blob_sha": "3c81bc811345aa75e48a7c80c9253c3c86f33961",
+    "url": "https://github.com/NHERI-SimCenter/quoFEM/blob/master/Examples/qfem-0019/src/calDataField.csv"
+  }
+}

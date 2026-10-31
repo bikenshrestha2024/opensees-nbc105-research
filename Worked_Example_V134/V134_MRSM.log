@@ -1,0 +1,42 @@
+[MRSM START] ULS X
+[GRAVITY] PASS | steps=20 | applied=286447.788933 kN | support reactions=286447.788933 kN | equilibrium error=4.8566e-12% | max downward Uz=-0.009579955894637476 m | frozen=True | elapsed=15.140 s
+[TIMING] Model construction and optional gravity preload | completed | elapsed=15.260 s | start=2026-10-24T12:14:02.809+05:45 | finish=2026-10-24T12:14:18.069+05:45
+Using DomainModalProperties - Developed by: Massimo Petracca, Guido Camata, ASDEA Software Technology
+[NBC105 MODAL] PASS | UX=98.12586455266445% | UY=97.92530534468594% | >=33Hz modes=0 | elapsed=32.641s
+[TIMING] Modal analysis | completed | elapsed=32.643 s | start=2026-10-24T12:14:18.103+05:45 | finish=2026-10-24T12:14:50.748+05:45
+[TIMING] MRSM modal reference cache export | completed | elapsed=0.001s | start=2026-10-24T12:14:50.750+05:45 | finish=2026-10-24T12:14:50.752+05:45
+Using ResponseSpectrumAnalysis - Developed by: Massimo Petracca, Guido Camata, ASDEA Software Technology
+[MRSM COMPLETE] ULS X_E0 | centered e=0 | Vraw= 32965.19491606026 | force S= 1.0
+[MRSM COMPLETE] ULS X_Eplus | signed eccentricity +5% breadth | Vraw= 32965.19491606301 | force S= 1.0
+[MRSM COMPLETE] ULS X_Eminus | signed eccentricity -5% breadth | Vraw= 32965.194916057524 | force S= 1.0
+[MRSM START] ULS Y
+[GRAVITY] PASS | steps=20 | applied=286447.788933 kN | support reactions=286447.788933 kN | equilibrium error=4.8566e-12% | max downward Uz=-0.009579955894637476 m | frozen=True | elapsed=15.045 s
+[TIMING] Model construction and optional gravity preload | completed | elapsed=15.175 s | start=2026-10-24T12:15:06.546+05:45 | finish=2026-10-24T12:15:21.722+05:45
+[NBC105 MODAL] PASS | UX=98.12586455266485% | UY=97.9253053446862% | >=33Hz modes=0 | elapsed=31.184s
+[TIMING] Modal analysis | completed | elapsed=31.191 s | start=2026-10-24T12:15:21.754+05:45 | finish=2026-10-24T12:15:52.953+05:45
+[TIMING] MRSM modal reference cache export | completed | elapsed=0.001s | start=2026-10-24T12:15:52.955+05:45 | finish=2026-10-24T12:15:52.955+05:45
+[MRSM COMPLETE] ULS Y_E0 | centered e=0 | Vraw= 23952.303729324478 | force S= 1.103659995075626
+[MRSM COMPLETE] ULS Y_Eplus | signed eccentricity +5% breadth | Vraw= 23952.30372932076 | force S= 1.1036599950757973
+[MRSM COMPLETE] ULS Y_Eminus | signed eccentricity -5% breadth | Vraw= 23952.303729328192 | force S= 1.1036599950754549
+[TIMING] MRSM charts and Excel report | completed | elapsed=2.565 s | start=2026-10-24T12:16:08.511+05:45 | finish=2026-10-24T12:16:11.073+05:45
+[TIMING] Model modal response spectrum analysis | completed | elapsed=128.697 s | start=2026-10-24T12:14:02.406+05:45 | finish=2026-10-24T12:16:11.096+05:45
+[MRSM START] SLS X
+[GRAVITY] PASS | steps=20 | applied=286447.788933 kN | support reactions=286447.788933 kN | equilibrium error=4.8566e-12% | max downward Uz=-0.009527805465681124 m | frozen=True | elapsed=14.296 s
+[TIMING] Model construction and optional gravity preload | completed | elapsed=14.415 s | start=2026-10-24T12:16:11.231+05:45 | finish=2026-10-24T12:16:25.643+05:45
+[NBC105 MODAL] PASS | UX=98.12968342288153% | UY=97.9116986374645% | >=33Hz modes=0 | elapsed=30.164s
+[TIMING] Modal analysis | completed | elapsed=30.171 s | start=2026-10-24T12:16:25.683+05:45 | finish=2026-10-24T12:16:55.857+05:45
+[TIMING] MRSM modal reference cache export | completed | elapsed=0.001s | start=2026-10-24T12:16:55.860+05:45 | finish=2026-10-24T12:16:55.860+05:45
+[MRSM COMPLETE] SLS X_E0 | centered e=0 | Vraw= 27285.004954507203 | force S= 1.0
+[MRSM COMPLETE] SLS X_Eplus | signed eccentricity +5% breadth | Vraw= 27285.004954506796 | force S= 1.0
+[MRSM COMPLETE] SLS X_Eminus | signed eccentricity -5% breadth | Vraw= 27285.0049545076 | force S= 1.0
+[MRSM START] SLS Y
+[GRAVITY] PASS | steps=20 | applied=286447.788933 kN | support reactions=286447.788933 kN | equilibrium error=4.8566e-12% | max downward Uz=-0.009527805465681124 m | frozen=True | elapsed=14.323 s
+[TIMING] Model construction and optional gravity preload | completed | elapsed=14.439 s | start=2026-10-24T12:17:10.936+05:45 | finish=2026-10-24T12:17:25.374+05:45
+[NBC105 MODAL] PASS | UX=98.12968342288019% | UY=97.91169863746411% | >=33Hz modes=0 | elapsed=29.661s
+[TIMING] Modal analysis | completed | elapsed=29.669 s | start=2026-10-24T12:17:25.416+05:45 | finish=2026-10-24T12:17:55.088+05:45
+[TIMING] MRSM modal reference cache export | completed | elapsed=0.001s | start=2026-10-24T12:17:55.088+05:45 | finish=2026-10-24T12:17:55.088+05:45
+[MRSM COMPLETE] SLS Y_E0 | centered e=0 | Vraw= 19718.913146139053 | force S= 1.0948243460327114
+[MRSM COMPLETE] SLS Y_Eplus | signed eccentricity +5% breadth | Vraw= 19718.9131461385 | force S= 1.094824346032742
+[MRSM COMPLETE] SLS Y_Eminus | signed eccentricity -5% breadth | Vraw= 19718.91314613961 | force S= 1.0948243460326805
+[TIMING] MRSM charts and Excel report | completed | elapsed=2.166 s | start=2026-10-24T12:18:10.406+05:45 | finish=2026-10-24T12:18:12.564+05:45
+[TIMING] Model modal response spectrum analysis | completed | elapsed=121.456 s | start=2026-10-24T12:16:11.136+05:45 | finish=2026-10-24T12:18:12.583+05:45

@@ -1,0 +1,128 @@
+{
+  "model": "Steel02",
+  "parameters": {
+    "Fy_MPa": 500.0,
+    "E_MPa": 200000.0,
+    "b": 0.01,
+    "R0": 20.0,
+    "cR1": 0.925,
+    "cR2": 0.15,
+    "a1": 0.0,
+    "a2": 1.0,
+    "a3": 0.0,
+    "a4": 1.0
+  },
+  "parameter_basis": "NOMINAL / ASSUMED RESEARCH BASELINE | Fe500 nominal yield500MPa; E200GPa conventional assumption. Transition values documentation-recommended; b1% assumption and isotropic terms disabled until evidence. Does not include fracture/buckling/bond slip.",
+  "specimen_id": "M30 / Fe500 research baseline",
+  "citation": "02_MODELLING_BASIS.md; Parameter_Register.csv",
+  "source": "https://openseespydoc.readthedocs.io/en/latest/src/steel02.html",
+  "protocol_csv": "",
+  "measured_csv": "",
+  "fit_bounds": {},
+  "train_fraction": 0.75,
+  "scope": "Ordered same-specimen fit is not independent validation or project design approval",
+  "wall_formulation": "SFI_MVLEM_3D",
+  "targets": [
+    0.0005,
+    -0.0005,
+    0.002,
+    -0.002,
+    0.005,
+    -0.005,
+    0.0
+  ],
+  "samples_per_leg": 30,
+  "dt_s": 0.005,
+  "sources": {
+    "Mander_theory_1988": "https://doi.org/10.1061/(ASCE)0733-9445(1988)114:8(1804)",
+    "Mander_experiment_1988": "https://doi.org/10.1061/(ASCE)0733-9445(1988)114:8(1827)",
+    "Concrete02": "https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete02.html",
+    "ConcreteCM": "https://openseespydoc.readthedocs.io/en/latest/src/ConcreteCM.html",
+    "Steel02": "https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html",
+    "SteelMPF": "https://openseespydoc.readthedocs.io/en/latest/src/SteelMPF.html",
+    "FSAM": "https://openseespydoc.readthedocs.io/en/latest/src/FSAM.html",
+    "E_SFI_2023": "https://doi.org/10.1016/j.engstruct.2023.116700",
+    "E_SFI_authors": "https://kkolozvari.github.io/E-SFI-MVLEM-3D/",
+    "PEER_2015": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+    "FVD": "https://opensees.berkeley.edu/wiki/index.php?title=ViscousDamper_Material",
+    "BRB": "https://peer.berkeley.edu/publications/2002-08",
+    "Outrigger_optimization_2021": "https://doi.org/10.1016/j.engstruct.2021.112868",
+    "Outrigger_2010": "https://doi.org/10.1061/(ASCE)ST.1943-541X.0000247",
+    "NBC2025": "https://ebps.kathmandu.gov.np/UploadFiles/NBC_105_2025_Sesmic_Design.pdf",
+    "Diaphragm": "https://opensees.berkeley.edu/wiki/index.php/Modeling_Diaphragms_in_2D_Models_with_Linear_and_Nonlinear_Elements%2C_Oct_2011"
+  },
+  "project_transfer_approved": false,
+  "profile_id": "M30_Fe500_Steel02",
+  "provenance": {
+    "Fy_MPa": {
+      "value": 500.0,
+      "unit": "MPa",
+      "basis": "NOMINAL / ASSUMED RESEARCH BASELINE",
+      "source": "https://openseespydoc.readthedocs.io/en/latest/src/steel02.html",
+      "locator": "02_MODELLING_BASIS.md; Parameter_Register.csv"
+    },
+    "E_MPa": {
+      "value": 200000.0,
+      "unit": "MPa",
+      "basis": "NOMINAL / ASSUMED RESEARCH BASELINE",
+      "source": "https://openseespydoc.readthedocs.io/en/latest/src/steel02.html",
+      "locator": "02_MODELLING_BASIS.md; Parameter_Register.csv"
+    },
+    "b": {
+      "value": 0.01,
+      "unit": "dimensionless",
+      "basis": "NOMINAL / ASSUMED RESEARCH BASELINE",
+      "source": "https://openseespydoc.readthedocs.io/en/latest/src/steel02.html",
+      "locator": "02_MODELLING_BASIS.md; Parameter_Register.csv"
+    },
+    "R0": {
+      "value": 20.0,
+      "unit": "dimensionless",
+      "basis": "NOMINAL / ASSUMED RESEARCH BASELINE",
+      "source": "https://openseespydoc.readthedocs.io/en/latest/src/steel02.html",
+      "locator": "02_MODELLING_BASIS.md; Parameter_Register.csv"
+    },
+    "cR1": {
+      "value": 0.925,
+      "unit": "dimensionless",
+      "basis": "NOMINAL / ASSUMED RESEARCH BASELINE",
+      "source": "https://openseespydoc.readthedocs.io/en/latest/src/steel02.html",
+      "locator": "02_MODELLING_BASIS.md; Parameter_Register.csv"
+    },
+    "cR2": {
+      "value": 0.15,
+      "unit": "dimensionless",
+      "basis": "NOMINAL / ASSUMED RESEARCH BASELINE",
+      "source": "https://openseespydoc.readthedocs.io/en/latest/src/steel02.html",
+      "locator": "02_MODELLING_BASIS.md; Parameter_Register.csv"
+    },
+    "a1": {
+      "value": 0.0,
+      "unit": "dimensionless",
+      "basis": "NOMINAL / ASSUMED RESEARCH BASELINE",
+      "source": "https://openseespydoc.readthedocs.io/en/latest/src/steel02.html",
+      "locator": "02_MODELLING_BASIS.md; Parameter_Register.csv"
+    },
+    "a2": {
+      "value": 1.0,
+      "unit": "dimensionless",
+      "basis": "NOMINAL / ASSUMED RESEARCH BASELINE",
+      "source": "https://openseespydoc.readthedocs.io/en/latest/src/steel02.html",
+      "locator": "02_MODELLING_BASIS.md; Parameter_Register.csv"
+    },
+    "a3": {
+      "value": 0.0,
+      "unit": "dimensionless",
+      "basis": "NOMINAL / ASSUMED RESEARCH BASELINE",
+      "source": "https://openseespydoc.readthedocs.io/en/latest/src/steel02.html",
+      "locator": "02_MODELLING_BASIS.md; Parameter_Register.csv"
+    },
+    "a4": {
+      "value": 1.0,
+      "unit": "dimensionless",
+      "basis": "NOMINAL / ASSUMED RESEARCH BASELINE",
+      "source": "https://openseespydoc.readthedocs.io/en/latest/src/steel02.html",
+      "locator": "02_MODELLING_BASIS.md; Parameter_Register.csv"
+    }
+  }
+}

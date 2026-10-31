@@ -1,0 +1,15 @@
+{
+  "boundary_elements": false,
+  "confined_concrete": false,
+  "thickness_m": null,
+  "fc_MPa": null,
+  "fy_MPa": null,
+  "rho_vertical": null,
+  "rho_horizontal": null,
+  "reinforcement_source": null,
+  "concrete_source": null,
+  "steel_source": null,
+  "local_axis_evidence": null,
+  "softening_regularization_evidence": null,
+  "scope": "Project inputs required. No specimen strength, confinement or reinforcement automatically adopted."
+}

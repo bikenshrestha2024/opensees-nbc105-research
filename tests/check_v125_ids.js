@@ -1,0 +1,17 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const source=fs.readFileSync(process.argv[2],'utf8');
+const match=source.match(/<script id="shared-id-selector-v121">([\s\S]*?)<\/script>/);
+assert(match,'Shared selector script must exist');
+const fields={};let added=null;
+for(const id of ['#idKind','#idValue','#idFind','#idClear','#idResult'])fields[id]={value:'',textContent:''};
+const bar={innerHTML:'',querySelector(id){return fields[id]||(fields[id]={value:'',textContent:''})}};
+const gd={data:[]};
+const context={window:{location:{search:''}},URLSearchParams,document:{getElementById(){return bar},querySelector(){return gd}},Plotly:{relayout(){},deleteTraces(){},addTraces(plot,trace){added=trace}}};
+vm.runInNewContext(match[1],context);
+fields['#idKind'].value='node';fields['#idValue'].value='6041';fields['#idFind'].onclick();
+assert(added&&added.x[0]===12&&added.y[0]===9&&added.z[0]===0,'Generated support node must highlight at its real position');
+fields['#idKind'].value='object';fields['#idValue'].value='251';fields['#idFind'].onclick();
+assert(added.text.some(t=>t.includes('ETABS 251')),'ETABS unique object selection must work');
+fields['#idKind'].value='solver';fields['#idValue'].value='101613';fields['#idFind'].onclick();
+assert(fields['#idResult'].textContent.includes('Highlighted'),'Assembled shell element must be selectable');
+console.log('Generated node, ETABS object and solver shell selections PASS');

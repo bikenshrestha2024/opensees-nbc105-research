@@ -1,0 +1,13 @@
+{
+  "model_folder": "C:\\Users\\User\\Documents\\Codex\\2026-10-20\\can\\work\\V134_Project_Check",
+  "output_dir": "C:\\Users\\User\\Documents\\Codex\\2026-10-20\\can\\work\\V138_Building_FrameNL_YX",
+  "x_path": "D:\\Thesis\\Target Spectra\\Soil Type C Matching 0.05-6\\Near Field\\X Direction\\Matched_RSN1120_KOBE_TAK000.txt",
+  "y_path": "D:\\Thesis\\Target Spectra\\Soil Type C Matching 0.05-6\\Near Field\\Y Direction\\Matched_RSN1120_KOBE_TAK090.txt",
+  "duration_s": 0.05,
+  "dt_s": 0.005,
+  "scale": 1.0,
+  "orientations": [
+    "YX"
+  ],
+  "limit_state": "ULS"
+}

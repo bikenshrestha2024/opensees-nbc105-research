@@ -1,0 +1,119 @@
+{
+  "version": 124,
+  "regression_checks_passed": 17,
+  "python_syntax": "All root modules parsed",
+  "signed_initial_PDelta_cases": 4,
+  "signed_SLS_static_cases": [
+    {
+      "case": "SLS_X+_E+",
+      "stories": 25,
+      "applied_shear_kN": 20354.065104067147,
+      "equilibrium_error_percent": 5.004573095239516e-13,
+      "max_master_design_drift_ratio": 0.0005126163140776218,
+      "roof_master_design_displacement_m": 0.039857857937366195
+    },
+    {
+      "case": "SLS_X+_E-",
+      "stories": 25,
+      "applied_shear_kN": 20354.065104067147,
+      "equilibrium_error_percent": 6.255716369049396e-13,
+      "max_master_design_drift_ratio": 0.0005126163140776209,
+      "roof_master_design_displacement_m": 0.039857857937366195
+    },
+    {
+      "case": "SLS_X-_E+",
+      "stories": 25,
+      "applied_shear_kN": -20354.065104067147,
+      "equilibrium_error_percent": 5.540777355443751e-13,
+      "max_master_design_drift_ratio": 0.0005126163140776218,
+      "roof_master_design_displacement_m": -0.03985785793736619
+    },
+    {
+      "case": "SLS_X-_E-",
+      "stories": 25,
+      "applied_shear_kN": -20354.065104067147,
+      "equilibrium_error_percent": 6.434451122450807e-13,
+      "max_master_design_drift_ratio": 0.0005126163140776209,
+      "roof_master_design_displacement_m": -0.039857857937366174
+    },
+    {
+      "case": "SLS_Y+_E+",
+      "stories": 25,
+      "applied_shear_kN": 21588.746189697526,
+      "equilibrium_error_percent": 3.370254831035821e-14,
+      "max_master_design_drift_ratio": 0.00118481301356367,
+      "roof_master_design_displacement_m": 0.08920413783464089
+    },
+    {
+      "case": "SLS_Y+_E-",
+      "stories": 25,
+      "applied_shear_kN": 21588.746189697526,
+      "equilibrium_error_percent": 1.6851274155179104e-14,
+      "max_master_design_drift_ratio": 0.0011848130135636663,
+      "roof_master_design_displacement_m": 0.0892041378346409
+    },
+    {
+      "case": "SLS_Y-_E+",
+      "stories": 25,
+      "applied_shear_kN": -21588.746189697526,
+      "equilibrium_error_percent": 5.055382246553732e-14,
+      "max_master_design_drift_ratio": 0.0011848130135636663,
+      "roof_master_design_displacement_m": -0.08920413783464098
+    },
+    {
+      "case": "SLS_Y-_E-",
+      "stories": 25,
+      "applied_shear_kN": -21588.746189697526,
+      "equilibrium_error_percent": 0.0,
+      "max_master_design_drift_ratio": 0.00118481301356367,
+      "roof_master_design_displacement_m": -0.08920413783464094
+    }
+  ],
+  "initial_PDelta_max_horizontal_equilibrium_error_percent": 1.6514248672075528e-13,
+  "modal_cumulative_percent": {
+    "X": 98.12586455266445,
+    "Y": 97.92530534468594
+  },
+  "periods": {
+    "X": {
+      "Aw_m2": 1.95829362880886,
+      "empirical_period_s": 1.6308539200949292,
+      "amplified_empirical_s": 2.0385674001186613,
+      "period_s": 2.5653944515496154,
+      "adopted_period_s": 2.0385674001186613
+    },
+    "Y": {
+      "Aw_m2": 2.20308033240997,
+      "empirical_period_s": 1.5375838213650503,
+      "amplified_empirical_s": 1.921979776706313,
+      "period_s": 3.639918588194091,
+      "adopted_period_s": 1.921979776706313
+    }
+  },
+  "Rayleigh_amplitude_check": {
+    "reference_fractions": [
+      0.01,
+      0.02
+    ],
+    "relative_period_changes": {
+      "X": 1.647026959261666e-11,
+      "Y": 1.452479247987526e-10
+    }
+  },
+  "gui_checks": [
+    "ESM constructors and separate X/Y exports",
+    "TH and spectrum known-input autofill",
+    "Deformation scale=500, Play/Pause and node6041 highlighting callbacks",
+    "Adaptive tick positions reveal all seven visible IDs"
+  ],
+  "html_checks": "Five embedded ID scripts parsed with Node; mocked DOM handlers selected generated node6041, ETABS object251 and solver shell101613",
+  "limitations": [
+    "Live ETABS COM attachment not validated",
+    "Walls retain gross source E/thickness; rational cracked stiffness needed",
+    "Ordinary-slab effective stiffness justification and ETABS equivalence remain",
+    "Initial EL is a diagnostic coefficient reference, not eligible high-rise ULS ESM design",
+    "Master-node drift screen excludes floor-edge torsional drift verification",
+    "No full motion-suite run in this update",
+    "Nonlinear and time-dependent/staged-construction studies deferred"
+  ]
+}

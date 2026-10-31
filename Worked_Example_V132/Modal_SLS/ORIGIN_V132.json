@@ -1,0 +1,5 @@
+{
+  "source": "Final V132 model MRSM eigenanalysis reference cache",
+  "limit_state": "SLS",
+  "timing": "Numerical elapsed_seconds is stored in NBC105_Modal_V111.json; overall builder/MRSM timing is in Final_MRSM_V132.log."
+}

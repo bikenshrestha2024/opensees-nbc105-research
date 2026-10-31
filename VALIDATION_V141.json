@@ -1,0 +1,76 @@
+{
+  "syntax": "pass",
+  "native_gui": "pass",
+  "shared_edges": 1050,
+  "formula_validation": {
+    "formula_counts": {
+      "Storey totals": 494,
+      "Source detail": 6074,
+      "Read me": 0,
+      "Surface load formulas": 119000,
+      "Loaded node path": 112000,
+      "Member weight formulas": 7724,
+      "Vertical load path": 0
+    },
+    "floor_load_formula_kN": 50400.0,
+    "floor_load_provenance_kN": 50400.0,
+    "note": "Formula structures and independent arithmetic checked; Excel recalc is requested on opening. No cached Excel recalculation claimed."
+  },
+  "gravity": {
+    "steps": 20,
+    "applied_vertical_load_kN": 286447.78893335,
+    "support_vertical_reaction_kN": 286447.7889333666,
+    "equilibrium_error_percent": 5.791346277138883e-12,
+    "equilibrium_tolerance_percent": 0.5,
+    "max_downward_vertical_displacement_m": -0.01709504619329877,
+    "elapsed_seconds_before_freeze": 104.39472809998551,
+    "gravity_frozen": true,
+    "elapsed_seconds": 104.398730099987,
+    "diaphragm_kinematics": {
+      "max_inplane_constraint_residual": 3.0292258760486853e-28,
+      "units": "m for translation, rad for rotation; mixed maximum is diagnostic only"
+    }
+  },
+  "mesh_benchmark": {
+    "scope": "6m square elastic shell panel on four edge beams; corner supports; rigid in-plane constraint; q=4 kN/m2. Numerical mesh demonstration, not project validation.",
+    "results": [
+      {
+        "subdivisions": 1,
+        "total_load_kN": 144,
+        "support_reaction_kN": 144.0,
+        "max_beam_end_bending_kNm": 0.0,
+        "max_downward_Uz_m": 0.0
+      },
+      {
+        "subdivisions": 2,
+        "total_load_kN": 144,
+        "support_reaction_kN": 144.0,
+        "max_beam_end_bending_kNm": 7.869300392781923,
+        "max_downward_Uz_m": -7.516152308031862e-05
+      },
+      {
+        "subdivisions": 4,
+        "total_load_kN": 144,
+        "support_reaction_kN": 144.00000000000003,
+        "max_beam_end_bending_kNm": 19.588323156124076,
+        "max_downward_Uz_m": -0.0008017200934710483
+      },
+      {
+        "subdivisions": 8,
+        "total_load_kN": 144,
+        "support_reaction_kN": 144.00000000000188,
+        "max_beam_end_bending_kNm": 22.610875507773944,
+        "max_downward_Uz_m": -0.0008404040567423688
+      },
+      {
+        "subdivisions": 16,
+        "total_load_kN": 144,
+        "support_reaction_kN": 144.00000000001035,
+        "max_beam_end_bending_kNm": 23.122248094800497,
+        "max_downward_Uz_m": -0.0008499552054245445
+      }
+    ]
+  },
+  "full_nonlinear_record": "not_run",
+  "project_mesh_convergence": "not_established"
+}

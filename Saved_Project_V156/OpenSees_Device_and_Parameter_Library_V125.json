@@ -1,0 +1,1198 @@
+{
+  "library": [
+    {
+      "name": "KEEP_SOURCE_ELASTIC",
+      "kind": "ANY",
+      "description": "Retain exported source geometry and elastic properties",
+      "source": "Current ETABS audit"
+    },
+    {
+      "name": "RC_BEAM_600x800_FIBER",
+      "kind": "BEAM",
+      "description": "Existing RC template; reinforcement/material calibration required",
+      "source": "https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html"
+    },
+    {
+      "name": "RC_COLUMN_1100x1100_FIBER",
+      "kind": "COLUMN",
+      "description": "Existing RC template, 1100 mm; review source material",
+      "source": "https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html"
+    },
+    {
+      "name": "RC_COLUMN_1250x1250_FIBER",
+      "kind": "COLUMN",
+      "description": "Existing RC template, 1250 mm; review source material",
+      "source": "https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html"
+    },
+    {
+      "name": "SHS_350x350x16_STEEL_FIBER",
+      "kind": "BRACE",
+      "description": "SHS brace section; source area/E audited separately; section may be reused for other frame roles",
+      "source": "https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "name": "RC_WALL_600_E_SFI_MVLEM3D",
+      "kind": "SHEAR WALL",
+      "description": "E-SFI-MVLEM-3D RC wall; 600 mm template; FSAM calibration required",
+      "source": "https://kkolozvari.github.io/E-SFI-MVLEM-3D/"
+    },
+    {
+      "name": "FVD_MAXWELL",
+      "kind": "BRACE",
+      "description": "ViscousDamper + twoNodeLink; K, Cd, alpha required",
+      "source": "https://opensees.berkeley.edu/wiki/index.php/ViscousDamper_Material"
+    },
+    {
+      "name": "BRB_STEEL02",
+      "kind": "BRACE",
+      "description": "Steel02 + corotTruss; core area and calibrated parameters required",
+      "source": "https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    }
+  ],
+  "parameter_sources": [
+    {
+      "family": "RC_BEAM_600x800_FIBER",
+      "parameter": "width_mm",
+      "value": 600.0,
+      "unit": "mm",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_BEAM_600x800_FIBER",
+      "parameter": "depth_mm",
+      "value": 800.0,
+      "unit": "mm",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_BEAM_600x800_FIBER",
+      "parameter": "cover_mm",
+      "value": 25.0,
+      "unit": "mm",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_BEAM_600x800_FIBER",
+      "parameter": "tie_diameter_mm",
+      "value": 12.0,
+      "unit": "mm",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_BEAM_600x800_FIBER",
+      "parameter": "bar_diameter_mm",
+      "value": 16.0,
+      "unit": "mm",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_BEAM_600x800_FIBER",
+      "parameter": "bars_per_side",
+      "value": 4,
+      "unit": "dimensionless / tag / count",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_BEAM_600x800_FIBER",
+      "parameter": "section_tag",
+      "value": 611,
+      "unit": "dimensionless / tag / count",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_BEAM_600x800_FIBER",
+      "parameter": "cover_tag",
+      "value": 612,
+      "unit": "dimensionless / tag / count",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_BEAM_600x800_FIBER",
+      "parameter": "core_tag",
+      "value": 613,
+      "unit": "dimensionless / tag / count",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_BEAM_600x800_FIBER",
+      "parameter": "rebar_tag",
+      "value": 614,
+      "unit": "dimensionless / tag / count",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_BEAM_600x800_FIBER",
+      "parameter": "cover_fc_mpa",
+      "value": 35.0,
+      "unit": "MPa",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_BEAM_600x800_FIBER",
+      "parameter": "cover_epsc0",
+      "value": -0.002,
+      "unit": "strain",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_BEAM_600x800_FIBER",
+      "parameter": "cover_fcu_mpa",
+      "value": 0.0,
+      "unit": "MPa",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_BEAM_600x800_FIBER",
+      "parameter": "cover_epsU",
+      "value": -0.005,
+      "unit": "strain",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_BEAM_600x800_FIBER",
+      "parameter": "core_fcc_mpa",
+      "value": 44.1,
+      "unit": "MPa",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_BEAM_600x800_FIBER",
+      "parameter": "core_epsc0",
+      "value": -0.0046,
+      "unit": "strain",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_BEAM_600x800_FIBER",
+      "parameter": "core_fpcu_mpa",
+      "value": 8.8,
+      "unit": "MPa",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_BEAM_600x800_FIBER",
+      "parameter": "core_epsU",
+      "value": -0.015,
+      "unit": "strain",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_BEAM_600x800_FIBER",
+      "parameter": "fy_rebar_mpa",
+      "value": 550.0,
+      "unit": "MPa",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_BEAM_600x800_FIBER",
+      "parameter": "E0_mpa",
+      "value": 200000.0,
+      "unit": "MPa",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_BEAM_600x800_FIBER",
+      "parameter": "unit_weight_kN_m3",
+      "value": 25.0,
+      "unit": "kN/m3",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1100x1100_FIBER",
+      "parameter": "width_mm",
+      "value": 1100.0,
+      "unit": "mm",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1100x1100_FIBER",
+      "parameter": "depth_mm",
+      "value": 1100.0,
+      "unit": "mm",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1100x1100_FIBER",
+      "parameter": "cover_mm",
+      "value": 40.0,
+      "unit": "mm",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1100x1100_FIBER",
+      "parameter": "tie_diameter_mm",
+      "value": 12.0,
+      "unit": "mm",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1100x1100_FIBER",
+      "parameter": "bar_diameter_mm",
+      "value": 25.0,
+      "unit": "mm",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1100x1100_FIBER",
+      "parameter": "bars_per_side",
+      "value": 5,
+      "unit": "dimensionless / tag / count",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1100x1100_FIBER",
+      "parameter": "section_tag",
+      "value": 621,
+      "unit": "dimensionless / tag / count",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1100x1100_FIBER",
+      "parameter": "cover_tag",
+      "value": 622,
+      "unit": "dimensionless / tag / count",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1100x1100_FIBER",
+      "parameter": "core_tag",
+      "value": 623,
+      "unit": "dimensionless / tag / count",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1100x1100_FIBER",
+      "parameter": "rebar_tag",
+      "value": 624,
+      "unit": "dimensionless / tag / count",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1100x1100_FIBER",
+      "parameter": "cover_fc_mpa",
+      "value": 35.0,
+      "unit": "MPa",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1100x1100_FIBER",
+      "parameter": "cover_epsc0",
+      "value": -0.002,
+      "unit": "strain",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1100x1100_FIBER",
+      "parameter": "cover_fcu_mpa",
+      "value": 0.0,
+      "unit": "MPa",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1100x1100_FIBER",
+      "parameter": "cover_epsU",
+      "value": -0.005,
+      "unit": "strain",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1100x1100_FIBER",
+      "parameter": "core_fcc_mpa",
+      "value": 44.1,
+      "unit": "MPa",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1100x1100_FIBER",
+      "parameter": "core_epsc0",
+      "value": -0.0046,
+      "unit": "strain",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1100x1100_FIBER",
+      "parameter": "core_fpcu_mpa",
+      "value": 8.8,
+      "unit": "MPa",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1100x1100_FIBER",
+      "parameter": "core_epsU",
+      "value": -0.015,
+      "unit": "strain",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1100x1100_FIBER",
+      "parameter": "fy_rebar_mpa",
+      "value": 550.0,
+      "unit": "MPa",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1100x1100_FIBER",
+      "parameter": "E0_mpa",
+      "value": 200000.0,
+      "unit": "MPa",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1100x1100_FIBER",
+      "parameter": "unit_weight_kN_m3",
+      "value": 25.0,
+      "unit": "kN/m3",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1250x1250_FIBER",
+      "parameter": "width_mm",
+      "value": 1250.0,
+      "unit": "mm",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1250x1250_FIBER",
+      "parameter": "depth_mm",
+      "value": 1250.0,
+      "unit": "mm",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1250x1250_FIBER",
+      "parameter": "cover_mm",
+      "value": 40.0,
+      "unit": "mm",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1250x1250_FIBER",
+      "parameter": "tie_diameter_mm",
+      "value": 12.0,
+      "unit": "mm",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1250x1250_FIBER",
+      "parameter": "bar_diameter_mm",
+      "value": 25.0,
+      "unit": "mm",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1250x1250_FIBER",
+      "parameter": "bars_per_side",
+      "value": 5,
+      "unit": "dimensionless / tag / count",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1250x1250_FIBER",
+      "parameter": "section_tag",
+      "value": 631,
+      "unit": "dimensionless / tag / count",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1250x1250_FIBER",
+      "parameter": "cover_tag",
+      "value": 632,
+      "unit": "dimensionless / tag / count",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1250x1250_FIBER",
+      "parameter": "core_tag",
+      "value": 633,
+      "unit": "dimensionless / tag / count",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1250x1250_FIBER",
+      "parameter": "rebar_tag",
+      "value": 634,
+      "unit": "dimensionless / tag / count",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1250x1250_FIBER",
+      "parameter": "cover_fc_mpa",
+      "value": 35.0,
+      "unit": "MPa",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1250x1250_FIBER",
+      "parameter": "cover_epsc0",
+      "value": -0.002,
+      "unit": "strain",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1250x1250_FIBER",
+      "parameter": "cover_fcu_mpa",
+      "value": 0.0,
+      "unit": "MPa",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1250x1250_FIBER",
+      "parameter": "cover_epsU",
+      "value": -0.005,
+      "unit": "strain",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1250x1250_FIBER",
+      "parameter": "core_fcc_mpa",
+      "value": 44.1,
+      "unit": "MPa",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1250x1250_FIBER",
+      "parameter": "core_epsc0",
+      "value": -0.0046,
+      "unit": "strain",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1250x1250_FIBER",
+      "parameter": "core_fpcu_mpa",
+      "value": 8.8,
+      "unit": "MPa",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1250x1250_FIBER",
+      "parameter": "core_epsU",
+      "value": -0.015,
+      "unit": "strain",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1250x1250_FIBER",
+      "parameter": "fy_rebar_mpa",
+      "value": 550.0,
+      "unit": "MPa",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1250x1250_FIBER",
+      "parameter": "E0_mpa",
+      "value": 200000.0,
+      "unit": "MPa",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "RC_COLUMN_1250x1250_FIBER",
+      "parameter": "unit_weight_kN_m3",
+      "value": 25.0,
+      "unit": "kN/m3",
+      "status": "Current editable template value; no project calibration evidence supplied",
+      "source": "No project parameter source supplied; formulation references only: https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Concrete01.html ; https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "Steel02",
+      "parameter": "R0",
+      "value": 20.0,
+      "unit": "dimensionless",
+      "status": "OpenSees recommended transition value; not a device calibration",
+      "source": "https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "Steel02",
+      "parameter": "cR1",
+      "value": 0.925,
+      "unit": "dimensionless",
+      "status": "OpenSees recommended transition value; not a device calibration",
+      "source": "https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "Steel02",
+      "parameter": "cR2",
+      "value": 0.15,
+      "unit": "dimensionless",
+      "status": "OpenSees recommended transition value; not a device calibration",
+      "source": "https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "FVD",
+      "parameter": "K",
+      "value": null,
+      "unit": "kN/m",
+      "status": "Required manufacturer/test/calibration input",
+      "source": "https://opensees.berkeley.edu/wiki/index.php/ViscousDamper_Material"
+    },
+    {
+      "family": "FVD",
+      "parameter": "Cd",
+      "value": null,
+      "unit": "kN*(s/m)^alpha",
+      "status": "Required manufacturer/test/calibration input",
+      "source": "https://opensees.berkeley.edu/wiki/index.php/ViscousDamper_Material"
+    },
+    {
+      "family": "FVD",
+      "parameter": "alpha",
+      "value": null,
+      "unit": "dimensionless",
+      "status": "Required manufacturer/test/calibration input",
+      "source": "https://opensees.berkeley.edu/wiki/index.php/ViscousDamper_Material"
+    },
+    {
+      "family": "BRB",
+      "parameter": "core_area",
+      "value": null,
+      "unit": "m\u00b2",
+      "status": "Required project/test input; SHS area is not BRB core area",
+      "source": "https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "BRB",
+      "parameter": "Fy",
+      "value": null,
+      "unit": "kN/m\u00b2",
+      "status": "Required project/test input; SHS area is not BRB core area",
+      "source": "https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "BRB",
+      "parameter": "E0",
+      "value": null,
+      "unit": "kN/m\u00b2",
+      "status": "Required project/test input; SHS area is not BRB core area",
+      "source": "https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "BRB",
+      "parameter": "b",
+      "value": null,
+      "unit": "ratio",
+      "status": "Required project/test input; SHS area is not BRB core area",
+      "source": "https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "BRB",
+      "parameter": "a1",
+      "value": null,
+      "unit": "ratio",
+      "status": "Required project/test input; SHS area is not BRB core area",
+      "source": "https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "BRB",
+      "parameter": "a2",
+      "value": null,
+      "unit": "ratio",
+      "status": "Required project/test input; SHS area is not BRB core area",
+      "source": "https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "BRB",
+      "parameter": "a3",
+      "value": null,
+      "unit": "ratio",
+      "status": "Required project/test input; SHS area is not BRB core area",
+      "source": "https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "BRB",
+      "parameter": "a4",
+      "value": null,
+      "unit": "ratio",
+      "status": "Required project/test input; SHS area is not BRB core area",
+      "source": "https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel02.html"
+    },
+    {
+      "family": "Published FVD example",
+      "parameter": "K_original",
+      "value": 25.0,
+      "unit": "kN/mm",
+      "status": "Reference example only; not a calibration for this building",
+      "source": "https://opensees.ist.berkeley.edu/wiki/index.php?title=Dynamic_Analyses_of_1-Story_Moment_Frame_with_Viscous_Dampers"
+    },
+    {
+      "family": "Published FVD example",
+      "parameter": "Cd_original",
+      "value": 20.74,
+      "unit": "kN*(s/mm)^0.35",
+      "status": "Reference example only; not a calibration for this building",
+      "source": "https://opensees.ist.berkeley.edu/wiki/index.php?title=Dynamic_Analyses_of_1-Story_Moment_Frame_with_Viscous_Dampers"
+    },
+    {
+      "family": "Published FVD example",
+      "parameter": "alpha",
+      "value": 0.35,
+      "unit": "dimensionless",
+      "status": "Reference example only; not a calibration for this building",
+      "source": "https://opensees.ist.berkeley.edu/wiki/index.php?title=Dynamic_Analyses_of_1-Story_Moment_Frame_with_Viscous_Dampers"
+    },
+    {
+      "family": "Published FVD example",
+      "parameter": "K_converted",
+      "value": 25000.0,
+      "unit": "kN/m",
+      "status": "Reference example only; not a calibration for this building",
+      "source": "https://opensees.ist.berkeley.edu/wiki/index.php?title=Dynamic_Analyses_of_1-Story_Moment_Frame_with_Viscous_Dampers"
+    },
+    {
+      "family": "Published FVD example",
+      "parameter": "Cd_converted",
+      "value": 232.70662742222717,
+      "unit": "kN*(s/m)^0.35",
+      "status": "Reference example only; not a calibration for this building",
+      "source": "https://opensees.ist.berkeley.edu/wiki/index.php?title=Dynamic_Analyses_of_1-Story_Moment_Frame_with_Viscous_Dampers"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.profile_id",
+      "value": "PEER2015_RW-A15-P10-S78",
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.status",
+      "value": "LITERATURE_BENCHMARK_ONLY_NOT_PROJECT_CALIBRATED",
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.source_citation",
+      "value": "Kolozvari, K., Orakcal, K., and Wallace, J. (2015). Shear-Flexure Interaction Modeling for Reinforced Concrete Structural Walls and Columns under Reversed Cyclic Loading. PEER Report 2015-12, Appendix B.3.",
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.source_url",
+      "value": "https://peer.berkeley.edu/publications/2015-12",
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.specimen",
+      "value": "RW-A15-P10-S78 (Tran and Wallace, 2012)",
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.source_units",
+      "value": "kip, in, sec, ksi",
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.specimen_geometry_in.thickness",
+      "value": 6.0,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.specimen_geometry_in.length",
+      "value": 48.0,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.specimen_geometry_in.height",
+      "value": 72.0,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.ksi_to_mpa",
+      "value": 6.894757293,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.concrete_unconfined.fc_ksi",
+      "value": 8.09,
+      "unit": "ksi",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.concrete_unconfined.epsc0",
+      "value": -0.002371,
+      "unit": "strain",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.concrete_unconfined.Ec_ksi",
+      "value": 5403.2172,
+      "unit": "ksi",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.concrete_unconfined.rc",
+      "value": 15.0,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.concrete_unconfined.xcrn",
+      "value": 1.022,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.concrete_unconfined.ft_ksi",
+      "value": 0.335798,
+      "unit": "ksi",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.concrete_unconfined.et",
+      "value": 8e-05,
+      "unit": "strain",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.concrete_unconfined.rt",
+      "value": 1.2,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.concrete_unconfined.xcrp",
+      "value": 10000.0,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.concrete_unconfined.gap_close",
+      "value": 0,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.concrete_confined.fc_ksi",
+      "value": 10.479723,
+      "unit": "ksi",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.concrete_confined.epsc0",
+      "value": -0.005873,
+      "unit": "strain",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.concrete_confined.Ec_ksi",
+      "value": 5953.9187,
+      "unit": "ksi",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.concrete_confined.rc",
+      "value": 12.072964,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.concrete_confined.xcrn",
+      "value": 1.023,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.concrete_confined.ft_ksi",
+      "value": 0.335798,
+      "unit": "ksi",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.concrete_confined.et",
+      "value": 8e-05,
+      "unit": "strain",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.concrete_confined.rt",
+      "value": 1.2,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.concrete_confined.xcrp",
+      "value": 10000.0,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.concrete_confined.gap_close",
+      "value": 0,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.steel.fy_web_x_ksi",
+      "value": 58.4103,
+      "unit": "ksi",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.steel.fy_web_y_ksi",
+      "value": 58.4103,
+      "unit": "ksi",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.steel.fy_boundary_y_ksi",
+      "value": 69.0,
+      "unit": "ksi",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.steel.E0_ksi",
+      "value": 29000.0,
+      "unit": "ksi",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.steel.b_web_x",
+      "value": 0.02,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.steel.b_web_y",
+      "value": 0.02,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.steel.b_boundary_y",
+      "value": 0.005,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.steel.R0",
+      "value": 20.0,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.steel.a1",
+      "value": 18.5,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.steel.a2",
+      "value": 0.0015,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.reinforcement_ratio.rouX_web",
+      "value": 0.0074,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.reinforcement_ratio.rouY_web",
+      "value": 0.0074,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.reinforcement_ratio.rouX_boundary",
+      "value": 0.0082,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.reinforcement_ratio.rouY_boundary",
+      "value": 0.0587,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.fsam.rho",
+      "value": 0.0,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.fsam.nu",
+      "value": 0.8,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.fsam.alfadow",
+      "value": 0.01,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.tags.steel_x",
+      "value": 901,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.tags.steel_y_web",
+      "value": 902,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.tags.steel_y_boundary",
+      "value": 903,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.tags.concrete_web",
+      "value": 904,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.tags.concrete_boundary",
+      "value": 905,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.tags.fsam_web",
+      "value": 906,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "PEER wall benchmark",
+      "parameter": "RW-A15-P10-S78.tags.fsam_boundary",
+      "value": 907,
+      "unit": "see source parameter definition",
+      "status": "Published specimen input; source-checked card; NOT calibrated to this building",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf | PEER 2015/12 Appendix B.3"
+    },
+    {
+      "family": "ConcreteCM",
+      "parameter": "Required parameters",
+      "value": "fpcc,epcc,Ec,rc,xcrn,ft,et,rt,xcrp,GapClose",
+      "unit": "per command definition",
+      "status": "Constitutive formulation; project backbone/calibration required",
+      "source": "https://openseespydoc.readthedocs.io/en/latest/src/ConcreteCM.html"
+    },
+    {
+      "family": "SteelMPF",
+      "parameter": "Required parameters",
+      "value": "fyp,fyn,E0,bp,bn,R0,cR1,cR2,a1,a2,a3,a4",
+      "unit": "per command definition",
+      "status": "Rebar cyclic formulation; tensile/compressive coupon/hardening calibration required",
+      "source": "https://openseespydoc.readthedocs.io/en/stable/src/SteelMPF.html"
+    },
+    {
+      "family": "FSAM",
+      "parameter": "Required parameters",
+      "value": "rho,sX,sY,conc,rhoX,rhoY,nu,alfadow",
+      "unit": "per command definition",
+      "status": "RC panel model; reinforcement, concrete and dowel/friction calibration required",
+      "source": "https://peer.berkeley.edu/publications/2015-12"
+    },
+    {
+      "family": "Steel01 exploratory SHS",
+      "parameter": "Required parameters",
+      "value": "Fy,E0,b",
+      "unit": "per command definition",
+      "status": "Illustrative corotTruss brace route; does not model buckling/fatigue/fracture",
+      "source": "https://opensees.github.io/OpenSeesDocumentation/user/manual/material/uniaxialMaterials/Steel01.html"
+    },
+    {
+      "family": "ElasticMembranePlateSection",
+      "parameter": "Required parameters",
+      "value": "E,nu,h,rho",
+      "unit": "per command definition",
+      "status": "Elastic slab/wall formulation; not nonlinear concrete damage",
+      "source": "https://opensees.berkeley.edu/wiki/index.php/Elastic_Membrane_Plate_Section"
+    },
+    {
+      "family": "ShellMITC4",
+      "parameter": "Required parameters",
+      "value": "nodes,section",
+      "unit": "per command definition",
+      "status": "Shell interpolation formulation; mesh convergence still required",
+      "source": "https://openseespydoc.readthedocs.io/en/latest/src/ShellMITC4.html"
+    },
+    {
+      "family": "Elastic torsion/shear",
+      "parameter": "Required parameters",
+      "value": "G,J,A",
+      "unit": "per command definition",
+      "status": "Source elastic stiffness; fiber axial/flexural response does not establish shear failure capacity",
+      "source": "https://openseespydoc.readthedocs.io/en/latest/src/elasticBeamColumn.html"
+    }
+  ]
+}

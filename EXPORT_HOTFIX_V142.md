@@ -1,0 +1,1 @@
+V142 export hotfix: fresh in-memory integer node tags and JSON string node tags are both supported by the load-path workbook. Fixed KeyError 1103. Fresh source-audit rebuild tested without an existing assembled data file; no live export modified. Rebuild saved export after refreshing runtime. This is an export regression fix, not a new structural analysis or design validation.

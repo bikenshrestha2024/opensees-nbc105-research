@@ -1,0 +1,9 @@
+{
+  "release": 138,
+  "entry": "RUN_ETABS_TO_OPENSEES.py",
+  "implementation_modules": 57,
+  "live_D_files_modified": false,
+  "production_readiness_autoapproved": false,
+  "building_research_scope": "NONLINEAR_FRAMES_ELASTIC_WALLS",
+  "full_FSAM_building_resolved": false
+}

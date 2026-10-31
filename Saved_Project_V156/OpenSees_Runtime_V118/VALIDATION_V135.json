@@ -1,0 +1,10 @@
+{
+  "parsed_python_sources": 118,
+  "report_execution": "completed",
+  "saved_drift_rows": 300,
+  "source_objects": 2037,
+  "parallel_registry_cases": 56,
+  "nonparallel_registry_cases": 104,
+  "verified": "ratio pass/fail, fingerprint rejection, missing nonlinear acceptance rejection",
+  "building_strength_design": "not executed; missing capacities and complete action coverage"
+}

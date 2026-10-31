@@ -1,0 +1,102 @@
+{
+  "pairs": [
+    {
+      "pair_id": "RSN1505_CHICHI_TCU068-E",
+      "field_type": "Near-field",
+      "x_path": "Input_Records_V141\\RSN1505_CHICHI_TCU068-E\\X.txt",
+      "y_path": "Input_Records_V141\\RSN1505_CHICHI_TCU068-E\\Y.txt",
+      "x_units": "g",
+      "x_dt_s": 0.005,
+      "x_samples": 17999,
+      "y_units": "g",
+      "y_dt_s": 0.005,
+      "y_samples": 17999
+    },
+    {
+      "pair_id": "KATNP.HNE.NQ.01_a_EW_PEER_Gorkha",
+      "field_type": "Near-field",
+      "x_path": "Input_Records_V141\\KATNP.HNE.NQ.01_a_EW_PEER_Gorkha\\X.txt",
+      "y_path": "Input_Records_V141\\KATNP.HNE.NQ.01_a_EW_PEER_Gorkha\\Y.txt",
+      "x_units": "g",
+      "x_dt_s": 0.005,
+      "x_samples": 64589,
+      "y_units": "g",
+      "y_dt_s": 0.005,
+      "y_samples": 64589
+    },
+    {
+      "pair_id": "RSN879_LANDERS_LCN260",
+      "field_type": "Near-field",
+      "x_path": "Input_Records_V141\\RSN879_LANDERS_LCN260\\X.txt",
+      "y_path": "Input_Records_V141\\RSN879_LANDERS_LCN260\\Y.txt",
+      "x_units": "g",
+      "x_dt_s": 0.005,
+      "x_samples": 9624,
+      "y_units": "g",
+      "y_dt_s": 0.005,
+      "y_samples": 9624
+    },
+    {
+      "pair_id": "RSN1086_NORTHR_SYL090",
+      "field_type": "Near-field",
+      "x_path": "Input_Records_V141\\RSN1086_NORTHR_SYL090\\X.txt",
+      "y_path": "Input_Records_V141\\RSN1086_NORTHR_SYL090\\Y.txt",
+      "x_units": "g",
+      "x_dt_s": 0.02,
+      "x_samples": 1999,
+      "y_units": "g",
+      "y_dt_s": 0.02,
+      "y_samples": 1999
+    },
+    {
+      "pair_id": "RSN1120_KOBE_TAK000",
+      "field_type": "Near-field",
+      "x_path": "Input_Records_V141\\RSN1120_KOBE_TAK000\\X.txt",
+      "y_path": "Input_Records_V141\\RSN1120_KOBE_TAK000\\Y.txt",
+      "x_units": "g",
+      "x_dt_s": 0.01,
+      "x_samples": 4095,
+      "y_units": "g",
+      "y_dt_s": 0.01,
+      "y_samples": 4095
+    },
+    {
+      "pair_id": "RSN1165_KOCAELI_IZT090",
+      "field_type": "Near-field",
+      "x_path": "Input_Records_V141\\RSN1165_KOCAELI_IZT090\\X.txt",
+      "y_path": "Input_Records_V141\\RSN1165_KOCAELI_IZT090\\Y.txt",
+      "x_units": "g",
+      "x_dt_s": 0.005,
+      "x_samples": 5999,
+      "y_units": "g",
+      "y_dt_s": 0.005,
+      "y_samples": 5999
+    },
+    {
+      "pair_id": "RSN1787_HECTOR",
+      "field_type": "Far-field",
+      "x_path": "Input_Records_V141\\RSN1787_HECTOR\\X.txt",
+      "y_path": "Input_Records_V141\\RSN1787_HECTOR\\Y.txt",
+      "x_units": "g",
+      "x_dt_s": 0.01,
+      "x_samples": 4530,
+      "y_units": "g",
+      "y_dt_s": 0.01,
+      "y_samples": 4530
+    },
+    {
+      "pair_id": "RSN767_LOMAP",
+      "field_type": "Far-field",
+      "x_path": "Input_Records_V141\\RSN767_LOMAP\\X.txt",
+      "y_path": "Input_Records_V141\\RSN767_LOMAP\\Y.txt",
+      "x_units": "g",
+      "x_dt_s": 0.005,
+      "x_samples": 7996,
+      "y_units": "g",
+      "y_dt_s": 0.005,
+      "y_samples": 7997
+    }
+  ],
+  "missing_sources": [],
+  "scope": "User-provided matched records copied unchanged. Matching metadata are not independent validation."
+}

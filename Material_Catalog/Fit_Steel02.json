@@ -1,0 +1,174 @@
+{
+  "model": "Steel02",
+  "parameters": {
+    "Fy_MPa": 477.6784594629648,
+    "E_MPa": 213285.97721361803,
+    "b": 0.017232538850040207,
+    "R0": 20.0,
+    "cR1": 0.8795412124857829,
+    "cR2": 0.05676345697067946,
+    "a1": 0.02344170999823744,
+    "a2": 1.0,
+    "a3": 0.030778594901764822,
+    "a4": 1.0
+  },
+  "parameter_basis": "FIT TO PUBLISHED EXPERIMENTAL DATA | Fit produced by bundled least squares, not parameter table copied from paper or Bayesian posterior. Same coupon holdout; no Fe500 equivalence.",
+  "specimen_id": "SimCenter qfem-0019: fitted single coupon",
+  "citation": "Bundled Calibration_Steel02 results; 256 training / 86 withheld temporal samples",
+  "source": "https://nheri-simcenter.github.io/quoFEM-Documentation/common/user_manual/examples/desktop/qfem-0019/README.html",
+  "protocol_csv": "",
+  "measured_csv": "",
+  "fit_bounds": {},
+  "train_fraction": 0.75,
+  "scope": "Ordered same-specimen fit is not independent validation or project design approval",
+  "wall_formulation": "SFI_MVLEM_3D",
+  "targets": [
+    0.0005,
+    -0.0005,
+    0.002,
+    -0.002,
+    0.005,
+    -0.005,
+    0.0
+  ],
+  "samples_per_leg": 30,
+  "dt_s": 0.005,
+  "fit_metrics": {
+    "model": "Steel02",
+    "specimen": "SimCenter qfem-0019 published single coupon",
+    "status": "EXPERIMENTAL DATA FIT - PROJECT TRANSFER NOT APPROVED",
+    "parameters": {
+      "Fy_MPa": 477.6784594629648,
+      "E_MPa": 213285.97721361803,
+      "b": 0.017232538850040207,
+      "cR1": 0.8795412124857829,
+      "cR2": 0.05676345697067946,
+      "a1": 0.02344170999823744,
+      "a3": 0.030778594901764822
+    },
+    "fixed_parameters": {
+      "R0": 20.0,
+      "a2": 1.0,
+      "a4": 1.0,
+      "sigInit": 0.0
+    },
+    "training": {
+      "RMSE_MPa": 26.247211965319007,
+      "MAE_MPa": 20.95071147217591,
+      "max_absolute_error_MPa": 103.93346681596523,
+      "n": 256
+    },
+    "withheld_tail": {
+      "RMSE_MPa": 32.271620011524966,
+      "MAE_MPa": 26.932161378520345,
+      "max_absolute_error_MPa": 85.72351719315418,
+      "n": 86
+    },
+    "full_history": {
+      "RMSE_MPa": 27.884886189406316,
+      "MAE_MPa": 22.45481875856662,
+      "max_absolute_error_MPa": 103.93346681596523,
+      "n": 342
+    },
+    "training_samples": 256,
+    "withheld_samples": 86,
+    "validation_scope": "Withheld temporal tail of SAME coupon, conditioned on prior loading. Not independent specimen validation. No Fe415/Fe500/Fe550 grade equivalence established.",
+    "optimizer": {
+      "method": "bounded nonlinear least squares, two starts",
+      "success": true,
+      "message": "`ftol` termination condition is satisfied.",
+      "nfev": 8
+    },
+    "elapsed_s": 0.06752559999586083,
+    "sources": {
+      "matTestAllParamsReadStrain.tcl": {
+        "git_blob_sha": "d9f9e7a6a11952113cc6e70bdb167dc63d9aa010",
+        "url": "https://github.com/NHERI-SimCenter/quoFEM/blob/master/Examples/qfem-0019/src/matTestAllParamsReadStrain.tcl"
+      },
+      "stress.1.coords": {
+        "git_blob_sha": "40dab400a42d4d5c6788b88a185405d9c21b6fed",
+        "url": "https://github.com/NHERI-SimCenter/quoFEM/blob/master/Examples/qfem-0019/src/stress.1.coords"
+      },
+      "calDataField.csv": {
+        "git_blob_sha": "3c81bc811345aa75e48a7c80c9253c3c86f33961",
+        "url": "https://github.com/NHERI-SimCenter/quoFEM/blob/master/Examples/qfem-0019/src/calDataField.csv"
+      }
+    },
+    "documentation": "https://nheri-simcenter.github.io/quoFEM-Documentation/common/user_manual/examples/desktop/qfem-0019/README.html",
+    "units": "Stress MPa, strain dimensionless; structural stress kN/m2 = MPa * 1000"
+  },
+  "profile_id": "Fit_Steel02",
+  "project_transfer_approved": false,
+  "provenance": {
+    "Fy_MPa": {
+      "value": 477.6784594629648,
+      "unit": "MPa",
+      "basis": "FIT TO PUBLISHED EXPERIMENTAL DATA",
+      "source": "https://nheri-simcenter.github.io/quoFEM-Documentation/common/user_manual/examples/desktop/qfem-0019/README.html",
+      "locator": "Bundled Calibration_Steel02 results; 256 training / 86 withheld temporal samples"
+    },
+    "E_MPa": {
+      "value": 213285.97721361803,
+      "unit": "MPa",
+      "basis": "FIT TO PUBLISHED EXPERIMENTAL DATA",
+      "source": "https://nheri-simcenter.github.io/quoFEM-Documentation/common/user_manual/examples/desktop/qfem-0019/README.html",
+      "locator": "Bundled Calibration_Steel02 results; 256 training / 86 withheld temporal samples"
+    },
+    "b": {
+      "value": 0.017232538850040207,
+      "unit": "dimensionless",
+      "basis": "FIT TO PUBLISHED EXPERIMENTAL DATA",
+      "source": "https://nheri-simcenter.github.io/quoFEM-Documentation/common/user_manual/examples/desktop/qfem-0019/README.html",
+      "locator": "Bundled Calibration_Steel02 results; 256 training / 86 withheld temporal samples"
+    },
+    "R0": {
+      "value": 20.0,
+      "unit": "dimensionless",
+      "basis": "FIT TO PUBLISHED EXPERIMENTAL DATA",
+      "source": "https://nheri-simcenter.github.io/quoFEM-Documentation/common/user_manual/examples/desktop/qfem-0019/README.html",
+      "locator": "Bundled Calibration_Steel02 results; 256 training / 86 withheld temporal samples"
+    },
+    "cR1": {
+      "value": 0.8795412124857829,
+      "unit": "dimensionless",
+      "basis": "FIT TO PUBLISHED EXPERIMENTAL DATA",
+      "source": "https://nheri-simcenter.github.io/quoFEM-Documentation/common/user_manual/examples/desktop/qfem-0019/README.html",
+      "locator": "Bundled Calibration_Steel02 results; 256 training / 86 withheld temporal samples"
+    },
+    "cR2": {
+      "value": 0.05676345697067946,
+      "unit": "dimensionless",
+      "basis": "FIT TO PUBLISHED EXPERIMENTAL DATA",
+      "source": "https://nheri-simcenter.github.io/quoFEM-Documentation/common/user_manual/examples/desktop/qfem-0019/README.html",
+      "locator": "Bundled Calibration_Steel02 results; 256 training / 86 withheld temporal samples"
+    },
+    "a1": {
+      "value": 0.02344170999823744,
+      "unit": "dimensionless",
+      "basis": "FIT TO PUBLISHED EXPERIMENTAL DATA",
+      "source": "https://nheri-simcenter.github.io/quoFEM-Documentation/common/user_manual/examples/desktop/qfem-0019/README.html",
+      "locator": "Bundled Calibration_Steel02 results; 256 training / 86 withheld temporal samples"
+    },
+    "a2": {
+      "value": 1.0,
+      "unit": "dimensionless",
+      "basis": "FIT TO PUBLISHED EXPERIMENTAL DATA",
+      "source": "https://nheri-simcenter.github.io/quoFEM-Documentation/common/user_manual/examples/desktop/qfem-0019/README.html",
+      "locator": "Bundled Calibration_Steel02 results; 256 training / 86 withheld temporal samples"
+    },
+    "a3": {
+      "value": 0.030778594901764822,
+      "unit": "dimensionless",
+      "basis": "FIT TO PUBLISHED EXPERIMENTAL DATA",
+      "source": "https://nheri-simcenter.github.io/quoFEM-Documentation/common/user_manual/examples/desktop/qfem-0019/README.html",
+      "locator": "Bundled Calibration_Steel02 results; 256 training / 86 withheld temporal samples"
+    },
+    "a4": {
+      "value": 1.0,
+      "unit": "dimensionless",
+      "basis": "FIT TO PUBLISHED EXPERIMENTAL DATA",
+      "source": "https://nheri-simcenter.github.io/quoFEM-Documentation/common/user_manual/examples/desktop/qfem-0019/README.html",
+      "locator": "Bundled Calibration_Steel02 results; 256 training / 86 withheld temporal samples"
+    }
+  }
+}

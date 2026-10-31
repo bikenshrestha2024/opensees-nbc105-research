@@ -1,0 +1,19 @@
+{
+  "NonlinearTimeHistoryGUI": {
+    "selected_pair_ids": [
+      "RSN1505_CHICHI_TCU068-E"
+    ],
+    "preliminary_selection": true,
+    "execution": "not started; configuration capture only"
+  },
+  "LinearTimeHistoryGUI": {
+    "selected_pair_ids": [
+      "RSN1505_CHICHI_TCU068-E"
+    ],
+    "preliminary_selection": true,
+    "execution": "not started; configuration capture only"
+  },
+  "history_inspector": "constructed; numeric rows and charts populated",
+  "playback": "constructed with fingerprint-matched full-model geometry; frame rendered",
+  "gravity_sources": "charts, source filters, load-path evidence constructed"
+}

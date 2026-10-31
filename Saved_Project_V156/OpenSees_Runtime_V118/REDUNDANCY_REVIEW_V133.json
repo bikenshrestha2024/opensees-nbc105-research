@@ -1,0 +1,230 @@
+{
+  "removed_duplicate": "shared/legacy_solver_stack.py now forwards to gravity/solver_stack.py; public/private historical helpers preserved",
+  "remaining_exact_function_ast_groups": [
+    [
+      {
+        "file": "components/equivalent_static/code_basis.py",
+        "function": "live_load_factor",
+        "line": 156,
+        "end_line": 160,
+        "sha256": "a847ea76d8132f60d29a3fdae84b7820b5372a4946bccf0f09a3c462783f555f"
+      },
+      {
+        "file": "components/equivalent_static/legacy_code_basis.py",
+        "function": "live_load_factor",
+        "line": 156,
+        "end_line": 160,
+        "sha256": "a847ea76d8132f60d29a3fdae84b7820b5372a4946bccf0f09a3c462783f555f"
+      }
+    ],
+    [
+      {
+        "file": "components/equivalent_static/code_basis.py",
+        "function": "flexural_stiffness_modifier",
+        "line": 163,
+        "end_line": 183,
+        "sha256": "2b952857e3339b5991671157dec5aa030b77d971913407edbf7d58ed7bd28cb3"
+      },
+      {
+        "file": "components/equivalent_static/legacy_code_basis.py",
+        "function": "flexural_stiffness_modifier",
+        "line": 163,
+        "end_line": 183,
+        "sha256": "2b952857e3339b5991671157dec5aa030b77d971913407edbf7d58ed7bd28cb3"
+      }
+    ],
+    [
+      {
+        "file": "components/equivalent_static/code_basis.py",
+        "function": "mass_source_factor",
+        "line": 186,
+        "end_line": 204,
+        "sha256": "c749bd1163a29030dc12867df23889e02c6e25f569d4def6f95b9820eb6eb968"
+      },
+      {
+        "file": "components/equivalent_static/legacy_code_basis.py",
+        "function": "mass_source_factor",
+        "line": 186,
+        "end_line": 204,
+        "sha256": "c749bd1163a29030dc12867df23889e02c6e25f569d4def6f95b9820eb6eb968"
+      }
+    ],
+    [
+      {
+        "file": "components/equivalent_static/code_basis.py",
+        "function": "esm_spectral_shape_factor",
+        "line": 242,
+        "end_line": 260,
+        "sha256": "22baafcb1297c8d73746b84606ea0a53ddf60ee5fd46e9ee61d166c5c38440df"
+      },
+      {
+        "file": "components/equivalent_static/legacy_code_basis.py",
+        "function": "esm_spectral_shape_factor",
+        "line": 242,
+        "end_line": 260,
+        "sha256": "22baafcb1297c8d73746b84606ea0a53ddf60ee5fd46e9ee61d166c5c38440df"
+      }
+    ],
+    [
+      {
+        "file": "components/equivalent_static/code_basis.py",
+        "function": "esm_period_exponent",
+        "line": 263,
+        "end_line": 270,
+        "sha256": "0eeb506ada3a825c04bb768f2451ad77e95d4ca2dca3983b63aae7d81489fce6"
+      },
+      {
+        "file": "components/equivalent_static/legacy_code_basis.py",
+        "function": "esm_period_exponent",
+        "line": 263,
+        "end_line": 270,
+        "sha256": "0eeb506ada3a825c04bb768f2451ad77e95d4ca2dca3983b63aae7d81489fce6"
+      }
+    ],
+    [
+      {
+        "file": "components/equivalent_static/code_basis.py",
+        "function": "esm_eligibility",
+        "line": 273,
+        "end_line": 301,
+        "sha256": "22785b059d5676e5979841bfe0e3dbc8d1b5301c45eb807ce8272b13355abca6"
+      },
+      {
+        "file": "components/equivalent_static/legacy_code_basis.py",
+        "function": "esm_eligibility",
+        "line": 273,
+        "end_line": 301,
+        "sha256": "22785b059d5676e5979841bfe0e3dbc8d1b5301c45eb807ce8272b13355abca6"
+      }
+    ],
+    [
+      {
+        "file": "components/linear_time_history/runner_and_gui.py",
+        "function": "_aggregate_pair_set",
+        "line": 267,
+        "end_line": 283,
+        "sha256": "5d5d63363ae4baaecd250d000b0445afb008aa0d7b482cf4df3f1b382902091c"
+      },
+      {
+        "file": "components/nonlinear_time_history/runner_and_gui.py",
+        "function": "_aggregate_pair_set",
+        "line": 347,
+        "end_line": 363,
+        "sha256": "5d5d63363ae4baaecd250d000b0445afb008aa0d7b482cf4df3f1b382902091c"
+      }
+    ],
+    [
+      {
+        "file": "components/linear_time_history/runner_and_gui.py",
+        "function": "_browse",
+        "line": 425,
+        "end_line": 429,
+        "sha256": "b8ad5c9a881827d24a100ebbff8a26ad678f5b1f13e358b2d3a381fda4cce317"
+      },
+      {
+        "file": "components/nonlinear_time_history/runner_and_gui.py",
+        "function": "_browse",
+        "line": 495,
+        "end_line": 499,
+        "sha256": "b8ad5c9a881827d24a100ebbff8a26ad678f5b1f13e358b2d3a381fda4cce317"
+      }
+    ],
+    [
+      {
+        "file": "components/linear_time_history/runner_and_gui.py",
+        "function": "_entry",
+        "line": 431,
+        "end_line": 435,
+        "sha256": "f378280d983781f16fc1316ddb5ebd813a43b32f1ca67b1e29e7c05944d72f9e"
+      },
+      {
+        "file": "components/nonlinear_time_history/runner_and_gui.py",
+        "function": "_entry",
+        "line": 501,
+        "end_line": 505,
+        "sha256": "f378280d983781f16fc1316ddb5ebd813a43b32f1ca67b1e29e7c05944d72f9e"
+      }
+    ],
+    [
+      {
+        "file": "components/linear_time_history/runner_and_gui.py",
+        "function": "_templates",
+        "line": 493,
+        "end_line": 499,
+        "sha256": "71cfd39f1a47a8514ca460b41b2d9d95cc82ac41888498303713e3873a949dfd"
+      },
+      {
+        "file": "components/nonlinear_time_history/runner_and_gui.py",
+        "function": "_templates",
+        "line": 564,
+        "end_line": 570,
+        "sha256": "71cfd39f1a47a8514ca460b41b2d9d95cc82ac41888498303713e3873a949dfd"
+      }
+    ],
+    [
+      {
+        "file": "components/linear_time_history/runner_and_gui.py",
+        "function": "_open_spectrum_tool",
+        "line": 501,
+        "end_line": 508,
+        "sha256": "0f6182c08288d8f064e89237a4e1de5b4525b110723ea49e5b3698e01eaed462"
+      },
+      {
+        "file": "components/nonlinear_time_history/runner_and_gui.py",
+        "function": "_open_spectrum_tool",
+        "line": 572,
+        "end_line": 579,
+        "sha256": "0f6182c08288d8f064e89237a4e1de5b4525b110723ea49e5b3698e01eaed462"
+      }
+    ],
+    [
+      {
+        "file": "components/linear_time_history/runner_and_gui.py",
+        "function": "_select_x_records",
+        "line": 510,
+        "end_line": 514,
+        "sha256": "cc858cce4a579da160c262499f17cb9355a24e5f2327570d0fb86f49443638c0"
+      },
+      {
+        "file": "components/nonlinear_time_history/runner_and_gui.py",
+        "function": "_select_x_records",
+        "line": 581,
+        "end_line": 585,
+        "sha256": "cc858cce4a579da160c262499f17cb9355a24e5f2327570d0fb86f49443638c0"
+      }
+    ],
+    [
+      {
+        "file": "components/linear_time_history/runner_and_gui.py",
+        "function": "_append_log",
+        "line": 576,
+        "end_line": 578,
+        "sha256": "a9f98fe6b8c0376a21ba80657997cbbbac3ca25cdfcae69fdeb5f19aa88f82b7"
+      },
+      {
+        "file": "components/nonlinear_time_history/runner_and_gui.py",
+        "function": "_append_log",
+        "line": 649,
+        "end_line": 651,
+        "sha256": "a9f98fe6b8c0376a21ba80657997cbbbac3ca25cdfcae69fdeb5f19aa88f82b7"
+      }
+    ],
+    [
+      {
+        "file": "components/linear_time_history/runner_and_gui.py",
+        "function": "run",
+        "line": 580,
+        "end_line": 582,
+        "sha256": "c94e08602f9f6d6a66eafecc8be3c1e3b13e16bc296456cb2cf0aa5e948c13b9"
+      },
+      {
+        "file": "components/nonlinear_time_history/runner_and_gui.py",
+        "function": "run",
+        "line": 653,
+        "end_line": 655,
+        "sha256": "c94e08602f9f6d6a66eafecc8be3c1e3b13e16bc296456cb2cf0aa5e948c13b9"
+      }
+    ]
+  ],
+  "scope": "Exact AST match is a review lead, not proof that differently scoped helpers can safely be merged. No speculative deletion of physics or old interfaces."
+}

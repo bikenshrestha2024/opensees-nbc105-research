@@ -1,0 +1,42 @@
+{
+  "status": "LITERATURE_TEACHING_EXAMPLE_NOT_PROJECT_CALIBRATION",
+  "units": "kN, m, s; stresses kN/m2",
+  "span_m": 9.144,
+  "height_m": 3.6576,
+  "width_m": 0.381,
+  "depth_m": 0.6095999999999999,
+  "cover_m": 0.038099999999999995,
+  "core_Concrete01": [
+    -41368.543759010165,
+    -0.004,
+    -34473.786465841804,
+    -0.014
+  ],
+  "cover_Concrete01": [
+    -34473.786465841804,
+    -0.002,
+    0.0,
+    -0.006
+  ],
+  "steel_Steel01": [
+    413685.4375901016,
+    206842718.79505083,
+    0.01
+  ],
+  "bar_area_m2": 0.00038709599999999997,
+  "bars": 8,
+  "gravity_per_roof_node_kN": 800.6798907468899,
+  "beam_A_m2": 0.23225759999999998,
+  "beam_E_kN_m2": 27785871.891468495,
+  "beam_I_m4": 0.0035962395171839994,
+  "lobatto_points": 5,
+  "betaKcomm_s": 0.000625,
+  "newmark_gamma": 0.5,
+  "newmark_beta": 0.25,
+  "sources": [
+    "https://github.com/OpenSees/OpenSees/blob/master/EXAMPLES/ExamplePython/Example3.1.py",
+    "https://openseespydoc.readthedocs.io/en/latest/src/RCFrameEarthquake.html",
+    "https://github.com/bikenshrestha2024/OpenSeesPy-Official-Structural-Examples/blob/main/Reinforced%20Concrete%20Frame%20Earthquake%20Analysis/EQ_analysis.ipynb"
+  ],
+  "notes": "Source numerical teaching parameters, not material-code defaults. Standard g used consistently for mass and motion; all source inch/kip quantities converted once. Elastic beam retained as in source. No strain limit is interpreted as NBC acceptance."
+}

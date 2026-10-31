@@ -1,0 +1,11 @@
+{
+  "stage": "Equivalent-static calculations and case export",
+  "started_at": "2026-10-24T00:04:28.326+05:45",
+  "finished_at": "2026-10-24T00:04:28.462+05:45",
+  "elapsed_seconds": 0.1342463000000862,
+  "status": "completed",
+  "error": null,
+  "time_scope": "Entire named processing stage, not individual file-write latency",
+  "artifact": "NBC105_ESM_Force_Profile_ULS_X+_E0_V111.png",
+  "size_bytes": 63946
+}

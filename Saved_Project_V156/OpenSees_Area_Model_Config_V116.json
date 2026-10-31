@@ -1,0 +1,59 @@
+{
+  "coordinate_units": "m",
+  "force_units": "kN",
+  "source_reviewed_by_user": false,
+  "audit_output_json": "OpenSees_Area_Element_Integration_Audit_V116.json",
+  "section_mapping_json": "",
+  "floor_sections": {
+    "Slab 150": {
+      "section_tag": 920,
+      "E_kN_m2": 33541020.0,
+      "poisson_ratio": 0.2,
+      "thickness_m": 0.15,
+      "source": "ETABS_Materials.csv M45 Isotropic E=33,541,020 kN/m2 and nu=0.20; ETABS_Area_Slab_Wall_Sections.csv Slab 150 thickness=0.15 m. Confirm API units and active design property."
+    }
+  },
+  "etabs_to_opensees_wall_mapping": {
+    "Wall 600": "RC_WALL_600_E_SFI_MVLEM3D"
+  },
+  "opensees_wall_sections": {
+    "RC_WALL_600_E_SFI_MVLEM3D": {
+      "thickness_m": 0.6,
+      "fsam_material_tag": null,
+      "center_of_rotation": 0.4,
+      "out_of_plane_thickness_modifier": 0.63,
+      "poisson_ratio": 0.25,
+      "quad_width_tolerance_m": 0.001,
+      "reinforcement_detail": {
+        "vertical_bar_diameter_mm": 20,
+        "horizontal_bar_diameter_mm": 20,
+        "vertical_spacing_mm": 200,
+        "horizontal_spacing_mm": 200,
+        "curtains": 2,
+        "clear_cover_each_face_mm": 25,
+        "steel_grade": "HYSD550 / fy=550 MPa from user input; verify against ETABS design assignments and drawings",
+        "rho_vertical_gross": 0.0052359878,
+        "rho_horizontal_gross": 0.0052359878,
+        "ratio_basis": "2 * (pi*20^2/4) / (200*600); excludes extra opening jamb/pier-edge/spandrel bars"
+      },
+      "material_calibration_source": "REQUIRED: add exact concrete/steel constitutive parameter source and benchmark/calibration citation",
+      "source_etabs_area_property": "Wall 600",
+      "source": "ETABS_Area_Section_Assignment_Audit.csv raw GetWall property reports M45 and 0.60 m; M45 ETABS material E/fc values are in ETABS_Materials.csv. Verify API units.",
+      "section_status": "Geometry preset only. Supply validated FSAM tag and calibration evidence before setting source_reviewed_by_user=true."
+    }
+  },
+  "load_mass_policy": {
+    "shell_mass_density": 0.0,
+    "apply_area_loads_here": false,
+    "apply_seismic_mass_here": false,
+    "note": "Area element builder deliberately creates no gravity loads or masses. Transfer the verified ETABS load/weight ledger exactly once and reconcile floor-by-floor before NLTHA."
+  },
+  "floor_shell_nonlinearity_verified": false,
+  "notes": [
+    "The actual topology export contains 350 FLOOR quads and 375 SHEAR WALL quads: 15 wall quads per each of 25 storeys. The mesh is read directly from OpenSees_Element_Connectivity.json; no missing panel is synthesized.",
+    "ETABS area assignments report Slab 150 / 0.15 m and Wall 600 / 0.60 m. M45 E=33,541,020 kN/m2, nu=0.20 are source-export values; check ETABS active units and property revisions.",
+    "ShellMITC4 + ElasticMembranePlateSection is an elastic floor idealization. It is not a nonlinear RC slab model; rigid diaphragm compatibility must be reviewed before combining constraints and shells.",
+    "E-SFI-MVLEM_3D is nonlinear via FSAM but the required project ConcreteCM/SteelMPF/FSAM objects must be created before this area stage. The 0.63 thickness modifier is the E-SFI literature default for its out-of-plane bending formulation, not an NBC stiffness factor.",
+    "Do not reuse a solid-wall benchmark material as calibrated input for the perforated core without checking its specimen, boundary/pier layout, material strength and loading range against the project."
+  ]
+}

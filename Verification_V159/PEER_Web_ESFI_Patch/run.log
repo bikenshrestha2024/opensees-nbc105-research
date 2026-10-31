@@ -1,0 +1,19 @@
+WARNING: numeric analysis returns 1 -- Umfpackgenlinsolver::solve
+WARNING NewtonRaphson::solveCurrentStep() -the LinearSysOfEqn failed in solve()
+StaticAnalysis::analyze() - the Algorithm failed at step: 0 with domain at load factor 98.7788
+OpenSees > analyze failed, returned: -3 error flag
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\User\Documents\Codex\2026-10-20\can\outputs\OpenSees_NBC105_V159\components\validation\parameter_studies.py", line 157, in <module>
+    try:run(json.loads(Path(a.input).read_text(encoding='utf-8-sig')),a.output)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Documents\Codex\2026-10-20\can\outputs\OpenSees_NBC105_V159\components\validation\parameter_studies.py", line 117, in run
+    rows=native(d,x);y=np.array([r['y'] for r in rows]);metrics={}
+         ^^^^^^^^^^^
+  File "C:\Users\User\Documents\Codex\2026-10-20\can\outputs\OpenSees_NBC105_V159\components\validation\parameter_studies.py", line 48, in native
+    if m=='SFI_MVLEM_3D':return wall(d,x)
+                                ^^^^^^^^^
+  File "C:\Users\User\Documents\Codex\2026-10-20\can\outputs\OpenSees_NBC105_V159\components\validation\parameter_studies.py", line 85, in wall
+    raise RuntimeError(element+' cyclic step '+str(i)+' failed: '+str(rc)+'; partial response retained')
+RuntimeError: E_SFI_MVLEM_3D cyclic step 31 failed: -3; partial response retained

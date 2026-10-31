@@ -1,0 +1,25 @@
+[EXPLORATORY START] XY no calibration or design approval implied
+WARNING: numeric analysis returns 1 -- Umfpackgenlinsolver::solve
+WARNING NewtonRaphson::solveCurrentStep() -the LinearSysOfEqn failed in solve()
+StaticAnalysis::analyze() - the Algorithm failed at step: 4 with domain at load factor 0.25
+OpenSees > analyze failed, returned: -3 error flag
+[TIMING] Model construction and optional gravity preload | failed | elapsed=11.316 s | start=2026-10-24T22:51:00.847+05:45 | finish=2026-10-24T22:51:12.163+05:45
+Traceback (most recent call last):
+  File "C:\Users\User\Documents\Codex\2026-10-20\can\outputs\OpenSees_NBC105_V138\OpenSees_Building_Exploratory_V138.py", line 3, in <module>
+    exec(compile(_component_source.read_text(encoding='utf-8-sig'),str(_component_source),'exec'),globals(),globals())
+  File "C:\Users\User\Documents\Codex\2026-10-20\can\outputs\OpenSees_NBC105_V138\components\nonlinear_time_history\building_exploratory.py", line 77, in <module>
+    p=argparse.ArgumentParser();p.add_argument('--config',required=True);a=p.parse_args();run(json.loads(Path(a.config).read_text(encoding='utf-8-sig')))
+                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Documents\Codex\2026-10-20\can\outputs\OpenSees_NBC105_V138\components\nonlinear_time_history\building_exploratory.py", line 33, in run
+    build_complete_model(model,mode='nonlinear',preload=True,limit_state=config.get('limit_state','ULS'),research_profile=PROFILE)
+  File "C:\Users\User\Documents\Codex\2026-10-20\can\outputs\OpenSees_NBC105_V138\components\shared\timing.py", line 18, in wrapped
+    try:return function(*args,**kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Documents\Codex\2026-10-20\can\outputs\OpenSees_NBC105_V138\components\model\assembly.py", line 634, in build_complete_model
+    gravity_report=run_gravity_stage(ops,[int(n) for n,v in data['supports'].items() if v[2]],data['total_downward_load_kN'],model_nodes=list(map(int,data['nodes'])),nsteps=20,system='UmfPack')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Documents\Codex\2026-10-20\can\outputs\OpenSees_NBC105_V138\components\gravity\solver_stack.py", line 126, in run_gravity_stage
+    run_static_analysis(
+  File "C:\Users\User\Documents\Codex\2026-10-20\can\outputs\OpenSees_NBC105_V138\components\gravity\solver_stack.py", line 85, in run_static_analysis
+    raise RuntimeError(
+RuntimeError: Static analysis failed: OpenSees returned -3 after requesting 20 steps. Check load factors, constraints, convergence, and model stability.

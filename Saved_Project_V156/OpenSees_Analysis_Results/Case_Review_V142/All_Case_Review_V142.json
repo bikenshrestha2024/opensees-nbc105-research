@@ -1,0 +1,2504 @@
+{
+  "drift": [],
+  "deflection": [],
+  "issues": [],
+  "preload_profiles": [],
+  "combination_coverage": [
+    {
+      "case": "ULS_GRAVITY",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.2, \"LL\": 1.5}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_GRAVITY",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.2, \"LL\": 1.5}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_GRAVITY",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.2, \"LL\": 1.5}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SNOW",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.2, \"LL\": 0.5, \"SNOW\": 1.2}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SNOW",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.2, \"LL\": 0.5, \"SNOW\": 1.2}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SNOW",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.2, \"LL\": 0.5, \"SNOW\": 1.2}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_LIQUID",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.2, \"LL\": 0.5, \"LIQUID\": 1.2}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_LIQUID",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.2, \"LL\": 0.5, \"LIQUID\": 1.2}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_LIQUID",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.2, \"LL\": 0.5, \"LIQUID\": 1.2}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_EARTH",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.2, \"LL\": 0.5, \"EARTH\": 1.5}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_EARTH",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.2, \"LL\": 0.5, \"EARTH\": 1.5}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_EARTH",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.2, \"LL\": 0.5, \"EARTH\": 1.5}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-1_EY-0.3_E0",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_E0\": -1.0, \"ULS_EY_E0\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-1_EY-0.3_E0",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_E0\": -1.0, \"ULS_EY_E0\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-1_EY-0.3_E0",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_E0\": -1.0, \"ULS_EY_E0\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-1_EY-0.3_E0",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_E0\": -1.0, \"ULS_EY_E0\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-1_EY-0.3_E0",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_E0\": -1.0, \"ULS_EY_E0\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-1_EY-0.3_E0",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_E0\": -1.0, \"ULS_EY_E0\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-1_EY-0.3_EPLUS",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EPLUS\": -1.0, \"ULS_EY_EPLUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-1_EY-0.3_EPLUS",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EPLUS\": -1.0, \"ULS_EY_EPLUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-1_EY-0.3_EPLUS",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EPLUS\": -1.0, \"ULS_EY_EPLUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-1_EY-0.3_EPLUS",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EPLUS\": -1.0, \"ULS_EY_EPLUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-1_EY-0.3_EPLUS",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EPLUS\": -1.0, \"ULS_EY_EPLUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-1_EY-0.3_EPLUS",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EPLUS\": -1.0, \"ULS_EY_EPLUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-1_EY-0.3_EMINUS",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EMINUS\": -1.0, \"ULS_EY_EMINUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-1_EY-0.3_EMINUS",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EMINUS\": -1.0, \"ULS_EY_EMINUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-1_EY-0.3_EMINUS",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EMINUS\": -1.0, \"ULS_EY_EMINUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-1_EY-0.3_EMINUS",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EMINUS\": -1.0, \"ULS_EY_EMINUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-1_EY-0.3_EMINUS",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EMINUS\": -1.0, \"ULS_EY_EMINUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-1_EY-0.3_EMINUS",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EMINUS\": -1.0, \"ULS_EY_EMINUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-1_EY+0.3_E0",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_E0\": -1.0, \"ULS_EY_E0\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-1_EY+0.3_E0",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_E0\": -1.0, \"ULS_EY_E0\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-1_EY+0.3_E0",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_E0\": -1.0, \"ULS_EY_E0\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-1_EY+0.3_E0",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_E0\": -1.0, \"ULS_EY_E0\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-1_EY+0.3_E0",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_E0\": -1.0, \"ULS_EY_E0\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-1_EY+0.3_E0",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_E0\": -1.0, \"ULS_EY_E0\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-1_EY+0.3_EPLUS",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EPLUS\": -1.0, \"ULS_EY_EPLUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-1_EY+0.3_EPLUS",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EPLUS\": -1.0, \"ULS_EY_EPLUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-1_EY+0.3_EPLUS",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EPLUS\": -1.0, \"ULS_EY_EPLUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-1_EY+0.3_EPLUS",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EPLUS\": -1.0, \"ULS_EY_EPLUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-1_EY+0.3_EPLUS",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EPLUS\": -1.0, \"ULS_EY_EPLUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-1_EY+0.3_EPLUS",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EPLUS\": -1.0, \"ULS_EY_EPLUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-1_EY+0.3_EMINUS",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EMINUS\": -1.0, \"ULS_EY_EMINUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-1_EY+0.3_EMINUS",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EMINUS\": -1.0, \"ULS_EY_EMINUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-1_EY+0.3_EMINUS",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EMINUS\": -1.0, \"ULS_EY_EMINUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-1_EY+0.3_EMINUS",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EMINUS\": -1.0, \"ULS_EY_EMINUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-1_EY+0.3_EMINUS",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EMINUS\": -1.0, \"ULS_EY_EMINUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-1_EY+0.3_EMINUS",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EMINUS\": -1.0, \"ULS_EY_EMINUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+1_EY-0.3_E0",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_E0\": 1.0, \"ULS_EY_E0\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+1_EY-0.3_E0",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_E0\": 1.0, \"ULS_EY_E0\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+1_EY-0.3_E0",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_E0\": 1.0, \"ULS_EY_E0\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+1_EY-0.3_E0",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_E0\": 1.0, \"ULS_EY_E0\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+1_EY-0.3_E0",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_E0\": 1.0, \"ULS_EY_E0\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+1_EY-0.3_E0",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_E0\": 1.0, \"ULS_EY_E0\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+1_EY-0.3_EPLUS",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EPLUS\": 1.0, \"ULS_EY_EPLUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+1_EY-0.3_EPLUS",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EPLUS\": 1.0, \"ULS_EY_EPLUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+1_EY-0.3_EPLUS",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EPLUS\": 1.0, \"ULS_EY_EPLUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+1_EY-0.3_EPLUS",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EPLUS\": 1.0, \"ULS_EY_EPLUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+1_EY-0.3_EPLUS",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EPLUS\": 1.0, \"ULS_EY_EPLUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+1_EY-0.3_EPLUS",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EPLUS\": 1.0, \"ULS_EY_EPLUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+1_EY-0.3_EMINUS",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EMINUS\": 1.0, \"ULS_EY_EMINUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+1_EY-0.3_EMINUS",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EMINUS\": 1.0, \"ULS_EY_EMINUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+1_EY-0.3_EMINUS",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EMINUS\": 1.0, \"ULS_EY_EMINUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+1_EY-0.3_EMINUS",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EMINUS\": 1.0, \"ULS_EY_EMINUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+1_EY-0.3_EMINUS",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EMINUS\": 1.0, \"ULS_EY_EMINUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+1_EY-0.3_EMINUS",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EMINUS\": 1.0, \"ULS_EY_EMINUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+1_EY+0.3_E0",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_E0\": 1.0, \"ULS_EY_E0\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+1_EY+0.3_E0",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_E0\": 1.0, \"ULS_EY_E0\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+1_EY+0.3_E0",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_E0\": 1.0, \"ULS_EY_E0\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+1_EY+0.3_E0",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_E0\": 1.0, \"ULS_EY_E0\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+1_EY+0.3_E0",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_E0\": 1.0, \"ULS_EY_E0\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+1_EY+0.3_E0",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_E0\": 1.0, \"ULS_EY_E0\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+1_EY+0.3_EPLUS",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EPLUS\": 1.0, \"ULS_EY_EPLUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+1_EY+0.3_EPLUS",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EPLUS\": 1.0, \"ULS_EY_EPLUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+1_EY+0.3_EPLUS",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EPLUS\": 1.0, \"ULS_EY_EPLUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+1_EY+0.3_EPLUS",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EPLUS\": 1.0, \"ULS_EY_EPLUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+1_EY+0.3_EPLUS",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EPLUS\": 1.0, \"ULS_EY_EPLUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+1_EY+0.3_EPLUS",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EPLUS\": 1.0, \"ULS_EY_EPLUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+1_EY+0.3_EMINUS",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EMINUS\": 1.0, \"ULS_EY_EMINUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+1_EY+0.3_EMINUS",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EMINUS\": 1.0, \"ULS_EY_EMINUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+1_EY+0.3_EMINUS",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EMINUS\": 1.0, \"ULS_EY_EMINUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+1_EY+0.3_EMINUS",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EMINUS\": 1.0, \"ULS_EY_EMINUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+1_EY+0.3_EMINUS",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EMINUS\": 1.0, \"ULS_EY_EMINUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+1_EY+0.3_EMINUS",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EMINUS\": 1.0, \"ULS_EY_EMINUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-0.3_EY-1_E0",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_E0\": -0.3, \"ULS_EY_E0\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-0.3_EY-1_E0",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_E0\": -0.3, \"ULS_EY_E0\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-0.3_EY-1_E0",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_E0\": -0.3, \"ULS_EY_E0\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-0.3_EY-1_E0",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_E0\": -0.3, \"ULS_EY_E0\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-0.3_EY-1_E0",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_E0\": -0.3, \"ULS_EY_E0\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-0.3_EY-1_E0",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_E0\": -0.3, \"ULS_EY_E0\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-0.3_EY-1_EPLUS",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EPLUS\": -0.3, \"ULS_EY_EPLUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-0.3_EY-1_EPLUS",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EPLUS\": -0.3, \"ULS_EY_EPLUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-0.3_EY-1_EPLUS",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EPLUS\": -0.3, \"ULS_EY_EPLUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-0.3_EY-1_EPLUS",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EPLUS\": -0.3, \"ULS_EY_EPLUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-0.3_EY-1_EPLUS",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EPLUS\": -0.3, \"ULS_EY_EPLUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-0.3_EY-1_EPLUS",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EPLUS\": -0.3, \"ULS_EY_EPLUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-0.3_EY-1_EMINUS",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EMINUS\": -0.3, \"ULS_EY_EMINUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-0.3_EY-1_EMINUS",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EMINUS\": -0.3, \"ULS_EY_EMINUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-0.3_EY-1_EMINUS",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EMINUS\": -0.3, \"ULS_EY_EMINUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-0.3_EY-1_EMINUS",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EMINUS\": -0.3, \"ULS_EY_EMINUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-0.3_EY-1_EMINUS",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EMINUS\": -0.3, \"ULS_EY_EMINUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-0.3_EY-1_EMINUS",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EMINUS\": -0.3, \"ULS_EY_EMINUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-0.3_EY+1_E0",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_E0\": -0.3, \"ULS_EY_E0\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-0.3_EY+1_E0",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_E0\": -0.3, \"ULS_EY_E0\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-0.3_EY+1_E0",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_E0\": -0.3, \"ULS_EY_E0\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-0.3_EY+1_E0",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_E0\": -0.3, \"ULS_EY_E0\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-0.3_EY+1_E0",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_E0\": -0.3, \"ULS_EY_E0\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-0.3_EY+1_E0",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_E0\": -0.3, \"ULS_EY_E0\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-0.3_EY+1_EPLUS",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EPLUS\": -0.3, \"ULS_EY_EPLUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-0.3_EY+1_EPLUS",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EPLUS\": -0.3, \"ULS_EY_EPLUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-0.3_EY+1_EPLUS",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EPLUS\": -0.3, \"ULS_EY_EPLUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-0.3_EY+1_EPLUS",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EPLUS\": -0.3, \"ULS_EY_EPLUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-0.3_EY+1_EPLUS",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EPLUS\": -0.3, \"ULS_EY_EPLUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-0.3_EY+1_EPLUS",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EPLUS\": -0.3, \"ULS_EY_EPLUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-0.3_EY+1_EMINUS",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EMINUS\": -0.3, \"ULS_EY_EMINUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-0.3_EY+1_EMINUS",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EMINUS\": -0.3, \"ULS_EY_EMINUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX-0.3_EY+1_EMINUS",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EMINUS\": -0.3, \"ULS_EY_EMINUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-0.3_EY+1_EMINUS",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EMINUS\": -0.3, \"ULS_EY_EMINUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-0.3_EY+1_EMINUS",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EMINUS\": -0.3, \"ULS_EY_EMINUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX-0.3_EY+1_EMINUS",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EMINUS\": -0.3, \"ULS_EY_EMINUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+0.3_EY-1_E0",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_E0\": 0.3, \"ULS_EY_E0\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+0.3_EY-1_E0",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_E0\": 0.3, \"ULS_EY_E0\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+0.3_EY-1_E0",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_E0\": 0.3, \"ULS_EY_E0\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+0.3_EY-1_E0",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_E0\": 0.3, \"ULS_EY_E0\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+0.3_EY-1_E0",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_E0\": 0.3, \"ULS_EY_E0\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+0.3_EY-1_E0",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_E0\": 0.3, \"ULS_EY_E0\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+0.3_EY-1_EPLUS",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EPLUS\": 0.3, \"ULS_EY_EPLUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+0.3_EY-1_EPLUS",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EPLUS\": 0.3, \"ULS_EY_EPLUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+0.3_EY-1_EPLUS",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EPLUS\": 0.3, \"ULS_EY_EPLUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+0.3_EY-1_EPLUS",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EPLUS\": 0.3, \"ULS_EY_EPLUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+0.3_EY-1_EPLUS",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EPLUS\": 0.3, \"ULS_EY_EPLUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+0.3_EY-1_EPLUS",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EPLUS\": 0.3, \"ULS_EY_EPLUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+0.3_EY-1_EMINUS",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EMINUS\": 0.3, \"ULS_EY_EMINUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+0.3_EY-1_EMINUS",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EMINUS\": 0.3, \"ULS_EY_EMINUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+0.3_EY-1_EMINUS",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EMINUS\": 0.3, \"ULS_EY_EMINUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+0.3_EY-1_EMINUS",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EMINUS\": 0.3, \"ULS_EY_EMINUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+0.3_EY-1_EMINUS",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EMINUS\": 0.3, \"ULS_EY_EMINUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+0.3_EY-1_EMINUS",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EMINUS\": 0.3, \"ULS_EY_EMINUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+0.3_EY+1_E0",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_E0\": 0.3, \"ULS_EY_E0\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+0.3_EY+1_E0",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_E0\": 0.3, \"ULS_EY_E0\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+0.3_EY+1_E0",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_E0\": 0.3, \"ULS_EY_E0\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+0.3_EY+1_E0",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_E0\": 0.3, \"ULS_EY_E0\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+0.3_EY+1_E0",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_E0\": 0.3, \"ULS_EY_E0\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+0.3_EY+1_E0",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_E0\": 0.3, \"ULS_EY_E0\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+0.3_EY+1_EPLUS",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EPLUS\": 0.3, \"ULS_EY_EPLUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+0.3_EY+1_EPLUS",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EPLUS\": 0.3, \"ULS_EY_EPLUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+0.3_EY+1_EPLUS",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EPLUS\": 0.3, \"ULS_EY_EPLUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+0.3_EY+1_EPLUS",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EPLUS\": 0.3, \"ULS_EY_EPLUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+0.3_EY+1_EPLUS",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EPLUS\": 0.3, \"ULS_EY_EPLUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+0.3_EY+1_EPLUS",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EPLUS\": 0.3, \"ULS_EY_EPLUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+0.3_EY+1_EMINUS",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EMINUS\": 0.3, \"ULS_EY_EMINUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+0.3_EY+1_EMINUS",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EMINUS\": 0.3, \"ULS_EY_EMINUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_SEISMIC_EX+0.3_EY+1_EMINUS",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"ULS_EX_EMINUS\": 0.3, \"ULS_EY_EMINUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+0.3_EY+1_EMINUS",
+      "limit_state": "ULS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EMINUS\": 0.3, \"ULS_EY_EMINUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+0.3_EY+1_EMINUS",
+      "limit_state": "ULS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EMINUS\": 0.3, \"ULS_EY_EMINUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "ULS_UPLIFT_EX+0.3_EY+1_EMINUS",
+      "limit_state": "ULS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"ULS_EX_EMINUS\": 0.3, \"ULS_EY_EMINUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_GRAVITY",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.2, \"LL\": 1.5}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_GRAVITY",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.2, \"LL\": 1.5}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_GRAVITY",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.2, \"LL\": 1.5}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SNOW",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.2, \"LL\": 0.5, \"SNOW\": 1.2}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SNOW",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.2, \"LL\": 0.5, \"SNOW\": 1.2}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SNOW",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.2, \"LL\": 0.5, \"SNOW\": 1.2}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_LIQUID",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.2, \"LL\": 0.5, \"LIQUID\": 1.2}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_LIQUID",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.2, \"LL\": 0.5, \"LIQUID\": 1.2}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_LIQUID",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.2, \"LL\": 0.5, \"LIQUID\": 1.2}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_EARTH",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.2, \"LL\": 0.5, \"EARTH\": 1.5}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_EARTH",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.2, \"LL\": 0.5, \"EARTH\": 1.5}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_EARTH",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.2, \"LL\": 0.5, \"EARTH\": 1.5}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-1_EY-0.3_E0",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_E0\": -1.0, \"SLS_EY_E0\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-1_EY-0.3_E0",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_E0\": -1.0, \"SLS_EY_E0\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-1_EY-0.3_E0",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_E0\": -1.0, \"SLS_EY_E0\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-1_EY-0.3_E0",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_E0\": -1.0, \"SLS_EY_E0\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-1_EY-0.3_E0",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_E0\": -1.0, \"SLS_EY_E0\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-1_EY-0.3_E0",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_E0\": -1.0, \"SLS_EY_E0\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-1_EY-0.3_EPLUS",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EPLUS\": -1.0, \"SLS_EY_EPLUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-1_EY-0.3_EPLUS",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EPLUS\": -1.0, \"SLS_EY_EPLUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-1_EY-0.3_EPLUS",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EPLUS\": -1.0, \"SLS_EY_EPLUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-1_EY-0.3_EPLUS",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EPLUS\": -1.0, \"SLS_EY_EPLUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-1_EY-0.3_EPLUS",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EPLUS\": -1.0, \"SLS_EY_EPLUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-1_EY-0.3_EPLUS",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EPLUS\": -1.0, \"SLS_EY_EPLUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-1_EY-0.3_EMINUS",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EMINUS\": -1.0, \"SLS_EY_EMINUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-1_EY-0.3_EMINUS",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EMINUS\": -1.0, \"SLS_EY_EMINUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-1_EY-0.3_EMINUS",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EMINUS\": -1.0, \"SLS_EY_EMINUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-1_EY-0.3_EMINUS",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EMINUS\": -1.0, \"SLS_EY_EMINUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-1_EY-0.3_EMINUS",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EMINUS\": -1.0, \"SLS_EY_EMINUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-1_EY-0.3_EMINUS",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EMINUS\": -1.0, \"SLS_EY_EMINUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-1_EY+0.3_E0",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_E0\": -1.0, \"SLS_EY_E0\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-1_EY+0.3_E0",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_E0\": -1.0, \"SLS_EY_E0\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-1_EY+0.3_E0",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_E0\": -1.0, \"SLS_EY_E0\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-1_EY+0.3_E0",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_E0\": -1.0, \"SLS_EY_E0\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-1_EY+0.3_E0",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_E0\": -1.0, \"SLS_EY_E0\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-1_EY+0.3_E0",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_E0\": -1.0, \"SLS_EY_E0\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-1_EY+0.3_EPLUS",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EPLUS\": -1.0, \"SLS_EY_EPLUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-1_EY+0.3_EPLUS",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EPLUS\": -1.0, \"SLS_EY_EPLUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-1_EY+0.3_EPLUS",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EPLUS\": -1.0, \"SLS_EY_EPLUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-1_EY+0.3_EPLUS",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EPLUS\": -1.0, \"SLS_EY_EPLUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-1_EY+0.3_EPLUS",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EPLUS\": -1.0, \"SLS_EY_EPLUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-1_EY+0.3_EPLUS",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EPLUS\": -1.0, \"SLS_EY_EPLUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-1_EY+0.3_EMINUS",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EMINUS\": -1.0, \"SLS_EY_EMINUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-1_EY+0.3_EMINUS",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EMINUS\": -1.0, \"SLS_EY_EMINUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-1_EY+0.3_EMINUS",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EMINUS\": -1.0, \"SLS_EY_EMINUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-1_EY+0.3_EMINUS",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EMINUS\": -1.0, \"SLS_EY_EMINUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-1_EY+0.3_EMINUS",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EMINUS\": -1.0, \"SLS_EY_EMINUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-1_EY+0.3_EMINUS",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EMINUS\": -1.0, \"SLS_EY_EMINUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+1_EY-0.3_E0",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_E0\": 1.0, \"SLS_EY_E0\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+1_EY-0.3_E0",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_E0\": 1.0, \"SLS_EY_E0\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+1_EY-0.3_E0",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_E0\": 1.0, \"SLS_EY_E0\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+1_EY-0.3_E0",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_E0\": 1.0, \"SLS_EY_E0\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+1_EY-0.3_E0",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_E0\": 1.0, \"SLS_EY_E0\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+1_EY-0.3_E0",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_E0\": 1.0, \"SLS_EY_E0\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+1_EY-0.3_EPLUS",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EPLUS\": 1.0, \"SLS_EY_EPLUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+1_EY-0.3_EPLUS",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EPLUS\": 1.0, \"SLS_EY_EPLUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+1_EY-0.3_EPLUS",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EPLUS\": 1.0, \"SLS_EY_EPLUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+1_EY-0.3_EPLUS",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EPLUS\": 1.0, \"SLS_EY_EPLUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+1_EY-0.3_EPLUS",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EPLUS\": 1.0, \"SLS_EY_EPLUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+1_EY-0.3_EPLUS",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EPLUS\": 1.0, \"SLS_EY_EPLUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+1_EY-0.3_EMINUS",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EMINUS\": 1.0, \"SLS_EY_EMINUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+1_EY-0.3_EMINUS",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EMINUS\": 1.0, \"SLS_EY_EMINUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+1_EY-0.3_EMINUS",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EMINUS\": 1.0, \"SLS_EY_EMINUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+1_EY-0.3_EMINUS",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EMINUS\": 1.0, \"SLS_EY_EMINUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+1_EY-0.3_EMINUS",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EMINUS\": 1.0, \"SLS_EY_EMINUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+1_EY-0.3_EMINUS",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EMINUS\": 1.0, \"SLS_EY_EMINUS\": -0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+1_EY+0.3_E0",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_E0\": 1.0, \"SLS_EY_E0\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+1_EY+0.3_E0",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_E0\": 1.0, \"SLS_EY_E0\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+1_EY+0.3_E0",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_E0\": 1.0, \"SLS_EY_E0\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+1_EY+0.3_E0",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_E0\": 1.0, \"SLS_EY_E0\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+1_EY+0.3_E0",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_E0\": 1.0, \"SLS_EY_E0\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+1_EY+0.3_E0",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_E0\": 1.0, \"SLS_EY_E0\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+1_EY+0.3_EPLUS",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EPLUS\": 1.0, \"SLS_EY_EPLUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+1_EY+0.3_EPLUS",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EPLUS\": 1.0, \"SLS_EY_EPLUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+1_EY+0.3_EPLUS",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EPLUS\": 1.0, \"SLS_EY_EPLUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+1_EY+0.3_EPLUS",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EPLUS\": 1.0, \"SLS_EY_EPLUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+1_EY+0.3_EPLUS",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EPLUS\": 1.0, \"SLS_EY_EPLUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+1_EY+0.3_EPLUS",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EPLUS\": 1.0, \"SLS_EY_EPLUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+1_EY+0.3_EMINUS",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EMINUS\": 1.0, \"SLS_EY_EMINUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+1_EY+0.3_EMINUS",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EMINUS\": 1.0, \"SLS_EY_EMINUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+1_EY+0.3_EMINUS",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EMINUS\": 1.0, \"SLS_EY_EMINUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+1_EY+0.3_EMINUS",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EMINUS\": 1.0, \"SLS_EY_EMINUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+1_EY+0.3_EMINUS",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EMINUS\": 1.0, \"SLS_EY_EMINUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+1_EY+0.3_EMINUS",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EMINUS\": 1.0, \"SLS_EY_EMINUS\": 0.3}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-0.3_EY-1_E0",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_E0\": -0.3, \"SLS_EY_E0\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-0.3_EY-1_E0",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_E0\": -0.3, \"SLS_EY_E0\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-0.3_EY-1_E0",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_E0\": -0.3, \"SLS_EY_E0\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-0.3_EY-1_E0",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_E0\": -0.3, \"SLS_EY_E0\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-0.3_EY-1_E0",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_E0\": -0.3, \"SLS_EY_E0\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-0.3_EY-1_E0",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_E0\": -0.3, \"SLS_EY_E0\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-0.3_EY-1_EPLUS",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EPLUS\": -0.3, \"SLS_EY_EPLUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-0.3_EY-1_EPLUS",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EPLUS\": -0.3, \"SLS_EY_EPLUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-0.3_EY-1_EPLUS",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EPLUS\": -0.3, \"SLS_EY_EPLUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-0.3_EY-1_EPLUS",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EPLUS\": -0.3, \"SLS_EY_EPLUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-0.3_EY-1_EPLUS",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EPLUS\": -0.3, \"SLS_EY_EPLUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-0.3_EY-1_EPLUS",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EPLUS\": -0.3, \"SLS_EY_EPLUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-0.3_EY-1_EMINUS",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EMINUS\": -0.3, \"SLS_EY_EMINUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-0.3_EY-1_EMINUS",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EMINUS\": -0.3, \"SLS_EY_EMINUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-0.3_EY-1_EMINUS",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EMINUS\": -0.3, \"SLS_EY_EMINUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-0.3_EY-1_EMINUS",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EMINUS\": -0.3, \"SLS_EY_EMINUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-0.3_EY-1_EMINUS",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EMINUS\": -0.3, \"SLS_EY_EMINUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-0.3_EY-1_EMINUS",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EMINUS\": -0.3, \"SLS_EY_EMINUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-0.3_EY+1_E0",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_E0\": -0.3, \"SLS_EY_E0\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-0.3_EY+1_E0",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_E0\": -0.3, \"SLS_EY_E0\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-0.3_EY+1_E0",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_E0\": -0.3, \"SLS_EY_E0\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-0.3_EY+1_E0",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_E0\": -0.3, \"SLS_EY_E0\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-0.3_EY+1_E0",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_E0\": -0.3, \"SLS_EY_E0\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-0.3_EY+1_E0",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_E0\": -0.3, \"SLS_EY_E0\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-0.3_EY+1_EPLUS",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EPLUS\": -0.3, \"SLS_EY_EPLUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-0.3_EY+1_EPLUS",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EPLUS\": -0.3, \"SLS_EY_EPLUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-0.3_EY+1_EPLUS",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EPLUS\": -0.3, \"SLS_EY_EPLUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-0.3_EY+1_EPLUS",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EPLUS\": -0.3, \"SLS_EY_EPLUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-0.3_EY+1_EPLUS",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EPLUS\": -0.3, \"SLS_EY_EPLUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-0.3_EY+1_EPLUS",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EPLUS\": -0.3, \"SLS_EY_EPLUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-0.3_EY+1_EMINUS",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EMINUS\": -0.3, \"SLS_EY_EMINUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-0.3_EY+1_EMINUS",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EMINUS\": -0.3, \"SLS_EY_EMINUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX-0.3_EY+1_EMINUS",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EMINUS\": -0.3, \"SLS_EY_EMINUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-0.3_EY+1_EMINUS",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EMINUS\": -0.3, \"SLS_EY_EMINUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-0.3_EY+1_EMINUS",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EMINUS\": -0.3, \"SLS_EY_EMINUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX-0.3_EY+1_EMINUS",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EMINUS\": -0.3, \"SLS_EY_EMINUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+0.3_EY-1_E0",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_E0\": 0.3, \"SLS_EY_E0\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+0.3_EY-1_E0",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_E0\": 0.3, \"SLS_EY_E0\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+0.3_EY-1_E0",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_E0\": 0.3, \"SLS_EY_E0\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+0.3_EY-1_E0",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_E0\": 0.3, \"SLS_EY_E0\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+0.3_EY-1_E0",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_E0\": 0.3, \"SLS_EY_E0\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+0.3_EY-1_E0",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_E0\": 0.3, \"SLS_EY_E0\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+0.3_EY-1_EPLUS",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EPLUS\": 0.3, \"SLS_EY_EPLUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+0.3_EY-1_EPLUS",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EPLUS\": 0.3, \"SLS_EY_EPLUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+0.3_EY-1_EPLUS",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EPLUS\": 0.3, \"SLS_EY_EPLUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+0.3_EY-1_EPLUS",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EPLUS\": 0.3, \"SLS_EY_EPLUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+0.3_EY-1_EPLUS",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EPLUS\": 0.3, \"SLS_EY_EPLUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+0.3_EY-1_EPLUS",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EPLUS\": 0.3, \"SLS_EY_EPLUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+0.3_EY-1_EMINUS",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EMINUS\": 0.3, \"SLS_EY_EMINUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+0.3_EY-1_EMINUS",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EMINUS\": 0.3, \"SLS_EY_EMINUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+0.3_EY-1_EMINUS",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EMINUS\": 0.3, \"SLS_EY_EMINUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+0.3_EY-1_EMINUS",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EMINUS\": 0.3, \"SLS_EY_EMINUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+0.3_EY-1_EMINUS",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EMINUS\": 0.3, \"SLS_EY_EMINUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+0.3_EY-1_EMINUS",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EMINUS\": 0.3, \"SLS_EY_EMINUS\": -1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+0.3_EY+1_E0",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_E0\": 0.3, \"SLS_EY_E0\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+0.3_EY+1_E0",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_E0\": 0.3, \"SLS_EY_E0\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+0.3_EY+1_E0",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_E0\": 0.3, \"SLS_EY_E0\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+0.3_EY+1_E0",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_E0\": 0.3, \"SLS_EY_E0\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+0.3_EY+1_E0",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_E0\": 0.3, \"SLS_EY_E0\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+0.3_EY+1_E0",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_E0\": 0.3, \"SLS_EY_E0\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+0.3_EY+1_EPLUS",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EPLUS\": 0.3, \"SLS_EY_EPLUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+0.3_EY+1_EPLUS",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EPLUS\": 0.3, \"SLS_EY_EPLUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+0.3_EY+1_EPLUS",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EPLUS\": 0.3, \"SLS_EY_EPLUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+0.3_EY+1_EPLUS",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EPLUS\": 0.3, \"SLS_EY_EPLUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+0.3_EY+1_EPLUS",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EPLUS\": 0.3, \"SLS_EY_EPLUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+0.3_EY+1_EPLUS",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EPLUS\": 0.3, \"SLS_EY_EPLUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+0.3_EY+1_EMINUS",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EMINUS\": 0.3, \"SLS_EY_EMINUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+0.3_EY+1_EMINUS",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EMINUS\": 0.3, \"SLS_EY_EMINUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_SEISMIC_EX+0.3_EY+1_EMINUS",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 1.0, \"LL\": 0.3, \"SLS_EX_EMINUS\": 0.3, \"SLS_EY_EMINUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+0.3_EY+1_EMINUS",
+      "limit_state": "SLS",
+      "method": "ESM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EMINUS\": 0.3, \"SLS_EY_EMINUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+0.3_EY+1_EMINUS",
+      "limit_state": "SLS",
+      "method": "MRSM",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EMINUS\": 0.3, \"SLS_EY_EMINUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    },
+    {
+      "case": "SLS_UPLIFT_EX+0.3_EY+1_EMINUS",
+      "limit_state": "SLS",
+      "method": "LTH",
+      "factors": "{\"DL\": 0.9, \"SLS_EX_EMINUS\": 0.3, \"SLS_EY_EMINUS\": 1.0}",
+      "status": "REQUIRES CASE-SPECIFIC RESULT / IDENTITY REVIEW",
+      "note": "Existing similar state/direction files do not prove this full combination was solved; CQC envelopes cannot be treated as concurrent signed actions."
+    }
+  ]
+}

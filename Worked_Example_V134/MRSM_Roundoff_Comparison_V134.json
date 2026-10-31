@@ -1,0 +1,62 @@
+[
+  {
+    "state": "ULS",
+    "case": "X_E0",
+    "base_shear_difference_kN": 0.0
+  },
+  {
+    "state": "ULS",
+    "case": "X_Eplus",
+    "base_shear_difference_kN": 0.0
+  },
+  {
+    "state": "ULS",
+    "case": "X_Eminus",
+    "base_shear_difference_kN": 0.0
+  },
+  {
+    "state": "ULS",
+    "case": "Y_E0",
+    "base_shear_difference_kN": 0.0
+  },
+  {
+    "state": "ULS",
+    "case": "Y_Eplus",
+    "base_shear_difference_kN": 0.0
+  },
+  {
+    "state": "ULS",
+    "case": "Y_Eminus",
+    "base_shear_difference_kN": 0.0
+  },
+  {
+    "state": "SLS",
+    "case": "X_E0",
+    "base_shear_difference_kN": 0.0
+  },
+  {
+    "state": "SLS",
+    "case": "X_Eplus",
+    "base_shear_difference_kN": 0.0
+  },
+  {
+    "state": "SLS",
+    "case": "X_Eminus",
+    "base_shear_difference_kN": 0.0
+  },
+  {
+    "state": "SLS",
+    "case": "Y_E0",
+    "base_shear_difference_kN": 0.0
+  },
+  {
+    "state": "SLS",
+    "case": "Y_Eplus",
+    "base_shear_difference_kN": 0.0
+  },
+  {
+    "state": "SLS",
+    "case": "Y_Eminus",
+    "base_shear_difference_kN": 0.0
+  }
+]

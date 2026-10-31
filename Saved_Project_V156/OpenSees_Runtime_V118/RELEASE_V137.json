@@ -1,0 +1,9 @@
+{
+  "release": 137,
+  "entry": "RUN_ETABS_TO_OPENSEES.py",
+  "demo_entry": "RUN_LITERATURE_DEMO.py",
+  "implementation_modules": 55,
+  "live_D_files_modified": false,
+  "github_repositories_modified": false,
+  "wall_command_bug_fixed": true
+}

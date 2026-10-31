@@ -1,0 +1,4 @@
+{
+  "model_script": "../isolated_model/OpenSees_Complete_Model_Data_V118.json",
+  "scope": "EXPLORATORY_ASSUMED_MATERIALS_NOT_DESIGN_ACCEPTANCE"
+}

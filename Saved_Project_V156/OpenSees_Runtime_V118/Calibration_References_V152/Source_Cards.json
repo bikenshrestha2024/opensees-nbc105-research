@@ -1,0 +1,45 @@
+{
+  "status": "LITERATURE REVIEW - NOT PROJECT CALIBRATION",
+  "papers": [
+    {
+      "authors": "Sarkar and Dasgupta",
+      "year": 2022,
+      "doi": "10.1007/978-3-030-80312-4_99",
+      "scope": "M30/Fe500 2D wall-frame model comparison, Concrete01/02/07; not grade-specific experimental calibration",
+      "locator": "PDF pp2,4,6-9",
+      "use": "Add Concrete02 sensitivity case; retain same geometry, mass, protocol, damping and convergence controls"
+    },
+    {
+      "authors": "Scott, Park and Priestley",
+      "year": 1982,
+      "title": "Stress-Strain Behavior of Concrete Confined by Overlapping Hoops at Low and High Strain Rates",
+      "scope": "25 column units; square/octagonal confinement, axial/eccentric loading and strain-rate effects",
+      "locator": "Scanned PDF p1; specimen tables and curves require further digitization",
+      "use": "Confinement benchmark only for matching hoop detailing; not unconfined wall-core properties"
+    },
+    {
+      "authors": "Mander, Priestley and Park",
+      "year": 1988,
+      "doi": "10.1061/(ASCE)0733-9445(1988)114:8(1827)",
+      "scope": "Observed experimental behaviour, 31 near-full-size circular/square/rectangular-wall section columns",
+      "locator": "PDF p1 and specimen-specific tables/curves",
+      "use": "Validate confinement envelope with actual geometry, transverse steel and strain rate; companion theoretical model required"
+    },
+    {
+      "authors": "Terzic and Stojadinovic",
+      "year": 2015,
+      "doi": "10.1061/(ASCE)BE.1943-5592.0000702",
+      "scope": "Circular bridge-column calibration and independent hybrid-test validation; not core-wall validation",
+      "locator": "PDF p3 Tables2-6 and Fig4",
+      "steel02": {
+        "Fy_MPa": 490,
+        "E_MPa": 200000,
+        "b": 0.025,
+        "R0": 15,
+        "cR1": 0.925,
+        "cR2": 0.15
+      },
+      "caution": "Table2 reports actual steel487MPa while analytical Table3 uses490MPa; preserve distinction. No Fe500 relabeling. Concrete01 Table4 cover residual0, ultimate strain magnitude.0055; peak strain derived2fc/E. Core confinement must be calculated, not copied."
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "parsed_python_sources": 118,
+  "readiness_controls": 17,
+  "geometry_preview_rows": 127,
+  "animation_frames": 8,
+  "mrsm_visible_plot_pixels": [
+    1096,
+    595
+  ],
+  "nonlinear_building_run": "Not executed: calibrated material/FSAM prerequisites missing"
+}

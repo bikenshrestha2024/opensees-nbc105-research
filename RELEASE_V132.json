@@ -1,0 +1,10 @@
+{
+  "release": 132,
+  "implementation_modules": 41,
+  "function_inventory": 454,
+  "entry": "RUN_ETABS_TO_OPENSEES.py",
+  "source_map": "SOURCE_CODE_MAP_V132.md",
+  "validation": "VALIDATION_V132.md",
+  "live_D_files_modified": false,
+  "superseded_by": "RELEASE_V133.json"
+}

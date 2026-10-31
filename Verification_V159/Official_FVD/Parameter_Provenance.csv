@@ -1,0 +1,4 @@
+﻿group,parameter,value,unit,basis,source,locator
+parameters,K_kN_m,300000.0,m,DIRECT PUBLISHED NUMERICAL EXAMPLE,https://opensees.berkeley.edu/wiki/index.php/ViscousDamper_Material,"Example 1; Akcelyan, Lignos and Hikino (2018), SD&EE 113, 488-502"
+parameters,Cd,2226.502041932161,kN*(s/m)^alpha,DIRECT PUBLISHED NUMERICAL EXAMPLE,https://opensees.berkeley.edu/wiki/index.php/ViscousDamper_Material,"Example 1; Akcelyan, Lignos and Hikino (2018), SD&EE 113, 488-502"
+parameters,alpha,0.3,dimensionless,DIRECT PUBLISHED NUMERICAL EXAMPLE,https://opensees.berkeley.edu/wiki/index.php/ViscousDamper_Material,"Example 1; Akcelyan, Lignos and Hikino (2018), SD&EE 113, 488-502"

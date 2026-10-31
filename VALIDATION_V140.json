@@ -1,0 +1,28 @@
+{
+  "load_set_parser": "pass",
+  "python_syntax": "pass",
+  "log_scrollbars": "pass",
+  "readiness_autofill": "pass",
+  "recovered_trial": {
+    "cases": [
+      {
+        "orientation": "XY",
+        "status": "RECOVERED_SAVED_HISTORY_REPORT",
+        "recorded_time_s": 1.0,
+        "requested_trial_duration_s": 1.0,
+        "requested_trial_reached": true,
+        "accepted_rows": 201,
+        "peak_roof_UX_m": 0.00412636846982956,
+        "peak_roof_UY_m": 0.0022252063442668025,
+        "scope": "EXPLORATORY_ASSUMED_MATERIALS_NOT_DESIGN_ACCEPTANCE",
+        "note": "Postprocessing recovery only. Original run ended with reporting exception. No missing solver diagnostics, full-record completion, calibration or design acceptance inferred."
+      }
+    ],
+    "source_run": "D:\\Thesis Opensees\\Etabs Nodes Export 1\\OpenSees_Analysis_Results\\EXPLORATORY_FRAME_NL_20261025_084300",
+    "scope": "EXPLORATORY_ASSUMED_MATERIALS_NOT_DESIGN_ACCEPTANCE",
+    "recovered_at": "2026-10-25T09:25:59.710684+05:45"
+  },
+  "actual_short_opensees_summary": "pass, 0.01s only",
+  "mrsm_copy_scrollbars": "pass",
+  "live_etabs": "attachment unavailable; not verified"
+}

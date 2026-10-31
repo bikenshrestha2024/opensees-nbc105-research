@@ -1,0 +1,107 @@
+{
+  "started_at": "2026-10-26T23:19:38.141534+05:45",
+  "sources": {
+    "kolozvari2023": {
+      "doi": "https://doi.org/10.1016/j.engstruct.2023.116700",
+      "documentation": "https://kkolozvari.github.io/E-SFI-MVLEM-3D/",
+      "specimens": [
+        "SD-06-00",
+        "SD-06-45"
+      ],
+      "status": "PENDING_EXPERIMENTAL_REPRODUCTION",
+      "note": "Author documentation has response figures, not a complete machine-readable specimen/data package. PEER 2015 material card is NOT these specimens."
+    },
+    "lu2015": {
+      "doi": "https://doi.org/10.1016/j.finel.2015.01.006",
+      "documentation": "https://openseespydoc.readthedocs.io/en/latest/src/RCshearwall.html",
+      "repository": "https://github.com/zhuminjie/OpenSeesPyDoc/tree/master/pyExamples",
+      "note": "Published OpenSeesPy conversion with boundary reinforcement, N-m units. Not the project core."
+    },
+    "regularization": {
+      "url": "https://peer.berkeley.edu/sites/default/files/publications/peer_2024_11_final.pdf",
+      "note": "Stokley and Lowes: flexure-controlled walls; review mesh and softening regularization before transfer."
+    }
+  },
+  "checks": {
+    "formulation_and_native_commands": {
+      "status": "PARTIAL",
+      "required_evidence": "See per-route native run results. Creation/convergence alone is not physical validation."
+    },
+    "units_and_density": {
+      "status": "NOT_EVALUATED",
+      "required_evidence": "Stress/force/length/mass conversion; self-weight counted once"
+    },
+    "material_monotonic_and_cyclic": {
+      "status": "NOT_EVALUATED",
+      "required_evidence": "Concrete tension/compression, steel reversal, FSAM panel response"
+    },
+    "axial_equilibrium": {
+      "status": "MEASURED_NOT_ACCEPTED",
+      "required_evidence": "Per-route gravity relative error is reported for completed diagnostics. Set project acceptance criteria separately."
+    },
+    "rigid_body_and_orientation": {
+      "status": "NOT_EVALUATED",
+      "required_evidence": "Rigid translation/rotation, local axes and reversed panel ordering"
+    },
+    "elastic_bending_and_shear": {
+      "status": "NOT_EVALUATED",
+      "required_evidence": "Independent analytical patch tests and deformation partition"
+    },
+    "cyclic_experiment": {
+      "status": "NOT_EVALUATED",
+      "required_evidence": "Signed envelope, unloading/reloading, pinching, residual displacement, energy per cycle"
+    },
+    "mesh_objectivity": {
+      "status": "NOT_EVALUATED",
+      "required_evidence": "Mesh and macro-fiber refinement with fracture-energy regularization"
+    },
+    "biaxial_and_torsion": {
+      "status": "NOT_EVALUATED",
+      "required_evidence": "Nonplanar shared corners, 0/45/90 degree loading and torsion"
+    },
+    "openings_and_coupling": {
+      "status": "NOT_EVALUATED",
+      "required_evidence": "Actual openings, coupling members and corner connectivity"
+    },
+    "out_of_plane_and_instability": {
+      "status": "NOT_EVALUATED",
+      "required_evidence": "Out-of-plane bending/buckling and geometric nonlinearity applicability"
+    },
+    "dynamic_convergence": {
+      "status": "NOT_EVALUATED",
+      "required_evidence": "Time-step refinement, convergence recovery, mass and damping sensitivity"
+    },
+    "independent_validation": {
+      "status": "NOT_EVALUATED",
+      "required_evidence": "Different specimen than calibration; applicable axial-load/aspect/detail range"
+    },
+    "building_transfer": {
+      "status": "NOT_EVALUATED",
+      "required_evidence": "Actual unconfined core reinforcement/materials and gravity/modal checks"
+    }
+  },
+  "routes": {
+    "kolozvari2023": {
+      "status": "NUMERICAL_SMOKE_COMPLETED",
+      "gravity_relative_error": 3.789561257387201e-16,
+      "history_rows": 10,
+      "material_scope": "PEER 2015 RW-A15-P10-S78 web card; not Kolozvari 2023 SD-06 or project calibration",
+      "boundary_scope": "Single restrained patch; not a core corner/biaxial benchmark",
+      "loading": "0.05 s low-amplitude synthetic acceleration in m/s2; not earthquake validation",
+      "elapsed_s": 0.006156999996164814
+    },
+    "lu2015": {
+      "status": "NUMERICAL_SMOKE_COMPLETED",
+      "gravity_relative_error": 2.8835402065518924e-05,
+      "history_rows": 41,
+      "experimental_validation": "NOT_ACCEPTED: needs protocol alignment, metric review and independent validation",
+      "native_units": "N,m,s; outputs converted to kN,m",
+      "source_sha256": "f7c6e816eaa06237d1f43dbc5141eceedfdf1aa6d5bd5388adfd0e28dc6e7024",
+      "boundary_scope": "Official specimen includes special boundary reinforcement. Do not copy into unconfined core.",
+      "elapsed_s": 0.3708712999941781
+    }
+  },
+  "project_design_approval": false,
+  "elapsed_s": 0.3770524999999907,
+  "scope": "Numerical diagnostics and validation plan only. Not all checks implemented or passed; project wall remains uncalibrated."
+}

@@ -1,0 +1,12 @@
+WARNING: numeric analysis returns 1 -- Umfpackgenlinsolver::solve
+WARNING NewtonRaphson::solveCurrentStep() -the LinearSysOfEqn failed in solve()
+StaticAnalysis::analyze() - the Algorithm failed at step: 6 with domain at load factor 0.7
+OpenSees > analyze failed, returned: -3 error flag
+Traceback (most recent call last):
+  File "C:\Users\User\Documents\Codex\2026-10-20\can\outputs\OpenSees_NBC105_V150\components\validation\sfi_worker.py", line 9, in <module>
+    try:result=esfi(out,element='SFI_MVLEM_3D')
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Documents\Codex\2026-10-20\can\outputs\OpenSees_NBC105_V150\components\validation\wall_validation.py", line 50, in esfi
+    if code:raise RuntimeError(element+' gravity failed: '+str(code))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: SFI_MVLEM_3D gravity failed: -3

@@ -1,0 +1,22 @@
+E_SFI_MVLEM_3D gravity -3
+WARNING: CTestNormDispIncr::test() - failed to converge 
+after: 40 iterations  current Norm: 5.94972e-06 (max: 1e-09, Norm deltaR: 1.19006e-14)
+NewtonRaphson::solveCurrentStep() -the ConvergenceTest object failed in test()
+StaticAnalysis::analyze() - the Algorithm failed at step: 0 with domain at load factor 0.1
+OpenSees > analyze failed, returned: -3 error flag
+WARNING: numeric analysis returns 1 -- Umfpackgenlinsolver::solve
+WARNING NewtonRaphson::solveCurrentStep() -the LinearSysOfEqn failed in solve()
+DirectIntegrationAnalysis::analyze() - the Algorithm failed at time 0.05
+OpenSees > analyze failed, returned: -3 error flag
+E_SFI_MVLEM_3D dynamic -3 0.045 [-2.876142485789148e-07, 0.0, 7.929243843349648e-07, 0.0, -1.6060230463177794e-06, 0.0]
+WARNING: CTestNormDispIncr::test() - failed to converge 
+after: 40 iterations  current Norm: 5.94972e-06 (max: 1e-09, Norm deltaR: 1.19006e-14)
+NewtonRaphson::solveCurrentStep() -the ConvergenceTest object failed in test()
+StaticAnalysis::analyze() - the Algorithm failed at step: 0 with domain at load factor 0.1
+OpenSees > analyze failed, returned: -3 error flag
+SFI_MVLEM_3D gravity -3
+WARNING: numeric analysis returns 1 -- Umfpackgenlinsolver::solve
+WARNING NewtonRaphson::solveCurrentStep() -the LinearSysOfEqn failed in solve()
+DirectIntegrationAnalysis::analyze() - the Algorithm failed at time 0.05
+OpenSees > analyze failed, returned: -3 error flag
+SFI_MVLEM_3D dynamic -3 0.045 [-2.8761426965547845e-07, 0.0, 7.92924369298076e-07, 0.0, -1.6060230345122725e-06, 0.0]

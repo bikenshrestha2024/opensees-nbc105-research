@@ -1,0 +1,93 @@
+{
+  "started_at": "2026-10-26T18:08:17.693864+05:45",
+  "sources": {
+    "kolozvari2023": {
+      "doi": "https://doi.org/10.1016/j.engstruct.2023.116700",
+      "documentation": "https://kkolozvari.github.io/E-SFI-MVLEM-3D/",
+      "specimens": [
+        "SD-06-00",
+        "SD-06-45"
+      ],
+      "status": "PENDING_EXPERIMENTAL_REPRODUCTION",
+      "note": "Author documentation has response figures, not a complete machine-readable specimen/data package. PEER 2015 material card is NOT these specimens."
+    },
+    "lu2015": {
+      "doi": "https://doi.org/10.1016/j.finel.2015.01.006",
+      "documentation": "https://openseespydoc.readthedocs.io/en/latest/src/RCshearwall.html",
+      "repository": "https://github.com/zhuminjie/OpenSeesPyDoc/tree/master/pyExamples",
+      "note": "Published OpenSeesPy conversion with boundary reinforcement, N-m units. Not the project core."
+    },
+    "regularization": {
+      "url": "https://peer.berkeley.edu/sites/default/files/publications/peer_2024_11_final.pdf",
+      "note": "Stokley and Lowes: flexure-controlled walls; review mesh and softening regularization before transfer."
+    }
+  },
+  "checks": {
+    "formulation_and_native_commands": {
+      "status": "PARTIAL",
+      "required_evidence": "See per-route native run results. Creation/convergence alone is not physical validation."
+    },
+    "units_and_density": {
+      "status": "NOT_EVALUATED",
+      "required_evidence": "Stress/force/length/mass conversion; self-weight counted once"
+    },
+    "material_monotonic_and_cyclic": {
+      "status": "NOT_EVALUATED",
+      "required_evidence": "Concrete tension/compression, steel reversal, FSAM panel response"
+    },
+    "axial_equilibrium": {
+      "status": "MEASURED_NOT_ACCEPTED",
+      "required_evidence": "Per-route gravity relative error is reported for completed diagnostics. Set project acceptance criteria separately."
+    },
+    "rigid_body_and_orientation": {
+      "status": "NOT_EVALUATED",
+      "required_evidence": "Rigid translation/rotation, local axes and reversed panel ordering"
+    },
+    "elastic_bending_and_shear": {
+      "status": "NOT_EVALUATED",
+      "required_evidence": "Independent analytical patch tests and deformation partition"
+    },
+    "cyclic_experiment": {
+      "status": "NOT_EVALUATED",
+      "required_evidence": "Signed envelope, unloading/reloading, pinching, residual displacement, energy per cycle"
+    },
+    "mesh_objectivity": {
+      "status": "NOT_EVALUATED",
+      "required_evidence": "Mesh and macro-fiber refinement with fracture-energy regularization"
+    },
+    "biaxial_and_torsion": {
+      "status": "NOT_EVALUATED",
+      "required_evidence": "Nonplanar shared corners, 0/45/90 degree loading and torsion"
+    },
+    "openings_and_coupling": {
+      "status": "NOT_EVALUATED",
+      "required_evidence": "Actual openings, coupling members and corner connectivity"
+    },
+    "out_of_plane_and_instability": {
+      "status": "NOT_EVALUATED",
+      "required_evidence": "Out-of-plane bending/buckling and geometric nonlinearity applicability"
+    },
+    "dynamic_convergence": {
+      "status": "NOT_EVALUATED",
+      "required_evidence": "Time-step refinement, convergence recovery, mass and damping sensitivity"
+    },
+    "independent_validation": {
+      "status": "NOT_EVALUATED",
+      "required_evidence": "Different specimen than calibration; applicable axial-load/aspect/detail range"
+    },
+    "building_transfer": {
+      "status": "NOT_EVALUATED",
+      "required_evidence": "Actual unconfined core reinforcement/materials and gravity/modal checks"
+    }
+  },
+  "routes": {
+    "lu2015": {
+      "status": "FAILED",
+      "error": "Lu cyclic increment failed at -5.00000000000672e-05 m; partial converged rows retained",
+      "elapsed_s": 18.74989999999525
+    }
+  },
+  "project_design_approval": false,
+  "elapsed_s": 18.7499533000082,
+  "scope": "Numerical diagnostics and validation plan only. Not all checks implemented or passed; project wall remains uncalibrated."
+}

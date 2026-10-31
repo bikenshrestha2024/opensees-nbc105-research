@@ -1,0 +1,11 @@
+{
+  "stage": "Model construction and optional gravity preload",
+  "started_at": "2026-10-25T10:52:32.683+05:45",
+  "finished_at": "2026-10-25T10:54:17.760+05:45",
+  "elapsed_seconds": 105.07613030000357,
+  "status": "completed",
+  "error": null,
+  "time_scope": "Entire named processing stage, not individual file-write latency",
+  "artifact": "Gravity_Storey_Load_Breakdown_V131.json",
+  "size_bytes": 1538063
+}

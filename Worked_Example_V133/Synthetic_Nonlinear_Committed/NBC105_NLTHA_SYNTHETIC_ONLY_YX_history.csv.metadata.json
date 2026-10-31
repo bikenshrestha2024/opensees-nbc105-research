@@ -1,0 +1,21 @@
+{
+  "model_script": "C:\\Users\\User\\Documents\\Codex\\2026-10-20\\can\\work\\V133_Synthetic_Nonlinear_Pipeline\\SYNTHETIC_ONLY_MODEL.py",
+  "limit_state": "SLS",
+  "stories": [
+    {
+      "story_number": 1,
+      "story_name": "S1",
+      "node": 2,
+      "elevation": 3.0,
+      "height": 3.0
+    }
+  ],
+  "model_data_sha256": "434a7a750fc8c1b6d32f09ce4c64afabbaf9597a5d61c301a6eba1ec76728e99",
+  "displacement_reference": "Gravity-preloaded baseline subtracted",
+  "sample_scope": "All accepted adaptive substeps for nonlinear; every accepted step for linear",
+  "units": {
+    "translation": "m",
+    "rotation": "rad",
+    "time": "s"
+  }
+}

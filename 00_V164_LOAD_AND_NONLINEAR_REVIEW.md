@@ -1,0 +1,21 @@
+# V164: load-path audit and nonlinear status
+
+Run `20_AUDIT_LOAD_CONNECTIONS.py` with the ETABS export folder as its argument. It reads the assembled model; the JSON output reports source slab objects and shared beam/wall nodes. Shared node IDs are necessary evidence, not proof of a correct load path or agreement with ETABS.
+
+The assembled model converts each uniform surface load and slab/wall self-weight into one quarter of the signed cell resultant at each of its four nodes. Shell elements supply the out-of-plane stiffness that transfers those loads to their connected supports; a rigid diaphragm constrains in-plane motion and does not provide a vertical slab load distribution by itself. The spreadsheet gives the applied nodal forces, not automatically equivalent beam line loads. Inspect `Gravity_Beam_End_Actions_ULS_V141.csv` and the load-path workbook, compare member end forces and reactions for identical ETABS load patterns and factors, and perform slab mesh refinement. Confirm actual wall line loads, wall self-weight, load locations, and no duplication against ETABS.
+
+For the inspected export, 350 floor objects had at least one shared beam or shear-wall node; that is not a pass on each edge, wall connection, beam-end force or convergence. The configured pattern totals are Floor Finish 18000, Live 14400, Partition 18000, Wall 26100 and Self Weight 209947.788933 kN. These are already factored using the configured gravity profile. The 0.3 live factor is a configured preload, not automatically the correct factor for every gravity or design combination.
+
+In the inspected assembled load provenance, the `Wall` pattern is classified as frame distributed load, totalling 26100 kN before its factor of 1.0. The `Self Weight` pattern separately contains approximately 52934.36 kN of shear-wall shell self-weight. Do not assume the `Wall` pattern represents shear-wall self-weight or that both are distinct physical sources without checking the ETABS assignments. Wall self-weight acts on wall mesh nodes; it need not transfer to beams if its load path runs down walls to supports.
+
+The workflow guide shows whether expected saved files are found, not whether their model fingerprint matches or the run is valid. Missing results, in-progress runs, differently named outputs and failed runs can all display as no matching completed output. Check run logs and identity.
+
+Linear time history is not a software prerequisite for the nonlinear runner. Both require suitable independently checked model, excitation, units, damping and analysis inputs. A matching linear run is useful for numerical comparison, not a substitute for nonlinear checks.
+
+The research nonlinear model uses assumed literature parameters; it is not an approved model of this building. Inspect material assignment, reinforcement, nonlinear wall implementation, load/mass reconciliation, element benchmarks and numerical diagnostics before drawing design conclusions. The earlier ground-motion first step failed with a singular solve and nonfinite response; V163 prevented retrying a contaminated domain but did not fix the underlying model. A successful gravity equilibrium or eigenanalysis does not establish transient convergence or experimental validation.
+
+Additional isolated diagnostic: after nonlinear gravity, a single 0.005 s transient step with a small nonzero lateral nodal load and zero Rayleigh damping returned 0. This is a numerical probe only; it is not an earthquake result. The earlier Kobe XY excitation produced solver failure on the first step. These different outcomes do not prove the failure mechanism.
+
+Repeating the Kobe XY first step without a preceding eigenanalysis also produced return code -3 at 0.005 s with zero damping. Eigenanalysis is therefore not required to reproduce the failure. The failing and passing probes use different load patterns and amplitudes; additional element-level, tangent and iteration diagnostics are needed before choosing a repair.
+
+References: OpenSees rigid diaphragm https://opensees.github.io/OpenSeesDocumentation/user/manual/model/mp_constraint/rigidDiaphragm.html ; uniform excitation https://opensees.github.io/OpenSeesDocumentation/user/manual/model/pattern/uniformExcitationPattern.html ; E-SFI-MVLEM-3D https://kkolozvari.github.io/E-SFI-MVLEM-3D/ .

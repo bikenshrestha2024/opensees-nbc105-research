@@ -1,0 +1,10 @@
+{
+  "stage": "Equivalent-static solver and response export",
+  "started_at": "2026-10-23T23:41:03.000+05:45",
+  "finished_at": "2026-10-23T23:44:30.383+05:45",
+  "elapsed_seconds": 207.3830811000007,
+  "status": "completed",
+  "time_scope": "Entire processing stage, not individual write latency",
+  "artifact": "NBC105_ESM_OpenSees_Response_ULS_X+_E0.xlsx",
+  "size_bytes": 9546
+}

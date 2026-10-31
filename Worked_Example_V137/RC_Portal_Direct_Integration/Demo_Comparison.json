@@ -1,0 +1,59 @@
+{
+  "scope": "LITERATURE_TEACHING_EXAMPLE_NOT_PROJECT_CALIBRATION",
+  "started": "2026-10-24T18:58:55.535340+05:45",
+  "finished": "2026-10-24T18:58:57.596175+05:45",
+  "elapsed_s": 2.0608270000084303,
+  "linear": {
+    "label": "elastic_initial_tangent",
+    "status": "COMPLETED_DEMONSTRATION_NOT_DESIGN_ACCEPTANCE",
+    "duration_s": 31.16,
+    "dt_s": 0.0025,
+    "periods_initial_s": [
+      0.3788754800172755,
+      0.04749934344258287
+    ],
+    "gravity_reactions_kN": 1601.3597814937796,
+    "peak_roof_displacement_m": 0.050466541531672696,
+    "peak_drift_ratio": 0.013797720235037373,
+    "record_scale_factor": 1.0,
+    "unit_conversion_g_to_m_s2": 9.80665,
+    "total_Path_factor": 9.80665,
+    "fallback_steps": 0,
+    "elapsed_s": 0.5009869000059552,
+    "rows": 12465,
+    "source_record": "C:\\Users\\User\\Documents\\Codex\\2026-10-20\\can\\outputs\\OpenSees_NBC105_V137\\benchmarks\\elCentro.at2",
+    "betaKcomm_s": 0.000625,
+    "initial_modal_damping_ratios": [
+      0.0051824293522613075,
+      0.041337316817170136
+    ]
+  },
+  "nonlinear": {
+    "label": "nonlinear_fiber",
+    "status": "COMPLETED_DEMONSTRATION_NOT_DESIGN_ACCEPTANCE",
+    "duration_s": 31.16,
+    "dt_s": 0.0025,
+    "periods_initial_s": [
+      0.3847814129866112,
+      0.04750956492008412
+    ],
+    "gravity_reactions_kN": 1601.359781493779,
+    "peak_roof_displacement_m": 0.06298425606711766,
+    "peak_drift_ratio": 0.017220105005226832,
+    "record_scale_factor": 1.0,
+    "unit_conversion_g_to_m_s2": 9.80665,
+    "total_Path_factor": 9.80665,
+    "fallback_steps": 0,
+    "elapsed_s": 0.5808194999990519,
+    "rows": 12465,
+    "source_record": "C:\\Users\\User\\Documents\\Codex\\2026-10-20\\can\\outputs\\OpenSees_NBC105_V137\\benchmarks\\elCentro.at2",
+    "betaKcomm_s": 0.000625,
+    "initial_modal_damping_ratios": [
+      0.0051028852803811035,
+      0.041328423272164634
+    ],
+    "peak_steel_strain": 0.035146839498930396,
+    "steel_yield_strain": 0.0019999999999999996,
+    "peak_core_compressive_strain": -0.00543809992604498
+  }
+}

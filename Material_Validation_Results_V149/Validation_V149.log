@@ -1,0 +1,251 @@
+{
+  "scope": "Numerical verification / literature-informed examples only. No project calibration, experimental validation or NBC design approval is inferred.",
+  "sources": {
+    "Concrete01": {
+      "documentation": "https://openseespydoc.readthedocs.io/en/latest/src/Concrete01.html",
+      "literature": "Kent and Park (1971), Flexural Members with Confined Concrete, ASCE Structural Division 97(7),1969-1990; Karsan and Jirsa (1969), Behavior of Concrete Under Compressive Loadings,95(12),2543-2563. Formulation attribution; illustrative numerical values below are NOT fitted specimen parameters."
+    },
+    "Steel02": {
+      "documentation": "https://openseespydoc.readthedocs.io/en/latest/src/steel02.html",
+      "literature": "Menegotto and Pinto (1973), IABSE reports13,15-22, https://www.e-periodica.ch/digbib/view?lang=en&pid=bse-re-001%3A1973%3A13%3A%3A9 ; Giuffre-Menegotto-Pinto formulation with isotropic hardening per OpenSees documentation. R0=20,cR1=.925,cR2=.15 are documented transition choices; Fy,E,b in this benchmark are illustrative."
+    },
+    "FVD": {
+      "documentation": "https://opensees.berkeley.edu/wiki/index.php?title=ViscousDamper_Material",
+      "literature": "Akcelyan, Lignos, Hikino (2018), Adaptive Numerical Method Algorithms for Nonlinear Viscous and Bilinear Oil Damper Models Subjected to Dynamic Loading, Soil Dynamics and Earthquake Engineering113,488-502. Akcelyan et al.(2016), J.Struct.Eng.142(6),04016024. Published command example: K=300kN/mm,Cd=280.3kN(s/mm)^0.3,alpha=.30; sinusoidal amplitudes12/24/36mm,f=.5Hz. Those are example-device parameters, not your damper."
+    },
+    "BRB": {
+      "documentation": "https://openseespydoc.readthedocs.io/en/latest/src/steel02.html",
+      "literature": "Black, Makris and Aiken (2002), Component Testing, Stability Analysis and Characterization of Buckling-Restrained Unbonded Braces, PEER2002/08, https://peer.berkeley.edu/publications/2002-08. This simplified symmetric Steel02 core is a mechanism illustration, not reproduction of that report or AISC qualification. Effective yielding length, end zones, compression overstrength, fatigue/fracture and casing stability require test data."
+    }
+  },
+  "cases": {
+    "Concrete01": {
+      "parameters": {
+        "fpc_MPa": -30.0,
+        "epsc0": -0.002,
+        "fpcu_MPa": -6.0,
+        "epsU": -0.006
+      },
+      "checks": {
+        "monotonic_envelope_max_error_MPa": 3.552713678800501e-15,
+        "zero_tension_MPa": 0.0
+      },
+      "status": "NUMERICAL_ENVELOPE_CHECK",
+      "parameter_basis": "Illustrative unconfined coupon, not M45 project data",
+      "x_label": "Strain",
+      "y_label": "Stress (MPa)",
+      "files": [
+        "Concrete01_monotonic.csv",
+        "Concrete01_cyclic.csv"
+      ],
+      "elapsed_s": 0.26023940001323353
+    },
+    "Steel02": {
+      "parameters": {
+        "Fy_MPa": 355.0,
+        "E_MPa": 200000.0,
+        "b": 0.01,
+        "R0": 20,
+        "cR1": 0.925,
+        "cR2": 0.15,
+        "a1": 0,
+        "a2": 1,
+        "a3": 0,
+        "a4": 1
+      },
+      "checks": {
+        "initial_modulus_MPa": 200000.0,
+        "initial_modulus_reference_MPa": 200000.0,
+        "initial_modulus_relative_error": 0.0
+      },
+      "status": "NUMERICAL_COUPON_RESPONSE",
+      "parameter_basis": "Illustrative values; not manufacturer/test calibration",
+      "x_label": "Strain",
+      "y_label": "Stress (MPa)",
+      "files": [
+        "Steel02_cyclic.csv"
+      ],
+      "elapsed_s": 0.0027206000086152926
+    },
+    "FVD": {
+      "parameters": {
+        "K_kN_m": 300000.0,
+        "Cd_kN_s_m_alpha": 2226.502041932161,
+        "alpha": 0.3,
+        "frequency_Hz": 0.5,
+        "amplitudes_m": [
+          0.012,
+          0.024,
+          0.036
+        ],
+        "dt_s": 0.002,
+        "penalty_kN_m": 1000000000000.0
+      },
+      "checks": {
+        "linear_steady_cycle_work_kNm": 7.086639968864403,
+        "linear_steady_cycle_reference_kNm": 7.086686615060685,
+        "linear_cycle_work_relative_error": 6.5822293006919355e-06,
+        "linear_Maxwell_error_kN": 5.868465267511169e-06,
+        "refined_error_kN": 5.903153200037536e-06,
+        "prescribed_motion_error_m": 1.1586371163711806e-09
+      },
+      "status": "NUMERICAL_LINEAR_REFERENCE_AND_NONLINEAR_EXAMPLE",
+      "parameter_basis": "Nonlinear values from official ViscousDamper example converted from mm to m. Linear alpha=1,C=5000 selected for independent analytical ODE check, not experimental device.",
+      "x_label": "Device extension (m)",
+      "y_label": "Device force (kN)",
+      "files": [
+        "FVD_linear_reference.csv",
+        "FVD_nonlinear.csv"
+      ],
+      "elapsed_s": 0.10684320000291336
+    },
+    "BRB": {
+      "parameters": {
+        "Fy_MPa": 355.0,
+        "E_MPa": 200000.0,
+        "b": 0.01,
+        "R0": 20,
+        "cR1": 0.925,
+        "cR2": 0.15,
+        "a1": 0,
+        "a2": 1,
+        "a3": 0,
+        "a4": 1,
+        "core_area_m2": 0.002,
+        "yielding_length_m": 3.0
+      },
+      "checks": {
+        "initial_modulus_MPa": 200000.0,
+        "initial_modulus_reference_MPa": 200000.0,
+        "initial_modulus_relative_error": 0.0,
+        "yield_force_reference_kN": 710.0,
+        "elastic_axial_stiffness_kN_m": 133333.33333333334,
+        "coupon_vs_corotTruss_max_error_kN": 5.4569682106375694e-11
+      },
+      "status": "IDEALIZED_CORE_RESPONSE",
+      "parameter_basis": "Illustrative values; not manufacturer/test calibration",
+      "x_label": "Core extension (m)",
+      "y_label": "Axial force (kN)",
+      "files": [
+        "BRB_cyclic.csv"
+      ],
+      "elapsed_s": 0.006148999993456528
+    }
+  },
+  "started": "2026-10-26T23:19:36.514010+05:45",
+  "walls": {
+    "started_at": "2026-10-26T23:19:38.141534+05:45",
+    "sources": {
+      "kolozvari2023": {
+        "doi": "https://doi.org/10.1016/j.engstruct.2023.116700",
+        "documentation": "https://kkolozvari.github.io/E-SFI-MVLEM-3D/",
+        "specimens": [
+          "SD-06-00",
+          "SD-06-45"
+        ],
+        "status": "PENDING_EXPERIMENTAL_REPRODUCTION",
+        "note": "Author documentation has response figures, not a complete machine-readable specimen/data package. PEER 2015 material card is NOT these specimens."
+      },
+      "lu2015": {
+        "doi": "https://doi.org/10.1016/j.finel.2015.01.006",
+        "documentation": "https://openseespydoc.readthedocs.io/en/latest/src/RCshearwall.html",
+        "repository": "https://github.com/zhuminjie/OpenSeesPyDoc/tree/master/pyExamples",
+        "note": "Published OpenSeesPy conversion with boundary reinforcement, N-m units. Not the project core."
+      },
+      "regularization": {
+        "url": "https://peer.berkeley.edu/sites/default/files/publications/peer_2024_11_final.pdf",
+        "note": "Stokley and Lowes: flexure-controlled walls; review mesh and softening regularization before transfer."
+      }
+    },
+    "checks": {
+      "formulation_and_native_commands": {
+        "status": "PARTIAL",
+        "required_evidence": "See per-route native run results. Creation/convergence alone is not physical validation."
+      },
+      "units_and_density": {
+        "status": "NOT_EVALUATED",
+        "required_evidence": "Stress/force/length/mass conversion; self-weight counted once"
+      },
+      "material_monotonic_and_cyclic": {
+        "status": "NOT_EVALUATED",
+        "required_evidence": "Concrete tension/compression, steel reversal, FSAM panel response"
+      },
+      "axial_equilibrium": {
+        "status": "MEASURED_NOT_ACCEPTED",
+        "required_evidence": "Per-route gravity relative error is reported for completed diagnostics. Set project acceptance criteria separately."
+      },
+      "rigid_body_and_orientation": {
+        "status": "NOT_EVALUATED",
+        "required_evidence": "Rigid translation/rotation, local axes and reversed panel ordering"
+      },
+      "elastic_bending_and_shear": {
+        "status": "NOT_EVALUATED",
+        "required_evidence": "Independent analytical patch tests and deformation partition"
+      },
+      "cyclic_experiment": {
+        "status": "NOT_EVALUATED",
+        "required_evidence": "Signed envelope, unloading/reloading, pinching, residual displacement, energy per cycle"
+      },
+      "mesh_objectivity": {
+        "status": "NOT_EVALUATED",
+        "required_evidence": "Mesh and macro-fiber refinement with fracture-energy regularization"
+      },
+      "biaxial_and_torsion": {
+        "status": "NOT_EVALUATED",
+        "required_evidence": "Nonplanar shared corners, 0/45/90 degree loading and torsion"
+      },
+      "openings_and_coupling": {
+        "status": "NOT_EVALUATED",
+        "required_evidence": "Actual openings, coupling members and corner connectivity"
+      },
+      "out_of_plane_and_instability": {
+        "status": "NOT_EVALUATED",
+        "required_evidence": "Out-of-plane bending/buckling and geometric nonlinearity applicability"
+      },
+      "dynamic_convergence": {
+        "status": "NOT_EVALUATED",
+        "required_evidence": "Time-step refinement, convergence recovery, mass and damping sensitivity"
+      },
+      "independent_validation": {
+        "status": "NOT_EVALUATED",
+        "required_evidence": "Different specimen than calibration; applicable axial-load/aspect/detail range"
+      },
+      "building_transfer": {
+        "status": "NOT_EVALUATED",
+        "required_evidence": "Actual unconfined core reinforcement/materials and gravity/modal checks"
+      }
+    },
+    "routes": {
+      "kolozvari2023": {
+        "status": "NUMERICAL_SMOKE_COMPLETED",
+        "gravity_relative_error": 3.789561257387201e-16,
+        "history_rows": 10,
+        "material_scope": "PEER 2015 RW-A15-P10-S78 web card; not Kolozvari 2023 SD-06 or project calibration",
+        "boundary_scope": "Single restrained patch; not a core corner/biaxial benchmark",
+        "loading": "0.05 s low-amplitude synthetic acceleration in m/s2; not earthquake validation",
+        "elapsed_s": 0.006156999996164814
+      },
+      "lu2015": {
+        "status": "NUMERICAL_SMOKE_COMPLETED",
+        "gravity_relative_error": 2.8835402065518924e-05,
+        "history_rows": 41,
+        "experimental_validation": "NOT_ACCEPTED: needs protocol alignment, metric review and independent validation",
+        "native_units": "N,m,s; outputs converted to kN,m",
+        "source_sha256": "f7c6e816eaa06237d1f43dbc5141eceedfdf1aa6d5bd5388adfd0e28dc6e7024",
+        "boundary_scope": "Official specimen includes special boundary reinforcement. Do not copy into unconfined core.",
+        "elapsed_s": 0.3708712999941781
+      }
+    },
+    "project_design_approval": false,
+    "elapsed_s": 0.3770524999999907,
+    "scope": "Numerical diagnostics and validation plan only. Not all checks implemented or passed; project wall remains uncalibrated."
+  },
+  "original_SFI_2021": {
+    "status": "FAILED",
+    "error": "SFI_MVLEM_3D gravity failed: -3"
+  },
+  "original_SFI_source": "Kolozvari et al.(2021), Journal of Building Engineering44,102946; https://kkolozvari.github.io/SFI-MVLEM-3D/. Native patch attempt is separate from E-SFI2023; failure remains reported.",
+  "elapsed_s": 2.1754350999981398,
+  "finished": "2026-10-26T23:19:38.689203+05:45",
+  "project_approved": false
+}

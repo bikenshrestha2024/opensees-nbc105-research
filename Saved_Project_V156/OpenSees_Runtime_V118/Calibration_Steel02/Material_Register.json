@@ -1,0 +1,87 @@
+[
+  {
+    "id": "STEEL02_SIMCENTER_QFEM0019",
+    "status": "EXPERIMENTAL_SINGLE_COUPON_FIT",
+    "card": "results/Steel02_Application_Card.json",
+    "project_transfer_approved": false
+  },
+  {
+    "id": "STEEL02_TERZIC_TABLE3",
+    "status": "PUBLISHED_SPECIMEN_MODEL",
+    "parameters": {
+      "Fy_MPa": 490,
+      "E_MPa": 200000,
+      "b": 0.025,
+      "R0": 15,
+      "cR1": 0.925,
+      "cR2": 0.15
+    },
+    "citation": "10.1061/(ASCE)BE.1943-5592.0000702, Table3",
+    "missing": "Isotropic parameters not tabulated; any defaults must be declared",
+    "project_transfer_approved": false
+  },
+  {
+    "id": "CONCRETE01_TERZIC_COVER",
+    "status": "PARTIAL_PUBLISHED_SPECIMEN_CARD",
+    "parameters": {
+      "fpc_MPa": -37.8,
+      "E_MPa": null,
+      "epsc0": null,
+      "fpcu_MPa": 0,
+      "epsU": -0.0055
+    },
+    "formula": "epsc0 = -2*37.8/E_MPa; E must match cylinder calibration, not invented",
+    "citation": "Terzic-Stojadinovic, Tables2/4, Base0 cylinder and Fig5",
+    "project_transfer_approved": false
+  },
+  {
+    "id": "CONFINED_CONCRETE_MANDER_SCOTT",
+    "status": "GEOMETRY_DEPENDENT_CALIBRATION_REQUIRED",
+    "missing": [
+      "tie geometry",
+      "spacing",
+      "transverse yield stress",
+      "confinement effectiveness",
+      "measured cylinder response",
+      "fracture strain/energy"
+    ],
+    "citation": "Mander et al.1988 observed behaviour; Scott et al.1982 overlapping hoops",
+    "project_transfer_approved": false
+  },
+  {
+    "id": "FVD_PUBLISHED_EXAMPLE",
+    "status": "RETAINED_V152_NUMERICAL_VERIFICATION_NOT_PROJECT_DEVICE",
+    "missing": [
+      "manufacturer experimental loops",
+      "temperature/velocity range",
+      "K,Cd,alpha calibration"
+    ],
+    "project_transfer_approved": false
+  },
+  {
+    "id": "BRB_CORE",
+    "status": "EXPERIMENTAL_WHOLE_BRACE_CALIBRATION_REQUIRED",
+    "missing": [
+      "yielding length",
+      "core area",
+      "compression overstrength",
+      "fatigue",
+      "end zones",
+      "test loops"
+    ],
+    "project_transfer_approved": false
+  },
+  {
+    "id": "SFI_ESFI_CORE_WALL",
+    "status": "EXPERIMENTAL_WALL_VALIDATION_REQUIRED",
+    "missing": [
+      "wall reinforcement regions",
+      "ConcreteCM/SteelMPF/FSAM calibration",
+      "axial load",
+      "biaxial/corner benchmark",
+      "mesh sensitivity"
+    ],
+    "note": "Original SFI patch gravity failure remains unresolved; no confined boundary assigned to unconfined core.",
+    "project_transfer_approved": false
+  }
+]

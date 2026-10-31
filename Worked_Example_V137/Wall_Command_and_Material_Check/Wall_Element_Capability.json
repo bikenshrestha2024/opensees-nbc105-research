@@ -1,0 +1,62 @@
+{
+  "scope": "ELEMENT_COMMAND_AND_SMALL_LOAD_SMOKE_CHECK_ONLY_NOT_EXPERIMENTAL_VALIDATION",
+  "element": "E_SFI_MVLEM_3D",
+  "status": "COMPLETED",
+  "displacement_node3": [
+    9.384540434067506e-08,
+    0.0,
+    -3.102665998654123e-08,
+    0.0,
+    5.069511501969275e-08,
+    0.0
+  ],
+  "global_force": [
+    -0.4999993390743334,
+    0.0,
+    -0.06773254802272224,
+    0.0,
+    -0.111110057515261,
+    0.0,
+    -0.4999993390743334,
+    0.0,
+    0.06773283409988398,
+    0.0,
+    -0.111110057515261,
+    0.0,
+    0.4999993390743334,
+    0.0,
+    -9.52895043864789e-08,
+    0.0,
+    7.832853753672944e-08,
+    0.0,
+    0.4999993390743334,
+    0.0,
+    -1.9078765735097356e-07,
+    0.0,
+    7.832853753672944e-08,
+    0.0
+  ],
+  "macro_fiber_FSAM_tags": [
+    907,
+    906,
+    906,
+    906,
+    907
+  ],
+  "material_tags": {
+    "steel_x": 901,
+    "steel_y_web": 902,
+    "steel_y_boundary": 903,
+    "concrete_web": 904,
+    "concrete_boundary": 905,
+    "fsam_web": 906,
+    "fsam_boundary": 907
+  },
+  "units": "kN-m-s",
+  "elapsed_s": 0.03193349999492057,
+  "explanation": "One 12-inch-high cell uses the PEER specimen material/width partition. Three-dimensional geometry adapter, out-of-plane defaults and 1-kN horizontal probe are numerical choices; not the complete published specimen, not the project wall.",
+  "sources": [
+    "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+    "https://kkolozvari.github.io/E-SFI-MVLEM-3D/"
+  ]
+}

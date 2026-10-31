@@ -1,0 +1,6 @@
+{
+  "elapsed_s": 0.0030845000001136214,
+  "row_count": 0,
+  "etabs_file": "None",
+  "scope": "Export ETABS tables for the SAME model, mass source, effective stiffness, diaphragm, restraints, gravity/P-Delta, modes, damping, spectrum units, eccentricity and combinations. Normalize rows to this template. Modes must be paired by shape/participation, not only mode number. MRSM CQC envelopes are not signed simultaneous actions. No reinforcement-demand engine is claimed."
+}

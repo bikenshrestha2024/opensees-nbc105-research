@@ -1,0 +1,10 @@
+{
+  "dt_s": 0.0025,
+  "refined_dt_s": 0.00125,
+  "relative_changes": {
+    "linear": 4.5646030122432384e-05,
+    "nonlinear": 0.0002828204164626569
+  },
+  "both_complete": true,
+  "scope": "Time-step sensitivity of teaching model; not validation of building or empirical failure criteria"
+}

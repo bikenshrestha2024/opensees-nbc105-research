@@ -1,0 +1,12 @@
+E_SFI_MVLEM_3D gravity 0
+E_SFI_MVLEM_3D dynamic 0 0.049999999999999996 [-1.6975452552648847e-08, 0.0, -2.6279485295402043e-05, 0.0, -1.1019319776902492e-08, 0.0]
+SFI_MVLEM_3D gravity -3
+WARNING: numeric analysis returns 1 -- Umfpackgenlinsolver::solve
+WARNING NewtonRaphson::solveCurrentStep() -the LinearSysOfEqn failed in solve()
+StaticAnalysis::analyze() - the Algorithm failed at step: 6 with domain at load factor 0.7
+OpenSees > analyze failed, returned: -3 error flag
+WARNING: numeric analysis returns 1 -- Umfpackgenlinsolver::solve
+WARNING NewtonRaphson::solveCurrentStep() -the LinearSysOfEqn failed in solve()
+DirectIntegrationAnalysis::analyze() - the Algorithm failed at time 0.005
+OpenSees > analyze failed, returned: -3 error flag
+SFI_MVLEM_3D dynamic -3 0.0 [-2.924697747282283e-22, 0.0, -1.565836852610291e-05, 0.0, 1.7289563620540943e-20, 0.0]

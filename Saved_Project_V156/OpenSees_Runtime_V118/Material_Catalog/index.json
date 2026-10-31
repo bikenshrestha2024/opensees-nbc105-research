@@ -1,0 +1,172 @@
+[
+  {
+    "id": "M30_Fe500_Concrete01",
+    "model": "Concrete01",
+    "label": "M30 / Fe500 research baseline",
+    "status": "NOMINAL / ASSUMED RESEARCH BASELINE",
+    "file": "M30_Fe500_Concrete01.json",
+    "source": "https://openseespydoc.readthedocs.io/en/latest/src/Concrete01.html",
+    "locator": "02_MODELLING_BASIS.md; Parameter_Register.csv",
+    "notes": "Nominal M30 cube label; assumed cylinder/cube ratio0.8 gives24MPa. Peak strain0.002, residual0.2fc and ultimate0.006 are research assumptions. No confinement enhancement."
+  },
+  {
+    "id": "M30_Fe500_Concrete02",
+    "model": "Concrete02",
+    "label": "M30 / Fe500 research baseline",
+    "status": "NOMINAL / ASSUMED RESEARCH BASELINE",
+    "file": "M30_Fe500_Concrete02.json",
+    "source": "https://openseespydoc.readthedocs.io/en/latest/src/Concrete02.html",
+    "locator": "02_MODELLING_BASIS.md; Parameter_Register.csv",
+    "notes": "Same nominal unconfined backbone. lambda0.1 assumed. ft2MPa assumed. Ets6000MPa derived from assumed postpeak Gf0.1kN/m and characteristic length0.3m; not mesh-independent without an explicit crack-band implementation."
+  },
+  {
+    "id": "M30_Fe500_ConcreteCM",
+    "model": "ConcreteCM",
+    "label": "M30 / Fe500 research baseline",
+    "status": "NOMINAL / ASSUMED RESEARCH BASELINE",
+    "file": "M30_Fe500_ConcreteCM.json",
+    "source": "https://openseespydoc.readthedocs.io/en/latest/src/ConcreteCM.html",
+    "locator": "02_MODELLING_BASIS.md; Parameter_Register.csv",
+    "notes": "M30 nominal conversion; Ec24000MPa matched to Concrete01/02 initial tangent. Shape parameters are exploratory starting values, not fit to M30 tests; no confinement enhancement."
+  },
+  {
+    "id": "M30_Fe500_Steel02",
+    "model": "Steel02",
+    "label": "M30 / Fe500 research baseline",
+    "status": "NOMINAL / ASSUMED RESEARCH BASELINE",
+    "file": "M30_Fe500_Steel02.json",
+    "source": "https://openseespydoc.readthedocs.io/en/latest/src/steel02.html",
+    "locator": "02_MODELLING_BASIS.md; Parameter_Register.csv",
+    "notes": "Fe500 nominal yield500MPa; E200GPa conventional assumption. Transition values documentation-recommended; b1% assumption and isotropic terms disabled until evidence. Does not include fracture/buckling/bond slip."
+  },
+  {
+    "id": "M30_Fe500_SteelMPF",
+    "model": "SteelMPF",
+    "label": "M30 / Fe500 research baseline",
+    "status": "NOMINAL / ASSUMED RESEARCH BASELINE",
+    "file": "M30_Fe500_SteelMPF.json",
+    "source": "https://openseespydoc.readthedocs.io/en/latest/src/SteelMPF.html",
+    "locator": "02_MODELLING_BASIS.md; Parameter_Register.csv",
+    "notes": "Same Fe500 nominal basis; symmetric tension/compression is assumed, not a cyclic Fe500 coupon fit."
+  },
+  {
+    "id": "M30_Fe500_FVD",
+    "model": "FVD",
+    "label": "M30 / Fe500 research baseline",
+    "status": "NOMINAL / ASSUMED RESEARCH BASELINE",
+    "file": "M30_Fe500_FVD.json",
+    "source": "https://openseespydoc.readthedocs.io/en/latest/src/ViscousDamper.html",
+    "locator": "02_MODELLING_BASIS.md; Parameter_Register.csv",
+    "notes": "Official OpenSees example-device card: K300kN/mm, Cd280.3kN(s/mm)^0.3; converted to metre basis. Component verification only; not building sizing."
+  },
+  {
+    "id": "M30_Fe500_BRB",
+    "model": "BRB",
+    "label": "M30 / Fe500 research baseline",
+    "status": "NOMINAL / ASSUMED RESEARCH BASELINE",
+    "file": "M30_Fe500_BRB.json",
+    "source": "https://openseespydoc.readthedocs.io/en/latest/src/corotTruss.html",
+    "locator": "02_MODELLING_BASIS.md; Parameter_Register.csv",
+    "notes": "Hypothetical ductile steel core, NOT Fe500 rebar. All dimensions/material values are sizing assumptions. Uniform-core model does not reproduce a tested brace assembly or casing stability."
+  },
+  {
+    "id": "M30_Fe500_SFI_MVLEM_3D",
+    "model": "SFI_MVLEM_3D",
+    "label": "M30 / Fe500 research baseline",
+    "status": "NOMINAL / ASSUMED RESEARCH BASELINE",
+    "file": "M30_Fe500_SFI_MVLEM_3D.json",
+    "source": "https://openseespydoc.readthedocs.io/en/latest/src/SFI_MVLEM_3D.html",
+    "locator": "02_MODELLING_BASIS.md; Parameter_Register.csv",
+    "notes": "E-SFI numerical patch with nominal M30/Fe500; rho0.5% each direction and geometry are declared demonstration assumptions. Replace with actual wall detailing; unconfined throughout. FSAM nu0.8/alpha0.01 are literature starting choices, not project-calibrated."
+  },
+  {
+    "id": "Official_Concrete01",
+    "model": "Concrete01",
+    "label": "OpenSees primer: unconfined cover",
+    "status": "DIRECT PUBLISHED NUMERICAL EXAMPLE",
+    "file": "Official_Concrete01.json",
+    "source": "https://opensees.berkeley.edu/OpenSees/OpenSeesExamples1.1.pdf",
+    "locator": "Example 3.1 RC frame gravity; cover material tag 2",
+    "notes": "No confinement; not an M30 specimen or experimental fit."
+  },
+  {
+    "id": "Official_Concrete02",
+    "model": "Concrete02",
+    "label": "OpenSees MEFI example: unconfined material 4",
+    "status": "DIRECT PUBLISHED NUMERICAL EXAMPLE",
+    "file": "Official_Concrete02.json",
+    "source": "https://openseesdocumentation.readthedocs.io/en/latest/user/manual/model/elements/MEFI.html",
+    "locator": "Pushover example: uniaxialMaterial Concrete02 tag 4",
+    "notes": "These are that example material values; epsU=-0.037 must not be treated as an unconfined project strain capacity."
+  },
+  {
+    "id": "Official_ConcreteCM",
+    "model": "ConcreteCM",
+    "label": "ConcreteCM author command example",
+    "status": "DIRECT PUBLISHED NUMERICAL EXAMPLE",
+    "file": "Official_ConcreteCM.json",
+    "source": "https://opensees.berkeley.edu/wiki/index.php/ConcreteCM_-_Complete_Concrete_Model_by_Chang_and_Mander_%281994%29",
+    "locator": "Example command; also PEER 2015/12 appendix material documentation",
+    "notes": "Not M30 calibration. Shape parameters copied from author example; stresses converted ksi to MPa."
+  },
+  {
+    "id": "Official_SteelMPF",
+    "model": "SteelMPF",
+    "label": "SteelMPF author command example",
+    "status": "DIRECT PUBLISHED NUMERICAL EXAMPLE",
+    "file": "Official_SteelMPF.json",
+    "source": "https://opensees.berkeley.edu/wiki/index.php/SteelMPF_-_Menegotto_and_Pinto_%281973%29_Model_Extended_by_Filippou_et_al._%281983%29",
+    "locator": "Example command; optional isotropic parameters use documented defaults",
+    "notes": "Not Fe500 equivalence. Wiki cR1=.925 is used; do not silently copy the inconsistent 18.5 example entry printed in the PEER appendix."
+  },
+  {
+    "id": "Fit_Steel02",
+    "model": "Steel02",
+    "label": "SimCenter qfem-0019: fitted single coupon",
+    "status": "FIT TO PUBLISHED EXPERIMENTAL DATA",
+    "file": "Fit_Steel02.json",
+    "source": "https://nheri-simcenter.github.io/quoFEM-Documentation/common/user_manual/examples/desktop/qfem-0019/README.html",
+    "locator": "Bundled Calibration_Steel02 results; 256 training / 86 withheld temporal samples",
+    "notes": "Fit produced by bundled least squares, not parameter table copied from paper or Bayesian posterior. Same coupon holdout; no Fe500 equivalence."
+  },
+  {
+    "id": "Official_FVD",
+    "model": "FVD",
+    "label": "ViscousDamper author example",
+    "status": "DIRECT PUBLISHED NUMERICAL EXAMPLE",
+    "file": "Official_FVD.json",
+    "source": "https://opensees.berkeley.edu/wiki/index.php/ViscousDamper_Material",
+    "locator": "Example 1; Akcelyan, Lignos and Hikino (2018), SD&EE 113, 488-502",
+    "notes": "Maxwell spring and nonlinear dashpot. Example-device parameters, not an optimized building damper."
+  },
+  {
+    "id": "PEER_Web_ConcreteCM",
+    "model": "ConcreteCM",
+    "label": "PEER 2015 RW-A15-P10-S78 web concrete",
+    "status": "PUBLISHED SPECIMEN MATERIAL INPUT",
+    "file": "PEER_Web_ConcreteCM.json",
+    "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+    "locator": "Appendix B.3 material input listing",
+    "notes": "Unconfined web only; no boundary-region confinement added."
+  },
+  {
+    "id": "PEER_Web_SteelMPF",
+    "model": "SteelMPF",
+    "label": "PEER 2015 RW-A15-P10-S78 web steel",
+    "status": "PUBLISHED SPECIMEN MATERIAL INPUT",
+    "file": "PEER_Web_SteelMPF.json",
+    "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+    "locator": "Appendix B.3 web steel input listing; legacy a1/a2 labels map to transition cR1/cR2",
+    "notes": "Keep legacy transition values 18.5 and .0015 as printed; do not confuse them with optional isotropic a1/a2."
+  },
+  {
+    "id": "PEER_Web_ESFI_Patch",
+    "model": "SFI_MVLEM_3D",
+    "label": "PEER web material + E-SFI numerical patch",
+    "status": "PUBLISHED MATERIAL / ASSUMED PATCH",
+    "file": "PEER_Web_ESFI_Patch.json",
+    "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+    "locator": "Appendix B.3 web materials; E-SFI formulation Kolozvari et al. (2023)",
+    "notes": "Only web constitutive values and ratios come from PEER. 1.2 x .3 x .15 m patch, 60 kN axial force and cyclic protocol are numerical choices; neither RW wall nor SD-06 experiment reproduced. No actual core openings/corners."
+  }
+]

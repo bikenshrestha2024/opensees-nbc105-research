@@ -1,0 +1,1113 @@
+{
+  "checks": [
+    {
+      "clause": "5.4.1.5",
+      "check": "Mass irregularity",
+      "storey": 1,
+      "value": 1.0301294349006915,
+      "threshold": 1.5,
+      "status": "PASS",
+      "note": "Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent X",
+      "storey": 1,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent Y",
+      "storey": 1,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.5",
+      "check": "Mass irregularity",
+      "storey": 2,
+      "value": 1.0000000000000002,
+      "threshold": 1.5,
+      "status": "PASS",
+      "note": "Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent X",
+      "storey": 2,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent Y",
+      "storey": 2,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.5",
+      "check": "Mass irregularity",
+      "storey": 3,
+      "value": 1.030129434900692,
+      "threshold": 1.5,
+      "status": "PASS",
+      "note": "Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent X",
+      "storey": 3,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent Y",
+      "storey": 3,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.5",
+      "check": "Mass irregularity",
+      "storey": 4,
+      "value": 1.0000000000000002,
+      "threshold": 1.5,
+      "status": "PASS",
+      "note": "Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent X",
+      "storey": 4,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent Y",
+      "storey": 4,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.5",
+      "check": "Mass irregularity",
+      "storey": 5,
+      "value": 1.0,
+      "threshold": 1.5,
+      "status": "PASS",
+      "note": "Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent X",
+      "storey": 5,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent Y",
+      "storey": 5,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.5",
+      "check": "Mass irregularity",
+      "storey": 6,
+      "value": 1.0,
+      "threshold": 1.5,
+      "status": "PASS",
+      "note": "Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent X",
+      "storey": 6,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent Y",
+      "storey": 6,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.5",
+      "check": "Mass irregularity",
+      "storey": 7,
+      "value": 1.0000000000000002,
+      "threshold": 1.5,
+      "status": "PASS",
+      "note": "Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent X",
+      "storey": 7,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent Y",
+      "storey": 7,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.5",
+      "check": "Mass irregularity",
+      "storey": 8,
+      "value": 1.0,
+      "threshold": 1.5,
+      "status": "PASS",
+      "note": "Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent X",
+      "storey": 8,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent Y",
+      "storey": 8,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.5",
+      "check": "Mass irregularity",
+      "storey": 9,
+      "value": 1.0,
+      "threshold": 1.5,
+      "status": "PASS",
+      "note": "Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent X",
+      "storey": 9,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent Y",
+      "storey": 9,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.5",
+      "check": "Mass irregularity",
+      "storey": 10,
+      "value": 1.0000000000000002,
+      "threshold": 1.5,
+      "status": "PASS",
+      "note": "Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent X",
+      "storey": 10,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent Y",
+      "storey": 10,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.5",
+      "check": "Mass irregularity",
+      "storey": 11,
+      "value": 1.0,
+      "threshold": 1.5,
+      "status": "PASS",
+      "note": "Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent X",
+      "storey": 11,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent Y",
+      "storey": 11,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.5",
+      "check": "Mass irregularity",
+      "storey": 12,
+      "value": 1.0,
+      "threshold": 1.5,
+      "status": "PASS",
+      "note": "Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent X",
+      "storey": 12,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent Y",
+      "storey": 12,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.5",
+      "check": "Mass irregularity",
+      "storey": 13,
+      "value": 1.0,
+      "threshold": 1.5,
+      "status": "PASS",
+      "note": "Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent X",
+      "storey": 13,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent Y",
+      "storey": 13,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.5",
+      "check": "Mass irregularity",
+      "storey": 14,
+      "value": 1.0,
+      "threshold": 1.5,
+      "status": "PASS",
+      "note": "Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent X",
+      "storey": 14,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent Y",
+      "storey": 14,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.5",
+      "check": "Mass irregularity",
+      "storey": 15,
+      "value": 1.0,
+      "threshold": 1.5,
+      "status": "PASS",
+      "note": "Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent X",
+      "storey": 15,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent Y",
+      "storey": 15,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.5",
+      "check": "Mass irregularity",
+      "storey": 16,
+      "value": 1.0000000000000002,
+      "threshold": 1.5,
+      "status": "PASS",
+      "note": "Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent X",
+      "storey": 16,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent Y",
+      "storey": 16,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.5",
+      "check": "Mass irregularity",
+      "storey": 17,
+      "value": 1.0,
+      "threshold": 1.5,
+      "status": "PASS",
+      "note": "Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent X",
+      "storey": 17,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent Y",
+      "storey": 17,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.5",
+      "check": "Mass irregularity",
+      "storey": 18,
+      "value": 1.0,
+      "threshold": 1.5,
+      "status": "PASS",
+      "note": "Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent X",
+      "storey": 18,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent Y",
+      "storey": 18,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.5",
+      "check": "Mass irregularity",
+      "storey": 19,
+      "value": 1.0,
+      "threshold": 1.5,
+      "status": "PASS",
+      "note": "Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent X",
+      "storey": 19,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent Y",
+      "storey": 19,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.5",
+      "check": "Mass irregularity",
+      "storey": 20,
+      "value": 1.0,
+      "threshold": 1.5,
+      "status": "PASS",
+      "note": "Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent X",
+      "storey": 20,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent Y",
+      "storey": 20,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.5",
+      "check": "Mass irregularity",
+      "storey": 21,
+      "value": 1.0000000000000007,
+      "threshold": 1.5,
+      "status": "PASS",
+      "note": "Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent X",
+      "storey": 21,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent Y",
+      "storey": 21,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.5",
+      "check": "Mass irregularity",
+      "storey": 22,
+      "value": 1.0,
+      "threshold": 1.5,
+      "status": "PASS",
+      "note": "Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent X",
+      "storey": 22,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent Y",
+      "storey": 22,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.5",
+      "check": "Mass irregularity",
+      "storey": 23,
+      "value": 1.030129434900691,
+      "threshold": 1.5,
+      "status": "PASS",
+      "note": "Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent X",
+      "storey": 23,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent Y",
+      "storey": 23,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.5",
+      "check": "Mass irregularity",
+      "storey": 24,
+      "value": 1.2076374755370847,
+      "threshold": 1.5,
+      "status": "PASS",
+      "note": "Review roof/penthouse/mezzanine exclusions explicitly; no automatic exemption."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent X",
+      "storey": 24,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.3",
+      "check": "LFRS extent Y",
+      "storey": 24,
+      "value": 1.0,
+      "threshold": 1.3,
+      "status": "PASS",
+      "note": "Geometry extent screen; continuity/member roles require review."
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story adjacent above",
+      "storey": 1,
+      "value": 1.6185307145309782,
+      "threshold": 0.7,
+      "status": "PASS",
+      "note": "V/drift secant stiffness from selected static load pattern."
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story three above",
+      "storey": 1,
+      "value": 1.8241664362703436,
+      "threshold": 0.8,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story adjacent above",
+      "storey": 2,
+      "value": 1.0256506624742086,
+      "threshold": 0.7,
+      "status": "PASS",
+      "note": "V/drift secant stiffness from selected static load pattern."
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story three above",
+      "storey": 2,
+      "value": 1.332661556332226,
+      "threshold": 0.8,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story adjacent above",
+      "storey": 3,
+      "value": 1.419565609861267,
+      "threshold": 0.7,
+      "status": "PASS",
+      "note": "V/drift secant stiffness from selected static load pattern."
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story three above",
+      "storey": 3,
+      "value": 1.6179534416699606,
+      "threshold": 0.8,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story adjacent above",
+      "storey": 4,
+      "value": 1.1654506732756211,
+      "threshold": 0.7,
+      "status": "PASS",
+      "note": "V/drift secant stiffness from selected static load pattern."
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story three above",
+      "storey": 4,
+      "value": 1.2822915185458672,
+      "threshold": 0.8,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story adjacent above",
+      "storey": 5,
+      "value": 1.1084129816477397,
+      "threshold": 0.7,
+      "status": "PASS",
+      "note": "V/drift secant stiffness from selected static load pattern."
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story three above",
+      "storey": 5,
+      "value": 1.203934741827934,
+      "threshold": 0.8,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story adjacent above",
+      "storey": 6,
+      "value": 1.094290371862225,
+      "threshold": 0.7,
+      "status": "PASS",
+      "note": "V/drift secant stiffness from selected static load pattern."
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story three above",
+      "storey": 6,
+      "value": 1.1741552038032599,
+      "threshold": 0.8,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story adjacent above",
+      "storey": 7,
+      "value": 1.0774544890235345,
+      "threshold": 0.7,
+      "status": "PASS",
+      "note": "V/drift secant stiffness from selected static load pattern."
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story three above",
+      "storey": 7,
+      "value": 1.147884951650813,
+      "threshold": 0.8,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story adjacent above",
+      "storey": 8,
+      "value": 1.0694650347475234,
+      "threshold": 0.7,
+      "status": "PASS",
+      "note": "V/drift secant stiffness from selected static load pattern."
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story three above",
+      "storey": 8,
+      "value": 1.1325106658586892,
+      "threshold": 0.8,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story adjacent above",
+      "storey": 9,
+      "value": 1.061488358796993,
+      "threshold": 0.7,
+      "status": "PASS",
+      "note": "V/drift secant stiffness from selected static load pattern."
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story three above",
+      "storey": 9,
+      "value": 1.1201530079167843,
+      "threshold": 0.8,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story adjacent above",
+      "storey": 10,
+      "value": 1.0574166375426015,
+      "threshold": 0.7,
+      "status": "PASS",
+      "note": "V/drift secant stiffness from selected static load pattern."
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story three above",
+      "storey": 10,
+      "value": 1.113218955923077,
+      "threshold": 0.8,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story adjacent above",
+      "storey": 11,
+      "value": 1.0540782018787267,
+      "threshold": 0.7,
+      "status": "PASS",
+      "note": "V/drift secant stiffness from selected static load pattern."
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story three above",
+      "storey": 11,
+      "value": 1.1089988069646572,
+      "threshold": 0.8,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story adjacent above",
+      "storey": 12,
+      "value": 1.0530271923522712,
+      "threshold": 0.7,
+      "status": "PASS",
+      "note": "V/drift secant stiffness from selected static load pattern."
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story three above",
+      "storey": 12,
+      "value": 1.1085766220552142,
+      "threshold": 0.8,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story adjacent above",
+      "storey": 13,
+      "value": 1.0530659250227998,
+      "threshold": 0.7,
+      "status": "PASS",
+      "note": "V/drift secant stiffness from selected static load pattern."
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story three above",
+      "storey": 13,
+      "value": 1.1111433008473235,
+      "threshold": 0.8,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story adjacent above",
+      "storey": 14,
+      "value": 1.0550434282151435,
+      "threshold": 0.7,
+      "status": "PASS",
+      "note": "V/drift secant stiffness from selected static load pattern."
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story three above",
+      "storey": 14,
+      "value": 1.117641733480238,
+      "threshold": 0.8,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story adjacent above",
+      "storey": 15,
+      "value": 1.0585915224810627,
+      "threshold": 0.7,
+      "status": "PASS",
+      "note": "V/drift secant stiffness from selected static load pattern."
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story three above",
+      "storey": 15,
+      "value": 1.1283580706398246,
+      "threshold": 0.8,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story adjacent above",
+      "storey": 16,
+      "value": 1.0646110214371993,
+      "threshold": 0.7,
+      "status": "PASS",
+      "note": "V/drift secant stiffness from selected static load pattern."
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story three above",
+      "storey": 16,
+      "value": 1.144956714436588,
+      "threshold": 0.8,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story adjacent above",
+      "storey": 17,
+      "value": 1.0732528707832945,
+      "threshold": 0.7,
+      "status": "PASS",
+      "note": "V/drift secant stiffness from selected static load pattern."
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story three above",
+      "storey": 17,
+      "value": 1.1691881385288618,
+      "threshold": 0.8,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story adjacent above",
+      "storey": 18,
+      "value": 1.0862908081346327,
+      "threshold": 0.7,
+      "status": "PASS",
+      "note": "V/drift secant stiffness from selected static load pattern."
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story three above",
+      "storey": 18,
+      "value": 1.2053440893186533,
+      "threshold": 0.8,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story adjacent above",
+      "storey": 19,
+      "value": 1.1047505587954642,
+      "threshold": 0.7,
+      "status": "PASS",
+      "note": "V/drift secant stiffness from selected static load pattern."
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story three above",
+      "storey": 19,
+      "value": 1.259634738807366,
+      "threshold": 0.8,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story adjacent above",
+      "storey": 20,
+      "value": 1.1335959811346346,
+      "threshold": 0.7,
+      "status": "PASS",
+      "note": "V/drift secant stiffness from selected static load pattern."
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story three above",
+      "storey": 20,
+      "value": 1.3475690160824356,
+      "threshold": 0.8,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story adjacent above",
+      "storey": 21,
+      "value": 1.1778112882871425,
+      "threshold": 0.7,
+      "status": "PASS",
+      "note": "V/drift secant stiffness from selected static load pattern."
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story three above",
+      "storey": 21,
+      "value": 1.5004657310697451,
+      "threshold": 0.8,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story adjacent above",
+      "storey": 22,
+      "value": 1.2585452938813326,
+      "threshold": 0.7,
+      "status": "PASS",
+      "note": "V/drift secant stiffness from selected static load pattern."
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story three above",
+      "storey": 22,
+      "value": 1.8289970335498302,
+      "threshold": 0.8,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story adjacent above",
+      "storey": 23,
+      "value": 1.4180530988492628,
+      "threshold": 0.7,
+      "status": "PASS",
+      "note": "V/drift secant stiffness from selected static load pattern."
+    },
+    {
+      "clause": "5.4.1.2",
+      "check": "Soft story adjacent above",
+      "storey": 24,
+      "value": 1.9636225702083085,
+      "threshold": 0.7,
+      "status": "PASS",
+      "note": "V/drift secant stiffness from selected static load pattern."
+    },
+    {
+      "clause": "5.4.1.1",
+      "check": "Weak story",
+      "storey": "ALL",
+      "value": null,
+      "threshold": 0.8,
+      "status": "NOT EVALUATED",
+      "note": "Requires reviewed lateral-strength capacities; elastic stiffness is not strength."
+    },
+    {
+      "clause": "5.4.1.4",
+      "check": "In-plane discontinuity",
+      "storey": "ALL",
+      "value": null,
+      "threshold": null,
+      "status": "NOT EVALUATED",
+      "note": "Requires floor-edge center-of-mass response or reviewed plan/vertical load-path geometry; not inferred from bounding box."
+    },
+    {
+      "clause": "5.4.2.1",
+      "check": "Torsion",
+      "storey": "ALL",
+      "value": null,
+      "threshold": null,
+      "status": "NOT EVALUATED",
+      "note": "Requires floor-edge center-of-mass response or reviewed plan/vertical load-path geometry; not inferred from bounding box."
+    },
+    {
+      "clause": "5.4.2.2",
+      "check": "Extreme torsion",
+      "storey": "ALL",
+      "value": null,
+      "threshold": null,
+      "status": "NOT EVALUATED",
+      "note": "Requires floor-edge center-of-mass response or reviewed plan/vertical load-path geometry; not inferred from bounding box."
+    },
+    {
+      "clause": "5.4.2.3",
+      "check": "Re-entrant corners",
+      "storey": "ALL",
+      "value": null,
+      "threshold": null,
+      "status": "NOT EVALUATED",
+      "note": "Requires floor-edge center-of-mass response or reviewed plan/vertical load-path geometry; not inferred from bounding box."
+    }
+  ],
+  "overall": "INCOMPLETE",
+  "note": "A partial screen cannot certify regularity; missing checks remain explicit."
+}

@@ -1,0 +1,7 @@
+{
+  "release": 130,
+  "implementations": "components/",
+  "compatibility": "Root historical filenames are thin loaders; no parallel legacy implementations are executed",
+  "module_count": 38,
+  "superseded_by": "RELEASE_V133.json"
+}

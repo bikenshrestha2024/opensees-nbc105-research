@@ -1,0 +1,127 @@
+{
+  "input": {
+    "model": "ConcreteCM",
+    "parameters": {
+      "fpcc": -55.778586501732036,
+      "epcc": -0.002371,
+      "Ec": 37253.87119627273,
+      "rc": 15.0,
+      "xcrn": 1.022,
+      "ft": 2.3152457095313492,
+      "et": 8e-05,
+      "rt": 1.2,
+      "xcrp": 10000.0
+    },
+    "parameter_basis": "PUBLISHED SPECIMEN MATERIAL INPUT | Unconfined web only; no boundary-region confinement added.",
+    "specimen_id": "PEER 2015 RW-A15-P10-S78 web concrete",
+    "citation": "Appendix B.3 material input listing",
+    "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+    "protocol_csv": "",
+    "measured_csv": "",
+    "fit_bounds": {},
+    "train_fraction": 0.75,
+    "scope": "Ordered same-specimen fit is not independent validation or project design approval",
+    "wall_formulation": "SFI_MVLEM_3D",
+    "targets": [
+      -0.0005,
+      0.0,
+      -0.001,
+      0.0,
+      -0.002,
+      0.0,
+      -0.004,
+      0.0,
+      -0.006,
+      0.0,
+      0.001
+    ],
+    "samples_per_leg": 30,
+    "dt_s": 0.005,
+    "profile_id": "PEER_Web_ConcreteCM",
+    "project_transfer_approved": false,
+    "provenance": {
+      "fpcc": {
+        "value": -55.778586501732036,
+        "unit": "MPa",
+        "basis": "PUBLISHED SPECIMEN MATERIAL INPUT",
+        "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+        "locator": "Appendix B.3 material input listing"
+      },
+      "epcc": {
+        "value": -0.002371,
+        "unit": "dimensionless",
+        "basis": "PUBLISHED SPECIMEN MATERIAL INPUT",
+        "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+        "locator": "Appendix B.3 material input listing"
+      },
+      "Ec": {
+        "value": 37253.87119627273,
+        "unit": "MPa",
+        "basis": "PUBLISHED SPECIMEN MATERIAL INPUT",
+        "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+        "locator": "Appendix B.3 material input listing"
+      },
+      "rc": {
+        "value": 15.0,
+        "unit": "dimensionless",
+        "basis": "PUBLISHED SPECIMEN MATERIAL INPUT",
+        "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+        "locator": "Appendix B.3 material input listing"
+      },
+      "xcrn": {
+        "value": 1.022,
+        "unit": "dimensionless",
+        "basis": "PUBLISHED SPECIMEN MATERIAL INPUT",
+        "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+        "locator": "Appendix B.3 material input listing"
+      },
+      "ft": {
+        "value": 2.3152457095313492,
+        "unit": "MPa",
+        "basis": "PUBLISHED SPECIMEN MATERIAL INPUT",
+        "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+        "locator": "Appendix B.3 material input listing"
+      },
+      "et": {
+        "value": 8e-05,
+        "unit": "dimensionless",
+        "basis": "PUBLISHED SPECIMEN MATERIAL INPUT",
+        "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+        "locator": "Appendix B.3 material input listing"
+      },
+      "rt": {
+        "value": 1.2,
+        "unit": "dimensionless",
+        "basis": "PUBLISHED SPECIMEN MATERIAL INPUT",
+        "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+        "locator": "Appendix B.3 material input listing"
+      },
+      "xcrp": {
+        "value": 10000.0,
+        "unit": "dimensionless",
+        "basis": "PUBLISHED SPECIMEN MATERIAL INPUT",
+        "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+        "locator": "Appendix B.3 material input listing"
+      }
+    },
+    "source_native_values": {
+      "fc_ksi": 8.09,
+      "epsc0": -0.002371,
+      "Ec_ksi": 5403.2172,
+      "rc": 15.0,
+      "xcrn": 1.022,
+      "ft_ksi": 0.335798,
+      "et": 8e-05,
+      "rt": 1.2,
+      "xcrp": 10000.0,
+      "gap_close": 0
+    },
+    "_output": "C:\\Users\\User\\Documents\\Codex\\2026-10-20\\can\\outputs\\OpenSees_NBC105_V159\\Verification_V159\\PEER_Web_ConcreteCM"
+  },
+  "optimizer": {},
+  "metrics": {},
+  "status": "NUMERICAL_PARAMETER_STUDY",
+  "elapsed_s": 0.7905148999998346,
+  "finished_at": "2026-10-28T06:45:51.476391+05:45",
+  "project_transfer_approved": false
+}

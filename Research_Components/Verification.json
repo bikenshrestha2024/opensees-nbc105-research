@@ -1,0 +1,20 @@
+{
+  "component_runs": {
+    "Concrete01": "COMPLETED_NUMERICAL_RESEARCH_EXAMPLE",
+    "Concrete02": "COMPLETED_NUMERICAL_RESEARCH_EXAMPLE",
+    "ConcreteCM": "COMPLETED_NUMERICAL_RESEARCH_EXAMPLE",
+    "Steel02": "COMPLETED_NUMERICAL_RESEARCH_EXAMPLE",
+    "SteelMPF": "COMPLETED_NUMERICAL_RESEARCH_EXAMPLE",
+    "FVD": "COMPLETED_NUMERICAL_RESEARCH_EXAMPLE",
+    "BRB": "COMPLETED_NUMERICAL_RESEARCH_EXAMPLE",
+    "SFI_MVLEM_3D": "COMPLETED_NUMERICAL_RESEARCH_EXAMPLE"
+  },
+  "ranker_incomplete_case_exclusion": "PASS",
+  "building_NLTHA_executed": false,
+  "project_validation": false,
+  "source_review_date": "2026-10-28",
+  "version": "OR158",
+  "GUI_saved_results": "PASS: eight reports, sixteen axes loaded",
+  "GUI_entrypoint": "PASS: opened and closed through Tk mainloop",
+  "runner_auto_GUI": "PASS: all eight native component runs completed and GUI opened"
+}

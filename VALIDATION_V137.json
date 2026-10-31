@@ -1,0 +1,24 @@
+{
+  "release": 137,
+  "parsed_python_sources": 126,
+  "imported_mapped_modules": 55,
+  "opensees_version": "3.8.0",
+  "portal_nonlinear_completed": true,
+  "gravity_equilibrium_kN": 1601.359781493779,
+  "record_duration_s": 31.16,
+  "dt_s": 0.0025,
+  "peak_roof_elastic_mm": 50.466541531672696,
+  "peak_roof_nonlinear_mm": 62.98425606711766,
+  "wall_element_command_smoke_check": "COMPLETED with E_SFI_MVLEM_3D; hyphenated spelling failed and is corrected",
+  "time_step_verification": {
+    "dt_s": 0.0025,
+    "refined_dt_s": 0.00125,
+    "relative_changes": {
+      "linear": 4.5646030122432384e-05,
+      "nonlinear": 0.0002828204164626569
+    },
+    "both_complete": true,
+    "scope": "Time-step sensitivity of teaching model; not validation of building or empirical failure criteria"
+  },
+  "scope": "Isolated teaching model and one-cell capability probe; no full-building NLTHA/calibration/acceptance claimed"
+}

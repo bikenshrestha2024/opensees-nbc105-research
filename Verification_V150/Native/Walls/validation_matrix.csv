@@ -1,0 +1,15 @@
+﻿check,status,required_evidence
+formulation_and_native_commands,PARTIAL,See per-route native run results. Creation/convergence alone is not physical validation.
+units_and_density,NOT_EVALUATED,Stress/force/length/mass conversion; self-weight counted once
+material_monotonic_and_cyclic,NOT_EVALUATED,"Concrete tension/compression, steel reversal, FSAM panel response"
+axial_equilibrium,MEASURED_NOT_ACCEPTED,Per-route gravity relative error is reported for completed diagnostics. Set project acceptance criteria separately.
+rigid_body_and_orientation,NOT_EVALUATED,"Rigid translation/rotation, local axes and reversed panel ordering"
+elastic_bending_and_shear,NOT_EVALUATED,Independent analytical patch tests and deformation partition
+cyclic_experiment,NOT_EVALUATED,"Signed envelope, unloading/reloading, pinching, residual displacement, energy per cycle"
+mesh_objectivity,NOT_EVALUATED,Mesh and macro-fiber refinement with fracture-energy regularization
+biaxial_and_torsion,NOT_EVALUATED,"Nonplanar shared corners, 0/45/90 degree loading and torsion"
+openings_and_coupling,NOT_EVALUATED,"Actual openings, coupling members and corner connectivity"
+out_of_plane_and_instability,NOT_EVALUATED,Out-of-plane bending/buckling and geometric nonlinearity applicability
+dynamic_convergence,NOT_EVALUATED,"Time-step refinement, convergence recovery, mass and damping sensitivity"
+independent_validation,NOT_EVALUATED,Different specimen than calibration; applicable axial-load/aspect/detail range
+building_transfer,NOT_EVALUATED,Actual unconfined core reinforcement/materials and gravity/modal checks

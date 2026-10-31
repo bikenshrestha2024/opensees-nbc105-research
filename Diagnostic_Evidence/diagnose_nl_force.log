@@ -1,0 +1,28 @@
+[GRAVITY PROFILE] {"profile": "AS_CONFIGURED", "factors": {"Self Weight": 1.0, "Dead": 1.0, "DL": 1.0, "Super Dead": 1.0, "SDead": 1.0, "Floor Finish": 1.0, "Wall": 1.0, "Partition": 1.0, "Live": 0.3, "Roof Live": 0.0}, "scope": "Configured gravity preload, separate from mass_factors. NBC 8.1.1.2 / 9.3.1.2 refer TH gravity to 5.2; this is not the 1.2D+1.5L gravity strength combination. Review occupancy, roof and selected analysis purpose."}
+[RESEARCH MATERIALS] PUBLISHED_REFERENCE | nonlinear frames AND E_SFI_MVLEM_3D walls | material assignment exported
+[GRAVITY PROGRESS] factor=0.050000/1; accepted=1; recoveries=0; wall=19.6s
+[GRAVITY PROGRESS] factor=0.100000/1; accepted=2; recoveries=0; wall=27.9s
+[GRAVITY PROGRESS] factor=0.150000/1; accepted=3; recoveries=0; wall=36.4s
+[GRAVITY PROGRESS] factor=0.200000/1; accepted=4; recoveries=0; wall=45.1s
+[GRAVITY PROGRESS] factor=0.250000/1; accepted=5; recoveries=0; wall=54.5s
+[GRAVITY PROGRESS] factor=0.300000/1; accepted=6; recoveries=0; wall=62.9s
+[GRAVITY PROGRESS] factor=0.350000/1; accepted=7; recoveries=0; wall=71.5s
+[GRAVITY PROGRESS] factor=0.400000/1; accepted=8; recoveries=0; wall=79.6s
+[GRAVITY PROGRESS] factor=0.450000/1; accepted=9; recoveries=0; wall=87.7s
+[GRAVITY PROGRESS] factor=0.500000/1; accepted=10; recoveries=0; wall=95.6s
+[GRAVITY PROGRESS] factor=0.550000/1; accepted=11; recoveries=0; wall=103.3s
+[GRAVITY PROGRESS] factor=0.600000/1; accepted=12; recoveries=0; wall=113.8s
+[GRAVITY PROGRESS] factor=0.650000/1; accepted=13; recoveries=0; wall=124.9s
+[GRAVITY PROGRESS] factor=0.700000/1; accepted=14; recoveries=0; wall=136.0s
+[GRAVITY PROGRESS] factor=0.750000/1; accepted=15; recoveries=0; wall=148.1s
+[GRAVITY PROGRESS] factor=0.800000/1; accepted=16; recoveries=0; wall=159.6s
+[GRAVITY PROGRESS] factor=0.850000/1; accepted=17; recoveries=0; wall=171.5s
+[GRAVITY PROGRESS] factor=0.900000/1; accepted=18; recoveries=0; wall=182.7s
+[GRAVITY PROGRESS] factor=0.950000/1; accepted=19; recoveries=0; wall=191.8s
+[GRAVITY PROGRESS] factor=1.000000/1; accepted=20; recoveries=0; wall=201.1s
+[GRAVITY STEPS] accepted=20 recovery_attempts=0
+[GRAVITY] PASS | steps=20 | applied=286447.788933 kN | support reactions=286447.788932 kN | equilibrium error=6.29001e-10% | max downward Uz=-0.01634202890701878 m | frozen=True | elapsed=201.103 s
+[TIMING] Model construction and optional gravity preload | completed | elapsed=203.380 s | start=2026-10-30T19:09:05.755+05:45 | finish=2026-10-30T19:12:29.135+05:45
+[DIAGNOSTIC FORCE NODE] 14535
+[DIAGNOSTIC] motion=False, zero damping, eigenanalysis=False; attempting one 0.005 s step
+[DIAGNOSTIC RESULT] {"return_code": 0, "time_s": 0.005, "elapsed_s": 3.403677600028459}

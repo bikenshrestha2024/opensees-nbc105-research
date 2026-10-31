@@ -1,0 +1,30 @@
+{
+  "0ee85b6dfa770abdb79be473dc52b2b2b78b23c32a708c0c31dd30eb5e21d8ea": {
+    "release": 130,
+    "scope": "Compatible numeric model/eigen inputs when exact payload SHA matches. V132 additions are reporting and separate analysis modules; fresh history runner verifies damping against fresh eigenanalysis."
+  },
+  "513b9f5c5e30eed7d755860cd139bd2ef52f0c119e1811f1a25fee7849dbe6cc": {
+    "release": 131,
+    "scope": "Compatible numeric model/eigen inputs when exact payload SHA matches. V132 additions are reporting and separate analysis modules; fresh history runner verifies damping against fresh eigenanalysis."
+  },
+  "22c5e9c058ee5d60bb7739b168b47f451325a17cbe1b62a22db47afba9059b99": {
+    "release": 132,
+    "scope": "Executed V132 numerical model, before only autofill/reporting edits. Exact model-payload SHA and stiffness case are still required."
+  },
+  "9d2f333df240f7e6fa2b60a61f436967c465ffdaa46c1299a1e8a2c8e8cb9513": {
+    "release": 132,
+    "scope": "Executed V132 numerical model, before only autofill/reporting edits. Exact model-payload SHA and stiffness case are still required."
+  },
+  "3baf52f386601d6ccb58aef00e9c01643f19c0ff31b9b43a597866143ac62bcc": {
+    "release": 132,
+    "scope": "Identical assembled model and eigen equations; V133 changes transient solver lifecycle, reporting and GUI only. Exact payload and limit state still required. Fresh transient damping eigenanalysis retained."
+  },
+  "28b501bfd9e1091a770125f86985cf7e6eef42cf14e61310d2eaa6de69eae491": {
+    "release": 132,
+    "scope": "Identical assembled model and eigen equations; V133 changes transient solver lifecycle, reporting and GUI only. Exact payload and limit state still required. Fresh transient damping eigenanalysis retained."
+  },
+  "5b8b07581666171f6eeba5b513c0c0c410dc47cc91fa456d8e30a079a4e0cb2f": {
+    "release": 133,
+    "scope": "Exact payload and stiffness case still required. V134 changes presentation, reporting, and a separate irregularity reference solve; existing model/eigen equations retained."
+  }
+}

@@ -1,0 +1,7 @@
+.....WARNING - the 'fullGenLapack' eigen solver is VERY SLOW. Consider using the default eigen solver.Using DomainModalProperties - Developed by: Massimo Petracca, Guido Camata, ASDEA Software Technology
+Using ResponseSpectrumAnalysis - Developed by: Massimo Petracca, Guido Camata, ASDEA Software Technology
+....
+----------------------------------------------------------------------
+Ran 9 tests in 1.817s
+
+OK

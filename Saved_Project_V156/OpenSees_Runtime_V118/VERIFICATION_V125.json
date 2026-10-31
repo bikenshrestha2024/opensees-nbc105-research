@@ -1,0 +1,10 @@
+{
+  "version": 125,
+  "regressions": 23,
+  "properties": 7,
+  "source_objects": 2092,
+  "solver_elements": 4912,
+  "separate_SLS_runners_exported": 8,
+  "live_ETABS_tested": false,
+  "full_building_V125_analysis_rerun": false
+}

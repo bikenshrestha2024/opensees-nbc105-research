@@ -1,0 +1,19 @@
+[STOREY GRAVITY] 2 levels | applied=48.000000 kN | reconciliation=0 kN
+[TIMING] Storey gravity load classification and workbook | completed | elapsed=0.014 s | start=2026-10-23T21:16:48.229+05:45 | finish=2026-10-23T21:16:48.245+05:45
+[TIMING] Load path and diaphragm assembly audit | completed | elapsed=0.001 s | start=2026-10-23T21:16:48.249+05:45 | finish=2026-10-23T21:16:48.250+05:45
+[TIMING] Mapping and load audit workbook | completed | elapsed=0.090 s | start=2026-10-23T21:16:48.402+05:45 | finish=2026-10-23T21:16:48.492+05:45
+[TIMING] Model assembly and export | completed | elapsed=0.313 s | start=2026-10-23T21:16:48.207+05:45 | finish=2026-10-23T21:16:48.521+05:45
+[GRAVITY] PASS | steps=20 | applied=48.000000 kN | support reactions=48.000000 kN | equilibrium error=2.96059e-14% | max downward Uz=-0.010631720208172381 m | frozen=True | elapsed=0.005 s
+[TIMING] Model construction and optional gravity preload | completed | elapsed=0.010 s | start=2026-10-23T21:16:48.558+05:45 | finish=2026-10-23T21:16:48.567+05:45
+[TIMING] Model construction and optional gravity preload | failed | elapsed=0.001 s | start=2026-10-23T21:16:48.610+05:45 | finish=2026-10-23T21:16:48.610+05:45
+.....MapOfTaggedObjects::addComponent - not adding as one with similar tag exists, tag: 910000
+ERROR could not add timeseries to domain.
+MapOfTaggedObjects::addComponent - not adding as one with similar tag exists, tag: 910000
+ERROR could not add timeseries to domain.
+[TIMING] failure stage | failed | elapsed=0.000 s | start=2026-10-23T21:16:49.376+05:45 | finish=2026-10-23T21:16:49.376+05:45
+[TIMING] unit stage | completed | elapsed=0.000 s | start=2026-10-23T21:16:49.383+05:45 | finish=2026-10-23T21:16:49.383+05:45
+.......................
+----------------------------------------------------------------------
+Ran 28 tests in 1.190s
+
+OK

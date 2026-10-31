@@ -1,0 +1,16 @@
+{
+  "ULS": {
+    "Case summary": 11,
+    "Storey response": 151,
+    "Modal response": 241,
+    "Nodal 6DOF": 21763,
+    "Sources and units": 5
+  },
+  "SLS": {
+    "Case summary": 11,
+    "Storey response": 151,
+    "Modal response": 241,
+    "Nodal 6DOF": 21763,
+    "Sources and units": 5
+  }
+}

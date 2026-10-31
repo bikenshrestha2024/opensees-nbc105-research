@@ -1,0 +1,19 @@
+{
+  "01_CALIBRATE_STEEL02.py": "b17621eeacc6339e451bced44192d84d6624986543c5d88954adb0b85f1b6dfb",
+  "Material_Register.json": "a911f44381026235040135c746044da5900c3041c088bae8b9f1c54ad5e3bbd2",
+  "README.md": "e6df23334d69151b90480e337335441789e99ccbd910907913a36a08c3c2bf47",
+  "data/calDataField.csv": "348eef78fac66a3c765dff636cf411ec149cc289a00d0ee8dc26a572a0914a1e",
+  "data/matTestAllParamsReadStrain.tcl": "eb81eb57ce8c5f67b11b418639606e5ba5c72fb5daaa0a9cab3453daafa12990",
+  "data/provenance.json": "f56823d63d8d490a06dc0f1aac88f77cb1c7ceaf628719c1a0167dc5b88d2539",
+  "data/stress.1.coords": "3fdd2d74a4025df8134bb838eea11de173c4fc02afa5cdc0a4763319735234bd",
+  "results/protocol.csv": "cb8365d943139b70e266e6d7f93e12affb62915c0e52d7b7540bb8a56053abfe",
+  "results/Steel02_Application_Card.json": "8dee1251c669191edce74411215b2187eaf10d10b3bc9ba4a190f3f4b05432f4",
+  "results/Steel02_Calibrated_Coupon.json": "36c31a01b9285d7f70075fa6c4bdf0529373ba59534d0fb0def3b9dff8c7416c",
+  "results/Steel02_Comparison.csv": "664aece2f903351421002badea1074190599db8e956fc223104b027888ae2c8d",
+  "results/Steel02_Comparison.gif": "86583d5cac27c5e8cd563dd33ef2fca9fb8df0368afd315acbb49a60cc540097",
+  "results/Steel02_Experimental_Fit.png": "36499e89309cd89061f81e7099497cabf6c7d761b2b5ad699e7123b9507bc98b",
+  "results/Native_Curve_Export/card.json": "255dc544dfafbec0a7bf98d2cf531f47eff7493ca547826e06d0bae01e5f57b8",
+  "results/Native_Curve_Export/cyclic.csv": "a5b4ade6ffa62838cb4cd9f45962ad18583357970dfc6910997ea031fc9abccb",
+  "results/Native_Curve_Export/cyclic.png": "4c5c1b29bd7554eade5c6f0e14e22331e045601a5cd25b398807146b70ee314c",
+  "results/Native_Curve_Export/Material_Curve_V151.xlsx": "fe932f6959c2d7dd1100dc4b551ac5b7965192b3739b32e7817a132ba42c415e"
+}

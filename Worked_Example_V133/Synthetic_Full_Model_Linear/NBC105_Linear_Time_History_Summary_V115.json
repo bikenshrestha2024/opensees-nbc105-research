@@ -1,0 +1,241 @@
+{
+  "standard": "NBC 105:2025",
+  "analysis": "Elastic linear time history",
+  "input_mode": "PAIRED_3D",
+  "directional_scope": "1 selected orthogonal 3D pairs; XY and YX orientations",
+  "record_metadata": {
+    "site_soil": "C",
+    "period_range_s": [
+      0.05,
+      6.0
+    ],
+    "record_set": "Near- and far-field orthogonal pairs; both horizontal components matched in SeismoMatch; user-provided"
+  },
+  "model_length_unit": "m",
+  "model_acceleration_unit": "m/s2",
+  "clauses": [
+    "3.2.3",
+    "8.1.1",
+    "8.1.2",
+    "8.1.3",
+    "9.3.2",
+    "9.3.3"
+  ],
+  "model_script": "C:\\Users\\User\\Documents\\Codex\\2026-10-20\\can\\work\\V133_Project_Check\\OpenSees_Complete_Linear_Model.py",
+  "limit_state_context": "ULS",
+  "torsion_sensitive": true,
+  "record_pairs": 1,
+  "individual_record_count": 1,
+  "motion_case_count": 2,
+  "pair_aggregation_guidance": "For each orthogonal pair, the two required swapped-orientation analyses are enveloped by taking the larger peak demand for each response quantity. NBC \u00a78.1.3 then selects maximum for fewer than 7 pairs or arithmetic mean for more than 7 pairs. The supplied combined suite has 8 pairs; near-field (6) and far-field (2) subgroup statistics are reported separately for comparison. Exactly 7 is left flagged because the clause wording does not specify it.",
+  "response_aggregation_by_record_set": {
+    "all_selected_pairs": {
+      "set": "all selected records",
+      "pair_count": 1,
+      "statistic": "maximum of pair-level orientation envelopes (fewer than 7 pairs)",
+      "response_demands": {
+        "peak_roof_UX_m": 1.2736341367826621e-05,
+        "peak_roof_UY_m": 1.273797132403687e-05,
+        "peak_story_drift_X": 6.474747542560405e-07,
+        "peak_story_drift_Y": 6.306412155168909e-07,
+        "drift_screen_X": "PASS",
+        "drift_screen_Y": "PASS"
+      }
+    },
+    "custom_subset": {
+      "set": "Custom",
+      "pair_count": 1,
+      "statistic": "maximum of pair-level orientation envelopes (fewer than 7 pairs)",
+      "response_demands": {
+        "peak_roof_UX_m": 1.2736341367826621e-05,
+        "peak_roof_UY_m": 1.273797132403687e-05,
+        "peak_story_drift_X": 6.474747542560405e-07,
+        "peak_story_drift_Y": 6.306412155168909e-07,
+        "drift_screen_X": "PASS",
+        "drift_screen_Y": "PASS"
+      }
+    }
+  },
+  "pair_level_orientation_envelopes": [
+    {
+      "pair_id": "SYNTHETIC_PIPELINE_ONLY",
+      "field_type": "Custom",
+      "orientations_included": [
+        "XY",
+        "YX"
+      ],
+      "peak_roof_UX_m": 1.2736341367826621e-05,
+      "peak_roof_UY_m": 1.273797132403687e-05,
+      "peak_story_drift_X": 6.474747542560405e-07,
+      "peak_story_drift_Y": 6.306412155168909e-07
+    }
+  ],
+  "X_only_screening_envelope": null,
+  "T1_x_s": 2.0385674,
+  "T1_y_s": 1.9219798,
+  "Tn_x_s": 0.05,
+  "Tn_y_s": 0.05,
+  "damping_target_percent": 2.0,
+  "time_step_rule": "min(record digitization interval, T1/100, Tn, 0.01 s)",
+  "member_action_rule": "For ULS member strength evaluation, elastic member actions are divided by R\u03bc per NBC \u00a78.1.3.2. This tool reports displacement/drift histories and does not calculate/design member actions.",
+  "records": [
+    {
+      "case": "SYNTHETIC_PIPELINE_ONLY_XY",
+      "pair_id": "SYNTHETIC_PIPELINE_ONLY",
+      "field_type": "Custom",
+      "orientation": "XY",
+      "scale_factor": 1.0,
+      "acceleration_units": "g",
+      "record_dt_min_s": 0.005,
+      "analysis_dt_s": 0.005,
+      "duration_s": 0.045,
+      "steps": 9,
+      "peak_roof_UX_m": 1.2736341367826621e-05,
+      "peak_roof_UY_m": 3.1823938534511474e-06,
+      "minimum_roof_UX_m": -1.2736341367826621e-05,
+      "maximum_roof_UX_m": -6.127653094468264e-08,
+      "minimum_roof_UY_m": -3.1823938534511474e-06,
+      "maximum_roof_UY_m": 1.83799733808337e-07,
+      "peak_story_drift_X": 6.474747542560405e-07,
+      "peak_story_drift_Y": 1.852175475965686e-07,
+      "minimum_story_drift_X": -6.474747490308659e-07,
+      "maximum_story_drift_X": 6.77061186926643e-09,
+      "minimum_story_drift_Y": -1.8521754013822096e-07,
+      "maximum_story_drift_Y": 2.325574759109901e-08,
+      "drift_limit_ratio": 0.025,
+      "drift_screen_X": "PASS",
+      "drift_screen_Y": "PASS",
+      "rayleigh_alphaM_s-1": 0.09817477042468105,
+      "rayleigh_betaKcommitted_s": 0.003879401737864949,
+      "rayleigh_calibration_periods_s": [
+        1.56,
+        1.0
+      ],
+      "checked_modal_damping": [
+        {
+          "mode": 1,
+          "omega_rad_s": 4.034465184631389,
+          "period_s": 1.5573775010165696,
+          "damping_ratio_percent": 1.9992667350999274
+        },
+        {
+          "mode": 2,
+          "omega_rad_s": 5.705786713015208,
+          "period_s": 1.101195264247663,
+          "damping_ratio_percent": 1.9670607447113835
+        },
+        {
+          "mode": 3,
+          "omega_rad_s": 6.25843263301075,
+          "period_s": 1.003955091573292,
+          "damping_ratio_percent": 1.998288636932265
+        }
+      ],
+      "history_csv": "C:\\Users\\User\\Documents\\Codex\\2026-10-20\\can\\work\\V133_Project_Check\\OpenSees_Analysis_Results\\Synthetic_Pipeline_Check\\NBC105_LTH_SYNTHETIC_PIPELINE_ONLY_XY_history.csv",
+      "master_peak_story_drift_X": 6.474747490308659e-07,
+      "floor_edge_peak_story_drift_X": 6.474747542560405e-07,
+      "master_peak_story_drift_Y": 1.8521754013822096e-07,
+      "floor_edge_peak_story_drift_Y": 1.852175475965686e-07,
+      "performance": {
+        "case": "SYNTHETIC_PIPELINE_ONLY_XY",
+        "analysis": "linear",
+        "status": "completed",
+        "error": null,
+        "started_at": "2026-10-24T07:20:27.295+05:45",
+        "finished_at": "2026-10-24T07:20:54.024+05:45",
+        "elapsed_seconds": 26.728345399998943,
+        "stages_seconds": {
+          "model_and_gravity": 16.74028879999969,
+          "damping_eigenanalysis": 4.346367700003611,
+          "transient_with_recording": 4.634102100004384,
+          "case_exports_and_drift": 0.9182037000064156
+        },
+        "accepted_internal_steps": 9,
+        "recording_seconds": 0.0020088000019313768,
+        "solver_diagnostics": {},
+        "scope": "Measured wall time on this machine; solve stages include native solver and Python call overhead. ETA is current-case extrapolation, not a nonlinear suite guarantee."
+      }
+    },
+    {
+      "case": "SYNTHETIC_PIPELINE_ONLY_YX",
+      "pair_id": "SYNTHETIC_PIPELINE_ONLY",
+      "field_type": "Custom",
+      "orientation": "YX",
+      "scale_factor": 1.0,
+      "acceleration_units": "g",
+      "record_dt_min_s": 0.005,
+      "analysis_dt_s": 0.005,
+      "duration_s": 0.045,
+      "steps": 9,
+      "peak_roof_UX_m": 3.18232012736487e-06,
+      "peak_roof_UY_m": 1.273797132403687e-05,
+      "minimum_roof_UX_m": -3.18232012736487e-06,
+      "maximum_roof_UX_m": 1.8379972572221706e-07,
+      "minimum_roof_UY_m": -1.273797132403687e-05,
+      "maximum_roof_UY_m": -6.127653557494363e-08,
+      "peak_story_drift_X": 1.9073042523484194e-07,
+      "peak_story_drift_Y": 6.306412155168909e-07,
+      "minimum_story_drift_X": -1.9073042110042945e-07,
+      "maximum_story_drift_X": 2.346155135732049e-08,
+      "minimum_story_drift_Y": -6.306412041484957e-07,
+      "maximum_story_drift_Y": 1.6499510554560496e-08,
+      "drift_limit_ratio": 0.025,
+      "drift_screen_X": "PASS",
+      "drift_screen_Y": "PASS",
+      "rayleigh_alphaM_s-1": 0.09817477042468105,
+      "rayleigh_betaKcommitted_s": 0.003879401737864949,
+      "rayleigh_calibration_periods_s": [
+        1.56,
+        1.0
+      ],
+      "checked_modal_damping": [
+        {
+          "mode": 1,
+          "omega_rad_s": 4.034465184628972,
+          "period_s": 1.5573775010175028,
+          "damping_ratio_percent": 1.9992667351001876
+        },
+        {
+          "mode": 2,
+          "omega_rad_s": 5.705786713015395,
+          "period_s": 1.1011952642476268,
+          "damping_ratio_percent": 1.9670607447113915
+        },
+        {
+          "mode": 3,
+          "omega_rad_s": 6.258432633013058,
+          "period_s": 1.0039550915729216,
+          "damping_ratio_percent": 1.9982886369324235
+        }
+      ],
+      "history_csv": "C:\\Users\\User\\Documents\\Codex\\2026-10-20\\can\\work\\V133_Project_Check\\OpenSees_Analysis_Results\\Synthetic_Pipeline_Check\\NBC105_LTH_SYNTHETIC_PIPELINE_ONLY_YX_history.csv",
+      "master_peak_story_drift_X": 1.9073042110042945e-07,
+      "floor_edge_peak_story_drift_X": 1.9073042523484194e-07,
+      "master_peak_story_drift_Y": 6.306412041484957e-07,
+      "floor_edge_peak_story_drift_Y": 6.306412155168909e-07,
+      "performance": {
+        "case": "SYNTHETIC_PIPELINE_ONLY_YX",
+        "analysis": "linear",
+        "status": "completed",
+        "error": null,
+        "started_at": "2026-10-24T07:20:54.035+05:45",
+        "finished_at": "2026-10-24T07:21:20.308+05:45",
+        "elapsed_seconds": 26.27329639999516,
+        "stages_seconds": {
+          "model_and_gravity": 16.60093919999781,
+          "damping_eigenanalysis": 4.888378799994825,
+          "transient_with_recording": 4.410402800000156,
+          "case_exports_and_drift": 0.28463900000497233
+        },
+        "accepted_internal_steps": 9,
+        "recording_seconds": 0.001973199992789887,
+        "solver_diagnostics": {},
+        "scope": "Measured wall time on this machine; solve stages include native solver and Python call overhead. ETA is current-case extrapolation, not a nonlinear suite guarantee."
+      }
+    }
+  ],
+  "elapsed_seconds": 53.09546169999521,
+  "selected_pair_ids": null,
+  "preliminary_selection": true,
+  "assessment_scope": "PRELIMINARY SETUP CHECK \u2014 not a completed suite assessment"
+}

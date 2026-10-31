@@ -1,0 +1,8 @@
+{
+  "component_python_files": 69,
+  "duplicate_top_level_definitions": [],
+  "syntax": "PASS",
+  "GUI_construction": "PASS",
+  "performance_tests": "PASS: missing suite, governing orientation, exceedance, truncated record and NaN",
+  "limits": "Static analysis of all current component source; not complete numerical/codal certification"
+}

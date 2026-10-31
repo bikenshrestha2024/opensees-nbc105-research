@@ -1,0 +1,5 @@
+﻿group,parameter,value,unit,basis,source,locator
+parameters,fpc_MPa,-34.473786465841805,MPa,DIRECT PUBLISHED NUMERICAL EXAMPLE,https://opensees.berkeley.edu/OpenSees/OpenSeesExamples1.1.pdf,Example 3.1 RC frame gravity; cover material tag 2
+parameters,epsc0,-0.002,dimensionless,DIRECT PUBLISHED NUMERICAL EXAMPLE,https://opensees.berkeley.edu/OpenSees/OpenSeesExamples1.1.pdf,Example 3.1 RC frame gravity; cover material tag 2
+parameters,fpcu_MPa,0.0,MPa,DIRECT PUBLISHED NUMERICAL EXAMPLE,https://opensees.berkeley.edu/OpenSees/OpenSeesExamples1.1.pdf,Example 3.1 RC frame gravity; cover material tag 2
+parameters,epsU,-0.006,dimensionless,DIRECT PUBLISHED NUMERICAL EXAMPLE,https://opensees.berkeley.edu/OpenSees/OpenSeesExamples1.1.pdf,Example 3.1 RC frame gravity; cover material tag 2

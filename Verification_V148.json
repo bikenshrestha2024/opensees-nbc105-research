@@ -1,0 +1,17 @@
+{
+  "release": 148,
+  "checks": [
+    "Python syntax",
+    "Main and audit/comparison GUI construction",
+    "ESM weight and floor-force balance",
+    "Finite ESM input rejection",
+    "CQC arithmetic",
+    "Comparison unit contract",
+    "Saved stiffness import deduplication",
+    "Read-only live response inventory",
+    "Saved-project design report export"
+  ],
+  "building_rerun": false,
+  "experimental_validation": false,
+  "wall_stiffness_review_required": true
+}

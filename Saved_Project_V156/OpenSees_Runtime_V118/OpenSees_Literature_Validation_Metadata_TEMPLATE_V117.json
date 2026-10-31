@@ -1,0 +1,38 @@
+{
+  "reference": {
+    "citation": "Kolozvari, K., López, C. N., & Massone, L. M. (2023). Efficient three-dimensional shear-flexure interaction model for reinforced concrete walls. Engineering Structures, 294, 116700.",
+    "doi": "https://doi.org/10.1016/j.engstruct.2023.116700",
+    "specimen_id": "REPLACE_WITH_EXACT_TEST_ID",
+    "data_source_page_table_figure": "RECORD_PAGE_TABLE_OR_DATASET_AND_DIGITIZATION_METHOD",
+    "units": {"displacement": "mm", "force": "kN"}
+  },
+  "benchmark": {
+    "wall_length_to_height_ratio": null,
+    "axial_load_ratio": null,
+    "wall_thickness_m": null,
+    "opening_configuration": null,
+    "coupling_beam_detail": null,
+    "boundary_elements": null,
+    "vertical_reinforcement_ratio": null,
+    "horizontal_reinforcement_ratio": null,
+    "concrete_strength_MPa": null,
+    "steel_yield_strength_MPa": null,
+    "loading_protocol": null,
+    "element_formulation": "E-SFI-MVLEM_3D"
+  },
+  "project": {
+    "wall_length_to_height_ratio": null,
+    "axial_load_ratio": null,
+    "wall_thickness_m": 0.6,
+    "opening_configuration": "RECORD_ACTUAL_ETABS_CORE_OPENINGS",
+    "coupling_beam_detail": "RECORD_FROM_ETABS_AND_DRAWINGS",
+    "boundary_elements": "none specified by user; verify detailing and model implications",
+    "vertical_reinforcement_ratio": 0.0052359878,
+    "horizontal_reinforcement_ratio": 0.0052359878,
+    "concrete_strength_MPa": null,
+    "steel_yield_strength_MPa": 550,
+    "loading_protocol": "REPLACE_WITH_PROJECT_OR_BENCHMARK_PROTOCOL",
+    "element_formulation": "E-SFI-MVLEM_3D"
+  },
+  "note": "Complete null fields from the cited specimen and verified project drawings/ETABS. Exact textual matching is only a simple screening aid; engineering comparison and independent validation remain required."
+}

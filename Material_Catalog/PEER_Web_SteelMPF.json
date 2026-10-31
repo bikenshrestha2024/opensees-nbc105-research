@@ -1,0 +1,138 @@
+{
+  "model": "SteelMPF",
+  "parameters": {
+    "fyp": 402.7248419211519,
+    "fyn": 402.7248419211519,
+    "E0": 199947.96150188247,
+    "bp": 0.02,
+    "bn": 0.02,
+    "R0": 20.0,
+    "cR1": 18.5,
+    "cR2": 0.0015,
+    "a1": 0.0,
+    "a2": 1.0,
+    "a3": 0.0,
+    "a4": 1.0
+  },
+  "parameter_basis": "PUBLISHED SPECIMEN MATERIAL INPUT | Keep legacy transition values 18.5 and .0015 as printed; do not confuse them with optional isotropic a1/a2.",
+  "specimen_id": "PEER 2015 RW-A15-P10-S78 web steel",
+  "citation": "Appendix B.3 web steel input listing; legacy a1/a2 labels map to transition cR1/cR2; printed pp. 90-91 (PDF pages 102-103, zero-based)",
+  "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+  "protocol_csv": "",
+  "measured_csv": "",
+  "fit_bounds": {},
+  "train_fraction": 0.75,
+  "scope": "Ordered same-specimen fit is not independent validation or project design approval",
+  "wall_formulation": "SFI_MVLEM_3D",
+  "targets": [
+    0.0005,
+    -0.0005,
+    0.002,
+    -0.002,
+    0.005,
+    -0.005,
+    0.0
+  ],
+  "samples_per_leg": 30,
+  "dt_s": 0.005,
+  "profile_id": "PEER_Web_SteelMPF",
+  "project_transfer_approved": false,
+  "provenance": {
+    "fyp": {
+      "value": 402.7248419211519,
+      "unit": "MPa",
+      "basis": "PUBLISHED SPECIMEN MATERIAL INPUT",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+      "locator": "Appendix B.3 web steel input listing; legacy a1/a2 labels map to transition cR1/cR2; printed pp. 90-91 (PDF pages 102-103, zero-based)"
+    },
+    "fyn": {
+      "value": 402.7248419211519,
+      "unit": "MPa",
+      "basis": "PUBLISHED SPECIMEN MATERIAL INPUT",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+      "locator": "Appendix B.3 web steel input listing; legacy a1/a2 labels map to transition cR1/cR2; printed pp. 90-91 (PDF pages 102-103, zero-based)"
+    },
+    "E0": {
+      "value": 199947.96150188247,
+      "unit": "MPa",
+      "basis": "PUBLISHED SPECIMEN MATERIAL INPUT",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+      "locator": "Appendix B.3 web steel input listing; legacy a1/a2 labels map to transition cR1/cR2; printed pp. 90-91 (PDF pages 102-103, zero-based)"
+    },
+    "bp": {
+      "value": 0.02,
+      "unit": "dimensionless",
+      "basis": "PUBLISHED SPECIMEN MATERIAL INPUT",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+      "locator": "Appendix B.3 web steel input listing; legacy a1/a2 labels map to transition cR1/cR2; printed pp. 90-91 (PDF pages 102-103, zero-based)"
+    },
+    "bn": {
+      "value": 0.02,
+      "unit": "dimensionless",
+      "basis": "PUBLISHED SPECIMEN MATERIAL INPUT",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+      "locator": "Appendix B.3 web steel input listing; legacy a1/a2 labels map to transition cR1/cR2; printed pp. 90-91 (PDF pages 102-103, zero-based)"
+    },
+    "R0": {
+      "value": 20.0,
+      "unit": "dimensionless",
+      "basis": "PUBLISHED SPECIMEN MATERIAL INPUT",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+      "locator": "Appendix B.3 web steel input listing; legacy a1/a2 labels map to transition cR1/cR2; printed pp. 90-91 (PDF pages 102-103, zero-based)"
+    },
+    "cR1": {
+      "value": 18.5,
+      "unit": "dimensionless",
+      "basis": "PUBLISHED SPECIMEN MATERIAL INPUT",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+      "locator": "Appendix B.3 web steel input listing; legacy a1/a2 labels map to transition cR1/cR2; printed pp. 90-91 (PDF pages 102-103, zero-based)"
+    },
+    "cR2": {
+      "value": 0.0015,
+      "unit": "dimensionless",
+      "basis": "PUBLISHED SPECIMEN MATERIAL INPUT",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+      "locator": "Appendix B.3 web steel input listing; legacy a1/a2 labels map to transition cR1/cR2; printed pp. 90-91 (PDF pages 102-103, zero-based)"
+    },
+    "a1": {
+      "value": 0.0,
+      "unit": "dimensionless",
+      "basis": "PUBLISHED SPECIMEN MATERIAL INPUT",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+      "locator": "Appendix B.3 web steel input listing; legacy a1/a2 labels map to transition cR1/cR2; printed pp. 90-91 (PDF pages 102-103, zero-based)"
+    },
+    "a2": {
+      "value": 1.0,
+      "unit": "dimensionless",
+      "basis": "PUBLISHED SPECIMEN MATERIAL INPUT",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+      "locator": "Appendix B.3 web steel input listing; legacy a1/a2 labels map to transition cR1/cR2; printed pp. 90-91 (PDF pages 102-103, zero-based)"
+    },
+    "a3": {
+      "value": 0.0,
+      "unit": "dimensionless",
+      "basis": "PUBLISHED SPECIMEN MATERIAL INPUT",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+      "locator": "Appendix B.3 web steel input listing; legacy a1/a2 labels map to transition cR1/cR2; printed pp. 90-91 (PDF pages 102-103, zero-based)"
+    },
+    "a4": {
+      "value": 1.0,
+      "unit": "dimensionless",
+      "basis": "PUBLISHED SPECIMEN MATERIAL INPUT",
+      "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
+      "locator": "Appendix B.3 web steel input listing; legacy a1/a2 labels map to transition cR1/cR2; printed pp. 90-91 (PDF pages 102-103, zero-based)"
+    }
+  },
+  "source_native_values": {
+    "fy_web_x_ksi": 58.4103,
+    "fy_web_y_ksi": 58.4103,
+    "fy_boundary_y_ksi": 69.0,
+    "E0_ksi": 29000.0,
+    "b_web_x": 0.02,
+    "b_web_y": 0.02,
+    "b_boundary_y": 0.005,
+    "R0": 20.0,
+    "a1": 18.5,
+    "a2": 0.0015
+  }
+}

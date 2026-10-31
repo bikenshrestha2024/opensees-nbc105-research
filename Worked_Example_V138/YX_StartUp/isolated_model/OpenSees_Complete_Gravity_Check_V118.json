@@ -1,0 +1,15 @@
+{
+  "steps": 20,
+  "applied_vertical_load_kN": 286447.7889333805,
+  "support_vertical_reaction_kN": 286447.78893336665,
+  "equilibrium_error_percent": 4.83628215424178e-12,
+  "equilibrium_tolerance_percent": 0.5,
+  "max_downward_vertical_displacement_m": -0.012288689933660243,
+  "elapsed_seconds_before_freeze": 37.12863849999849,
+  "gravity_frozen": true,
+  "elapsed_seconds": 37.12982169998577,
+  "diaphragm_kinematics": {
+    "max_inplane_constraint_residual": 6.162975822039155e-32,
+    "units": "m for translation, rad for rotation; mixed maximum is diagnostic only"
+  }
+}

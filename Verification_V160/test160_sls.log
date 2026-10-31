@@ -1,0 +1,11 @@
+[GRAVITY PROFILE] {"profile": "AS_CONFIGURED", "factors": {"Self Weight": 1.0, "Dead": 1.0, "DL": 1.0, "Super Dead": 1.0, "SDead": 1.0, "Floor Finish": 1.0, "Wall": 1.0, "Partition": 1.0, "Live": 0.3, "Roof Live": 0.0}, "scope": "Configured gravity preload, separate from mass_factors. NBC 8.1.1.2 / 9.3.1.2 refer TH gravity to 5.2; this is not the 1.2D+1.5L gravity strength combination. Review occupancy, roof and selected analysis purpose."}
+[GRAVITY] PASS | steps=20 | applied=286447.788933 kN | support reactions=286447.788933 kN | equilibrium error=5.79135e-12% | max downward Uz=-0.014527828340421685 m | frozen=True | elapsed=180.758 s
+[TIMING] Model construction and optional gravity preload | completed | elapsed=181.484 s | start=2026-10-28T19:16:31.338+05:45 | finish=2026-10-28T19:19:32.822+05:45
+[EIGEN START] solver=PythonSparse modes=40 nodes=11097 elements=14262
+[EIGEN SPARSE] equations=37650 nonzeros=1767528 modes=40; sparse shift-invert factorization
+[EIGEN FACTORIZED] elapsed=6.286s; solving 40 modes
+[EIGEN COMPLETE] sparse solve=30.346s max relative residual=1.6e-07
+[EIGEN RETURN] elapsed=34.391s modes=40
+Using DomainModalProperties - Developed by: Massimo Petracca, Guido Camata, ASDEA Software Technology
+[NBC105 MODAL] PASS | UX=91.7156085057179% | UY=93.32833454997194% | >=33Hz modes=0 | elapsed=35.277s
+[TIMING] Modal analysis | completed | elapsed=35.289 s | start=2026-10-28T19:19:32.859+05:45 | finish=2026-10-28T19:20:08.147+05:45

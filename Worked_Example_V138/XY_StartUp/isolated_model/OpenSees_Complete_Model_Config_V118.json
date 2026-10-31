@@ -1,0 +1,40 @@
+{
+  "gravity_factors": {
+    "Self Weight": 1.0,
+    "Dead": 1.0,
+    "DL": 1.0,
+    "Super Dead": 1.0,
+    "SDead": 1.0,
+    "Floor Finish": 1.0,
+    "Wall": 1.0,
+    "Partition": 1.0,
+    "Live": 0.3,
+    "Roof Live": 0.0
+  },
+  "mass_factors": {
+    "Self Weight": 1.0,
+    "Dead": 1.0,
+    "DL": 1.0,
+    "Super Dead": 1.0,
+    "SDead": 1.0,
+    "Floor Finish": 1.0,
+    "Wall": 1.0,
+    "Partition": 1.0,
+    "Live": 0.3,
+    "Roof Live": 0.0
+  },
+  "slab_bending_factor": 0.25,
+  "slab_stiffness_source": "IS 16700:2023 Table 5: Ig factors 0.25 strength / 0.35 serviceability; gross membrane EA retained; physical self-weight uses original thickness",
+  "frame_section_mapping": {
+    "Col 1100*1100": "RC_COLUMN_1100x1100_FIBER",
+    "Col 1250*1250": "RC_COLUMN_1250x1250_FIBER",
+    "Beam 600*800": "RC_BEAM_600x800_FIBER",
+    "350*350*16 SHS": "SHS_350x350x16_STEEL_FIBER"
+  },
+  "nonlinear_parameters_reviewed": false,
+  "nonlinear_materials_file": "",
+  "nonlinear_wall_fsam_tags": {},
+  "section_overrides": {},
+  "area_property_overrides": {},
+  "slab_bending_factor_sls": 0.35
+}

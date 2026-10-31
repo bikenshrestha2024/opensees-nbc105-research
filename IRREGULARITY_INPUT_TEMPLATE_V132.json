@@ -1,0 +1,7 @@
+{
+  "units": "kN m s",
+  "note": "Add reviewed, ordered capacity/stiffness rows and evidence. Empty arrays do not establish regularity.",
+  "capacity_rows": [],
+  "story_stiffness_rows": [],
+  "plan_and_continuity_checks": []
+}

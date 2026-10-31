@@ -1,0 +1,37 @@
+{
+  "cases": [
+    {
+      "case": "SYNTHETIC_PIPELINE_ONLY_XY",
+      "dt_s": 0.005,
+      "duration_s": 0.045,
+      "requested_steps": 9,
+      "controlling_bounds": [
+        "digitization"
+      ],
+      "bounds_s": {
+        "digitization": 0.005,
+        "T1_over_100": 0.019219798,
+        "Tn": 0.05,
+        "absolute_maximum": 0.01
+      }
+    },
+    {
+      "case": "SYNTHETIC_PIPELINE_ONLY_YX",
+      "dt_s": 0.005,
+      "duration_s": 0.045,
+      "requested_steps": 9,
+      "controlling_bounds": [
+        "digitization"
+      ],
+      "bounds_s": {
+        "digitization": 0.005,
+        "T1_over_100": 0.019219798,
+        "Tn": 0.05,
+        "absolute_maximum": 0.01
+      }
+    }
+  ],
+  "total_cases": 2,
+  "total_requested_steps": 18,
+  "note": "One selected pair runs both XY and YX. Nonlinear substeps/iterations are additional; elapsed nonlinear time cannot be inferred from linear time alone."
+}

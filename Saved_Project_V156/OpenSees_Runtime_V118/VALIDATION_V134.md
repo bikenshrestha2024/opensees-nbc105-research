@@ -1,0 +1,13 @@
+# V134 executed validation
+
+- 53 regression tests passed, including previous physics/input checks and new unit conversion, case parsing, common camera, missing-DOF formatting, L-plan projection and relative readiness-binding fixtures.
+- All implementation sources parsed; 51 root modules imported for the release, and 530 functions indexed. This is not independent mathematical certification of every possible model.
+- Fresh full-model MRSM completed all 12 cases: SLS/ULS x X/Y x E0/Eplus/Eminus. Each state exported Excel, PNG/PDF and six-DOF nodal envelopes. Base shears matched prior values within native roundoff. The new workbooks each have six summary cases, 150 storey rows, 240 modal rows and 21,762 nodal case rows, plus source/unit notes. Read-only workbook inspection checked numeric result fields, sheet dimensions and six-DOF samples.
+- Fresh full-model gravity completed with 286,447.788933 kN total and exported all six DOFs for 3,627 nodes. Native constraint/support nodes return actual zeros where applicable.
+- Four centered CM reference solves completed (SLS/ULS X/Y), with lateral equilibrium residuals about 8e-16 relative. Available-data checks found no soft-storey/torsion trigger, and floor geometry flagged re-entrant projections of 1/6 in X and 1/3 in Y. These are geometry/reference-response screens; capacities and continuity detailing were unavailable. The immediately adjacent weak-storey input logic explicitly leaves missing capacities unevaluated.
+- GUI constructors/rendering exercised embedded spectra, the 24-case two-row selector, six-DOF response readout, saved irregularity table and the actual completed Loma Prieta linear summary. The Ch(T) plot opens with the explicit Tk canvas. Timing sidecars are excluded from summary selection. No 2-hour history rerun was needed to recover charts.
+- The inspected completed linear input audit reports g inputs, scale 1.0 and Path factor 9.80665 into m/s2. The model's kN force convention does not require another acceleration multiplier.
+
+No real building-wide nonlinear earthquake run was performed: the supplied configuration still lacked reviewed nonlinear materials/FSAM mappings and completed readiness. A model-path fix is not constitutive calibration. Prior V133 synthetic nonlinear pipeline evidence is retained as software testing only.
+
+Worked_Example_V134 contains the new MRSM reports, geometry/reference-response results, gravity DOF payload and recovered linear charts. No live D: input/result file was overwritten. FILE_MANIFEST_V134.json and ZIP CRC/hash checks establish file integrity, not engineering approval.
