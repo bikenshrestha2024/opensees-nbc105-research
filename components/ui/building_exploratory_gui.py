@@ -83,18 +83,32 @@ def launch(parent,model_folder,output_folder=None):
             configpath=dest/'Requested_Config.json';configpath.write_text(json.dumps(config,indent=2),encoding='utf-8');state.update(running=True,last=dest);button.configure(state='disabled');status.set('Running exploratory model in separate process. Outputs: '+str(dest))
         except Exception as e:messagebox.showerror('Exploratory inputs',str(e),parent=win);return
         def worker():
+            started_at=datetime.datetime.now().astimezone()
+            log_path=dest/'Run.log'
+            expected=dest/('Research_Batch_Summary_V161.json' if config['limit_state']=='Both' else 'Exploratory_Summary.json')
             try:
                 messages.put(('line','[RUNNER] '+str(runner)+'\n'))
                 proc=subprocess.Popen([sys.executable,'-u',str(runner),'--config',str(configpath)],cwd=str(runner.parent),stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,encoding='utf-8',errors='replace')
                 state['proc']=proc
-                with (dest/'Run.log').open('w',encoding='utf-8') as stream:
+                with log_path.open('w',encoding='utf-8') as stream:
+                    stream.write('[RUN START] '+started_at.isoformat()+'\n')
+                    stream.write('[CONFIG] '+str(configpath)+'\n')
+                    stream.flush()
                     for line in proc.stdout:stream.write(line);stream.flush();messages.put(('line',line))
                 code=proc.wait()
-                expected=dest/('Research_Batch_Summary_V161.json' if config['limit_state']=='Both' else 'Exploratory_Summary.json')
+                completed_at=datetime.datetime.now().astimezone()
+                summary_exists=expected.is_file()
+                status='COMPLETED' if code==0 and summary_exists else 'PROCESS_EXIT_NONZERO' if code!=0 else 'SUMMARY_MISSING'
+                execution_report=dict(status=status,exit_code=code,started_at=started_at.isoformat(),finished_at=completed_at.isoformat(),elapsed_seconds=(completed_at-started_at).total_seconds(),config_path=str(configpath),run_log=str(log_path),expected_summary=str(expected),summary_exists=summary_exists)
+                (dest/'Process_Exit.json').write_text(json.dumps(execution_report,indent=2),encoding='utf-8')
                 if code==0 and not expected.is_file():
                     messages.put(('error','Native process exited without a completion summary; inspect log and last committed state.'))
                 else:messages.put(('done',code))
-            except Exception as e:messages.put(('error',str(e)))
+            except Exception as e:
+                completed_at=datetime.datetime.now().astimezone()
+                execution_report=dict(status='RUNNER_START_OR_LOGGING_FAILURE',error_type=type(e).__name__,error=str(e),started_at=started_at.isoformat(),finished_at=completed_at.isoformat(),elapsed_seconds=(completed_at-started_at).total_seconds(),config_path=str(configpath),run_log=str(log_path))
+                (dest/'Process_Exit.json').write_text(json.dumps(execution_report,indent=2),encoding='utf-8')
+                messages.put(('error',str(e)))
         threading.Thread(target=worker,daemon=True).start()
     def stop():
         proc=state.get('proc')
@@ -127,7 +141,8 @@ def launch(parent,model_folder,output_folder=None):
             while True:
                 kind,value=messages.get_nowait()
                 if kind=='line':log.insert('end',value);log.see('end')
-                else:state['running']=False;button.configure(state='normal');status.set('Exploratory trial finished; inspect assumptions and truncated/full-record status.' if kind=='done' and value==0 else 'Trial incomplete: '+str(value)+'; inspect Run.log. No completion claimed.')
+                elif kind=='error':state['running']=False;button.configure(state='normal');status.set('Runner/logging failure: '+str(value)+'; inspect Process_Exit.json.')
+                else:state['running']=False;button.configure(state='normal');status.set('Exploratory trial finished; inspect assumptions and truncated/full-record status.' if kind=='done' and value==0 else 'Trial incomplete: '+str(value)+'; inspect Run.log and Process_Exit.json. No completion claimed.')
         except queue.Empty:pass
         if win.winfo_exists():win.after(200,poll)
     win.after(200,poll);return win

@@ -27,13 +27,20 @@ def find_candidates(folder: Path):
         return [folder]
     if (folder / "isolated_model" / MAP_FILE).is_file():
         return [folder / "isolated_model"]
-    return sorted({p.parent for p in folder.rglob(MAP_FILE)})
+    mapped = {p.parent for p in folder.rglob(MAP_FILE)}
+    if mapped:
+        return sorted(mapped)
+    if (folder / DATA_FILE).is_file():
+        return [folder]
+    if (folder / "isolated_model" / DATA_FILE).is_file():
+        return [folder / "isolated_model"]
+    return sorted({p.parent for p in folder.rglob(DATA_FILE)})
 
 
 def trace(folder: Path, tag: int):
     mapping_file = folder / MAP_FILE
     data_file = folder / DATA_FILE
-    mapping = read_json(mapping_file)
+    mapping = read_json(mapping_file) if mapping_file.is_file() else {}
     data = read_json(data_file) if data_file.is_file() else None
     matches = []
     for source_key, solver_tags in mapping.items():
@@ -54,8 +61,39 @@ def trace(folder: Path, tag: int):
                                  source_element=element)
                     break
             matches.append(match)
+    mapping_method = "element_map" if mapping_file.is_file() else "unavailable"
+    if not matches and isinstance(data, dict):
+        frame_first_tag = 100001
+        frame_count = len(data.get("frames", []))
+        shell_first_tag = frame_first_tag + frame_count
+        if frame_first_tag <= tag < shell_first_tag:
+            source_type = "FRAME"
+            element = data["frames"][tag - frame_first_tag]
+        elif shell_first_tag <= tag < shell_first_tag + len(data.get("shells", [])):
+            source_type = "AREA"
+            element = data["shells"][tag - shell_first_tag]
+        else:
+            element = None
+            source_type = None
+        if element is not None:
+            object_name = str(element.get("object"))
+            nodes = element.get("nodes", [])
+            coordinates = {str(node): data.get("nodes", {}).get(str(node)) for node in nodes}
+            matches.append({
+                "source_key": f"{source_type}:{object_name}",
+                "source_type": source_type,
+                "object_name": object_name,
+                "solver_tag": tag,
+                "category": element.get("category"),
+                "node_tags": nodes,
+                "node_coordinates": coordinates,
+                "properties": element.get("properties"),
+                "source_element": element,
+            })
+            mapping_method = "deterministic_tag_range_fallback"
     return {"isolated_model": str(folder.resolve()), "tag": tag,
-            "element_map_found": True, "model_data_found": data is not None,
+            "element_map_found": mapping_file.is_file(), "mapping_method": mapping_method,
+            "model_data_found": data is not None,
             "matches": matches,
             "warning": "First non-finite response after solver failure may be a downstream symptom, not the initiating element."}
 

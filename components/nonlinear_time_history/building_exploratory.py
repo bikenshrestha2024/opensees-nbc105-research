@@ -3,9 +3,11 @@ This does not approve or modify the calibrated production-model workflow.
 """
 from pathlib import Path
 import json,math,time,csv,shutil,hashlib,datetime
+import traceback
 import numpy as np
 PROFILE='LITERATURE_FRAME_NL_ELASTIC_WALL_V138'
 TRANSIENT_SYSTEMS=('UmfPack','SparseGeneral')
+_RUN_CONTEXT={}
 
 def configure_transient_system(ops,system):
     """Select a supported transient matrix solver without silent fallbacks."""
@@ -18,7 +20,67 @@ def profile_for_config(config):
     """Return the research profile selected by the exploratory configuration."""
     return 'LITERATURE_BUILDING_NL_V161' if bool(config.get('nonlinear_walls',False)) else PROFILE
 
+def diagnostic_record_inputs(records,orientation,excitation):
+    """Return records assigned to global X/Y, zeroing only inactive probe axes."""
+    if orientation not in ('XY','YX'):
+        raise ValueError('orientation must be XY or YX')
+    excitation=str(excitation).upper()
+    if excitation not in ('XY','X','Y','ZERO'):
+        raise ValueError('diagnostic_excitation must be XY, X, Y or ZERO')
+    ordered=records if orientation=='XY' else records[::-1]
+    result=[]
+    for direction,(values,step,units) in enumerate(ordered,1):
+        active=excitation=='XY' or excitation=='X' and direction==1 or excitation=='Y' and direction==2
+        result.append((values if active else np.zeros_like(values),step,units))
+    return result
+
+def _set_run_stage(stage,**details):
+    _RUN_CONTEXT['stage']=stage
+    _RUN_CONTEXT.update(details)
+
+def _write_failure_report(folder,config,exc,*,filename='INCOMPLETE.json',details=None):
+    source=config.get('model_folder')
+    output=config.get('output_dir')
+    if source and output:
+        source_path=Path(source).resolve()
+        output_path=Path(output).resolve()
+        if output_path==source_path or source_path in output_path.parents:
+            print('[FAILURE REPORT NOT WRITTEN] Output directory must be outside the source model folder.',flush=True)
+            return None
+    folder=Path(folder)
+    folder.mkdir(parents=True,exist_ok=True)
+    report=dict(
+        status='INCOMPLETE',
+        failed_at=datetime.datetime.now().astimezone().isoformat(),
+        profile=profile_for_config(config),
+        stage=_RUN_CONTEXT.get('stage','unknown'),
+        error_type=type(exc).__name__,
+        error=str(exc),
+        traceback=traceback.format_exc(),
+        config=config,
+        context=dict(_RUN_CONTEXT),
+    )
+    if details:
+        report.update(details)
+    target=folder/filename
+    target.write_text(json.dumps(report,indent=2,default=str),encoding='utf-8')
+    print('[FAILURE REPORT]',str(target),flush=True)
+    return target
+
 def run(config):
+    _RUN_CONTEXT.clear()
+    _RUN_CONTEXT.update(stage='configuration_validation',output_dir=str(config.get('output_dir','')))
+    try:
+        return _run(config)
+    except Exception as exc:
+        try:
+            _write_failure_report(config.get('output_dir') or '.',config,exc)
+        except OSError as report_error:
+            print('[FAILURE REPORT ERROR]',repr(report_error),flush=True)
+        raise
+
+def _run(config):
+    _set_run_stage('configuration_validation',output_dir=str(config.get('output_dir','')))
     if config.get('limit_state')=='Both':
         base=Path(config['output_dir']);base.mkdir(parents=True,exist_ok=True);results={}
         for state in ('ULS','SLS'):
@@ -32,23 +94,31 @@ def run(config):
     gravity_system=config.get('gravity_system','UmfPack')
     if gravity_system not in TRANSIENT_SYSTEMS:
         raise ValueError('gravity_system must be one of: '+', '.join(TRANSIENT_SYSTEMS))
-    from OpenSees_Complete_Export_V118 import build_complete_model
-    from OpenSees_Input_Records_V130 import _read_peer_text_record
-    from OpenSees_Nonlinear_Time_History_NBC105_V116 import _advance_nonlinear_interval,_configure_nonlinear_transient
-    from OpenSees_Step13_Analysis_Basis_V115 import rayleigh_coefficients
-    from OpenSees_Response_Checks_V132 import export_history_checks
     excitation=str(config.get('diagnostic_excitation','XY')).upper()
     if excitation not in ('XY','X','Y','ZERO'):
         raise ValueError('diagnostic_excitation must be XY, X, Y or ZERO')
     if config.get('diagnostic_zero_damping') and config.get('diagnostic_mass_damping'):
         raise ValueError('Select only one diagnostic damping override')
+    _set_run_stage('loading_analysis_dependencies')
+    from OpenSees_Complete_Export_V118 import build_complete_model
+    from OpenSees_Input_Records_V130 import _read_peer_text_record
+    from OpenSees_Nonlinear_Time_History_NBC105_V116 import _advance_nonlinear_interval,_configure_nonlinear_transient
+    from OpenSees_Step13_Analysis_Basis_V115 import rayleigh_coefficients
+    from OpenSees_Response_Checks_V132 import export_history_checks
     full_wall=bool(config.get('nonlinear_walls',False))
     profile=profile_for_config(config)
+    _RUN_CONTEXT.update(profile=profile,diagnostic_excitation=excitation,
+                        transient_system=transient_system,gravity_system=gravity_system,
+                        nonlinear_walls=full_wall,
+                        diagnostic_zero_damping=bool(config.get('diagnostic_zero_damping')),
+                        diagnostic_mass_damping=bool(config.get('diagnostic_mass_damping')))
     import os
     os.environ['OPENSEES_RESEARCH_MATERIAL_BASIS']=config.get('material_basis','PUBLISHED_REFERENCE')
-    source=Path(config['model_folder']).resolve();out=Path(config['output_dir']).resolve();out.mkdir(parents=True,exist_ok=True)
-    if source==out or source in out.parents and out==source:raise ValueError('Use a separate output scenario')
+    source=Path(config['model_folder']).resolve();out=Path(config['output_dir']).resolve()
+    if out==source or source in out.parents:raise ValueError('Output directory must be separate from and outside the source model folder')
+    out.mkdir(parents=True,exist_ok=True)
     model=out/'isolated_model';model.mkdir(exist_ok=True)
+    _set_run_stage('reading_records_and_model_inputs')
     for name in ('OpenSees_Complete_Model_Data_V118.json','OpenSees_Complete_Model_Config_V118.json','OpenSees_Complete_Export_Report_V118.json','OpenSees_Load_Conversion_Audit.json','OpenSees_Source_Model_Metadata_V118.json'):shutil.copy2(source/name,model/name)
     if (source/'OpenSees_Complete_Story_Masters_V118.csv').exists():shutil.copy2(source/'OpenSees_Complete_Story_Masters_V118.csv',model/'OpenSees_Complete_Story_Masters_V118.csv')
     for name in ('OpenSees_Element_Overrides_V125.json',):
@@ -71,6 +141,7 @@ def run(config):
     for orientation in config.get('orientations',['XY','YX']):
         if orientation not in ('XY','YX'):raise ValueError('Orientation must be XY or YX')
         case=out/orientation;case.mkdir(exist_ok=True);print('[EXPLORATORY START]',orientation,'no calibration or design approval implied',flush=True)
+        _set_run_stage('model_build_and_gravity',orientation=orientation,case_output_dir=str(case))
         build_complete_model(
             model, mode='nonlinear', preload=True,
             limit_state=config.get('limit_state','ULS'),
@@ -80,6 +151,7 @@ def run(config):
             shutil.copy2(model/'Research_Material_Assignment_V161.json',case/'Research_Material_Assignment_V161.json')
         groups=sorted(data['diaphragms'],key=lambda r:r['master_xyz'][2]);baseline={g['master_tag']:list(ops.nodeDisp(g['master_tag'])) for g in groups}
         print('[EXPLORATORY MODAL] Computing 20 initial nonlinear modes; transient has not started',flush=True)
+        _set_run_stage('modal_analysis',orientation=orientation,case_output_dir=str(case))
         from components.shared.eigen_solver import solve_eigen
         eigenvalues=solve_eigen(ops,20);periods=[2*math.pi/math.sqrt(v) for v in eigenvalues if v>0]
         if len(periods)!=20:raise ValueError('Inspected nonlinear modes incomplete')
@@ -91,10 +163,9 @@ def run(config):
         print('[TRANSIENT PROBE]', 'excitation='+excitation, 'zero_damping='+str(bool(config.get('diagnostic_zero_damping'))), 'system='+transient_system, flush=True)
         (case/'Initial_Modal_Damping.json').write_text(json.dumps(dict(eigenvalues=eigenvalues,periods_s=periods,alphaM=alpha,betaKcomm=beta,dt_screen_s=bound),indent=2))
         ops.rayleigh(alpha,0.,0.,beta)
-        for direction,r in enumerate(records if orientation=='XY' else records[::-1],1):
+        _set_run_stage('transient_setup',orientation=orientation,case_output_dir=str(case))
+        for direction,r in enumerate(diagnostic_record_inputs(records,orientation,excitation),1):
             values,step,units=r
-            if excitation=='ZERO' or (excitation=='X' and direction!=1) or (excitation=='Y' and direction!=2):
-                values=np.zeros_like(values)
             tag=900000+direction
             ops.timeSeries('Path',tag,'-dt',step,'-values',*values.tolist(),'-factor',unit_factor[units]*scale)
             ops.pattern('UniformExcitation',tag,direction,'-accel',tag)
@@ -130,6 +201,9 @@ def run(config):
                     for j,value in enumerate(values):row[label+'_'+str(j+1)]=value
             rows.append(row)
         history=case/'Building_Nonlinear_history.csv'
+        _set_run_stage('transient_analysis',orientation=orientation,case_output_dir=str(case),
+                       requested_duration_s=end,record_duration_s=record_end,
+                       integration_step_s=dt,started_at=datetime.datetime.now().astimezone().isoformat())
         with history.open('w',newline='',encoding='utf-8-sig') as stream:
             capture();writer=csv.DictWriter(stream,fieldnames=list(rows[0]));writer.writeheader();writer.writerow(rows[-1]);stream.flush()
             try:
@@ -137,8 +211,19 @@ def run(config):
                     before=len(rows);_advance_nonlinear_interval(ops,min(dt,end-ops.getTime()),on_accept=capture,diagnostics=diag)
                     writer.writerows(rows[before:])
                     if time.perf_counter()-last>5:last=time.perf_counter();stream.flush();print(f'[EXPLORATORY PROGRESS] {orientation}: t={ops.getTime():.3f}/{end:.3f}s | wall={last-case_start:.1f}s',flush=True)
-            except Exception:
-                (case/'FAILED.json').write_text(json.dumps(dict(status='INCOMPLETE',time_s=ops.getTime(),elapsed_s=time.perf_counter()-case_start,scope=profile)));raise
+            except Exception as exc:
+                try:
+                    _write_failure_report(
+                        case,config,exc,filename='FAILED.json',
+                        details=dict(orientation=orientation,time_s=ops.getTime(),
+                                     elapsed_s=time.perf_counter()-case_start,
+                                     accepted_history_rows=len(rows),
+                                     solver_diagnostics=diag,analysis_scope=assumptions['scope']))
+                except OSError as report_error:
+                    print('[FAILURE REPORT ERROR]',repr(report_error),flush=True)
+                raise
+        _set_run_stage('response_postprocessing',orientation=orientation,case_output_dir=str(case),
+                       accepted_history_rows=len(rows),completed_time_s=ops.getTime())
         (case/'NBC105_Exploratory_Time_History_RunConfig_V138.json').write_text(json.dumps(dict(model_script='../isolated_model/OpenSees_Complete_Model_Data_V118.json',scope=assumptions['scope'])),encoding='utf-8')
         export_history_checks(rows,stories,case,'EXPLORATORY_'+orientation,config.get('limit_state','ULS'),model_script=str(model/'OpenSees_Complete_Model_Data_V118.json'))
         # Every reported criterion retains the staged-model scope.
@@ -158,11 +243,11 @@ def run(config):
                 writer=csv.DictWriter(stream,fieldnames=list(action_rows[0]));writer.writeheader();writer.writerows(action_rows)
         deformation={str(n):list(ops.nodeDisp(int(n))) for n in data['nodes']}
         (case/('Deformation_EXPLORATORY_'+orientation+'_V132.json')).write_text(json.dumps(dict(nodes=data['nodes'],elements=[e['nodes'] for e in data['frames']+data['shells']],displacements=deformation,dof_availability=[True]*6,note='EXPLORATORY assumed literature materials; total final response at t='+str(ops.getTime())+' s. Not design acceptance.')),encoding='utf-8')
-        result=dict(orientation=orientation,wall_model='E_SFI_MVLEM_3D' if full_wall else 'ELASTIC',frame_model='LITERATURE_CONCRETE01_NOMINAL_FE500' if full_wall else 'NONLINEAR_ILLUSTRATIVE_RC_FIBERS',gravity_system=gravity_system,transient_system=transient_system,status='COMPLETED_TRUNCATED_TRIAL' if end<record_end else 'COMPLETED_EXPLORATORY_RECORD',physical_time_s=end,full_record_duration_s=record_end,elapsed_s=time.perf_counter()-case_start,peak_roof_UX_m=max(abs(r[stories[-1]['story_name']+'_UX_m']) for r in rows),peak_roof_UY_m=max(abs(r[stories[-1]['story_name']+'_UY_m']) for r in rows),periods_inspected_s=periods,initial_damping_ratios=[alpha/(2*math.sqrt(v))+beta*math.sqrt(v)/2 for v in eigenvalues],diagnostics=diag,scope=assumptions['scope'])
+        result=dict(orientation=orientation,wall_model='E_SFI_MVLEM_3D' if full_wall else 'ELASTIC',frame_model='LITERATURE_CONCRETE01_NOMINAL_FE500' if full_wall else 'NONLINEAR_ILLUSTRATIVE_RC_FIBERS',gravity_system=gravity_system,transient_system=transient_system,diagnostic_excitation=excitation,diagnostic_zero_damping=bool(config.get('diagnostic_zero_damping')),diagnostic_mass_damping=bool(config.get('diagnostic_mass_damping')),rayleigh_alphaM=alpha,rayleigh_betaKcomm=beta,status='COMPLETED_TRUNCATED_TRIAL' if end<record_end else 'COMPLETED_EXPLORATORY_RECORD',physical_time_s=end,full_record_duration_s=record_end,elapsed_s=time.perf_counter()-case_start,peak_roof_UX_m=max(abs(r[stories[-1]['story_name']+'_UX_m']) for r in rows),peak_roof_UY_m=max(abs(r[stories[-1]['story_name']+'_UY_m']) for r in rows),periods_inspected_s=periods,initial_damping_ratios=[alpha/(2*math.sqrt(v))+beta*math.sqrt(v)/2 for v in eigenvalues],diagnostics=diag,scope=assumptions['scope'])
         from OpenSees_Building_Response_V144 import plot_response
         plot_response(history,case,tracked)
         (case/'Case_Summary.json').write_text(json.dumps(result,indent=2));summary.append(result);print('[EXPLORATORY COMPLETE]',json.dumps(result),flush=True);ops.wipe()
-    result=dict(cases=summary,elapsed_s=time.perf_counter()-start,scope=assumptions['scope']);(out/'Exploratory_Summary.json').write_text(json.dumps(result,indent=2));return result
+    result=dict(cases=summary,elapsed_s=time.perf_counter()-start,scope=assumptions['scope']);(out/'Exploratory_Summary.json').write_text(json.dumps(result,indent=2));_set_run_stage('completed',output_dir=str(out));return result
 
 def recover_saved_report(folder,output_dir):
     """Recover postprocessing from accepted CSV rows; never rerun/approve a solver."""
@@ -198,7 +283,4 @@ def recover_saved_report(folder,output_dir):
 if __name__=='__main__':
     import argparse
     p=argparse.ArgumentParser();p.add_argument('--config',required=True);a=p.parse_args();config=json.loads(Path(a.config).read_text(encoding='utf-8-sig'))
-    try:run(config)
-    except Exception as exc:
-        out=Path(config['output_dir']);out.mkdir(parents=True,exist_ok=True)
-        (out/'INCOMPLETE.json').write_text(json.dumps(dict(status='INCOMPLETE',error=str(exc),profile=profile_for_config(config)),indent=2));raise
+    run(config)

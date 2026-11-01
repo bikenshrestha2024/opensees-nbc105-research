@@ -25,7 +25,9 @@ Example additions to a **copy** of a config file:
 
 Run each diagnostic in a **new isolated model and distinct output directory**; do not reuse a domain after a nonfinite solver failure. Start ULS only and a short trial, then compare ZERO, X, Y and XY with consistent material settings. Every probe still runs gravity and eigenanalysis and applies both UniformExcitation patterns (with zero-valued records on inactive axes). The existing XY/YX mapping is retained, so X and Y denote global excitation directions.
 
-Run `21_TRACE_FAILED_ELEMENT.py <failed_run_folder> --tag 110280` to map a reported solver tag to its ETABS source object using that run's element-map file. A first nonfinite response after failure can be a downstream symptom.
+Run `21_TRACE_FAILED_ELEMENT.py <failed_run_folder> --tag 110280` to map a reported solver tag to its ETABS source object. When a gravity failure occurs before the element-map file is written, the tool uses the assembly's deterministic frame/shell tag ranges and labels the result as a fallback. A first nonfinite response after failure can be a downstream symptom.
+
+Exploratory failures now write `INCOMPLETE.json` with the selected profile, failing stage, exception type/message, traceback, run configuration, and solver/probe context. Transient failures also write the same evidence to each orientation's `FAILED.json`, including accepted-history row count and solver retry diagnostics. The GUI writes `Process_Exit.json` alongside `Run.log`, preserving the subprocess exit code and whether the expected summary was produced, including when a native process terminates before Python can write its own failure report. Run outputs must remain outside the source export folder.
 
 Interpretation:
 - Gravity complete + eigen complete is **not** proof of transient stability.
