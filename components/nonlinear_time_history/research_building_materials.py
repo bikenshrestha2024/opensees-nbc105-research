@@ -13,11 +13,22 @@ import copy, json, os, math
 
 ROOT=Path(__file__).resolve().parents[2]
 
+def _steelmpf_transition(profile):
+    if profile=='OPENSEES_DOCUMENTED':
+        return dict(R0=20.,cR1=.925,cR2=.0015,
+                    basis='OpenSees SteelMPF author-documented transition default; PEER appendix cR1 entry retained as an explicit alternate')
+    if profile=='PEER_APPENDIX_EXACT':
+        return dict(R0=20.,cR1=18.5,cR2=.0015,
+                    basis='PEER 2015/12 Appendix B.3 web card, exact printed transition values')
+    raise ValueError('Unknown SteelMPF transition profile')
+
 def define_building_materials(ops,data,folder):
     import Define_Section_V109 as sections
     basis=os.environ.get('OPENSEES_RESEARCH_MATERIAL_BASIS','PUBLISHED_REFERENCE')
     if basis not in ('PUBLISHED_REFERENCE','M30_FE500_SENSITIVITY'):
         raise ValueError('Unknown research material basis')
+    transition_profile=os.environ.get('OPENSEES_STEELMPF_TRANSITION','OPENSEES_DOCUMENTED')
+    transition=_steelmpf_transition(transition_profile)
     wall_file='PEER_Web_ESFI_Patch.json' if basis=='PUBLISHED_REFERENCE' else 'M30_Fe500_SFI_MVLEM_3D.json'
     wall=json.loads((ROOT/'Material_Catalog'/wall_file).read_text(encoding='utf8'))
     cover=json.loads((ROOT/'Material_Catalog'/'Official_Concrete01.json').read_text(encoding='utf8'))['parameters']
@@ -44,9 +55,9 @@ def define_building_materials(ops,data,folder):
         sections.RC_SECTION_CONFIG.clear();sections.RC_SECTION_CONFIG.update(saved)
     from components.validation.parameter_studies import CM,MPF
     c=wall['wall_concrete'];s=dict(wall['wall_steel'])
-    # Do not transfer Steel02 transition constants to SteelMPF. Use the PEER
-    # SteelMPF transition shape in BOTH strength-sensitivity cases.
-    s.update(R0=20.,cR1=18.5,cR2=.0015)
+    # Keep the PEER appendix value selectable because its cR1 differs from
+    # the SteelMPF author-documented transition default.
+    s.update(R0=transition['R0'],cR1=transition['cR1'],cR2=transition['cR2'])
     steel_tag=961001;concrete_tag=961002
     ops.uniaxialMaterial('SteelMPF',steel_tag,*[s[k]*(1000. if k in ('fyp','fyn','E0') else 1.) for k in MPF])
     ops.uniaxialMaterial('ConcreteCM',concrete_tag,*[c[k]*(1000. if k in ('fpcc','Ec','ft') else 1.) for k in CM])
@@ -65,6 +76,8 @@ def define_building_materials(ops,data,folder):
     report=dict(basis=basis,scope='LITERATURE_INFORMED_RESEARCH_NOT_PROJECT_CALIBRATION',
         wall_constitutive_source=wall['source'],wall_source_locator=wall['citation'],
         wall_concrete=c,wall_steel=s,fsam=wall['fsam'],wall_regions=rows,
+        steelmpf_transition_profile=transition_profile,
+        steelmpf_transition_basis=transition['basis'],
         frame_sections=frame,frame_concrete_source='https://opensees.berkeley.edu/OpenSees/OpenSeesExamples1.1.pdf',
         frame_steel_basis='Nominal Fe500 plus documented Steel02 defaults; b=0.01 assumed, not an experimental Fe500 fit',
         frame_reinforcement_basis='Existing section-layout templates; not verified project bar schedules',

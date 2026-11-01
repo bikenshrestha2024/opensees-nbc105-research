@@ -69,6 +69,24 @@ def _positive(x,label):
     return x
 
 
+def _wall_panel_nodes(points, object_id):
+    """Order a wall quad bottom-first with a deterministic counterclockwise normal."""
+    low=min(q[2] for q in points)
+    bottom=[i for i,q in enumerate(points) if abs(q[2]-low)<1e-7]
+    if len(bottom)!=2:
+        raise ValueError(f'Wall {object_id}: inclined/non-horizontal bottom edge needs explicit panel mapping')
+    if (bottom[0]+1)%4 not in bottom:
+        points=list(reversed(points))
+        bottom=[i for i,q in enumerate(points) if abs(q[2]-low)<1e-7]
+    start=next(i for i in bottom if (i+1)%4 in bottom)
+    points=points[start:]+points[:start]
+    normal=_cross(_sub(points[1],points[0]),_sub(points[3],points[0]))
+    dominant=max(range(3),key=lambda i:abs(normal[i]))
+    if normal[dominant]<0:
+        points=[points[1],points[0],points[3],points[2]]
+    return points
+
+
 def _material_table(folder):
     p=folder/'ETABS_Materials.csv'
     result={}
@@ -201,12 +219,8 @@ def _mesh_areas(source_nodes, records, area_rows, materials, floor_subdivisions=
         if len(ns)!=4: raise ValueError(f'Area {obj}: only four-node polygons are supported')
         p=[nodes[int(n)] for n in ns]; a=_sub(p[1],p[0]); b=_sub(p[3],p[0]); cross=_cross(a,b)
         if e['category']=='SHEAR WALL':
-            # E-SFI requires its first two nodes along the bottom edge.
-            low=min(q[2] for q in p); bottom=[k for k,q in enumerate(p) if abs(q[2]-low)<1e-7]
-            if len(bottom)!=2: raise ValueError(f'Wall {obj}: inclined/non-horizontal bottom edge needs explicit panel mapping')
-            k=bottom[0]
-            if (k+1)%4 not in bottom: p=list(reversed(p)); k=next(i for i,q in enumerate(p) if abs(q[2]-low)<1e-7 and abs(p[(i+1)%4][2]-low)<1e-7)
-            p=p[k:]+p[:k]; a=_sub(p[1],p[0]); b=_sub(p[3],p[0]); cross=_cross(a,b)
+            # E-SFI requires bottom-first, counterclockwise node ordering.
+            p=_wall_panel_nodes(p,obj); a=_sub(p[1],p[0]); b=_sub(p[3],p[0]); cross=_cross(a,b)
         area=math.sqrt(_dot(cross,cross)); normal=_unit(cross)
         if math.dist([p[1][i]+p[3][i]-p[0][i] for i in range(3)],p[2])>1e-6:
             raise ValueError(f'Area {obj}: non-parallelogram needs the ETABS analysis mesh; no guessed triangulation')

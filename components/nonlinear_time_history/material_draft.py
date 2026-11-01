@@ -4,7 +4,8 @@ import json, math, hashlib, shutil
 
 ROOT = Path(__file__).resolve().parents[2]
 
-def prepare(source, destination, basis='PUBLISHED_REFERENCE'):
+def prepare(source, destination, basis='PUBLISHED_REFERENCE',
+            steelmpf_transition='OPENSEES_DOCUMENTED'):
     source, destination = Path(source).resolve(), Path(destination).resolve()
     if destination == source:
         raise ValueError('Choose a separate destination for the draft.')
@@ -31,10 +32,15 @@ def prepare(source, destination, basis='PUBLISHED_REFERENCE'):
     # Historical layout only: two curtains of 20 mm bars at 200 mm spacing.
     # This is not extracted reinforcement and is never represented as verified.
     ratios = {name: 2*math.pi*20**2/4/(200*thickness*1000) for name,thickness in properties.items()}
-    s = dict(reference['wall_steel']); s.update(R0=20., cR1=18.5, cR2=.0015)
+    from components.nonlinear_time_history.research_building_materials import _steelmpf_transition
+    transition = _steelmpf_transition(steelmpf_transition)
+    s = dict(reference['wall_steel'])
+    s.update(R0=transition['R0'], cR1=transition['cR1'], cR2=transition['cR2'])
     card = dict(basis=basis, source=reference['source'], citation=reference['citation'],
                 element_source='https://doi.org/10.1016/j.engstruct.2023.116700',
                 concrete=reference['wall_concrete'], steel=s, fsam=reference['fsam'],
+                steelmpf_transition_profile=steelmpf_transition,
+                steelmpf_transition_basis=transition['basis'],
                 thickness_m=properties, fsam_tags=tags, assumed_rho=ratios,
                 reinforcement_assumption='Two curtains, 20 mm bars at 200 mm each way; confirm from project drawings.',
                 status='RESEARCH DRAFT; NOT PROJECT CALIBRATED OR APPROVED', units='MPa converted to kN/m2 by 1000')

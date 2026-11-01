@@ -123,6 +123,7 @@ def _run(config):
                         diagnostic_mass_damping=bool(config.get('diagnostic_mass_damping')))
     import os
     os.environ['OPENSEES_RESEARCH_MATERIAL_BASIS']=config.get('material_basis','PUBLISHED_REFERENCE')
+    os.environ['OPENSEES_STEELMPF_TRANSITION']=config.get('steelmpf_transition','OPENSEES_DOCUMENTED')
     source,out=validate_output_separation(config['model_folder'],config['output_dir'])
     out.mkdir(parents=True,exist_ok=True)
     model=out/'isolated_model';model.mkdir(exist_ok=True)
@@ -142,7 +143,7 @@ def _run(config):
     if not math.isfinite(scale) or scale<=0:raise ValueError('Scale must be finite and positive')
     assumptions=dict(profile=profile,scope='EXPLORATORY_ASSUMED_MATERIALS_NOT_DESIGN_ACCEPTANCE',source_model_sha256=hashlib.sha256((source/'OpenSees_Complete_Model_Data_V118.json').read_bytes()).hexdigest(),frame_materials='Existing illustrative M35 / Fe550 RC templates; not source M45 project calibration',wall_materials='ELASTIC WALLS: source E/thickness; flexural factor ULS0.5 / SLS0.7 through plate modifier. Frame-nonlinear exploratory model; full FSAM wall trial failed and is not substituted silently.',braces='112 hinged SHS objects: corotTruss / Steel01, source area and E, assumed fy345MPa,b0.01; no flexural buckling/fatigue/fracture',floors='Source geometry, IS16700 ULS0.25/SLS0.35 elastic slab bending and gross membrane stiffness',gravity='Assembled source preload and nodal masses retained',limitation='Exploratory response and runtime only. No NBC design acceptance, reinforcement or collapse assessment.',records=[dict(path=str(config[k]),source_units=r[2],unit_conversion=unit_factor[r[2]],motion_scale=scale,total_Path_factor=unit_factor[r[2]]*scale) for k,r in zip(('x_path','y_path'),records)])
     if full_wall:
-        assumptions.update(frame_materials='Literature unconfined Concrete01 + nominal Fe500 Steel02; existing bar-layout templates remain assumptions',wall_materials='Nonlinear E_SFI_MVLEM_3D + ConcreteCM / SteelMPF / FSAM; exact selected parameters exported per property',material_basis=config.get('material_basis','PUBLISHED_REFERENCE'),limitation='Research material transfer and reinforcement templates, not experimental building calibration or NBC design acceptance')
+        assumptions.update(frame_materials='Literature unconfined Concrete01 + nominal Fe500 Steel02; existing bar-layout templates remain assumptions',wall_materials='Nonlinear E_SFI_MVLEM_3D + ConcreteCM / SteelMPF / FSAM; exact selected parameters exported per property',material_basis=config.get('material_basis','PUBLISHED_REFERENCE'),steelmpf_transition_profile=config.get('steelmpf_transition','OPENSEES_DOCUMENTED'),limitation='Research material transfer and reinforcement templates, not experimental building calibration or NBC design acceptance')
     from Define_Section_V109 import RC_SECTION_CONFIG
     assumptions['RC_template_inputs']=RC_SECTION_CONFIG
     (out/'ASSUMPTIONS_NOT_DESIGN.json').write_text(json.dumps(assumptions,indent=2),encoding='utf-8');(out/'RunConfig.json').write_text(json.dumps(config,indent=2),encoding='utf-8');summary=[]

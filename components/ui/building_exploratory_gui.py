@@ -45,9 +45,12 @@ def launch(parent,model_folder,output_folder=None):
     ttk.Combobox(settings,textvariable=transient_system,values=['UmfPack','SparseGeneral'],state='readonly',width=14).pack(side='left')
     tracked=tk.StringVar(value='100001');ttk.Label(settings,text='Tracked frame solver tag').pack(side='left');ttk.Entry(settings,textvariable=tracked,width=9).pack(side='left')
     full=tk.BooleanVar(value=True);basis=tk.StringVar(value='PUBLISHED_REFERENCE')
+    steel_transition=tk.StringVar(value='OPENSEES_DOCUMENTED')
     materialbar=ttk.Frame(win);materialbar.pack(fill='x',padx=8)
     ttk.Checkbutton(materialbar,text='Nonlinear FSAM walls (unconfined core web)',variable=full).pack(side='left')
     ttk.Combobox(materialbar,textvariable=basis,values=['PUBLISHED_REFERENCE','M30_FE500_SENSITIVITY'],state='readonly',width=28).pack(side='left')
+    ttk.Label(materialbar,text='SteelMPF transition').pack(side='left',padx=(8,2))
+    ttk.Combobox(materialbar,textvariable=steel_transition,values=['OPENSEES_DOCUMENTED','PEER_APPENDIX_EXACT'],state='readonly',width=23).pack(side='left')
     def show_parameters():
         target=state.get('last')
         found=list(target.rglob('Research_Material_Assignment_V161.json')) if target else []
@@ -64,7 +67,7 @@ def launch(parent,model_folder,output_folder=None):
         try:
             from components.nonlinear_time_history.material_draft import prepare
             dest=Path(out.get())/('Wall_Material_Draft_'+datetime.datetime.now().strftime('%Y%m%d_%H%M%S_%f'))
-            card=prepare(folder.get(),dest,basis.get())
+            card=prepare(folder.get(),dest,basis.get(),steel_transition.get())
             messagebox.showinfo('Research draft created',str(dest)+'\n\nWall mappings: '+str(card['fsam_tags'])+'\nParameters remain unapproved. Use this isolated copy for research; the reviewed analysis remains gated.',parent=win)
         except Exception as exc:
             messagebox.showerror('Cannot prepare material draft',str(exc),parent=win)
@@ -79,7 +82,7 @@ def launch(parent,model_folder,output_folder=None):
             source=Path(folder.get()).resolve()
             if not (source/'OpenSees_Complete_Model_Data_V118.json').is_file():raise ValueError('Select an assembled export folder')
             dest=Path(out.get())/('EXPLORATORY_FRAME_NL_'+datetime.datetime.now().strftime('%Y%m%d_%H%M%S'));dest.mkdir(parents=True,exist_ok=False)
-            config=dict(model_folder=str(source),output_dir=str(dest),x_path=x.get(),y_path=y.get(),dt_s=float(dt.get()),duration_s=float(duration.get()) or None,scale=float(scale.get()),orientations=['XY','YX'] if orientation.get()=='XY + YX' else [orientation.get()],limit_state=ls.get(),tracked_frame_tag=int(tracked.get()),nonlinear_walls=full.get(),material_basis=basis.get(),gravity_system=gravity_system.get(),transient_system=transient_system.get())
+            config=dict(model_folder=str(source),output_dir=str(dest),x_path=x.get(),y_path=y.get(),dt_s=float(dt.get()),duration_s=float(duration.get()) or None,scale=float(scale.get()),orientations=['XY','YX'] if orientation.get()=='XY + YX' else [orientation.get()],limit_state=ls.get(),tracked_frame_tag=int(tracked.get()),nonlinear_walls=full.get(),material_basis=basis.get(),steelmpf_transition=steel_transition.get(),gravity_system=gravity_system.get(),transient_system=transient_system.get())
             configpath=dest/'Requested_Config.json';configpath.write_text(json.dumps(config,indent=2),encoding='utf-8');state.update(running=True,last=dest);button.configure(state='disabled');status.set('Running exploratory model in separate process. Outputs: '+str(dest))
         except Exception as e:messagebox.showerror('Exploratory inputs',str(e),parent=win);return
         def worker():

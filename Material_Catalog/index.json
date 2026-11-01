@@ -157,7 +157,7 @@
     "file": "PEER_Web_SteelMPF.json",
     "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
     "locator": "Appendix B.3 web steel input listing; legacy a1/a2 labels map to transition cR1/cR2",
-    "notes": "Keep legacy transition values 18.5 and .0015 as printed; do not confuse them with optional isotropic a1/a2."
+    "notes": "Source card preserves the printed transition values 18.5 and .0015. The exploratory building runner defaults to the separately identified OpenSees-documented cR1=.925 while retaining cR2=.0015; select PEER_APPENDIX_EXACT to reproduce the appendix values."
   },
   {
     "id": "PEER_Web_ESFI_Patch",
@@ -167,6 +167,6 @@
     "file": "PEER_Web_ESFI_Patch.json",
     "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
     "locator": "Appendix B.3 web materials; E-SFI formulation Kolozvari et al. (2023)",
-    "notes": "Only web constitutive values and ratios come from PEER. 1.2 x .3 x .15 m patch, 60 kN axial force and cyclic protocol are numerical choices; neither RW wall nor SD-06 experiment reproduced. No actual core openings/corners."
+    "notes": "PEER web material strengths, modulus, ConcreteCM shape, reinforcement ratios and cR2 are retained; cR1=.925 follows the OpenSees-documented transition default. The separate PEER_Web_SteelMPF card preserves the printed 18.5 appendix value. Numerical patch geometry/load/protocol are assumptions, not an experiment reproduction."
   }
 ]

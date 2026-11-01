@@ -28,9 +28,13 @@ def check(d):
   f=p.get('fpc_MPa',p.get('fpcc'));e=p.get('epsc0',p.get('epcc'))
   if f>=0 or e>=0:raise ValueError('Concrete compression strength and peak strain must be negative')
   if 'epsU' in p and not(p['epsU']<e and f<=p['fpcu_MPa']<=0):raise ValueError('Require epsU < epsc0 and fpc <= fpcu <= 0')
- if model in ('Steel02','BRB') and not(p['Fy_MPa']>0 and p['E_MPa']>0 and 0<=p['b']<1):raise ValueError('Require positive Fy/E and 0<=b<1')
- if model=='SteelMPF' and not(all(p[k]>0 for k in ('fyp','fyn','E0')) and all(0<=p[k]<1 for k in ('bp','bn'))):raise ValueError('Invalid SteelMPF strength/modulus/hardening')
- if model=='FVD' and not(all(p[k]>0 for k in ('K_kN_m','Cd','alpha')) and float(d['dt_s'])>0):raise ValueError('FVD K, Cd, alpha and dt must be positive')
+  if model=='Concrete02' and not(0<=p['unloading_ratio']<=1 and p['ft_MPa']>=0 and p['Ets_MPa']>0):
+   raise ValueError('Concrete02 requires 0<=unloading_ratio<=1, ft_MPa>=0 and Ets_MPa>0')
+  if model=='ConcreteCM' and not(p['Ec']>0 and p['rc']>0 and p['xcrn']>0 and p['ft']>=0 and p['et']>0 and p['rt']>0 and p['xcrp']>0):
+   raise ValueError('ConcreteCM requires positive Ec/shape/transition inputs and nonnegative tensile strength')
+ if model in ('Steel02','BRB') and not(p['Fy_MPa']>0 and p['E_MPa']>0 and 0<=p['b']<1 and all(p[k]>0 for k in ('R0','cR1','cR2'))):raise ValueError('Require positive Fy/E/transition values and 0<=b<1')
+ if model=='SteelMPF' and not(all(p[k]>0 for k in ('fyp','fyn','E0','R0','cR1','cR2')) and all(0<=p[k]<1 for k in ('bp','bn'))):raise ValueError('Invalid SteelMPF strength/modulus/hardening/transition values')
+ if model=='FVD' and not(p['K_kN_m']>0 and p['Cd']>0 and 0<p['alpha']<=1 and float(d['dt_s'])>0):raise ValueError('FVD requires K>0, Cd>0, 0<alpha<=1 and dt>0')
  if model=='BRB' and not(p['core_area_m2']>0 and p['yielding_length_m']>0):raise ValueError('BRB area and yielding length must be positive')
  if model=='SFI_MVLEM_3D' and not(all(p[k]>0 for k in ('width_m','height_m','thickness_m','steel_Fy_MPa','steel_E_MPa')) and int(p['fibers'])==p['fibers'] and p['fibers']>=2 and 0<p['rho_x']<1 and 0<p['rho_y']<1 and p['axial_kN']>=0 and p['concrete_fc_MPa']<0):raise ValueError('Invalid panel geometry, reinforcement or material values')
 def protocol(d):
@@ -54,6 +58,8 @@ def native(d,x):
  return rows
 def wall(d,x):
  import openseespy.opensees as o
+ partial_dir=Path(d.get('_output','.'))
+ partial_dir.mkdir(parents=True,exist_ok=True)
  p=d['parameters'];w=p['width_m'];h=p['height_m'];n=int(p['fibers']);o.wipe();o.model('basic','-ndm',3,'-ndf',6)
  for tag,xyz in [(1,(0,0,0)),(2,(w,0,0)),(3,(w,0,h)),(4,(0,0,h))]:o.node(tag,*xyz)
  for tag in (1,2):o.fix(tag,1,1,1,1,1,1)
@@ -78,7 +84,7 @@ def wall(d,x):
    o.integrator('DisplacementControl',3,1,du);rc=o.analyze(1)
    if rc:
     import csv
-    partial=Path(d.get('_output','.'))/'partial_wall_response.csv'
+    partial=partial_dir/'partial_wall_response.csv'
     if rows:
      with partial.open('w',newline='') as f:
       writer=csv.DictWriter(f,fieldnames=list(rows[0]));writer.writeheader();writer.writerows(rows)

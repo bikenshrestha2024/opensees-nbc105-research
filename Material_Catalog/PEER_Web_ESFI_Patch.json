@@ -15,7 +15,7 @@
     "steel_E_MPa": 199947.96150188247,
     "concrete_fc_MPa": -55.778586501732036
   },
-  "parameter_basis": "PUBLISHED MATERIAL / ASSUMED PATCH | Only web constitutive values and ratios come from PEER. 1.2 x .3 x .15 m patch, 60 kN axial force and cyclic protocol are numerical choices; neither RW wall nor SD-06 experiment reproduced. No actual core openings/corners.",
+  "parameter_basis": "PUBLISHED WEB MATERIALS + OPENSEES-DOCUMENTED STEELMPF TRANSITION / ASSUMED PATCH | PEER strengths, modulus, ConcreteCM shape parameters, reinforcement ratios and cR2 are retained; SteelMPF cR1=.925 follows the OpenSees author-documented transition value instead of the PEER appendix's 18.5 entry. 1.2 x .3 x .15 m patch, 60 kN axial force and cyclic protocol are numerical choices; neither RW wall nor SD-06 experiment reproduced. No actual core openings/corners.",
   "specimen_id": "PEER web material + E-SFI numerical patch",
   "citation": "Appendix B.3 web materials; E-SFI formulation Kolozvari et al. (2023); printed pp. 90-91 (PDF pages 102-103, zero-based)",
   "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
@@ -52,7 +52,7 @@
     "bp": 0.02,
     "bn": 0.02,
     "R0": 20.0,
-    "cR1": 18.5,
+    "cR1": 0.925,
     "cR2": 0.0015,
     "a1": 0.0,
     "a2": 1.0,
@@ -168,6 +168,13 @@
       "basis": "PUBLISHED MATERIAL / ASSUMED PATCH",
       "source": "https://peer.berkeley.edu/sites/default/files/webpeer-2015-12-kristijan_kolozvari_kutay_orakcal_john_wallace.pdf",
       "locator": "Appendix B.3 web materials; E-SFI formulation Kolozvari et al. (2023); printed pp. 90-91 (PDF pages 102-103, zero-based)"
+    },
+    "steel_cR1": {
+      "value": 0.925,
+      "unit": "dimensionless",
+      "basis": "OPENSEES-DOCUMENTED TRANSITION DEFAULT; PEER APPENDIX VALUE RETAINED IN THE SEPARATE PEER_Web_SteelMPF CARD",
+      "source": "https://openseespydoc.readthedocs.io/en/latest/src/SteelMPF.html",
+      "locator": "SteelMPF command example; transition parameter cR1"
     },
     "concrete_fc_MPa": {
       "value": -55.778586501732036,
