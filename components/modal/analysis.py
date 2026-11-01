@@ -42,8 +42,19 @@ def nbc105_period_estimate(*, height_m, system_type, wall_aw_x_m2=None,
     is the lesser of the Rayleigh period and amplified empirical estimate.
     """
     h = float(height_m)
-    if h <= 0:
-        raise ValueError("height_m must be positive")
+    if not math.isfinite(h) or h <= 0:
+        raise ValueError("height_m must be finite and positive")
+    def positive_optional(value, name):
+        if value in (None, ""):
+            return None
+        number=float(value)
+        if not math.isfinite(number) or number<=0:
+            raise ValueError(f"{name} must be finite and positive when supplied")
+        return number
+    aw_x=positive_optional(wall_aw_x_m2,'wall_aw_x_m2')
+    aw_y=positive_optional(wall_aw_y_m2,'wall_aw_y_m2')
+    rayleigh_x=positive_optional(rayleigh_x_s,'rayleigh_x_s')
+    rayleigh_y=positive_optional(rayleigh_y_s,'rayleigh_y_s')
     system_type = str(system_type).strip().lower()
     fixed_kt = {
         "concrete moment-resisting frame": 0.075,
@@ -52,21 +63,21 @@ def nbc105_period_estimate(*, height_m, system_type, wall_aw_x_m2=None,
         "other structural system": 0.05,
     }
     empirical = {}
-    for axis, aw in (("X", wall_aw_x_m2), ("Y", wall_aw_y_m2)):
+    for axis, aw in (("X", aw_x), ("Y", aw_y)):
         if "concrete shear-wall" in system_type:
-            if aw is None or float(aw) <= 0:
+            if aw is None:
                 empirical[axis] = None
             else:
-                empirical[axis] = 0.075 * h ** 0.75 / math.sqrt(float(aw))
+                empirical[axis] = 0.075 * h ** 0.75 / math.sqrt(aw)
         else:
             if system_type not in fixed_kt:
                 raise ValueError(f"Unsupported NBC empirical period system: {system_type}")
             empirical[axis] = fixed_kt[system_type] * h ** 0.75
     out = {"height_m": h, "system_type": system_type,
-           "wall_Aw_X_m2": None if wall_aw_x_m2 is None else float(wall_aw_x_m2),
-           "wall_Aw_Y_m2": None if wall_aw_y_m2 is None else float(wall_aw_y_m2),
-           "rayleigh_X_s": None if rayleigh_x_s in (None, "") else float(rayleigh_x_s),
-           "rayleigh_Y_s": None if rayleigh_y_s in (None, "") else float(rayleigh_y_s),
+           "wall_Aw_X_m2": aw_x,
+           "wall_Aw_Y_m2": aw_y,
+           "rayleigh_X_s": rayleigh_x,
+           "rayleigh_Y_s": rayleigh_y,
            "empirical_X_s": empirical["X"], "empirical_Y_s": empirical["Y"],
            "amplified_empirical_X_s": None if empirical["X"] is None else 1.25 * empirical["X"],
            "amplified_empirical_Y_s": None if empirical["Y"] is None else 1.25 * empirical["Y"]}
@@ -178,8 +189,9 @@ def run_nbc105_modal_audit(ops, *, nmodes=30, output_dir=".",
         nmodes: requested eigenpairs. Increase if either X or Y cumulative
             participation is below the NBC threshold.
         output_dir: folder for all modal audit outputs.
-        solver: ``-genBandArpack`` recommended for ordinary models. The caller
-            can retry with ``-fullGenLapack`` on a small model if ARPACK fails.
+        solver: ``PythonSparse`` is recommended for building-scale models.
+            Native OpenSees solvers may fail to return promptly on large sparse
+            systems; fallback only occurs after a native call returns or raises.
         target_mass_percent: NBC target defaults to 90% in each horizontal axis.
         max_frequency_hz: NBC §7.3 modal-combination limit, 33 Hz.
 

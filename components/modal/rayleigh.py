@@ -34,16 +34,21 @@ def run(folder, awx, awy, reference_fraction=.01, limit_state='ULS',
     if not math.isfinite(reference_fraction) or reference_fraction<=0:raise ValueError('Reference fraction must be finite and positive.')
     model=folder/'OpenSees_Complete_Model_Data_V118.json'
     with (folder/'NBC105_ESM_Story_Weights_Assembled_V118.csv').open(encoding='utf-8-sig') as stream:rows=list(csv.DictReader(stream))
+    if not rows:raise ValueError('Reconciled seismic story weights are required.')
     rows.sort(key=lambda r:float(r['height_m']))
+    heights=[float(r['height_m']) for r in rows]
     weights=[float(r['dead_load_kN'])+.6*float(r['storage_live_load_kN'])+.3*float(r['other_live_load_kN']) for r in rows]
-    if any(w<=0 for w in weights):raise ValueError('Positive reconciled seismic story weights are required.')
-    H=max(float(r['height_m']) for r in rows);result={'story_weights_sha256':hashlib.sha256((folder/'NBC105_ESM_Story_Weights_Assembled_V118.csv').read_bytes()).hexdigest(),'standard':'NBC 105:2025 §5.1.1','model_sha256':hashlib.sha256(model.read_bytes()).hexdigest(),'gravity_state':'assembled sustained gravity','limit_state':state,'torsion':'diaphragm rotations restrained during reference lateral perturbation','diagnostic_only':True}
+    if any(not math.isfinite(h) or h<=0 for h in heights) or any(b<=a for a,b in zip(heights,heights[1:])):
+        raise ValueError('Story heights must be finite, positive, and strictly increasing from the seismic base.')
+    if any(not math.isfinite(w) or w<=0 for w in weights):raise ValueError('Positive finite reconciled seismic story weights are required.')
+    H=heights[-1]
+    result={'story_weights_sha256':hashlib.sha256((folder/'NBC105_ESM_Story_Weights_Assembled_V118.csv').read_bytes()).hexdigest(),'standard':'NBC 105:2025 §5.1.1-§5.1.3','model_sha256':hashlib.sha256(model.read_bytes()).hexdigest(),'gravity_state':'assembled sustained gravity','limit_state':state,'height_m':H,'height_basis':'story-ledger elevations from seismic base; confirm qualifying basements are excluded per §5.1.2','gravity_acceleration_m_s2':9.81,'rayleigh_equation':'T1 = 2*pi*sqrt(sum(Wi*di^2)/(g*sum(Fi*di)))','torsion':'diaphragm rotations restrained during reference lateral perturbation','diagnostic_only':True}
     prefix='NBC105_Rayleigh_Preliminary_V123'+('' if state=='ULS' else '_'+state)
     wb=Workbook();summary=wb.active;summary.title='Summary';summary.append(['Axis','Aw (m2)','Empirical T (s)','Amplified empirical T (s)','Rayleigh T (s)','Adopted T (s)'])
     fig=Figure(figsize=(11,6),layout='constrained');axes=fig.subplots(1,2)
     for axis,aw in [('X',awx),('Y',awy)]:
         aw=float(aw)
-        if aw<=0:raise ValueError('Directional Aw must be positive and reviewed against first-story walls/openings.')
+        if not math.isfinite(aw) or aw<=0:raise ValueError('Directional Aw must be finite, positive, and reviewed against first-story walls/openings.')
         empirical=.075/math.sqrt(aw)*H**.75
         k=1. if empirical<=.5 else 2. if empirical>=2.5 else 1.+(empirical-.5)/2.
         shape=[w*float(r['height_m'])**k for w,r in zip(weights,rows)]
@@ -68,9 +73,12 @@ def run(folder, awx, awy, reference_fraction=.01, limit_state='ULS',
         ops.integrator('LoadControl',.1)
         if ops.analyze(10)!=0:raise RuntimeError(f'{axis} preliminary lateral analysis did not converge; no Rayleigh value was accepted.')
         u=[ops.nodeDisp(n,dof)-b for n,b in zip(masters,baseline)]
-        denominator=9.80665*sum(f*d for f,d in zip(forces,u))
-        if denominator<=0:raise ValueError(f'{axis} Rayleigh denominator is nonpositive; inspect displacement signs and constraints.')
-        period=2*math.pi*math.sqrt(sum(w*d*d for w,d in zip(weights,u))/denominator)
+        denominator=9.81*sum(f*d for f,d in zip(forces,u))
+        numerator=sum(w*d*d for w,d in zip(weights,u))
+        if not math.isfinite(denominator) or denominator<=0:raise ValueError(f'{axis} Rayleigh denominator is nonpositive or non-finite; inspect displacement signs and constraints.')
+        if not math.isfinite(numerator) or numerator<=0:raise ValueError(f'{axis} Rayleigh numerator is nonpositive or non-finite; inspect seismic weights and displacements.')
+        period=2*math.pi*math.sqrt(numerator/denominator)
+        if not math.isfinite(period) or period<=0:raise ValueError(f'{axis} Rayleigh period is nonpositive or non-finite.')
         result[axis]=dict(Aw_m2=aw,empirical_period_s=empirical,amplified_empirical_s=1.25*empirical,period_s=period,adopted_period_s=min(period,1.25*empirical),rows=[dict(story=r['story_name'],height_m=float(r['height_m']),master_node=n,weight_kN=w,force_kN=f,displacement_m=d) for r,n,w,f,d in zip(rows,masters,weights,forces,u)])
         sheet=wb.create_sheet(axis+' Rayleigh');sheet.append(['Story','Height (m)','Master node','Wi (kN)','Fi (kN)','di (m)','Wi di2 (kN m2)','Fi di (kN m)'])
         for r in result[axis]['rows']:sheet.append([r['story'],r['height_m'],r['master_node'],r['weight_kN'],r['force_kN'],r['displacement_m'],r['weight_kN']*r['displacement_m']**2,r['force_kN']*r['displacement_m']])
@@ -85,7 +93,7 @@ def run(folder, awx, awy, reference_fraction=.01, limit_state='ULS',
     for ext in ('png','pdf'):fig.savefig(out/(prefix+'.'+ext),dpi=300)
     for sheet in wb:sheet.freeze_panes='A2';sheet.auto_filter.ref=sheet.dimensions
     wb.save(out/(prefix+'.xlsx'))
-    result['method_version']=124
+    result['method_version']=125
     result['reference_fraction']=reference_fraction
     result['baseline_method']='Equilibrate torsion-suppressed gravity before applying reference forces; use incremental translation.'
     (out/(prefix+'.json')).write_text(json.dumps(result,indent=2),encoding='utf-8')

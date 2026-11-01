@@ -129,8 +129,8 @@ def rayleigh_coefficients(T1_s: float, T2_s: float, zeta: float = 0.05):
 def modal_damping_ratio(alpha_m: float, beta_k: float, omega: float) -> float:
     """Return ζ(ω)=αM/(2ω)+βKω/2 for the coefficients used by OpenSees."""
     a, b, w = float(alpha_m), float(beta_k), float(omega)
-    if w <= 0:
-        raise ValueError("omega must be positive")
+    if not all(math.isfinite(x) for x in (a,b,w)) or min(a,b)<0 or w<=0:
+        raise ValueError("Rayleigh coefficients must be finite and nonnegative; omega must be finite and positive")
     return a / (2.0 * w) + b * w / 2.0
 
 

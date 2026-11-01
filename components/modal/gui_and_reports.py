@@ -189,7 +189,7 @@ class ModalAuditGUI:
         ttk.Label(row, text="Stiffness case / eigen solver").pack(side="left")
         ttk.Combobox(row,textvariable=self.limit_state,values=('ULS','SLS','Both'),state='readonly',width=10).pack(side='left',padx=6)
         ttk.Combobox(row, textvariable=self.solver, values=("PythonSparse", "-genBandArpack", "-fullGenLapack"), state="readonly", width=22).pack(side="left", padx=8)
-        ttk.Label(form,text="PythonSparse is recommended for building-scale models. Failed/partial native solves fall back to PythonSparse; dense fullGenLapack is skipped above 500 nodes.",foreground="#8a3412",wraplength=900).pack(anchor="w")
+        ttk.Label(form,text="PythonSparse is recommended for building-scale models. Native solver fallback only occurs after the call returns or raises; a stalled native call cannot time out automatically. Dense fullGenLapack is skipped above 500 nodes.",foreground="#8a3412",wraplength=900).pack(anchor="w")
         ttk.Label(form,textvariable=self.project_system).pack(anchor='w')
         period = ttk.LabelFrame(form, text="NBC §5.1 period comparison (SI units)", padding=8); period.pack(fill="x", pady=(8, 2))
         prow = ttk.Frame(period); prow.pack(fill="x", pady=2)
@@ -314,7 +314,10 @@ class ModalAuditGUI:
                     with log.open('w',encoding='utf-8') as stream:
                         for line in proc.stdout:
                             stream.write(line);stream.flush()
-                            if "[GRAVITY] PASS" in line:ledger.set(state,"RUNNING","Stage 2/3: eigenanalysis; native solver may be quiet")
+                            if "[GRAVITY] PASS" in line:
+                                stage="Stage 2/3: eigenanalysis"
+                                if solver!='PythonSparse':stage+='; native solver has no timeout, stop and rerun with PythonSparse if stalled'
+                                ledger.set(state,"RUNNING",stage)
                             if "[NBC105 MODAL]" in line:ledger.set(state,"RUNNING","Stage 3/3: reports and mass participation")
                             self.root.after(0,lambda text=line:self.status.set(text.rstrip()))
                     proc.wait()

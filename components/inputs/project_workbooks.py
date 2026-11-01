@@ -7,12 +7,40 @@ compliance or replaces the independent ETABS/OpenSees reconciliation.
 __release__ = '134'
 from pathlib import Path
 import json
+import math
 
 CALCULATOR='NBC105_2025_Seismic_Calculator_ETABS_Direct Interaction - Copy.xlsx'
 SCALING='ULTIMATE LOAD  - NEPAL - 3 - BELT TRUSS, OUTRIGGER CAP TRUSS_NBC105_RS_Scaling.xlsx'
 
 
 SERVICE_SCALING='SERVICE LOAD  - NEPAL - 3 - BELT TRUSS, OUTRIGGER CAP TRUSS_NBC105_RS_Scaling_2.xlsx'
+
+def _wall_aw_from_lines(height_m, lines):
+    height=float(height_m)
+    if not math.isfinite(height) or height<=0:raise ValueError('Seismic height must be finite and positive.')
+    aw={'X':0.,'Y':0.};segments=[]
+    for (axis,plane,thickness),intervals in lines.items():
+        t=float(thickness)
+        if axis not in aw:raise ValueError(f'Unsupported wall direction: {axis}')
+        if not math.isfinite(t) or t<=0:raise ValueError('Wall thickness must be finite and positive.')
+        merged=[]
+        for start,end in sorted(intervals):
+            start=float(start);end=float(end)
+            if not math.isfinite(start) or not math.isfinite(end) or end<=start:
+                raise ValueError('Wall segment coordinates must be finite with positive length.')
+            if merged and start<=merged[-1][1]+1e-8:
+                merged[-1]=(merged[-1][0],max(end,merged[-1][1]))
+            else:
+                merged.append((start,end))
+        for start,end in merged:
+            length=end-start
+            area=t*length
+            contribution=area*(.2+min(length/height,.9)**2)
+            aw[axis]+=contribution
+            segments.append(dict(axis=axis,plane_m=plane,start_m=start,end_m=end,
+                                 thickness_m=t,wall_length_m=length,
+                                 wall_area_m2=area,Aw_contribution_m2=contribution))
+    return aw,segments
 
 def source_workbooks(root, export_dir,limit_state='ULS'):
     root=Path(root);export_dir=Path(export_dir)
@@ -27,7 +55,9 @@ def source_workbooks(root, export_dir,limit_state='ULS'):
 
 def import_project_inputs(root, export_dir,limit_state='ULS'):
     from openpyxl import load_workbook
-    values={};audit=[];notes=[];gross_spans={}
+    state=str(limit_state).strip().upper()
+    if state not in ('ULS','SLS'):raise ValueError('limit_state must be ULS or SLS')
+    values={};audit=[];notes=[]
     def put(key,value,path,sheet,cell):
         if value is None or str(value).startswith('='):return
         values[key]=value;audit.append(dict(field=key,value=value,source=str(path),sheet=sheet,cell=cell))
@@ -48,10 +78,6 @@ def import_project_inputs(root, export_dir,limit_state='ULS'):
         if 'SCALING SUMMARY' in wb:
             ws=wb['SCALING SUMMARY']
             for key,cell in {'awx':'B14','awy':'B15','workbook_adopted_tx':'C14','workbook_adopted_ty':'C15','reference_base_shear_X':'E7','reference_base_shear_Y':'E8','source_edb':'B4'}.items():put(key,ws[cell].value,path,ws.title,cell)
-        if 'ETABS MASTER IMPORT' in wb:
-            for row in wb['ETABS MASTER IMPORT'].iter_rows(min_row=6,max_col=7,values_only=True):
-                if row[0] in ('X','Y') and isinstance(row[4],(int,float)) and row[4]>0:
-                    gross_spans.setdefault(row[0],set()).add(float(row[4])/1000.)
         wb.close()
     folder=Path(export_dir)
     topology=folder/'OpenSees_Element_Connectivity.json'
@@ -61,10 +87,9 @@ def import_project_inputs(root, export_dir,limit_state='ULS'):
             values['breadth_X']=max(p[1] for p in xyz)-min(p[1] for p in xyz)
             values['breadth_Y']=max(p[0] for p in xyz)-min(p[0] for p in xyz)
             notes.append('Plan breadth is computed from the selected source geometry; confirm per-floor accidental eccentricity for setbacks.')
-            # Recalculate net first-story wall areas from the CURRENT export.
-            # Gross bay wall lengths come from the explicitly supplied master
-            # workbook. No arbitrary grouping of piers across openings is
-            # inferred when those gross spans are absent or nonuniform.
+            # Recalculate effective wall areas from current first-story
+            # geometry. Each continuous segment keeps its own Lwi; openings
+            # and physical gaps split segments instead of using gross bay length.
             try:
                 from OpenSees_Complete_Export_V118 import _area_property
                 assignments=json.loads((folder/'OpenSees_Section_Assignment_Audit.json').read_text(encoding='utf-8-sig'))
@@ -72,52 +97,56 @@ def import_project_inputs(root, export_dir,limit_state='ULS'):
                 coords={n['opensees_node_tag']:n['coordinates_m'] for n in topo['node_map']}
                 base=min(p[2] for p in xyz);roof=max(p[2] for p in xyz);H=roof-base
                 levels=sorted({g['master_xyz'][2] for g in topo['rigid_diaphragm_groups'] if g['master_xyz'][2]>base+1e-6})
+                if not math.isfinite(H) or H<=0:raise ValueError('Source model has no positive base-to-roof height.')
                 first=levels[0];lines={}
                 for e in topo['elements']:
                     if e['category']!='SHEAR WALL':continue
                     q=[coords[n] for n in e['node_tags']]
-                    if abs(min(p[2] for p in q)-base)>1e-6 or max(p[2] for p in q)<first-1e-6:continue
+                    zmin=min(p[2] for p in q);zmax=max(p[2] for p in q)
+                    if zmax<=base+1e-6 or zmin>=first-1e-6:continue
+                    if zmin<base-1e-6 or zmax>first+1e-6:
+                        raise ValueError('A wall shell crosses the first-storey bounds; review its floor/mesh assignment.')
                     dx=max(p[0] for p in q)-min(p[0] for p in q);dy=max(p[1] for p in q)-min(p[1] for p in q)
                     if dx>1e-6 and dy<1e-6:axis='X';along=0;across=1
                     elif dy>1e-6 and dx<1e-6:axis='Y';along=1;across=0
                     else:raise ValueError('Non-axis-aligned wall: directional projected properties need separate review.')
                     thickness=_area_property(area_rows[str(e['etabs_object'])],{})['thickness']
                     lines.setdefault((axis,round(q[0][across],6),thickness),[]).append((min(p[along] for p in q),max(p[along] for p in q)))
-                aw={'X':0.,'Y':0.};segments=[]
-                for (axis,plane,t),intervals in lines.items():
-                    spans=gross_spans.get(axis,set())
-                    if len(spans)!=1:raise ValueError('A single reviewed gross wall-bay span per direction is required for automatic wall grouping.')
-                    length=next(iter(spans));start=min(a for a,b in intervals);end=max(b for a,b in intervals)
-                    import math
-                    count=round((end-start)/length)
-                    if count<1 or abs(start+count*length-end)>1e-5:raise ValueError('Source wall extents do not match the workbook gross-bay spans.')
-                    for i in range(count):
-                        lo=start+i*length;hi=lo+length
-                        pieces=sorted((max(a,lo),min(b,hi)) for a,b in intervals if min(b,hi)>max(a,lo)+1e-8)
-                        merged=[]
-                        for a,b in pieces:
-                            if merged and a<=merged[-1][1]+1e-8:merged[-1]=(merged[-1][0],max(b,merged[-1][1]))
-                            else:merged.append((a,b))
-                        net=sum(b-a for a,b in merged);area=t*net;contribution=area*(.2+min(length/H,.9)**2)
-                        aw[axis]+=contribution;segments.append(dict(axis=axis,plane_m=plane,bay_start_m=lo,bay_end_m=hi,thickness_m=t,net_wall_length_m=net,net_area_m2=area,gross_wall_length_m=length,Aw_contribution_m2=contribution))
+                aw,segments=_wall_aw_from_lines(H,lines)
                 if not all(v>0 for v in aw.values()):raise ValueError('Both directions need recognized first-story walls.')
                 for axis in ('X','Y'):
                     key='aw'+axis.lower()
                     if key in values:values['workbook_'+key]=values[key]
-                    put(key,aw[axis],topology,'first-story wall geometry','Σ t·Lnet·[0.2+min(Lgross/H,0.9)^2]')
+                    put(key,aw[axis],topology,'first-story wall geometry','Σ Awi·[0.2+min(Lwi/H,0.9)^2], NBC 105:2025 §5.1.2')
                 values['wall_geometry_segments']=segments
-                notes.append('Aw recalculated from current full-first-story wall piers; opening gaps are excluded. Uniform gross bay spans are from ETABS MASTER IMPORT. Review this grouping if wall layouts, basement exclusions or bay spans change.')
+                notes.append('Aw uses each merged continuous first-story wall segment separately; shell mesh subdivisions are merged and openings/gaps split segments. Confirm the seismic height H excludes only basements meeting NBC 105:2025 §5.1.2; the automatic geometry height includes the full exported base-to-roof extent.')
             except Exception as exc:
                 notes.append('Live wall Aw reconstruction unavailable; imported workbook Aw remains a review input: '+str(exc))
-    ray=folder/'OpenSees_Analysis_Results/NBC105_Rayleigh_Preliminary_V123.json'
+    ray_name='NBC105_Rayleigh_Preliminary_V123'+('_SLS' if state=='SLS' else '')+'.json'
+    ray=folder/'OpenSees_Analysis_Results'/ray_name
     data=folder/'OpenSees_Complete_Model_Data_V118.json'
     if ray.is_file() and data.is_file():
         import hashlib
         result=json.loads(ray.read_text(encoding='utf-8-sig'))
         ledger=folder/'NBC105_ESM_Story_Weights_Assembled_V118.csv'
-        if (result.get('method_version',0)>=124 and result.get('model_sha256')==hashlib.sha256(data.read_bytes()).hexdigest() and ledger.is_file() and result.get('story_weights_sha256')==hashlib.sha256(ledger.read_bytes()).hexdigest()):
-            for axis in ('X','Y'):put('rayleigh_t'+axis.lower(),result[axis]['period_s'],ray,axis,'period_s')
-        else:notes.append('Saved Rayleigh results are stale after a model rebuild; rerun the preliminary analysis.')
+        valid=(result.get('method_version',0)>=125 and result.get('limit_state')==state
+               and result.get('model_sha256')==hashlib.sha256(data.read_bytes()).hexdigest()
+               and ledger.is_file()
+               and result.get('story_weights_sha256')==hashlib.sha256(ledger.read_bytes()).hexdigest())
+        if valid:
+            for axis in ('X','Y'):
+                axis_result=result[axis]
+                period=axis_result.get('period_s')
+                aw=values.get('aw'+axis.lower())
+                if (not isinstance(period,(int,float)) or not math.isfinite(period) or period<=0
+                        or not isinstance(axis_result.get('Aw_m2'),(int,float))
+                        or not math.isfinite(axis_result['Aw_m2']) or axis_result['Aw_m2']<=0
+                        or (aw is not None and not math.isclose(axis_result['Aw_m2'],float(aw),rel_tol=1e-8,abs_tol=1e-9))):
+                    valid=False
+                    break
+            if valid:
+                for axis in ('X','Y'):put('rayleigh_t'+axis.lower(),result[axis]['period_s'],ray,axis,'period_s')
+        if not valid:notes.append(f'Saved {state} Rayleigh results are stale, incomplete, or inconsistent with the current model, seismic weights, or wall Aw; rerun the preliminary analysis.')
     notes.append('Regularity is not inferred from Excel or model symmetry. Confirm NBC §5.4 for the asymmetric building.')
     return dict(values=values,audit=audit,notes=notes)
 
