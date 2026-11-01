@@ -133,33 +133,30 @@ def _advance_nonlinear_interval(ops, dt, depth=0, max_depth=5, on_accept=None, d
                 if on_accept is not None:on_accept()
                 return 1
             failures.append(f"{algorithm}: return code {rc}")
-        # Do not retry a domain whose trial state already contains NaN/Inf.
-        # Such a retry can propagate a failed linear solve into every element;
-        # it does not constitute a convergence recovery.
-        for node in ops.getNodeTags():
-            displacement = ops.nodeDisp(node)
-            if any(not math.isfinite(float(value)) for value in displacement):
+        # After a failed step, collect all available evidence before deciding
+        # whether to stop. Recorder values may reflect contaminated trial state.
+        if diagnostics.get("evidence_output_path"):
+            from components.nonlinear_time_history.failure_evidence import snapshot_failed_step
+            report = snapshot_failed_step(
+                ops, diagnostics["evidence_output_path"],
+                algorithm=algorithm, dt=dt, return_code=rc,
+                element_map_path=diagnostics.get("element_map_path"))
+            if report["nonfinite_nodes"] or report["nonfinite_elements"]:
                 raise RuntimeError(
-                    f"Non-finite nodal displacement after {algorithm} failure "
-                    f"at node {node}, t={ops.getTime():.6g}s. "
-                    "Stopping rather than retrying a contaminated model state.")
-        get_element_tags = getattr(ops, "getEleTags", None)
-        element_response = getattr(ops, "eleResponse", None)
-        if callable(get_element_tags) and callable(element_response):
-            for element in get_element_tags():
+                    "Non-finite trial response after nonlinear solver failure; "
+                    "evidence saved to " + str(diagnostics["evidence_output_path"]))
+        else:
+            # Preserve the previous conservative stop behavior if the caller
+            # has not enabled evidence recording.
+            for node in ops.getNodeTags():
+                if any(not math.isfinite(float(v)) for v in ops.nodeDisp(node)):
+                    raise RuntimeError("Non-finite node state after failed step")
+            for element in ops.getEleTags():
                 for response_name in ("localForce", "basicDeformation"):
-                    response = element_response(element, response_name)
-                    if response is None:
-                        continue
-                    try:
-                        values = tuple(float(value) for value in response)
-                    except TypeError:
-                        values = (float(response),)
-                    if any(not math.isfinite(value) for value in values):
+                    vals=ops.eleResponse(element,response_name)
+                    if vals is not None and any(not math.isfinite(float(v)) for v in vals):
                         raise RuntimeError(
-                            f"Non-finite element {response_name} after {algorithm} "
-                            f"failure at element {element}, t={ops.getTime():.6g}s. "
-                            "Stopping rather than retrying a contaminated model state.")
+                            f"Non-finite element {response_name} after failed step at {element}")
     if depth >= max_depth:
         raise RuntimeError(f"Nonlinear step failed at t={ops.getTime():.6g}s, dt={dt:.6g}s after {depth} subdivision levels: " + "; ".join(failures))
     diagnostics['bisections']=diagnostics.get('bisections',0)+1
