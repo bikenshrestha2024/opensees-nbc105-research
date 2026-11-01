@@ -127,6 +127,9 @@ def _advance_nonlinear_interval(ops, dt, depth=0, max_depth=5, on_accept=None, d
             failures.append(f"{algorithm}: {exc}")
         else:
             if rc == 0:
+                evidence_path = diagnostics.get("evidence_output_path")
+                if evidence_path and Path(evidence_path).is_file():
+                    Path(evidence_path).unlink()
                 diagnostics['minimum_accepted_dt_s']=min(float(dt),diagnostics.get('minimum_accepted_dt_s',float(dt)))
                 try:diagnostics['max_convergence_iterations']=max(ops.testIter(),diagnostics.get('max_convergence_iterations',0))
                 except (AttributeError,TypeError):pass
@@ -136,30 +139,41 @@ def _advance_nonlinear_interval(ops, dt, depth=0, max_depth=5, on_accept=None, d
         # Do not retry a domain whose trial state already contains NaN/Inf.
         # Such a retry can propagate a failed linear solve into every element;
         # it does not constitute a convergence recovery.
-        for node in ops.getNodeTags():
-            displacement = ops.nodeDisp(node)
-            if any(not math.isfinite(float(value)) for value in displacement):
+        evidence_path = diagnostics.get("evidence_output_path")
+        if evidence_path:
+            from components.nonlinear_time_history.failure_evidence import snapshot_failed_step
+            report = snapshot_failed_step(
+                ops, evidence_path, algorithm=algorithm, dt=dt, return_code=rc,
+                element_map_path=diagnostics.get("element_map_path"))
+            if report["nonfinite_nodes"] or report["nonfinite_elements"]:
                 raise RuntimeError(
-                    f"Non-finite nodal displacement after {algorithm} failure "
-                    f"at node {node}, t={ops.getTime():.6g}s. "
-                    "Stopping rather than retrying a contaminated model state.")
-        get_element_tags = getattr(ops, "getEleTags", None)
-        element_response = getattr(ops, "eleResponse", None)
-        if callable(get_element_tags) and callable(element_response):
-            for element in get_element_tags():
-                for response_name in ("localForce", "basicDeformation"):
-                    response = element_response(element, response_name)
-                    if response is None:
-                        continue
-                    try:
-                        values = tuple(float(value) for value in response)
-                    except TypeError:
-                        values = (float(response),)
-                    if any(not math.isfinite(value) for value in values):
-                        raise RuntimeError(
-                            f"Non-finite element {response_name} after {algorithm} "
-                            f"failure at element {element}, t={ops.getTime():.6g}s. "
-                            "Stopping rather than retrying a contaminated model state.")
+                    "Non-finite trial response after nonlinear solver failure; "
+                    "evidence saved to " + str(evidence_path))
+        else:
+            for node in ops.getNodeTags():
+                displacement = ops.nodeDisp(node)
+                if any(not math.isfinite(float(value)) for value in displacement):
+                    raise RuntimeError(
+                        f"Non-finite nodal displacement after {algorithm} failure "
+                        f"at node {node}, t={ops.getTime():.6g}s. "
+                        "Stopping rather than retrying a contaminated model state.")
+            get_element_tags = getattr(ops, "getEleTags", None)
+            element_response = getattr(ops, "eleResponse", None)
+            if callable(get_element_tags) and callable(element_response):
+                for element in get_element_tags():
+                    for response_name in ("localForce", "basicDeformation"):
+                        response = element_response(element, response_name)
+                        if response is None:
+                            continue
+                        try:
+                            values = tuple(float(value) for value in response)
+                        except TypeError:
+                            values = (float(response),)
+                        if any(not math.isfinite(value) for value in values):
+                            raise RuntimeError(
+                                f"Non-finite element {response_name} after {algorithm} "
+                                f"failure at element {element}, t={ops.getTime():.6g}s. "
+                                "Stopping rather than retrying a contaminated model state.")
     if depth >= max_depth:
         raise RuntimeError(f"Nonlinear step failed at t={ops.getTime():.6g}s, dt={dt:.6g}s after {depth} subdivision levels: " + "; ".join(failures))
     diagnostics['bisections']=diagnostics.get('bisections',0)+1
@@ -213,6 +227,12 @@ def _run_analysis(config):
             import runpy
             model = Path(config["model_script"]).resolve()
             if not model.is_file(): raise FileNotFoundError(model)
+            profiler.solver_diagnostics.update({
+                "evidence_output_path": str(out / f"{case}_First_Step_Failure_Evidence.json"),
+                "element_map_path": str(
+                    model.parent / "OpenSees_Complete_Element_Map_V118.json"
+                ),
+            })
             sys.path.insert(0, str(model.parent))
             if "openseespy.opensees" in sys.modules:
                 del sys.modules["openseespy.opensees"]

@@ -171,7 +171,10 @@ def _run(config):
             ops.pattern('UniformExcitation',tag,direction,'-accel',tag)
         _configure_nonlinear_transient(ops)
         configure_transient_system(ops,transient_system)
-        diag={};rows=[];last=time.perf_counter();case_start=last
+        diag={
+            'evidence_output_path':str(case/'First_Step_Failure_Evidence.json'),
+            'element_map_path':str(model/'OpenSees_Complete_Element_Map_V118.json'),
+        };rows=[];last=time.perf_counter();case_start=last
         stories=[dict(node=g['master_tag'],story_name='Storey_'+str(g['storey_number']),height=g['master_xyz'][2]-(groups[i-1]['master_xyz'][2] if i else data['base_z_m'])) for i,g in enumerate(groups)]
         wall_tags=[100001+len(data['frames'])+i for i,e in enumerate(data['shells']) if e['category']=='SHEAR WALL']
         tracked_wall=int(config.get('tracked_wall_tag',wall_tags[0])) if wall_tags else None
