@@ -168,6 +168,14 @@ def _run_analysis(config):
                 # upper bounds; the Tn term is not divided by 100.
                 dt = min(dt_record, t1 / 100.0, tn, 0.01)
                 duration = (len(motion["x"]) - 1) * motion["dt_x"] if orientation == "X_ONLY" else max((len(motion["x"]) - 1) * motion["dt_x"], (len(motion["y"]) - 1) * motion["dt_y"])
+                full_record_duration = duration
+                trial_seconds = config.get('trial_duration_s')
+                if trial_seconds not in (None, '', 0, 0.0):
+                    trial_seconds = float(trial_seconds)
+                    if not math.isfinite(trial_seconds) or trial_seconds <= 0:
+                        raise ValueError('trial_duration_s must be finite and positive')
+                    duration = min(duration, trial_seconds)
+                    print(f'[LINEAR TRIAL] {case}: requested={trial_seconds:g}s; actual={duration:g}s; full_record={full_record_duration:g}s',flush=True)
                 nsteps = int(math.ceil(duration / dt))
                 # SECTION 18.4 — NBC-limited integration step and linear Newmark stack.
                 ops.wipeAnalysis(); ops.constraints("Transformation"); ops.numberer("RCM")
@@ -216,7 +224,7 @@ def _run_analysis(config):
                 drift_limit = 0.025 if config["limit_state"] == "ULS" else 0.006
                 peak = {"case": case, "pair_id": motion["pair_id"], "field_type": motion.get("field_type", "Custom"), "orientation": orientation,
                     "scale_factor": motion["scale"], "acceleration_units": motion["units"], "record_dt_min_s": dt_record,
-                    "analysis_dt_s": dt, "duration_s": duration, "steps": nsteps,
+                    "analysis_dt_s": dt, "duration_s": duration, "full_record_duration_s": full_record_duration, "trial_duration_requested_s": trial_seconds, "trial_only": duration < full_record_duration - 1e-9, "steps": nsteps,
                     "peak_roof_UX_m": max(abs(r[f"{stories[-1]['story_name']}_UX_m"]) for r in lines),
                     "peak_roof_UY_m": max(abs(r[f"{stories[-1]['story_name']}_UY_m"]) for r in lines),
                     "minimum_roof_UX_m": min(r[f"{stories[-1]['story_name']}_UX_m"] for r in lines),
@@ -397,6 +405,7 @@ class LinearTimeHistoryGUI:
         self.damping = tk.StringVar(value="5.0"); self.p1 = tk.StringVar(); self.p2 = tk.StringVar()
         self.t1x = tk.StringVar(); self.t1y = tk.StringVar(); self.tnx = tk.StringVar(); self.tny = tk.StringVar()
         self.nmodes = tk.StringVar(value="20"); self.ls = tk.StringVar(value="ULS")
+        self.trial_duration = tk.StringVar(value="")
         self.torsion = tk.BooleanVar(value=True); self.running = False
         self.motion_mode = tk.StringVar(value=LTH_DEFAULT_MODE)
         self.x_scale = tk.StringVar(value="1.0")
@@ -474,6 +483,8 @@ class LinearTimeHistoryGUI:
             if var is self.ls: ttk.Combobox(grid, textvariable=var, values=("ULS", "SLS"), state="readonly", width=11).grid(row=i // 3, column=(i % 3) * 2 + 1, sticky="ew", padx=(0, 12))
             else: ttk.Entry(grid, textvariable=var, width=12).grid(row=i // 3, column=(i % 3) * 2 + 1, sticky="ew", padx=(0, 12))
         for c in range(6): grid.columnconfigure(c, weight=1 if c % 2 else 0)
+        self._entry(params, "Optional trial duration (s)", self.trial_duration)
+        ttk.Label(params,text="Leave blank for full records. A short-duration trial starts at record time zero and is diagnostic only, not a completed earthquake suite.",wraplength=1000).pack(anchor="w")
         ttk.Checkbutton(params, text="Torsionally sensitive 3D structure (requires at least 3 orthogonal motion pairs)", variable=self.torsion).pack(anchor="w", pady=(5, 0))
         ttk.Label(params, text="T1 is from NBC §5.1 (lesser adopted period); Tn is the highest mode needed for 90% mass participation in each axis. Obtain/verify these in the Modal Analysis GUI. The chosen Rayleigh calibration periods and checked modal damping must keep all inspected modes ≤5%.", wraplength=1060, foreground="#8a3412").pack(anchor="w", pady=(5, 0))
         ttk.Label(root, text="Model requirement: use a 3D linear model with NBC §3.4 effective stiffness. `algorithm('Linear')` does not convert Concrete02/Steel02/forceBeamColumn fiber elements into linear elastic elements. Build walls (including openings), frame, diaphragms, supports, seismic mass, P-Delta effects, inherent mass eccentricity and completed NBC §5.2 gravity preload in the selected script. This runner freezes gravity with `ops.loadConst('-time', 0.0)`. It does not spectrum-match motions; scale factors must be checked against NBC §9.3.2.2 (0.33–3.0, same factor on both pair components). Your paired records are already matched; use 1.0 to retain them unchanged unless your verified matching workflow specifies otherwise. X-only mode is directional screening, not a substitute for paired 3D analysis.", wraplength=1060, foreground="#8a3412").pack(anchor="w", pady=(0, 8))
@@ -543,6 +554,10 @@ class LinearTimeHistoryGUI:
             if values["damping_ratio_percent"] > 5.0: raise ValueError("NBC 105:2025 §8.1.1: linear viscous damping cannot exceed 5%.")
             if values["modes_to_check"] < 1: raise ValueError("Check at least one eigenmode.")
             # Validate CSV and motion metadata before starting a long analysis.
+            trial_text=self.trial_duration.get().strip()
+            values["trial_duration_s"]=float(trial_text) if trial_text else None
+            if values["trial_duration_s"] is not None and (not math.isfinite(values["trial_duration_s"]) or values["trial_duration_s"]<=0):
+                raise ValueError("Trial duration must be a positive finite number of seconds")
             _read_inputs(values)
             out = Path(values["output_dir"]); out.mkdir(parents=True, exist_ok=True)
             from datetime import datetime
