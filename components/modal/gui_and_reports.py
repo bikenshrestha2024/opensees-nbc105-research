@@ -211,6 +211,7 @@ class ModalAuditGUI:
         tk.Label(form, text="Select a complete OpenSees model builder with the intended geometry, constraints, seismic mass and gravity state. This audit runs it in a separate process and does not retain its domain for later analyses.", wraplength=870, foreground="#9a4b24", anchor="w", justify="left").pack(anchor="w", pady=(8, 4))
         tk.Checkbutton(form, text="I reviewed the model script, mass source, constraints and gravity preload for this modal run.", variable=self.confirm, wraplength=840, anchor="w", justify="left").pack(anchor="w", pady=5)
         self.run_button=ttk.Button(outer, text="Run selected SLS / ULS modal audit", command=self._run);self.run_button.pack(anchor="w", pady=10)
+        self.stop_button=ttk.Button(outer,text="Stop current modal solver and skip queued states",command=self._stop_modal,state="disabled");self.stop_button.pack(anchor="w",pady=3)
         from OpenSees_Research_UI_V123 import copyable_log
         from components.shared.case_status import panel
         self.case_board=panel(outer)
@@ -264,6 +265,13 @@ class ModalAuditGUI:
         p = filedialog.askdirectory(parent=self.root)
         if p: self.output.set(p)
 
+    def _stop_modal(self):
+        self.case_board["cancelled"]=True
+        proc=self.case_board.get("process")
+        if proc is not None and proc.poll() is None:
+            proc.terminate()
+        self.status.set("Modal cancellation requested; terminating child solver and skipping queued states")
+
     def _run(self):
         try:
             model = Path(self.model.get()).expanduser().resolve()
@@ -292,7 +300,7 @@ class ModalAuditGUI:
         ledger=CaseLedger(output/"Modal_Batch_Status_V151.json",states);self.case_board["ledger"]=ledger;self.case_board["cancelled"]=False
         base_output=output
         solver=self.solver.get()
-        self.run_button.configure(state='disabled')
+        self.run_button.configure(state='disabled');self.stop_button.configure(state='normal')
         def worker():
             messages=[]
             try:
@@ -314,6 +322,10 @@ class ModalAuditGUI:
                             if "[NBC105 MODAL]" in line:ledger.set(state,"RUNNING","Stage 3/3: reports and mass participation")
                             self.root.after(0,lambda text=line:self.status.set(text.rstrip()))
                     proc.wait()
+                    if self.case_board.get('cancelled'):
+                        ledger.set(state,'CANCELLED','Operator stopped the modal subprocess; results incomplete')
+                        messages.append(f'{state}: CANCELLED by operator; inspect {log}')
+                        break
                     if proc.returncode:
                         msg = f"Run failed (exit {proc.returncode}). See {log}"
                     else:
@@ -339,7 +351,8 @@ class ModalAuditGUI:
                 self.root.after(0,lambda error_text=error_text:self.status.set('Error: '+error_text))
             finally:
                 ledger.finish_pending("Batch interrupted before completion; inspect log")
-                self.root.after(0,lambda:self.run_button.configure(state='normal'))
+                self.case_board['process']=None
+                self.root.after(0,lambda:(self.run_button.configure(state='normal'),self.stop_button.configure(state='disabled')))
         threading.Thread(target=worker, daemon=True).start()
 
     def run(self):
