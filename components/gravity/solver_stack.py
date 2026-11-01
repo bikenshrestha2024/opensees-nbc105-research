@@ -154,7 +154,7 @@ def run_static_analysis(ops, nsteps, *, tolerance=1.0e-8,
                         max_iterations=50, algorithm="Newton",
                         system=DEFAULT_SYSTEM, system_options=(), numberer=DEFAULT_NUMBERER,
                         constraints=DEFAULT_CONSTRAINTS, diagnostic_path=None,
-                        element_labels=None):
+                        element_labels=None, on_accept=None):
     """Run static steps and raise if OpenSees reports failure.
 
     For incremental gravity, set nsteps and the LoadControl increment to suit
@@ -169,7 +169,15 @@ def run_static_analysis(ops, nsteps, *, tolerance=1.0e-8,
     ops.algorithm(str(algorithm))
     ops.integrator("LoadControl", 1.0 / nsteps)
     ops.analysis("Static")
-    status = int(ops.analyze(nsteps))
+    if on_accept is None:
+        status = int(ops.analyze(nsteps))
+    else:
+        status = 0
+        for _ in range(nsteps):
+            status = int(ops.analyze(1))
+            if status != 0:
+                break
+            on_accept()
     if status != 0:
         diagnostic_note = ""
         if diagnostic_path is not None:
@@ -201,7 +209,8 @@ def run_gravity_stage(ops, support_nodes, total_applied_vertical_load_kN, *,
                      algorithm="Newton", equilibrium_tolerance_percent=0.5,
                      freeze=True, system=DEFAULT_SYSTEM, numberer=DEFAULT_NUMBERER,
                      constraints=DEFAULT_CONSTRAINTS, system_options=(),
-                     diagnostic_path=None, element_labels=None, adaptive=False):
+                     diagnostic_path=None, element_labels=None, adaptive=False,
+                     response_output_dir=None, story_masters=()):
     """Run incremental gravity, check vertical equilibrium, and freeze loads.
 
     ``total_applied_vertical_load_kN`` is the verified positive magnitude of
@@ -226,6 +235,22 @@ def run_gravity_stage(ops, support_nodes, total_applied_vertical_load_kN, *,
         raise ValueError("equilibrium_tolerance_percent cannot be negative")
     started = time.perf_counter()
     diagnostics = None
+    gravity_samples = []
+
+    def capture_gravity_sample():
+        ops.reactions()
+        row = {
+            "load_factor": float(ops.getTime()),
+            "applied_vertical_load_kN": applied * float(ops.getTime()),
+            "support_reaction_Fz_kN": sum(
+                float(ops.nodeReaction(node, 3)) for node in supports
+            ),
+        }
+        for story in story_masters:
+            name = str(story["story_name"])
+            row[name + "_Uz_m"] = float(ops.nodeDisp(int(story["node"]), 3))
+        gravity_samples.append(row)
+
     if adaptive:
         _configure_common(ops,system=system,system_options=system_options,
                           numberer=numberer,constraints=constraints)
@@ -270,6 +295,8 @@ def run_gravity_stage(ops, support_nodes, total_applied_vertical_load_kN, *,
                     )
                 continue
             accepted+=1
+            if response_output_dir is not None:
+                capture_gravity_sample()
             if time.perf_counter()-last>5:
                 last=time.perf_counter();print(f'[GRAVITY PROGRESS] factor={ops.getTime():.6f}/1; accepted={accepted}; recoveries={recoveries}; wall={last-started:.1f}s',flush=True)
         print(f'[GRAVITY STEPS] accepted={accepted} recovery_attempts={recoveries}',flush=True)
@@ -278,7 +305,9 @@ def run_gravity_stage(ops, support_nodes, total_applied_vertical_load_kN, *,
             ops,nsteps=nsteps,tolerance=tolerance,max_iterations=max_iterations,
             algorithm=algorithm,system=system,system_options=system_options,
             numberer=numberer,constraints=constraints,
-            diagnostic_path=diagnostic_path,element_labels=element_labels)
+            diagnostic_path=diagnostic_path,element_labels=element_labels,
+            on_accept=capture_gravity_sample
+            if response_output_dir is not None else None)
     ops.reactions()
     reaction = sum(float(ops.nodeReaction(n, 3)) for n in supports)
     error_percent = 100.0 * abs(reaction - applied) / applied
@@ -309,6 +338,69 @@ def run_gravity_stage(ops, support_nodes, total_applied_vertical_load_kN, *,
     if freeze:
         freeze_gravity_loads(ops, pseudo_time=0.0)
         result["gravity_frozen"] = True
+    if response_output_dir is not None:
+        import csv
+        from components.shared.response_recorders import write_recorder_index
+
+        response_dir = Path(response_output_dir)
+        response_dir.mkdir(parents=True, exist_ok=True)
+        displacement_path = response_dir / "Gravity_Node_Displacements.csv"
+        with displacement_path.open("w", newline="", encoding="utf-8-sig") as stream:
+            fields = ["node_tag", "x_m", "y_m", "z_m", "Ux_m", "Uy_m",
+                      "Uz_m", "Rx_rad", "Ry_rad", "Rz_rad"]
+            writer = csv.DictWriter(stream, fieldnames=fields)
+            writer.writeheader()
+            for node in model_nodes or ops.getNodeTags():
+                tag = int(node)
+                xyz = list(ops.nodeCoord(tag)) + [0.0] * 3
+                displacement = list(ops.nodeDisp(tag)) + [0.0] * 6
+                writer.writerow(dict(
+                    node_tag=tag, x_m=float(xyz[0]), y_m=float(xyz[1]),
+                    z_m=float(xyz[2]),
+                    **{fields[i + 4]: float(displacement[i])
+                       for i in range(6)}))
+        ops.reactions()
+        reaction_path = response_dir / "Gravity_Support_Reactions.csv"
+        with reaction_path.open("w", newline="", encoding="utf-8-sig") as stream:
+            fields = ["node_tag", "Fx_kN", "Fy_kN", "Fz_kN",
+                      "Mx_kNm", "My_kNm", "Mz_kNm"]
+            writer = csv.DictWriter(stream, fieldnames=fields)
+            writer.writeheader()
+            for node in supports:
+                reactions = [float(ops.nodeReaction(node, dof))
+                             for dof in range(1, 7)]
+                writer.writerow(dict(node_tag=node, **dict(zip(fields[1:], reactions))))
+        settlement_path = response_dir / "Gravity_Load_Settlement.csv"
+        with settlement_path.open("w", newline="", encoding="utf-8-sig") as stream:
+            fields = list(dict.fromkeys(
+                key for row in gravity_samples for key in row))
+            writer = csv.DictWriter(stream, fieldnames=fields)
+            writer.writeheader()
+            writer.writerows(gravity_samples)
+        result["response_recorder_files"] = {
+            "node_displacements": str(displacement_path),
+            "support_reactions": str(reaction_path),
+            "load_settlement": str(settlement_path),
+        }
+        result["response_recorder_index"] = str(write_recorder_index(
+            response_dir, "gravity",
+            [
+                (displacement_path.name, [
+                    "node_tag", "x_m", "y_m", "z_m", "Ux_m", "Uy_m",
+                    "Uz_m", "Rx_rad", "Ry_rad", "Rz_rad"]),
+                (reaction_path.name, ["node_tag", "Fx_kN", "Fy_kN",
+                                      "Fz_kN", "Mx_kNm", "My_kNm", "Mz_kNm"]),
+                (settlement_path.name, ["load_factor",
+                                        "applied_vertical_load_kN",
+                                        "support_reaction_Fz_kN"] + [
+                    str(story["story_name"]) + "_Uz_m"
+                    for story in story_masters]),
+            ],
+            notes=[
+                "Gravity_Load_Settlement.csv records committed adaptive increments; non-adaptive runs record the final converged state.",
+                "Node displacements are total gravity-preloaded state in model units (kN-m model: m).",
+            ],
+        ))
     result["elapsed_seconds"] = time.perf_counter() - started
     print(
         "[GRAVITY] PASS | "

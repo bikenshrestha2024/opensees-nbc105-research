@@ -95,12 +95,82 @@ def _series(modal_properties, key, n, fallback=None):
     return values + [None] * (n - len(values))
 
 
+def modal_response_nodes(model_data):
+    """Choose diaphragm masters and actual perimeter-extreme nodes for torsion review."""
+    nodes = model_data["nodes"]
+    result = []
+    seen = set()
+    for group in sorted(model_data.get("diaphragms", []),
+                        key=lambda item: item["master_xyz"][2]):
+        story = "Storey_" + str(group["storey_number"])
+        master = int(group["master_tag"])
+        candidates = [(master, "master")]
+        slaves = [
+            (int(tag), nodes.get(str(tag), nodes.get(tag)))
+            for tag in group.get("slave_node_tags", [])
+            if nodes.get(str(tag), nodes.get(tag)) is not None
+        ]
+        if slaves:
+            for axis, label in ((0, "x_min"), (0, "x_max"),
+                                (1, "y_min"), (1, "y_max")):
+                extreme = min(slaves, key=lambda item: item[1][axis]) if label.endswith("min") else max(slaves, key=lambda item: item[1][axis])
+                candidates.append((extreme[0], label))
+        for tag, role in candidates:
+            if tag in seen:
+                continue
+            seen.add(tag)
+            xyz = nodes.get(str(tag), nodes.get(tag))
+            if xyz is None and tag == master:
+                xyz = group["master_xyz"]
+            if xyz is None:
+                raise ValueError(f"Modal response node {tag} has no coordinates.")
+            result.append(dict(
+                story_name=story, node_tag=tag, role=role,
+                x_m=float(xyz[0]), y_m=float(xyz[1]), z_m=float(xyz[2])))
+    return result
+
+
+def export_story_mode_shapes(ops, eigvals, periods, story_nodes, output_dir):
+    """Export raw and per-mode normalized diaphragm/perimeter mode ordinates."""
+    out = Path(output_dir)
+    out.mkdir(parents=True, exist_ok=True)
+    rows = []
+    for mode, (eigenvalue, period) in enumerate(zip(eigvals, periods), 1):
+        mode_rows = []
+        for node in story_nodes:
+            vector = [float(ops.nodeEigenvector(
+                int(node["node_tag"]), mode, dof)) for dof in range(1, 7)]
+            mode_rows.append(dict(
+                mode=mode, eigenvalue_s_2=float(eigenvalue),
+                period_s=float(period), story_name=node["story_name"],
+                node_tag=int(node["node_tag"]), node_role=node["role"],
+                x_m=node["x_m"], y_m=node["y_m"], z_m=node["z_m"],
+                ux_raw=vector[0], uy_raw=vector[1], uz_raw=vector[2],
+                rx_raw=vector[3], ry_raw=vector[4], rz_raw=vector[5]))
+        normalization = max(
+            (max(abs(row["ux_raw"]), abs(row["uy_raw"]), abs(row["uz_raw"]))
+             for row in mode_rows), default=0.0)
+        for row in mode_rows:
+            row["translation_normalization"] = normalization
+            row["ux_normalized"] = row["ux_raw"] / normalization if normalization else 0.0
+            row["uy_normalized"] = row["uy_raw"] / normalization if normalization else 0.0
+            row["uz_normalized"] = row["uz_raw"] / normalization if normalization else 0.0
+        rows.extend(mode_rows)
+    path = out / "Modal_Story_Mode_Shapes.csv"
+    if rows:
+        with path.open("w", newline="", encoding="utf-8-sig") as stream:
+            writer = csv.DictWriter(stream, fieldnames=list(rows[0]))
+            writer.writeheader()
+            writer.writerows(rows)
+    return path
+
+
 @timed_outputs('Modal analysis','output_dir')
 def run_nbc105_modal_audit(ops, *, nmodes=30, output_dir=".",
                            solver="PythonSparse", target_mass_percent=90.0,
                            max_frequency_hz=33.0, report_prefix="NBC105_Modal_V111",
                            period_inputs=None, fundamental_mode_x=None,
-                           fundamental_mode_y=None):
+                           fundamental_mode_y=None, story_nodes=()):
     """Run eigenanalysis and write CSV/JSON/text audit files.
 
     Args:
@@ -172,6 +242,11 @@ def run_nbc105_modal_audit(ops, *, nmodes=30, output_dir=".",
             "above_33_Hz_missing_mass_followup_required": bool(freqs[i] >= float(max_frequency_hz)),
         })
 
+    mode_shape_path = None
+    if story_nodes:
+        mode_shape_path = export_story_mode_shapes(
+            ops, eigvals, periods, story_nodes, output_dir)
+
     ux_final = ux_cum[-1]
     uy_final = uy_cum[-1]
     ux_ok = ux_final is not None and ux_final >= float(target_mass_percent)
@@ -222,6 +297,7 @@ def run_nbc105_modal_audit(ops, *, nmodes=30, output_dir=".",
         "modal_combination": "NOT PERFORMED: apply an accepted method such as CQC/SRSS per NBC 105:2025 §7.4; for closely spaced modes within 15%, observe §7.4(b).",
         "base_shear_scaling": "NOT PERFORMED: compare combined MRSM base shear with ESM base shear and apply §7.5 when required.",
         "rows": rows,
+        "story_mode_shapes_csv": str(mode_shape_path) if mode_shape_path else None,
     }
     out = Path(output_dir).expanduser().resolve()
     out.mkdir(parents=True, exist_ok=True)

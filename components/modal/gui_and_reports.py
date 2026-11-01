@@ -31,11 +31,14 @@ try:
     os.environ['OPENSEES_LIMIT_STATE']={limit_state!r}
     runpy.run_path(str(MODEL), run_name='opensees_modal_model')
     import openseespy.opensees as ops
-    from OpenSees_Modal_Analysis_NBC105_V111 import run_nbc105_modal_audit
+    from OpenSees_Modal_Analysis_NBC105_V111 import run_nbc105_modal_audit, modal_response_nodes
+    model_data_path=MODEL.parent/'OpenSees_Complete_Model_Data_V118.json'
+    story_nodes=modal_response_nodes(json.loads(model_data_path.read_text(encoding='utf-8-sig'))) if model_data_path.is_file() else []
     run_nbc105_modal_audit(ops, nmodes={int(nmodes)}, output_dir=OUT,
                            solver={str(solver)!r},
                            period_inputs={period_inputs!r},
-                           fundamental_mode_x={mode_x!r}, fundamental_mode_y={mode_y!r})
+                           fundamental_mode_x={mode_x!r}, fundamental_mode_y={mode_y!r},
+                           story_nodes=story_nodes)
     import hashlib
     data=MODEL.parent/'OpenSees_Complete_Model_Data_V118.json'
     target=OUT/'NBC105_Modal_V111.json'

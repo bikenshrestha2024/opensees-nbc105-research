@@ -47,7 +47,11 @@ def run_model_spectrum(folder,config,output_dir):
         print('[MRSM START]',state,axis,flush=True)
         build_complete_model(folder,mode='elastic',preload=True,limit_state=state)
         print('[MRSM STAGE]',state,axis,'gravity converged; solving eigenmodes, then CQC response and NBC force scaling. This is one state of the selected batch.',flush=True)
-        modal=run_nbc105_modal_audit(ops,nmodes=int(config.get('nmodes',40)),output_dir=out/('Modal_'+axis))
+        from components.modal.analysis import modal_response_nodes
+        modal=run_nbc105_modal_audit(
+            ops, nmodes=int(config.get('nmodes',40)),
+            output_dir=out/('Modal_'+axis),
+            story_nodes=modal_response_nodes(data))
         modal.update(limit_state=state,model_sha256=model_signature,implementation_sha256=source_signature,modal_numeric_sha256=numeric_signature)
         cache=folder/'OpenSees_Analysis_Results'/('Modal_'+state+('' if __import__('os').environ.get('OPENSEES_GRAVITY_PROFILE','AS_CONFIGURED')=='AS_CONFIGURED' else '_'+__import__('os').environ['OPENSEES_GRAVITY_PROFILE']));cache.mkdir(parents=True,exist_ok=True)
         from OpenSees_Timing_V130 import StageTimer
@@ -126,6 +130,16 @@ def run_model_spectrum(folder,config,output_dir):
                 for j,value in enumerate(f[offset:offset+size]):force_rows.append(dict(element_tag=tag,global_component_index=j+1,scaled_modal_force=float(value),unit='kN for translational components; kN m for rotational components',note='CQC seismic envelope only; combine gravity separately and preserve action correlations for member design.'))
                 offset+=size
             write_csv(out/(state+'_'+case_axis+'_Element_Force_Envelopes_V132.csv'),force_rows)
+            profile_path=out/(state+'_'+case_axis+'_CQC_Story_Response_Profile.csv')
+            write_csv(profile_path,[
+                dict(story_number=r["story_number"],height_m=r["height_m"],
+                     elastic_displacement_m=r["elastic_displacement_m"],
+                     design_displacement_m=r["design_displacement_m"],
+                     elastic_drift_ratio=r["elastic_drift_ratio"],
+                     design_drift_ratio=r["design_drift_ratio"],
+                     scaled_story_shear_kN=r["scaled_story_shear_kN"])
+                for r in story_result
+            ])
             deformation=dict(nodes=display_nodes,limit_state=state,response_case=case_axis,dof_names=['Ux','Uy','Uz','Rx','Ry','Rz'],dof_availability=[True]*6,eccentricity_sign=ecc_sign,elements=[e['nodes'] for e in data['frames']+data['shells']],displacements={str(n):(u[j]*amp).tolist() for j,n in enumerate(display_ns)},note=state+' '+axis+' MRSM component-wise positive CQC envelope; not a simultaneous physical shape. Force base-shear scale is not applied.')
             (out/('Deformation_MRSM_'+state+'_'+case_axis+'_V132.json')).write_text(json.dumps(deformation),encoding='utf-8')
             result=dict(gravity_profile=__import__('os').environ.get('OPENSEES_GRAVITY_PROFILE','AS_CONFIGURED'),limit_state=state,axis=axis,accidental_eccentricity_sign=ecc_sign,unscaled_modal_base_shear_kN=raw_V,reference_ESM_base_shear_kN=reference['base_shear_kN'],force_scale=scale,scaled_modal_base_shear_kN=raw_V*scale,displacement_scale_from_7_5=1.,drift_amplification=amp,combination='CQC, equal modal damping',mass_participation_percent=modal['cumulative_U'+axis+'_percent'],stories=story_result,modal_base_shears_kN=modal_V,modal_rows=rows,units='kN m s; dimensionless Cd converted to m/s2 using 9.80665',scope='Elastic model with inherent torsion plus signed 5 percent per-floor eccentric inertia torque; lumped floor influence vector on unchanged eigenmodes. Orthogonal member design combinations require review; member design not performed.',status='ANALYSIS COMPLETE / DESIGN COMBINATIONS REQUIRE REVIEW')
@@ -134,6 +148,27 @@ def run_model_spectrum(folder,config,output_dir):
             result['modal_force_equilibrium_max_relevant_percent']=max(relevant or [0.])
             result['modal_force_equilibrium_note']='Native elastic RSA force diagnostic about a gravity-preloaded geometric model; inspect residuals. 1 percent is an implementation review threshold, not an NBC-prescribed tolerance.'
             if max(relevant or [0.])>1.:result['status']='FORCE EQUILIBRIUM NEEDS REVIEW - do not use member force envelopes for design'
+            from components.shared.response_recorders import write_recorder_index
+            write_recorder_index(
+                out, "modal_response_spectrum",
+                [
+                    (profile_path.name, [
+                        "story displacement", "story drift", "scaled story shear"]),
+                    (state+'_'+case_axis+'_Support_Reactions_V132.csv', [
+                        "component-wise CQC support reaction envelope"]),
+                    (state+'_'+case_axis+'_Element_Force_Envelopes_V132.csv', [
+                        "component-wise CQC element force envelope"]),
+                    ('Deformation_MRSM_'+state+'_'+case_axis+'_V132.json', [
+                        "component-wise CQC nodal displacement envelope"]),
+                    ('Modal_'+axis+'/Modal_Story_Mode_Shapes.csv', [
+                        "raw and normalized diaphragm/perimeter mode shapes"]),
+                ],
+                notes=[
+                    "CQC displacement, drift, support-reaction and force envelopes are independently combined components; they are not one simultaneous physical response state and must not be interpreted as a hysteresis path.",
+                    "Gravity effects and correlated member design combinations require separate review.",
+                ],
+                filename="Response_Recorder_Index_"+state+"_"+case_axis+".json",
+            )
             results[case_axis]=result;print('[MRSM COMPLETE]',state,case_axis,'| '+('centered e=0' if ecc_sign==0 else ('signed eccentricity +5% breadth' if ecc_sign==1 else 'signed eccentricity -5% breadth')),'| Vraw=',raw_V,'| force S=',scale,flush=True)
     (out/'MRSM_Results_V132.json').write_text(json.dumps(results,indent=2),encoding='utf-8')
     import matplotlib

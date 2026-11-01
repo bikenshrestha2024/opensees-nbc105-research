@@ -39,7 +39,7 @@ def _runner_source(model_script, result_path, support_nodes, applied_kN, nsteps)
         "    from OpenSees_Analysis_Stack_V110 import run_gravity_stage",
         "    node_tags = [int(n) for n in ops.getNodeTags()]",
         "    element_tags = [int(e) for e in ops.getEleTags()]",
-        "    report = run_gravity_stage(ops, SUPPORT_NODES, APPLIED_VERTICAL_LOAD_KN, model_nodes=node_tags, nsteps=NSTEPS, freeze=True, system='UmfPack')",
+        "    report = run_gravity_stage(ops, SUPPORT_NODES, APPLIED_VERTICAL_LOAD_KN, model_nodes=node_tags, nsteps=NSTEPS, freeze=True, system='UmfPack', response_output_dir=RESULT_PATH.parent / 'Gravity_Response')",
         "    ops.reactions()",
         "    nodes = []",
         "    for n in node_tags:",

@@ -86,21 +86,34 @@ class ReviewFixes(unittest.TestCase):
         for node in ast.walk(source):
             if isinstance(node,ast.List):
                 lines=[x.value if isinstance(x,ast.Constant) and isinstance(x.value,str) else None for x in node.elts]
-                if 'ok = ops.analyze(10)' in lines:
-                    i=lines.index('ok = ops.analyze(10)'); j=lines.index('ops.reactions()',i)
+                if 'ESM_BASE_CURVE=[]' in lines:
+                    i=lines.index('ESM_BASE_CURVE=[]')
+                    j=lines.index('if abs(float(ops.getLoadFactor(ESM_LOAD_PATTERN_TAG)) - 1.0) > 1.0e-8:',i)
                     block='\n'.join(lines[i:j]); break
         self.assertIsNotNone(block)
         class PartialFailure:
-            def __init__(self, accepted): self.factor=0.; self.step=.1; self.accepted=accepted
+            def __init__(self, accepted): self.factor=0.; self.step=.1; self.accepted=accepted; self.calls=0; self.failed=False
             def analyze(self,n):
-                if n==10: self.factor=self.accepted*.1; return -3
-                self.factor+=self.step; return 0
+                self.assert_single_step(n)
+                if self.calls==self.accepted and not self.failed:
+                    self.failed=True; return -3
+                self.factor+=self.step; self.calls+=1; return 0
+            def assert_single_step(self,n):
+                if n!=1: raise AssertionError('Expected accepted-step analysis')
             def getLoadFactor(self,tag): return self.factor
+            def getTime(self): return self.factor
             def integrator(self,kind,step): self.step=step
+            def reactions(self): pass
+            def nodeReaction(self,node,dof): return -self.factor if dof==1 else 0.
+            def nodeDisp(self,node,dof): return self.factor
             def __getattr__(self,name): return lambda *a: None
         for accepted in (0,1,5,9):
             fake=PartialFailure(accepted)
-            exec(compile(block,'esm_recovery','exec'),dict(ops=fake,ESM_LOAD_PATTERN_TAG=98001))
+            exec(compile(block,'esm_recovery','exec'),dict(
+                ops=fake, ESM_LOAD_PATTERN_TAG=98001, DOF=1,
+                ESM_LOADS=[dict(height_m=3.,master_node_tag=10)],
+                ESM_SUPPORT_NODES=[1], BASE_REACTION_BEFORE_KN=0.,
+                GRAVITY_BASELINE_U={10:0.}))
             self.assertAlmostEqual(fake.factor,1.)
 
     def test_converter_signed_area_pressure(self):

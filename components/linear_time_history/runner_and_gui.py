@@ -115,8 +115,26 @@ def _run_analysis(config):
                 node_tags = set(int(x) for x in ops.getNodeTags())
                 missing = [s["node"] for s in stories if s["node"] not in node_tags]
                 if missing: raise RuntimeError(f"Story master nodes missing from model: {missing}")
+                export_data_path = model.parent / "OpenSees_Complete_Model_Data_V118.json"
+                if not export_data_path.is_file():
+                    raise FileNotFoundError(
+                        "Base-shear recording requires OpenSees_Complete_Model_Data_V118.json "
+                        "beside the selected model script."
+                    )
+                export_data = json.loads(export_data_path.read_text(encoding="utf-8-sig"))
+                support_nodes = [
+                    int(node) for node, flags in export_data["supports"].items()
+                    if any(bool(value) for value in flags[:3])
+                ]
+                if not support_nodes or not set(support_nodes).issubset(node_tags):
+                    raise ValueError("The export support-node mapping is empty or does not match the assembled model.")
                 # Freeze the completed gravity state and reset transient time.
                 ops.loadConst("-time", 0.0)
+                from components.shared.response_recorders import (
+                    append_base_shear, support_resultants,
+                    write_base_shear_roof_curve, write_recorder_index,
+                )
+                base_reaction_reference = support_resultants(ops, support_nodes)
                 periods = (float(config["damping_period_1_s"]), float(config["damping_period_2_s"]))
                 if min(periods) <= 0: raise ValueError("Both Rayleigh calibration periods must be positive.")
                 zeta = float(config["damping_ratio_percent"]) / 100.0
@@ -191,14 +209,19 @@ def _run_analysis(config):
                     row = {"time_s": float(ops.getTime())}
                     for story in stories:
                         disp = ops.nodeDisp(story["node"])
+                        acceleration = ops.nodeAccel(story["node"])
                         row[f"{story['story_name']}_UX_m"] = (float(disp[0])-gravity_offsets[story["node"]][0]) * model_length_to_m
                         row[f"{story['story_name']}_UY_m"] = (float(disp[1])-gravity_offsets[story["node"]][1]) * model_length_to_m
                         row[f"{story['story_name']}_RZ_rad"] = float(disp[5])-gravity_offsets[story["node"]][5] if len(disp)>5 else 0.
+                        row[f"{story['story_name']}_UX_relative_accel_m_s2"] = float(acceleration[0]) * model_length_to_m
+                        row[f"{story['story_name']}_UY_relative_accel_m_s2"] = float(acceleration[1]) * model_length_to_m
                     for i, story in enumerate(stories):
                         for axis, col in (("X", "UX"), ("Y", "UY")):
                             current = row[f"{story['story_name']}_{col}_m"]
                             below = row[f"{stories[i-1]['story_name']}_{col}_m"] if i else 0.0
                             row[f"{story['story_name']}_drift_{axis}"] = (current - below) / story["height"]
+                    append_base_shear(
+                        row, ops, support_nodes, base_reaction_reference)
                     lines.append(row)
                     stream.append(row)
                     profiler.sample_seconds+=time.perf_counter()-sample_clock
@@ -213,6 +236,27 @@ def _run_analysis(config):
                 history_metadata(csv_path,config['model_script'],stories,config['limit_state'])
                 from OpenSees_Response_Checks_V132 import export_history_checks
                 edge_peaks=export_history_checks(lines,stories,out,case,config['limit_state'],config['model_script'])
+                base_curve_path = write_base_shear_roof_curve(
+                    out / f"NBC105_LTH_{case}_BaseShear_RoofDisplacement.csv",
+                    lines, stories[-1]["story_name"])
+                write_recorder_index(
+                    out, "linear_time_history",
+                    [
+                        (csv_path.name, [
+                            "accepted-step time", "all-story Ux/Uy/Rz",
+                            "all-story relative UX/UY acceleration",
+                            "all-story drift X/Y", "signed support reactions",
+                            "base shear X/Y"]),
+                        (base_curve_path.name, [
+                            "time_s", "roof_UX_m", "roof_UY_m",
+                            "base_shear_X_kN", "base_shear_Y_kN"]),
+                    ],
+                    notes=[
+                        "Base shear is the negative change in summed support reaction relative to the gravity-frozen initial state.",
+                        "BaseShear_RoofDisplacement is a synchronized hysteresis/history curve, not a component-wise envelope.",
+                    ],
+                    filename=f"Response_Recorder_Index_{case}.json",
+                )
                 drift_limit = 0.025 if config["limit_state"] == "ULS" else 0.006
                 peak = {"case": case, "pair_id": motion["pair_id"], "field_type": motion.get("field_type", "Custom"), "orientation": orientation,
                     "scale_factor": motion["scale"], "acceleration_units": motion["units"], "record_dt_min_s": dt_record,
@@ -598,6 +642,3 @@ def main():
 
 
 if __name__ == "__main__": main()
-
-
-

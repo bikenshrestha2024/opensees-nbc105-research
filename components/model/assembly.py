@@ -739,7 +739,16 @@ def build_complete_model(folder, *, mode='elastic', preload=False, limit_state='
             system_options=gravity_system_options,
             diagnostic_path=diagnostic_path,
             element_labels=element_labels,
-            adaptive=research_profile=='LITERATURE_BUILDING_NL_V161')
+            adaptive=research_profile=='LITERATURE_BUILDING_NL_V161',
+            response_output_dir=folder/'OpenSees_Analysis_Results'/(
+                'Gravity_Response_'+limit_state+'_'+mode+'_'+
+                str(research_profile or 'STANDARD')),
+            story_masters=[
+                dict(story_name='Storey_'+str(g['storey_number']),
+                     node=int(g['master_tag']))
+                for g in sorted(data['diaphragms'],
+                                key=lambda item:item['master_xyz'][2])
+            ])
         from OpenSees_Model_Audit_V130 import check_kinematics
         gravity_report['diaphragm_kinematics']=check_kinematics(ops,data)
         gravity_report['gravity_context']=gravity_context

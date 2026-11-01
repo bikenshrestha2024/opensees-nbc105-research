@@ -114,6 +114,10 @@ def _run(config):
     from OpenSees_Nonlinear_Time_History_NBC105_V116 import _advance_nonlinear_interval,_configure_nonlinear_transient
     from OpenSees_Step13_Analysis_Basis_V115 import rayleigh_coefficients
     from OpenSees_Response_Checks_V132 import export_history_checks
+    from components.shared.response_recorders import (
+        append_base_shear, support_resultants, write_base_shear_roof_curve,
+        write_recorder_index, write_rows,
+    )
     full_wall=bool(config.get('nonlinear_walls',False))
     profile=profile_for_config(config)
     _RUN_CONTEXT.update(profile=profile,diagnostic_excitation=excitation,
@@ -156,6 +160,13 @@ def _run(config):
             limit_state=config.get('limit_state','ULS'),
             research_profile=profile, gravity_system=gravity_system)
         import openseespy.opensees as ops
+        support_nodes=[
+            int(node) for node,flags in data['supports'].items()
+            if any(bool(value) for value in flags[:3])
+        ]
+        if not support_nodes:
+            raise ValueError('The assembled model export has no support nodes for base-shear recording.')
+        base_reaction_reference=support_resultants(ops,support_nodes)
         if full_wall:
             shutil.copy2(model/'Research_Material_Assignment_V161.json',case/'Research_Material_Assignment_V161.json')
         groups=sorted(data['diaphragms'],key=lambda r:r['master_xyz'][2]);baseline={g['master_tag']:list(ops.nodeDisp(g['master_tag'])) for g in groups}
@@ -193,11 +204,16 @@ def _run(config):
             row={'time_s':ops.getTime()};previous=[0.]*6
             for story,g in zip(stories,groups):
                 u=[a-b for a,b in zip(ops.nodeDisp(g['master_tag']),baseline[g['master_tag']])];name=story['story_name']
+                acceleration=list(ops.nodeAccel(g['master_tag']))
                 for j,axis in enumerate(('X','Y','Z')):row[name+'_U'+axis+'_m']=u[j]
+                row[name+'_UX_relative_accel_m_s2']=acceleration[0]
+                row[name+'_UY_relative_accel_m_s2']=acceleration[1]
                 for j,axis in enumerate(('X','Y','Z'),3):row[name+'_R'+axis+'_rad']=u[j]
                 row[name+'_RZ_rad']=u[5]
                 for j,axis in enumerate(('X','Y')):row[name+'_drift_'+axis]=(u[j]-previous[j])/story['height']
                 previous=u
+            append_base_shear(
+                row,ops,support_nodes,base_reaction_reference)
             force=list(ops.eleResponse(tracked,'localForce'))
             section=list(ops.eleResponse(tracked,'section',1,'deformation'))
             if len(force)==12:
@@ -238,6 +254,72 @@ def _run(config):
                        accepted_history_rows=len(rows),completed_time_s=ops.getTime())
         (case/'NBC105_Exploratory_Time_History_RunConfig_V138.json').write_text(json.dumps(dict(model_script='../isolated_model/OpenSees_Complete_Model_Data_V118.json',scope=assumptions['scope'])),encoding='utf-8')
         export_history_checks(rows,stories,case,'EXPLORATORY_'+orientation,config.get('limit_state','ULS'),model_script=str(model/'OpenSees_Complete_Model_Data_V118.json'))
+        base_curve_path=write_base_shear_roof_curve(
+            case/('BaseShear_RoofDisplacement_'+orientation+'.csv'),
+            rows,stories[-1]['story_name'])
+        tracked_frame_curve=[]
+        for row in rows:
+            if 'selected_frame_My_kNm' in row and 'section_kappa_z_1_per_m' in row:
+                tracked_frame_curve.append(dict(
+                    time_s=row['time_s'],
+                    selected_frame_N_kN=row.get('selected_frame_N_kN'),
+                    selected_frame_My_kNm=row['selected_frame_My_kNm'],
+                    section_axial_strain=row.get('section_axial_strain'),
+                    section_kappa_z_1_per_m=row['section_kappa_z_1_per_m'],
+                    section_kappa_y_1_per_m=row.get('section_kappa_y_1_per_m')))
+        tracked_frame_path=None
+        if tracked_frame_curve:
+            tracked_frame_path=write_rows(
+                case/'Tracked_Frame_Moment_Curvature.csv',
+                tracked_frame_curve)
+        tracked_wall_curve=[]
+        wall_indexes=sorted({
+            int(key.rsplit('_',1)[1])
+            for key in rows[0]
+            if key.startswith('wall_panel_strain_')
+        })
+        for row in rows:
+            for index in wall_indexes:
+                strain_key='wall_panel_strain_'+str(index)
+                stress_key='wall_panel_stress_kN_m2_'+str(index)
+                if strain_key in row and stress_key in row:
+                    tracked_wall_curve.append(dict(
+                        time_s=row['time_s'],panel_component=index,
+                        strain=row[strain_key],
+                        stress_kN_m2=row[stress_key]))
+        tracked_wall_path=None
+        if tracked_wall_curve:
+            tracked_wall_path=write_rows(
+                case/'Tracked_Wall_Stress_Strain.csv',tracked_wall_curve)
+        recorder_files=[
+            (history.name,[
+                'accepted adaptive substep time','all-story Ux/Uy/Uz/Rx/Ry/Rz',
+                'all-story relative UX/UY acceleration',
+                'all-story drift X/Y','incremental support reactions',
+                'signed base shear X/Y','tracked frame forces/section strains',
+                'tracked E-SFI panel response']),
+            (base_curve_path.name,[
+                'time_s','roof_UX_m','roof_UY_m',
+                'base_shear_X_kN','base_shear_Y_kN']),
+            ('Concurrent_Final_Frame_Actions.csv',[
+                'final-time frame end axial/shear/torsion/moments']),
+        ]
+        if tracked_frame_path:
+            recorder_files.append((tracked_frame_path.name,[
+                'selected frame My versus section curvature',
+                'selected frame axial force and section axial strain']))
+        if tracked_wall_path:
+            recorder_files.append((tracked_wall_path.name,[
+                'selected E-SFI wall panel stress-strain histories']))
+        write_recorder_index(
+            case,'nonlinear_time_history',
+            recorder_files,
+            notes=[
+                'Support reactions and base shear are incremental relative to the gravity-frozen state.',
+                'The base-shear/roof-displacement file preserves synchronized accepted states and can be plotted as a hysteresis history.',
+                'Tracked member and wall channels are controlled by tracked_frame_tag and tracked_wall_tag; the final frame-action table covers all frame elements.',
+            ],
+        )
         # Every reported criterion retains the staged-model scope.
         for file in list(case.glob('Drift_Check_*.csv'))+list(case.glob('Floor_Edge_Drift_*.csv')):
             with file.open(encoding='utf-8-sig',newline='') as stream:checks=list(csv.DictReader(stream))
