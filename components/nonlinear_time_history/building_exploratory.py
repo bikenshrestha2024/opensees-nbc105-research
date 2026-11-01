@@ -20,6 +20,15 @@ def profile_for_config(config):
     """Return the research profile selected by the exploratory configuration."""
     return 'LITERATURE_BUILDING_NL_V161' if bool(config.get('nonlinear_walls',False)) else PROFILE
 
+
+def validate_output_separation(source, output):
+    source_path=Path(source).resolve()
+    output_path=Path(output).resolve()
+    if output_path==source_path:
+        raise ValueError('Choose a separate output folder; it may be a subfolder of the model export folder.')
+    return source_path,output_path
+
+
 def diagnostic_record_inputs(records,orientation,excitation):
     """Return records assigned to global X/Y, zeroing only inactive probe axes."""
     if orientation not in ('XY','YX'):
@@ -42,10 +51,10 @@ def _write_failure_report(folder,config,exc,*,filename='INCOMPLETE.json',details
     source=config.get('model_folder')
     output=config.get('output_dir')
     if source and output:
-        source_path=Path(source).resolve()
-        output_path=Path(output).resolve()
-        if output_path==source_path or source_path in output_path.parents:
-            print('[FAILURE REPORT NOT WRITTEN] Output directory must be outside the source model folder.',flush=True)
+        try:
+            validate_output_separation(source,output)
+        except ValueError:
+            print('[FAILURE REPORT NOT WRITTEN] Output directory must be separate from the source model folder.',flush=True)
             return None
     folder=Path(folder)
     folder.mkdir(parents=True,exist_ok=True)
@@ -114,8 +123,7 @@ def _run(config):
                         diagnostic_mass_damping=bool(config.get('diagnostic_mass_damping')))
     import os
     os.environ['OPENSEES_RESEARCH_MATERIAL_BASIS']=config.get('material_basis','PUBLISHED_REFERENCE')
-    source=Path(config['model_folder']).resolve();out=Path(config['output_dir']).resolve()
-    if out==source or source in out.parents:raise ValueError('Output directory must be separate from and outside the source model folder')
+    source,out=validate_output_separation(config['model_folder'],config['output_dir'])
     out.mkdir(parents=True,exist_ok=True)
     model=out/'isolated_model';model.mkdir(exist_ok=True)
     _set_run_stage('reading_records_and_model_inputs')

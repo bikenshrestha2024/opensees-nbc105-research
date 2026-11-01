@@ -57,18 +57,19 @@ def check_kinematics(ops,data):
 
 def implementation_digest(root=None):
     import hashlib
-    root=Path(root or Path(__file__).resolve().parent)
-    paths=sorted((root/'components').rglob('*.py'))
-    return hashlib.sha256(b''.join(str(p.relative_to(root)).encode()+p.read_bytes() for p in paths)).hexdigest()
+    components_root=_find_components_root(root)
+    project_root=components_root.parent
+    paths=sorted(components_root.rglob('*.py'))
+    return hashlib.sha256(b''.join(str(p.relative_to(project_root)).encode()+p.read_bytes() for p in paths)).hexdigest()
 
 
 def modal_numeric_digest(root=None):
     import hashlib
-    root=Path(root or Path(__file__).parent)
+    root=_find_components_root(root)
     paths=['model/assembly.py','gravity/solver_stack.py','sections/definitions.py','modal/analysis.py','model/analysis_basis.py']
     h=hashlib.sha256()
     for name in paths:
-        path=root/'components'/name;h.update(name.encode())
+        path=root/name;h.update(name.encode())
         if name=='model/assembly.py':
             import ast
             tree=ast.parse(path.read_text(encoding='utf-8-sig'))
@@ -76,3 +77,26 @@ def modal_numeric_digest(root=None):
                 if isinstance(node,(ast.FunctionDef,ast.AsyncFunctionDef)) and node.name!='autoselect_inputs':h.update(ast.dump(node,include_attributes=False).encode())
         else:h.update(path.read_bytes())
     return h.hexdigest()
+
+
+def _find_components_root(root=None):
+    """Resolve either a repository root or components root from facade callers."""
+    candidates=[]
+    if root is not None:
+        candidates.extend(Path(root).resolve().parents)
+        candidates.insert(0,Path(root).resolve())
+    module_path=Path(__file__).resolve()
+    candidates.extend((module_path.parent,*module_path.parents))
+    seen=set()
+    for candidate in candidates:
+        if candidate in seen:
+            continue
+        seen.add(candidate)
+        if candidate.name=='components' and (candidate/'model'/'assembly.py').is_file():
+            return candidate
+        nested=candidate/'components'
+        if (nested/'model'/'assembly.py').is_file():
+            return nested
+    raise FileNotFoundError(
+        'Cannot locate components/model/assembly.py from the supplied root or installed package path.'
+    )

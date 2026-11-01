@@ -29,6 +29,8 @@ Run `21_TRACE_FAILED_ELEMENT.py <failed_run_folder> --tag 110280` to map a repor
 
 Exploratory failures now write `INCOMPLETE.json` with the selected profile, failing stage, exception type/message, traceback, run configuration, and solver/probe context. Transient failures also write the same evidence to each orientation's `FAILED.json`, including accepted-history row count and solver retry diagnostics. When a failed step returns non-finite responses, `First_Step_Failure_Evidence.json` records bounded node/element response evidence and maps element tags to source ETABS areas when the element map is available; these post-failure values are clues, not proof of the cause. Evidence from a step recovered by a solver fallback is removed. The GUI writes `Process_Exit.json` alongside `Run.log`, preserving the subprocess exit code and whether the expected summary was produced, including when a native process terminates before Python can write its own failure report. Run outputs must remain outside the source export folder.
 
+The nonlinear exploratory output may be placed in a distinct subfolder of the model export; writing directly to the model export root is rejected. Modal native eigen-solvers fall back to `PythonSparse` if they fail or return incomplete eigenpairs. `-fullGenLapack` is skipped for models above 500 nodes to avoid dense allocation. Modal/RSA source fingerprints resolve from the installed package rather than the process working directory.
+
 Interpretation:
 - Gravity complete + eigen complete is **not** proof of transient stability.
 - ZERO passes, earthquake fails: examine inertial forcing, mass/constraints, wall tangent, and material behavior.

@@ -13,6 +13,7 @@ sys.path.insert(0, str(ROOT))
 from components.nonlinear_time_history.building_exploratory import (
     diagnostic_record_inputs,
     run,
+    validate_output_separation,
 )
 
 SPEC = importlib.util.spec_from_file_location(
@@ -64,13 +65,22 @@ class V168DiagnosticsTests(unittest.TestCase):
 
     def test_same_source_and_output_folder_is_rejected_without_writes(self):
         with tempfile.TemporaryDirectory() as folder:
-            with self.assertRaisesRegex(ValueError, "outside the source model"):
+            with self.assertRaisesRegex(ValueError, "separate output folder"):
                 run({
                     "model_folder": folder,
                     "output_dir": folder,
                     "nonlinear_walls": True,
                 })
             self.assertEqual(list(Path(folder).iterdir()), [])
+
+    def test_output_may_be_a_separate_subfolder_of_model_export(self):
+        with tempfile.TemporaryDirectory() as folder:
+            source=Path(folder)/"export"
+            source.mkdir()
+            nested=source/"OpenSees_Analysis_Results"
+            resolved_source,resolved_output=validate_output_separation(source,nested)
+            self.assertEqual(resolved_source,source.resolve())
+            self.assertEqual(resolved_output,nested.resolve())
 
     def test_conflicting_damping_probes_are_logged_as_invalid_config(self):
         with tempfile.TemporaryDirectory() as folder:

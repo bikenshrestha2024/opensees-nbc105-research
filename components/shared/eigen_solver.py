@@ -51,8 +51,26 @@ def solve_eigen(ops, modes, solver='PythonSparse'):
     if solver=='PythonSparse':
         values=ops.eigen('PythonSparse',modes,{'solver':SparseEigen(),'scheme':'CSR'})
     else:
+        reason=None
         if solver=='-fullGenLapack' and len(ops.getNodeTags())>500:
-            raise ValueError('Dense fullGenLapack disabled for buildings above 500 nodes; use PythonSparse')
-        values=ops.eigen(str(solver),modes)
+            reason=f'Dense fullGenLapack is disabled above 500 nodes (model has {len(ops.getNodeTags())}); avoiding an unsafe dense allocation'
+        else:
+            try:
+                values=list(ops.eigen(str(solver),modes))
+                if len(values)!=modes:
+                    reason=f'{solver} returned {len(values)} of {modes} requested modes'
+                elif any(not np.isfinite(float(value)) or float(value)<=0 for value in values):
+                    reason=f'{solver} returned a non-finite or non-positive eigenvalue'
+            except Exception as exc:
+                reason=f'{solver} failed: {type(exc).__name__}: {exc}'
+        if reason:
+            print(f'[EIGEN FALLBACK] requested={solver}; using PythonSparse; reason={reason}',flush=True)
+            try:
+                values=ops.eigen('PythonSparse',modes,{'solver':SparseEigen(),'scheme':'CSR'})
+            except Exception as exc:
+                raise RuntimeError(
+                    f'{solver} could not provide {modes} modes ({reason}); '
+                    f'PythonSparse fallback also failed: {type(exc).__name__}: {exc}'
+                ) from exc
     print(f'[EIGEN RETURN] elapsed={time.perf_counter()-started:.3f}s modes={len(values)}',flush=True)
     return values

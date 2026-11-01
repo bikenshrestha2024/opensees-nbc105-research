@@ -568,7 +568,7 @@ class ESMGui:
                     seq=list(value)
                     if seq and all(isinstance(v,str) for v in seq): string_arrays.append((idx,seq))
                 except Exception: pass
-            if not string_arrays: raise RuntimeError("ETABS returned no modal LoadCase array; check that a modal case was analyzed.")
+            if not string_arrays: raise RuntimeError("ETABS returned no modal result rows for the selected case. Run ETABS analysis with a modal load case and confirm its results are available; OpenSees modal results do not populate the ETABS Results API.")
             case_idx,cases=string_arrays[0]; period_idx=case_idx+3
             periods=list(raw[period_idx]); ux=list(raw[period_idx+1]); uy=list(raw[period_idx+2])
             scalar_codes=[]
@@ -590,7 +590,7 @@ class ESMGui:
             save_live(self.export_dir,mx[0],my[0],self.etabs_modal_metadata)
             self.period_note.set(f"ETABS autofill complete: T_X={mx[0]:.5g}s from UX-dominant mode {mx[4]} ({mx[1]:.1%} UX); T_Y={my[0]:.5g}s from UY-dominant mode {my[4]} ({my[2]:.1%} UY). These ETABS eigenperiods are comparison values only; the NBC adopted ESM period is still the lesser of 1.25×empirical and the directional Rayleigh period. Verify mode shapes when torsion couples with translation.")
         except Exception as exc:
-            if show_error: messagebox.showerror("ETABS modal-period read failed",f"Could not read active ETABS results. Open ETABS, run modal analysis, and retry.\n\n{exc}")
+            if show_error: messagebox.showerror("ETABS modal results unavailable",f"ETABS comparison periods could not be refreshed. This does not invalidate the separate workbook-adopted or Rayleigh periods already shown. To refresh ETABS references, run a modal case in ETABS and retry.\n\n{exc}")
             else: self.status.set('Excel/source inputs loaded. ETABS modal refresh unavailable: '+str(exc))
     def _open_export_folder(self):
         try: os.startfile(self.outdir.get())
@@ -710,7 +710,6 @@ class ESMGui:
 def main():
     root=tk.Tk(); ESMGui(root); root.mainloop()
 if __name__=="__main__": main()
-
 
 
 

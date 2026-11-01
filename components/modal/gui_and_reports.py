@@ -186,6 +186,7 @@ class ModalAuditGUI:
         ttk.Label(row, text="Stiffness case / eigen solver").pack(side="left")
         ttk.Combobox(row,textvariable=self.limit_state,values=('ULS','SLS','Both'),state='readonly',width=10).pack(side='left',padx=6)
         ttk.Combobox(row, textvariable=self.solver, values=("PythonSparse", "-genBandArpack", "-fullGenLapack"), state="readonly", width=22).pack(side="left", padx=8)
+        ttk.Label(form,text="PythonSparse is recommended for building-scale models. Failed/partial native solves fall back to PythonSparse; dense fullGenLapack is skipped above 500 nodes.",foreground="#8a3412",wraplength=900).pack(anchor="w")
         ttk.Label(form,textvariable=self.project_system).pack(anchor='w')
         period = ttk.LabelFrame(form, text="NBC §5.1 period comparison (SI units)", padding=8); period.pack(fill="x", pady=(8, 2))
         prow = ttk.Frame(period); prow.pack(fill="x", pady=2)
