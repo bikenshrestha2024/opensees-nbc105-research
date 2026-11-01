@@ -18,6 +18,7 @@ class FakeOps:
         self.return_codes = iter(return_codes)
         self.nonfinite = nonfinite
         self.time = 0.0
+        self.algorithms = []
 
     def analyze(self, _steps, dt):
         code = next(self.return_codes)
@@ -26,7 +27,7 @@ class FakeOps:
         return code
 
     def algorithm(self, _name):
-        pass
+        self.algorithms.append(_name)
 
     def test(self, *_args):
         pass
@@ -86,6 +87,24 @@ class FailureEvidenceTests(unittest.TestCase):
             )
             self.assertEqual(result, 1)
             self.assertFalse(evidence_path.exists())
+
+    def test_efficient_recovery_subdivides_before_algorithm_fallbacks(self):
+        ops = FakeOps([-3, 0, 0])
+        diagnostics = {"efficient_recovery": True}
+        accepted = _advance_nonlinear_interval(
+            ops, 0.01, max_depth=1, diagnostics=diagnostics)
+        self.assertEqual(accepted, 2)
+        self.assertEqual(ops.algorithms, ["Newton", "Newton", "Newton"])
+        self.assertEqual(diagnostics["bisections"], 1)
+        self.assertEqual(diagnostics["failed_attempts"], 1)
+
+    def test_efficient_recovery_keeps_algorithm_fallbacks_at_depth_limit(self):
+        ops = FakeOps([-3, 0])
+        accepted = _advance_nonlinear_interval(
+            ops, 0.01, max_depth=0,
+            diagnostics={"efficient_recovery": True})
+        self.assertEqual(accepted, 1)
+        self.assertEqual(ops.algorithms, ["Newton", "NewtonLineSearch"])
 
 
 if __name__ == "__main__":

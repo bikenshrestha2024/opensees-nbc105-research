@@ -108,6 +108,9 @@ def _run(config):
         raise ValueError('diagnostic_excitation must be XY, X, Y or ZERO')
     if config.get('diagnostic_zero_damping') and config.get('diagnostic_mass_damping'):
         raise ValueError('Select only one diagnostic damping override')
+    max_subdivision_depth=config.get('max_subdivision_depth',5)
+    if isinstance(max_subdivision_depth,bool) or not isinstance(max_subdivision_depth,int) or not 0<=max_subdivision_depth<=8:
+        raise ValueError('max_subdivision_depth must be an integer from 0 through 8')
     _set_run_stage('loading_analysis_dependencies')
     from OpenSees_Complete_Export_V118 import build_complete_model
     from OpenSees_Input_Records_V130 import _read_peer_text_record
@@ -194,6 +197,8 @@ def _run(config):
         diag={
             'evidence_output_path':str(case/'First_Step_Failure_Evidence.json'),
             'element_map_path':str(model/'OpenSees_Complete_Element_Map_V118.json'),
+            'efficient_recovery':True,
+            'max_subdivision_depth':max_subdivision_depth,
         };rows=[];last=time.perf_counter();case_start=last
         stories=[dict(node=g['master_tag'],story_name='Storey_'+str(g['storey_number']),height=g['master_xyz'][2]-(groups[i-1]['master_xyz'][2] if i else data['base_z_m'])) for i,g in enumerate(groups)]
         wall_tags=[100001+len(data['frames'])+i for i,e in enumerate(data['shells']) if e['category']=='SHEAR WALL']
@@ -236,9 +241,17 @@ def _run(config):
             capture();writer=csv.DictWriter(stream,fieldnames=list(rows[0]));writer.writeheader();writer.writerow(rows[-1]);stream.flush()
             try:
                 while ops.getTime()<end-1e-10:
-                    before=len(rows);_advance_nonlinear_interval(ops,min(dt,end-ops.getTime()),on_accept=capture,diagnostics=diag)
+                    before=len(rows);_advance_nonlinear_interval(ops,min(dt,end-ops.getTime()),max_depth=max_subdivision_depth,on_accept=capture,diagnostics=diag)
                     writer.writerows(rows[before:])
-                    if time.perf_counter()-last>5:last=time.perf_counter();stream.flush();print(f'[EXPLORATORY PROGRESS] {orientation}: t={ops.getTime():.3f}/{end:.3f}s | wall={last-case_start:.1f}s',flush=True)
+                    if time.perf_counter()-last>5:
+                        last=time.perf_counter();stream.flush()
+                        minimum_dt=diag.get('minimum_accepted_dt_s')
+                        print(
+                            f'[EXPLORATORY PROGRESS] {orientation}: t={ops.getTime():.3f}/{end:.3f}s '
+                            f'| wall={last-case_start:.1f}s | failed_attempts={diag.get("failed_attempts",0)} '
+                            f'| bisections={diag.get("bisections",0)} '
+                            f'| min_accepted_dt={minimum_dt if minimum_dt is not None else "n/a"}',
+                            flush=True)
             except Exception as exc:
                 try:
                     _write_failure_report(

@@ -47,3 +47,10 @@ synchronized physical states; do not use them to construct hysteresis loops.
 Nonlinear force-deformation curves are only recorded for the explicitly
 tracked frame and wall tags; select representative outrigger/device tags for
 each configuration before interpreting local device performance.
+
+The exploratory NLTHA recovery policy keeps the `NormDispIncr` tolerance at
+`1e-7` with 40 iterations. It first retries a failed interval with Newton and
+subdivides the time step before using alternate algorithms at the configured
+subdivision limit (default depth 5). This reduces repeated full-model recovery
+work without relaxing convergence criteria; it does not establish that a run
+which stops before the record end is complete.

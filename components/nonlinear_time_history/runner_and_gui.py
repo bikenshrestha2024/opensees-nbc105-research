@@ -112,10 +112,15 @@ def _configure_nonlinear_transient(ops, algorithm="Newton", tolerance=1.0e-7, ma
 
 
 def _advance_nonlinear_interval(ops, dt, depth=0, max_depth=5, on_accept=None, diagnostics=None):
-    """Use Newton-family fallbacks, then bisect a failed time step recursively."""
+    """Advance with configured Newton fallbacks and bounded time-step bisection."""
     failures = []
     diagnostics={} if diagnostics is None else diagnostics
-    for algorithm in ("Newton", "NewtonLineSearch", "KrylovNewton", "ModifiedNewton"):
+    fallback_algorithms = ("Newton", "NewtonLineSearch", "KrylovNewton", "ModifiedNewton")
+    if diagnostics.get("efficient_recovery") and depth < max_depth:
+        algorithms = ("Newton",)
+    else:
+        algorithms = fallback_algorithms
+    for algorithm in algorithms:
         diagnostics['attempts']=diagnostics.get('attempts',0)+1
         diagnostics['algorithm_'+algorithm]=diagnostics.get('algorithm_'+algorithm,0)+1
         try:
@@ -136,6 +141,10 @@ def _advance_nonlinear_interval(ops, dt, depth=0, max_depth=5, on_accept=None, d
                 if on_accept is not None:on_accept()
                 return 1
             failures.append(f"{algorithm}: return code {rc}")
+        diagnostics['failed_attempts']=diagnostics.get('failed_attempts',0)+1
+        diagnostics['last_failed_algorithm']=algorithm
+        diagnostics['last_failed_time_s']=float(ops.getTime())
+        diagnostics['last_failed_dt_s']=float(dt)
         # Do not retry a domain whose trial state already contains NaN/Inf.
         # Such a retry can propagate a failed linear solve into every element;
         # it does not constitute a convergence recovery.
@@ -178,6 +187,8 @@ def _advance_nonlinear_interval(ops, dt, depth=0, max_depth=5, on_accept=None, d
         raise RuntimeError(f"Nonlinear step failed at t={ops.getTime():.6g}s, dt={dt:.6g}s after {depth} subdivision levels: " + "; ".join(failures))
     diagnostics['bisections']=diagnostics.get('bisections',0)+1
     half = float(dt) / 2.0
+    diagnostics['last_bisection_time_s']=float(ops.getTime())
+    diagnostics['last_bisection_dt_s']=float(dt)
     return (_advance_nonlinear_interval(ops, half, depth + 1, max_depth,on_accept,diagnostics) +
             _advance_nonlinear_interval(ops, half, depth + 1, max_depth,on_accept,diagnostics))
 
