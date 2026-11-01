@@ -116,10 +116,28 @@ def import_project_inputs(root, export_dir,limit_state='ULS'):
                 if not all(v>0 for v in aw.values()):raise ValueError('Both directions need recognized first-story walls.')
                 for axis in ('X','Y'):
                     key='aw'+axis.lower()
-                    if key in values:values['workbook_'+key]=values[key]
-                    put(key,aw[axis],topology,'first-story wall geometry','Σ Awi·[0.2+min(Lwi/H,0.9)^2], NBC 105:2025 §5.1.2')
+                    geometry_key='geometry_aw_'+axis.lower()
+                    values[geometry_key]=aw[axis]
+                    audit.append(dict(field=geometry_key,value=aw[axis],source=str(topology),
+                                      sheet='first-story wall geometry',
+                                      cell='Σ Awi·[0.2+min(Lwi/H,0.9)^2], NBC 105:2025 §5.1.2'))
+                    if key in values:
+                        values['workbook_'+key]=values[key]
+                        try:
+                            workbook_aw=float(values[key])
+                            if not math.isfinite(workbook_aw) or workbook_aw<=0:
+                                notes.append(f'Workbook {key.upper()} must be a finite positive area before use; review the source cell.')
+                            elif not math.isclose(workbook_aw,aw[axis],rel_tol=1e-6,abs_tol=1e-9):
+                                notes.append(f'Workbook {key.upper()} ({workbook_aw:g} m²) differs from the independent exported-geometry estimate ({aw[axis]:g} m²). The reviewed workbook input is preserved; reconcile wall grouping, openings, and Lwi before adopting either value.')
+                        except (TypeError,ValueError):
+                            notes.append(f'Workbook {key.upper()} is not numeric; review the source cell before period calculations.')
+                    else:
+                        values[key]=aw[axis]
+                        audit.append(dict(field=key,value=aw[axis],source=str(topology),
+                                          sheet='first-story wall geometry',
+                                          cell='automatic fallback to geometry_aw_'+axis.lower()))
                 values['wall_geometry_segments']=segments
-                notes.append('Aw uses each merged continuous first-story wall segment separately; shell mesh subdivisions are merged and openings/gaps split segments. Confirm the seismic height H excludes only basements meeting NBC 105:2025 §5.1.2; the automatic geometry height includes the full exported base-to-roof extent.')
+                notes.append('The automatic geometry estimate merges shell mesh subdivisions and treats separated wall segments independently; it is an audit/fallback, not an interpretation of how to group perforated walls for NBC Aw. A reviewed workbook Aw is preserved for period calculations. Confirm wall/opening grouping, directional Lwi, and whether seismic height H excludes qualifying basements under NBC 105:2025 §5.1.2.')
             except Exception as exc:
                 notes.append('Live wall Aw reconstruction unavailable; imported workbook Aw remains a review input: '+str(exc))
     ray_name='NBC105_Rayleigh_Preliminary_V123'+('_SLS' if state=='SLS' else '')+'.json'

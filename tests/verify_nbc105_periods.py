@@ -81,8 +81,11 @@ class NBC105PeriodTests(unittest.TestCase):
             exporter._area_property=lambda assignment,_defaults:{'thickness':assignment['thickness']}
             with patch.dict(sys.modules,{'OpenSees_Complete_Export_V118':exporter}):
                 result=import_project_inputs(ROOT,folder,'ULS')
-            self.assertAlmostEqual(result['values']['awx'],.405)
-            self.assertAlmostEqual(result['values']['awy'],.27)
+            self.assertAlmostEqual(result['values']['awx'],1.)
+            self.assertAlmostEqual(result['values']['awy'],1.)
+            self.assertAlmostEqual(result['values']['geometry_aw_x'],.405)
+            self.assertAlmostEqual(result['values']['geometry_aw_y'],.27)
+            self.assertTrue(any('reviewed workbook input is preserved' in note for note in result['notes']))
             self.assertEqual(len(result['values']['wall_geometry_segments']),4)
 
     def test_nbc_period_equations_and_adopted_period(self):

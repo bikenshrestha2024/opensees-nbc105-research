@@ -48,13 +48,20 @@ specific §5.1.2 exclusion condition. The result remains diagnostic until the
 weights, force shape, center-of-mass representation, wall geometry, and
 basement treatment are reviewed.
 
-For wall `Aw`, the geometry importer merges contiguous shell mesh intervals
-on each wall line, separates physical gaps/openings, and applies the NBC factor
-to each resulting wall segment using that segment's own `Lwi`. It no longer
-uses the full gross bay length for the remaining net wall area. Confirm that
-the export captures openings, wall intersections, first-storey limits, and
-the correct directional wall lengths. If automatic reconstruction fails, the
-workbook value is retained only as an explicitly noted review input.
+For wall `Aw`, the independent geometry estimate merges contiguous shell mesh
+intervals on each wall line, separates physical gaps/openings, and applies the
+NBC factor to each resulting segment using that segment's own `Lwi`. This is a
+geometry-derived audit/fallback, not a definitive rule for grouping a
+perforated wall in the NBC summation: the standard does not explicitly explain
+whether an opening-bearing wall should be represented as one wall with net
+`Awi` and an overall `Lwi`, or as multiple effective piers. A reviewed
+workbook value—such as one computed from the full wall area less opening area
+and an overall wall length—is therefore preserved as the period input rather
+than silently replaced by the segment estimate. Both values and any
+difference are reported for engineering reconciliation. Confirm the export
+captures openings, wall intersections, first-storey limits, and directional
+wall lengths. If automatic reconstruction fails, the workbook value is
+retained only as an explicitly noted review input.
 
 Rayleigh **damping coefficients** are another, separate calculation:
 `ζ(ω)=αM/(2ω)+βKω/2`. The nonlinear runner currently fits its selected modes
