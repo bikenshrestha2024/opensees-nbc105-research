@@ -259,6 +259,7 @@ def _run_analysis(config):
                     profiler.finish('failed',str(sys.exc_info()[1]))
                 try: ops.wipe()
                 except Exception: pass
+    trial_incomplete=any(row.get("trial_only") for row in records)
     # NBC §8.1.3 statistic is applied to pair-level response demands. The two
     # required direction-swapped runs are enveloped within each orthogonal pair;
     # the response statistic is then selected by the number of record pairs.
@@ -290,7 +291,7 @@ def _run_analysis(config):
                 aggregate[f"drift_screen_{axis}"] = "PASS" if aggregate[key] <= limit else "REVIEW"
         return {"set": label, "pair_count": n_pairs, "statistic": method, "response_demands": aggregate}
 
-    aggregation = {"all_selected_pairs": _aggregate_pair_set(pair_demands, "all selected records")}
+    aggregation = {"all_selected_pairs": _aggregate_pair_set(pair_demands, "diagnostic truncated records" if trial_incomplete else "all selected records")}
     for field_type in dict.fromkeys(d["field_type"] for d in pair_demands):
         subset = [d for d in pair_demands if d["field_type"] == field_type]
         aggregation[f"{field_type.lower().replace('-', '_')}_subset"] = _aggregate_pair_set(subset, field_type)
@@ -301,7 +302,9 @@ def _run_analysis(config):
             "peak_roof_UX_m": max(r["peak_roof_UX_m"] for r in records),
             "peak_story_drift_X": max(r["peak_story_drift_X"] for r in records),
             "drift_screen_X": "PASS" if max(r["peak_story_drift_X"] for r in records) <= (0.025 if config["limit_state"] == "ULS" else 0.006) else "REVIEW"}
-    summary = {"standard": "NBC 105:2025", "analysis": "Elastic linear time history", "input_mode": config.get("motion_mode", "PAIRED_3D"),
+    summary = {"standard": "NBC 105:2025", "analysis": "Elastic linear time history",
+        "status": "TRUNCATED_DIAGNOSTIC_NOT_CODE_ACCEPTANCE" if trial_incomplete else "FULL_SELECTED_RECORDS_COMPLETED",
+        "trial_duration_s": config.get("trial_duration_s"), "input_mode": config.get("motion_mode", "PAIRED_3D"),
         "directional_scope": "X-only screening; not a full NBC paired-component 3D verification" if config.get("motion_mode") == "X_ONLY_SCREENING" else f"{len(motions)} selected orthogonal 3D pairs; XY and YX orientations",
         "record_metadata": {"site_soil": "C", "period_range_s": [0.05, 6.0], "record_set": "User-selected X-only SeismoMatch/PEER screening records"} if config.get("motion_mode") == "X_ONLY_SCREENING" else LTH_MATCHING_METADATA,
         "model_length_unit": model_length_unit, "model_acceleration_unit": model_acceleration_unit,
