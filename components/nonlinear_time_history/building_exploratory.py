@@ -80,6 +80,8 @@ def run(config):
     _RUN_CONTEXT.clear()
     _RUN_CONTEXT.update(stage='configuration_validation',output_dir=str(config.get('output_dir','')))
     try:
+        if config.get('sensitivity_parameter'):
+            return _run_material_sensitivity(config)
         return _run(config)
     except Exception as exc:
         try:
@@ -87,6 +89,111 @@ def run(config):
         except OSError as report_error:
             print('[FAILURE REPORT ERROR]',repr(report_error),flush=True)
         raise
+
+
+def _run_material_sensitivity(config):
+    """Run a serial one-factor sweep, preserving a comparison row per completed case."""
+    from components.nonlinear_time_history.research_building_materials import (
+        validate_material_overrides,
+    )
+    from components.shared.response_recorders import write_rows
+
+    parameter = str(config['sensitivity_parameter'])
+    base_overrides = validate_material_overrides(config.get('material_overrides', {}))
+    values = config.get('sensitivity_values')
+    if not isinstance(values, list) or not 2 <= len(values) <= 12:
+        raise ValueError('sensitivity_values must contain 2 through 12 numeric candidate values')
+    candidates = []
+    for raw in values:
+        candidate = validate_material_overrides({parameter: raw})[parameter]
+        if candidate in candidates:
+            raise ValueError('sensitivity_values must not contain duplicates')
+        candidates.append(candidate)
+
+    source, output = validate_output_separation(
+        config['model_folder'], config['output_dir'])
+    output.mkdir(parents=True, exist_ok=True)
+    if parameter.startswith(('frame.', 'wall.')) and not config.get('nonlinear_walls'):
+        raise ValueError('Frame and wall sensitivity requires the nonlinear E-SFI-MVLEM-3D material profile.')
+
+    rows = []
+    completed = []
+    for index, value in enumerate(candidates, 1):
+        case_name = f"Case_{index:02d}_{parameter.replace('.', '_')}_{value:g}"
+        case_config = dict(config)
+        case_config.pop('sensitivity_parameter', None)
+        case_config.pop('sensitivity_values', None)
+        case_config['material_overrides'] = {**base_overrides, parameter: value}
+        case_config['output_dir'] = str(output / case_name)
+        print(f'[MATERIAL SENSITIVITY] {index}/{len(candidates)} {parameter}={value:g}', flush=True)
+        try:
+            result = run(case_config)
+        except Exception as exc:
+            report = dict(
+                status='INCOMPLETE',
+                parameter=parameter,
+                candidate_value=value,
+                completed_cases=completed,
+                failed_case=case_name,
+                error_type=type(exc).__name__,
+                error=str(exc),
+                output_dir=str(output),
+            )
+            (output / 'Material_Sensitivity_Summary.json').write_text(
+                json.dumps(report, indent=2), encoding='utf-8')
+            raise
+
+        states = result.items() if config.get('limit_state') == 'Both' else [
+            (config.get('limit_state', 'ULS'), result)
+        ]
+        for state, state_result in states:
+            for case in state_result.get('cases', []):
+                row = {
+                    'parameter': parameter,
+                    'candidate_value': value,
+                    'limit_state': state,
+                    'orientation': case['orientation'],
+                    'status': case['status'],
+                    'physical_time_s': case['physical_time_s'],
+                    'full_record_duration_s': case['full_record_duration_s'],
+                    'peak_roof_UX_m': case['peak_roof_UX_m'],
+                    'peak_roof_UY_m': case['peak_roof_UY_m'],
+                    'terminal_roof_UX_m': case['terminal_roof_UX_m'],
+                    'terminal_roof_UY_m': case['terminal_roof_UY_m'],
+                    'residual_roof_UX_m': case['residual_roof_UX_m'],
+                    'residual_roof_UY_m': case['residual_roof_UY_m'],
+                    'max_story_drift_X': case['max_story_drift_X'],
+                    'max_story_drift_Y': case['max_story_drift_Y'],
+                    'max_floor_edge_drift_X': case['max_floor_edge_drift_X'],
+                    'max_floor_edge_drift_Y': case['max_floor_edge_drift_Y'],
+                    'peak_base_shear_X_kN': case['peak_base_shear_X_kN'],
+                    'peak_base_shear_Y_kN': case['peak_base_shear_Y_kN'],
+                    'peak_floor_relative_accel_X_m_s2': case['peak_floor_relative_accel_X_m_s2'],
+                    'peak_floor_relative_accel_Y_m_s2': case['peak_floor_relative_accel_Y_m_s2'],
+                    'case_output': str(output / case_name / state / case['orientation'])
+                    if config.get('limit_state') == 'Both'
+                    else str(output / case_name / case['orientation']),
+                }
+                rows.append(row)
+        completed.append(dict(value=value, output_dir=str(output / case_name)))
+        write_rows(output / 'Material_Sensitivity_Comparison.csv', rows)
+        (output / 'Material_Sensitivity_Summary.json').write_text(
+            json.dumps({
+                'status': 'IN_PROGRESS' if index < len(candidates) else 'COMPLETED',
+                'parameter': parameter,
+                'candidate_values': candidates,
+                'completed_cases': completed,
+                'comparison_csv': 'Material_Sensitivity_Comparison.csv',
+                'interpretation': 'One-factor exploratory comparison only; no candidate is selected as an optimum or design-approved.',
+            }, indent=2), encoding='utf-8')
+
+    return {
+        'status': 'COMPLETED',
+        'parameter': parameter,
+        'candidate_values': candidates,
+        'completed_cases': completed,
+        'comparison_csv': str(output / 'Material_Sensitivity_Comparison.csv'),
+    }
 
 def _run(config):
     _set_run_stage('configuration_validation',output_dir=str(config.get('output_dir','')))
@@ -118,7 +225,8 @@ def _run(config):
     from OpenSees_Step13_Analysis_Basis_V115 import rayleigh_coefficients
     from OpenSees_Response_Checks_V132 import export_history_checks
     from components.shared.response_recorders import (
-        append_base_shear, support_resultants, write_base_shear_roof_curve,
+    append_base_shear, frame_solver_tag_catalog, selected_member_response,
+    support_resultants, write_base_shear_roof_curve,
         write_recorder_index, write_rows,
     )
     full_wall=bool(config.get('nonlinear_walls',False))
@@ -131,15 +239,24 @@ def _run(config):
     import os
     os.environ['OPENSEES_RESEARCH_MATERIAL_BASIS']=config.get('material_basis','PUBLISHED_REFERENCE')
     os.environ['OPENSEES_STEELMPF_TRANSITION']=config.get('steelmpf_transition','OPENSEES_DOCUMENTED')
+    from components.nonlinear_time_history.research_building_materials import (
+        brace_steel_parameters, validate_material_overrides,
+    )
+    material_overrides=validate_material_overrides(config.get('material_overrides',{}))
+    if not full_wall and any(key.startswith(('frame.', 'wall.')) for key in material_overrides):
+        raise ValueError('Frame and wall material overrides require nonlinear_walls=true.')
+    os.environ['OPENSEES_RESEARCH_MATERIAL_OVERRIDES']=json.dumps(material_overrides)
     source,out=validate_output_separation(config['model_folder'],config['output_dir'])
     out.mkdir(parents=True,exist_ok=True)
     model=out/'isolated_model';model.mkdir(exist_ok=True)
     _set_run_stage('reading_records_and_model_inputs')
     for name in ('OpenSees_Complete_Model_Data_V118.json','OpenSees_Complete_Model_Config_V118.json','OpenSees_Complete_Export_Report_V118.json','OpenSees_Load_Conversion_Audit.json','OpenSees_Source_Model_Metadata_V118.json'):shutil.copy2(source/name,model/name)
     if (source/'OpenSees_Complete_Story_Masters_V118.csv').exists():shutil.copy2(source/'OpenSees_Complete_Story_Masters_V118.csv',model/'OpenSees_Complete_Story_Masters_V118.csv')
-    for name in ('OpenSees_Element_Overrides_V125.json',):
+    for name in ('OpenSees_Element_Overrides_V125.json',
+                 'OpenSees_Complete_Element_Map_V118.json'):
         if (source/name).is_file():shutil.copy2(source/name,model/name)
     data=json.loads((model/'OpenSees_Complete_Model_Data_V118.json').read_text(encoding='utf-8-sig'));start=time.perf_counter();unit_factor={'g':9.80665,'m/s2':1.};records=[]
+    write_rows(out/'Frame_Solver_Tag_Catalog.csv',frame_solver_tag_catalog(data['frames']))
     for key in ('x_path','y_path'):
         values,step,units=_read_peer_text_record(config[key]);records.append((np.asarray(values),step,units))
     if abs(records[0][1]-records[1][1])>1e-10 or len(records[0][0])!=len(records[1][0]):raise ValueError('Pair duration/digitization mismatch; reconcile records explicitly')
@@ -148,7 +265,11 @@ def _run(config):
     dt=float(config.get('dt_s',.005));scale=float(config.get('scale',1.))
     if not math.isfinite(dt) or dt<=0 or dt>min(.01,records[0][1]):raise ValueError('dt must be positive and no larger than record dt or 0.01 s')
     if not math.isfinite(scale) or scale<=0:raise ValueError('Scale must be finite and positive')
-    assumptions=dict(profile=profile,scope='EXPLORATORY_ASSUMED_MATERIALS_NOT_DESIGN_ACCEPTANCE',source_model_sha256=hashlib.sha256((source/'OpenSees_Complete_Model_Data_V118.json').read_bytes()).hexdigest(),frame_materials='Existing illustrative M35 / Fe550 RC templates; not source M45 project calibration',wall_materials='ELASTIC WALLS: source E/thickness; flexural factor ULS0.5 / SLS0.7 through plate modifier. Frame-nonlinear exploratory model; full FSAM wall trial failed and is not substituted silently.',braces='112 hinged SHS objects: corotTruss / Steel01, source area and E, assumed fy345MPa,b0.01; no flexural buckling/fatigue/fracture',floors='Source geometry, IS16700 ULS0.25/SLS0.35 elastic slab bending and gross membrane stiffness',gravity='Assembled source preload and nodal masses retained',limitation='Exploratory response and runtime only. No NBC design acceptance, reinforcement or collapse assessment.',records=[dict(path=str(config[k]),source_units=r[2],unit_conversion=unit_factor[r[2]],motion_scale=scale,total_Path_factor=unit_factor[r[2]]*scale) for k,r in zip(('x_path','y_path'),records)])
+    brace=brace_steel_parameters(material_overrides)
+    brace_fy=brace['fy_mpa']
+    brace_b=brace['hardening_ratio']
+    brace_e='source-section modulus' if brace['E_mpa'] is None else f'{brace["E_mpa"]:g} MPa'
+    assumptions=dict(profile=profile,scope='EXPLORATORY_ASSUMED_MATERIALS_NOT_DESIGN_ACCEPTANCE',source_model_sha256=hashlib.sha256((source/'OpenSees_Complete_Model_Data_V118.json').read_bytes()).hexdigest(),frame_materials='Existing illustrative M35 / Fe550 RC templates; not source M45 project calibration',wall_materials='ELASTIC WALLS: source E/thickness; flexural factor ULS0.5 / SLS0.7 through plate modifier. Frame-nonlinear exploratory model; full FSAM wall trial failed and is not substituted silently.',braces=f'112 hinged SHS objects: corotTruss / Steel01, source area, E={brace_e}, Fy={brace_fy:g} MPa, b={brace_b:g}; ordinary axial brace idealization only, no flexural buckling/fatigue/fracture and not a BRB core qualification',material_overrides=material_overrides,floors='Source geometry, IS16700 ULS0.25/SLS0.35 elastic slab bending and gross membrane stiffness',gravity='Assembled source preload and nodal masses retained',limitation='Exploratory response and runtime only. No NBC design acceptance, reinforcement or collapse assessment.',records=[dict(path=str(config[k]),source_units=r[2],unit_conversion=unit_factor[r[2]],motion_scale=scale,total_Path_factor=unit_factor[r[2]]*scale) for k,r in zip(('x_path','y_path'),records)])
     if full_wall:
         assumptions.update(frame_materials='Literature unconfined Concrete01 + nominal Fe500 Steel02; existing bar-layout templates remain assumptions',wall_materials='Nonlinear E_SFI_MVLEM_3D + ConcreteCM / SteelMPF / FSAM; exact selected parameters exported per property',material_basis=config.get('material_basis','PUBLISHED_REFERENCE'),steelmpf_transition_profile=config.get('steelmpf_transition','OPENSEES_DOCUMENTED'),limitation='Research material transfer and reinforcement templates, not experimental building calibration or NBC design acceptance')
     from Define_Section_V109 import RC_SECTION_CONFIG
@@ -205,6 +326,21 @@ def _run(config):
         tracked_wall=int(config.get('tracked_wall_tag',wall_tags[0])) if wall_tags else None
         tracked=int(config.get('tracked_frame_tag',100001))
         if not 100001<=tracked<100001+len(data['frames']):raise ValueError('Tracked frame solver tag is outside the assembled frame range')
+        requested_tags=config.get('tracked_element_tags',[])
+        if not isinstance(requested_tags,list) or len(requested_tags)>32:
+            raise ValueError('tracked_element_tags must be a list of no more than 32 frame solver tags')
+        tracked_tags=sorted({tracked,*[int(tag) for tag in requested_tags]})
+        if any(not 100001<=tag<100001+len(data['frames']) for tag in tracked_tags):
+            raise ValueError('A selected tracked element tag is outside the assembled frame range')
+        tracked_nodes={
+            tag: [int(node) for node in data['frames'][tag-100001]['nodes']]
+            for tag in tracked_tags
+        }
+        tracked_baseline={
+            node: list(ops.nodeDisp(node))
+            for nodes in tracked_nodes.values() for node in nodes
+        }
+        tracked_element_rows=[]
         def capture():
             row={'time_s':ops.getTime()};previous=[0.]*6
             for story,g in zip(stories,groups):
@@ -232,6 +368,20 @@ def _run(config):
                 for response,label in [('ShearDef','wall_shear_deformation'),('Curvature','wall_curvature')]:
                     values=list(ops.eleResponse(tracked_wall,response))
                     for j,value in enumerate(values):row[label+'_'+str(j+1)]=value
+            for element_tag in tracked_tags:
+                response=selected_member_response(
+                    ops,element_tag,tracked_nodes[element_tag],data['nodes'],
+                    tracked_baseline)
+                forces=response['local_end_forces_kN_kNm']
+                tracked_element_rows.append(dict(
+                    time_s=row['time_s'],
+                    element_tag=element_tag,
+                    source_object=data['frames'][element_tag-100001]['object'],
+                    category=data['frames'][element_tag-100001]['category'],
+                    axial_extension_m=response['axial_extension_m'],
+                    axial_force_kN=forces[0],
+                    local_force_vector_json=json.dumps(forces,separators=(',',':')),
+                ))
             rows.append(row)
         history=case/'Building_Nonlinear_history.csv'
         _set_run_stage('transient_analysis',orientation=orientation,case_output_dir=str(case),
@@ -266,7 +416,7 @@ def _run(config):
         _set_run_stage('response_postprocessing',orientation=orientation,case_output_dir=str(case),
                        accepted_history_rows=len(rows),completed_time_s=ops.getTime())
         (case/'NBC105_Exploratory_Time_History_RunConfig_V138.json').write_text(json.dumps(dict(model_script='../isolated_model/OpenSees_Complete_Model_Data_V118.json',scope=assumptions['scope'])),encoding='utf-8')
-        export_history_checks(rows,stories,case,'EXPLORATORY_'+orientation,config.get('limit_state','ULS'),model_script=str(model/'OpenSees_Complete_Model_Data_V118.json'))
+        edge_peaks=export_history_checks(rows,stories,case,'EXPLORATORY_'+orientation,config.get('limit_state','ULS'),model_script=str(model/'OpenSees_Complete_Model_Data_V118.json'))
         base_curve_path=write_base_shear_roof_curve(
             case/('BaseShear_RoofDisplacement_'+orientation+'.csv'),
             rows,stories[-1]['story_name'])
@@ -304,6 +454,9 @@ def _run(config):
         if tracked_wall_curve:
             tracked_wall_path=write_rows(
                 case/'Tracked_Wall_Stress_Strain.csv',tracked_wall_curve)
+        tracked_element_path=write_rows(
+            case/'Tracked_Element_Force_Displacement.csv',
+            tracked_element_rows)
         recorder_files=[
             (history.name,[
                 'accepted adaptive substep time','all-story Ux/Uy/Uz/Rx/Ry/Rz',
@@ -324,13 +477,17 @@ def _run(config):
         if tracked_wall_path:
             recorder_files.append((tracked_wall_path.name,[
                 'selected E-SFI wall panel stress-strain histories']))
+        recorder_files.append((tracked_element_path.name,[
+            'selected frame/brace/device tag axial force and gravity-relative projected axial extension',
+            'local force vector retained as JSON in native OpenSees local-end ordering']))
         write_recorder_index(
             case,'nonlinear_time_history',
             recorder_files,
             notes=[
                 'Support reactions and base shear are incremental relative to the gravity-frozen state.',
                 'The base-shear/roof-displacement file preserves synchronized accepted states and can be plotted as a hysteresis history.',
-                'Tracked member and wall channels are controlled by tracked_frame_tag and tracked_wall_tag; the final frame-action table covers all frame elements.',
+                'Selected member channels are controlled by tracked_frame_tag and tracked_element_tags; confirm each selected device local axis aligns with its member axis.',
+                'The final frame-action table is a final-state snapshot, not an all-elements time history.',
             ],
         )
         # Every reported criterion retains the staged-model scope.
@@ -350,7 +507,40 @@ def _run(config):
                 writer=csv.DictWriter(stream,fieldnames=list(action_rows[0]));writer.writeheader();writer.writerows(action_rows)
         deformation={str(n):list(ops.nodeDisp(int(n))) for n in data['nodes']}
         (case/('Deformation_EXPLORATORY_'+orientation+'_V132.json')).write_text(json.dumps(dict(nodes=data['nodes'],elements=[e['nodes'] for e in data['frames']+data['shells']],displacements=deformation,dof_availability=[True]*6,note='EXPLORATORY assumed literature materials; total final response at t='+str(ops.getTime())+' s. Not design acceptance.')),encoding='utf-8')
-        result=dict(orientation=orientation,wall_model='E_SFI_MVLEM_3D' if full_wall else 'ELASTIC',frame_model='LITERATURE_CONCRETE01_NOMINAL_FE500' if full_wall else 'NONLINEAR_ILLUSTRATIVE_RC_FIBERS',gravity_system=gravity_system,transient_system=transient_system,diagnostic_excitation=excitation,diagnostic_zero_damping=bool(config.get('diagnostic_zero_damping')),diagnostic_mass_damping=bool(config.get('diagnostic_mass_damping')),rayleigh_alphaM=alpha,rayleigh_betaKcomm=beta,status='COMPLETED_TRUNCATED_TRIAL' if end<record_end else 'COMPLETED_EXPLORATORY_RECORD',physical_time_s=end,full_record_duration_s=record_end,elapsed_s=time.perf_counter()-case_start,peak_roof_UX_m=max(abs(r[stories[-1]['story_name']+'_UX_m']) for r in rows),peak_roof_UY_m=max(abs(r[stories[-1]['story_name']+'_UY_m']) for r in rows),periods_inspected_s=periods,initial_damping_ratios=[alpha/(2*math.sqrt(v))+beta*math.sqrt(v)/2 for v in eigenvalues],diagnostics=diag,scope=assumptions['scope'])
+        roof=stories[-1]['story_name']
+        result=dict(
+            orientation=orientation,
+            wall_model='E_SFI_MVLEM_3D' if full_wall else 'ELASTIC',
+            frame_model='LITERATURE_CONCRETE01_NOMINAL_FE500' if full_wall else 'NONLINEAR_ILLUSTRATIVE_RC_FIBERS',
+            gravity_system=gravity_system,transient_system=transient_system,
+            diagnostic_excitation=excitation,
+            diagnostic_zero_damping=bool(config.get('diagnostic_zero_damping')),
+            diagnostic_mass_damping=bool(config.get('diagnostic_mass_damping')),
+            rayleigh_alphaM=alpha,rayleigh_betaKcomm=beta,
+            material_overrides=material_overrides,
+            status='COMPLETED_TRUNCATED_TRIAL' if end<record_end else 'COMPLETED_EXPLORATORY_RECORD',
+            physical_time_s=end,full_record_duration_s=record_end,
+            elapsed_s=time.perf_counter()-case_start,
+            peak_roof_UX_m=max(abs(r[roof+'_UX_m']) for r in rows),
+            peak_roof_UY_m=max(abs(r[roof+'_UY_m']) for r in rows),
+            terminal_roof_UX_m=rows[-1][roof+'_UX_m'],
+            terminal_roof_UY_m=rows[-1][roof+'_UY_m'],
+            residual_roof_UX_m=rows[-1][roof+'_UX_m'] if end>=record_end-1e-8 else None,
+            residual_roof_UY_m=rows[-1][roof+'_UY_m'] if end>=record_end-1e-8 else None,
+            max_story_drift_X=max(abs(r[s['story_name']+'_drift_X']) for r in rows for s in stories),
+            max_story_drift_Y=max(abs(r[s['story_name']+'_drift_Y']) for r in rows for s in stories),
+            max_floor_edge_drift_X=edge_peaks.get('X'),
+            max_floor_edge_drift_Y=edge_peaks.get('Y'),
+            peak_base_shear_X_kN=max(abs(r['base_shear_X_kN']) for r in rows),
+            peak_base_shear_Y_kN=max(abs(r['base_shear_Y_kN']) for r in rows),
+            peak_floor_relative_accel_X_m_s2=max(
+                abs(r[s['story_name']+'_UX_relative_accel_m_s2']) for r in rows for s in stories),
+            peak_floor_relative_accel_Y_m_s2=max(
+                abs(r[s['story_name']+'_UY_relative_accel_m_s2']) for r in rows for s in stories),
+            peak_roof_torsion_rad=max(abs(r[roof+'_RZ_rad']) for r in rows),
+            periods_inspected_s=periods,
+            initial_damping_ratios=[alpha/(2*math.sqrt(v))+beta*math.sqrt(v)/2 for v in eigenvalues],
+            diagnostics=diag,scope=assumptions['scope'])
         from OpenSees_Building_Response_V144 import plot_response
         plot_response(history,case,tracked)
         (case/'Case_Summary.json').write_text(json.dumps(result,indent=2));summary.append(result);print('[EXPLORATORY COMPLETE]',json.dumps(result),flush=True);ops.wipe()

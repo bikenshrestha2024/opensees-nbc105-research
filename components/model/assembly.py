@@ -17,6 +17,7 @@ import ast
 import csv
 import json
 import math
+import os
 import shutil
 import hashlib
 
@@ -657,9 +658,19 @@ def build_complete_model(folder, *, mode='elastic', preload=False, limit_state='
     if mode=='nonlinear':
         import runpy
         from Define_Section_V109 import define_all_fiber_sections
+        material_overrides={}
+        brace_parameters={'fy_kN_m2':345000.,'hardening_ratio':.01}
+        if research:
+            from components.nonlinear_time_history.research_building_materials import (
+                brace_steel_parameters, validate_material_overrides,
+            )
+            material_overrides=validate_material_overrides(
+                json.loads(os.environ.get('OPENSEES_RESEARCH_MATERIAL_OVERRIDES','{}')))
+            brace_parameters=brace_steel_parameters(material_overrides)
         if research_profile=='LITERATURE_BUILDING_NL_V161':
             from components.nonlinear_time_history.research_building_materials import define_building_materials
-            research_wall=define_building_materials(ops,data,folder)
+            research_wall=define_building_materials(
+                ops,data,folder,material_overrides=material_overrides)
         else:
             define_all_fiber_sections(ops,unit_system='kN-m')
         if research and research_profile!='LITERATURE_BUILDING_NL_V161':
@@ -693,7 +704,8 @@ def build_complete_model(folder, *, mode='elastic', preload=False, limit_state='
         else:
             if e.get('hinged_brace') and research:
                 # Explicit idealized axial brace; no buckling/fracture capability claimed.
-                mat=800000+tag;ops.uniaxialMaterial('Steel01',mat,345000.,p['E'],.01)
+                elastic_modulus=brace_parameters['E_mpa']*1000. if brace_parameters['E_mpa'] is not None else p['E']
+                mat=800000+tag;ops.uniaxialMaterial('Steel01',mat,brace_parameters['fy_kN_m2'],elastic_modulus,brace_parameters['hardening_ratio'])
                 ops.element('corotTruss',tag,*e['nodes'],p['A'],mat)
                 element_map.setdefault('FRAME:'+e['object'],[]).append(tag);continue
             if e.get('hinged_brace'): raise ValueError(f"ETABS frame {e['object']} | OpenSees solver tag {tag}: nonlinear end-release formulation is not implemented")

@@ -1,8 +1,10 @@
 import csv
+import json
 import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
@@ -14,8 +16,15 @@ from OpenSees_Nonlinear_Time_History_NBC105_V116 import (
 )
 from components.nonlinear_time_history.building_exploratory import (
     TRANSIENT_SYSTEMS,
+    _run_material_sensitivity,
     configure_transient_system,
     profile_for_config,
+)
+from components.nonlinear_time_history.research_building_materials import (
+    FRAME_OVERRIDE_TARGETS,
+    brace_steel_parameters,
+    validate_material_overrides,
+    validate_frame_section_parameters,
 )
 
 
@@ -101,6 +110,93 @@ class MaterialSensitivityTests(unittest.TestCase):
             profile_for_config({"nonlinear_walls": False}),
             "LITERATURE_FRAME_NL_ELASTIC_WALL_V138",
         )
+
+    def test_explicit_building_overrides_accept_345_mpa_and_reject_bad_inputs(self):
+        self.assertEqual(
+            validate_material_overrides({"brace.fy_mpa": "345", "brace.b": .01}),
+            {"brace.fy_mpa": 345., "brace.b": .01},
+        )
+        self.assertEqual(
+            brace_steel_parameters({"brace.fy_mpa": 345.})["fy_kN_m2"],
+            345000.,
+        )
+        self.assertEqual(
+            brace_steel_parameters({"brace.E_mpa": 200000.})["E_mpa"],
+            200000.,
+        )
+        self.assertEqual(
+            FRAME_OVERRIDE_TARGETS["frame.rebar_fy_mpa"],
+            "fy_rebar_mpa",
+        )
+        with self.assertRaisesRegex(ValueError, "residual strength"):
+            validate_frame_section_parameters({
+                "cover_fc_mpa": 30., "cover_fcu_mpa": 35.,
+                "cover_epsc0": -.002, "cover_epsU": -.006,
+                "core_fcc_mpa": 40., "core_fpcu_mpa": 0.,
+                "core_epsc0": -.002, "core_epsU": -.006,
+            })
+        for values in (
+            {"brace.fy_mpa": float("nan")},
+            {"brace.b": .6},
+            {"unknown.parameter": 1.},
+            {"wall.fpcc_mpa": 55.},
+            {"wall.fyn_mpa": -500.},
+            {"brace.fy_mpa": True},
+        ):
+            with self.subTest(values=values), self.assertRaises(ValueError):
+                validate_material_overrides(values)
+
+    def test_building_sensitivity_batch_exports_comparable_case_metrics(self):
+        def fake_run(config):
+            value = config["material_overrides"]["brace.fy_mpa"]
+            return {"cases": [{
+                "orientation": "XY",
+                "status": "COMPLETED_TRUNCATED_TRIAL",
+                "physical_time_s": .1,
+                "full_record_duration_s": 40.94,
+                "peak_roof_UX_m": value / 100000.,
+                "peak_roof_UY_m": 0.0,
+                "terminal_roof_UX_m": .001,
+                "terminal_roof_UY_m": 0.0,
+                "residual_roof_UX_m": None,
+                "residual_roof_UY_m": None,
+                "max_story_drift_X": .0001,
+                "max_story_drift_Y": 0.0,
+                "max_floor_edge_drift_X": .0002,
+                "max_floor_edge_drift_Y": .0001,
+                "peak_base_shear_X_kN": 100.,
+                "peak_base_shear_Y_kN": 0.0,
+                "peak_floor_relative_accel_X_m_s2": .2,
+                "peak_floor_relative_accel_Y_m_s2": 0.0,
+            }]}
+
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            source = root / "model"
+            source.mkdir()
+            config = {
+                "model_folder": str(source),
+                "output_dir": str(root / "sweep"),
+                "nonlinear_walls": True,
+                "limit_state": "ULS",
+                "sensitivity_parameter": "brace.fy_mpa",
+                "sensitivity_values": [345., 379.5],
+            }
+            with patch(
+                "components.nonlinear_time_history.building_exploratory.run",
+                side_effect=fake_run,
+            ):
+                result = _run_material_sensitivity(config)
+            self.assertEqual(result["status"], "COMPLETED")
+            with (root / "sweep" / "Material_Sensitivity_Comparison.csv").open(
+                    encoding="utf-8-sig", newline="") as stream:
+                rows = list(csv.DictReader(stream))
+            self.assertEqual([float(row["candidate_value"]) for row in rows],
+                             [345., 379.5])
+            self.assertEqual(rows[0]["residual_roof_UX_m"], "")
+            summary = json.loads(
+                (root / "sweep" / "Material_Sensitivity_Summary.json").read_text())
+            self.assertEqual(summary["status"], "COMPLETED")
 
 
 if __name__ == "__main__":

@@ -14,6 +14,24 @@ REACTION_COMPONENTS = (
     "support_reaction_My_kNm",
     "support_reaction_Mz_kNm",
 )
+FRAME_SOLVER_TAG_BASE = 100001
+
+
+def frame_solver_tag_catalog(frames):
+    """Map the stable assembled frame solver tags back to ETABS frame objects."""
+    return [
+        {
+            "solver_tag": FRAME_SOLVER_TAG_BASE + index,
+            "source_object": str(element.get("object", "")),
+            "category": str(element.get("category", "")),
+            "section_property": str(element.get("properties", {}).get("section", "")),
+            "node_i": int(element["nodes"][0]),
+            "node_j": int(element["nodes"][1]),
+            "release_i": bool(element.get("release_i", False)),
+            "release_j": bool(element.get("release_j", False)),
+        }
+        for index, element in enumerate(frames)
+    ]
 
 
 def support_resultants(ops, support_nodes):
@@ -85,3 +103,50 @@ def write_base_shear_roof_curve(path, rows, roof_story_name):
     if not selected:
         raise ValueError("No synchronized base-shear and roof-displacement samples.")
     return write_rows(path, selected)
+
+
+def selected_member_response(ops, element_tag, node_tags, node_coordinates,
+                            baseline_displacements):
+    """Capture a selected member's local end forces and gravity-relative axial extension."""
+    i_node, j_node = (int(node) for node in node_tags)
+    start = [float(value) for value in node_coordinates.get(str(i_node), node_coordinates.get(i_node))]
+    end = [float(value) for value in node_coordinates.get(str(j_node), node_coordinates.get(j_node))]
+    axis = [b - a for a, b in zip(start, end)]
+    length = sum(value * value for value in axis) ** .5
+    if not length > 0:
+        raise ValueError(f"Element {element_tag} has zero initial length.")
+    axis = [value / length for value in axis]
+
+    def translation(node):
+        values = list(ops.nodeDisp(node))
+        if len(values) < 3:
+            raise ValueError(f"Node {node} displacement has fewer than three translational DOFs.")
+        return [float(value) for value in values[:3]]
+
+    current_i, current_j = translation(i_node), translation(j_node)
+    initial_i = baseline_displacements[i_node][:3]
+    initial_j = baseline_displacements[j_node][:3]
+    extension = sum(
+        ((current_j[k] - current_i[k]) - (initial_j[k] - initial_i[k])) * axis[k]
+        for k in range(3)
+    )
+    def response_vector(response):
+        if response is None:
+            return []
+        try:
+            return [float(value) for value in response]
+        except TypeError:
+            return [float(response)]
+
+    forces = response_vector(ops.eleResponse(int(element_tag), "localForce"))
+    if not forces:
+        axial = response_vector(ops.eleResponse(int(element_tag), "axialForce"))
+        if axial:
+            forces = [float(axial[0]), -float(axial[0])]
+    if not forces:
+        raise ValueError(f"Element {element_tag} returned neither localForce nor axialForce.")
+    return {
+        "element_tag": int(element_tag),
+        "axial_extension_m": extension,
+        "local_end_forces_kN_kNm": forces,
+    }

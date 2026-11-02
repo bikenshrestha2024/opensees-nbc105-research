@@ -7,7 +7,7 @@ The matching human-readable bibliography is REFERENCES_AND_LEARNING_RESOURCES_V1
 """
 from __future__ import annotations
 
-__release__ = '134'
+__release__ = '135'
 
 from typing import Dict, List
 
@@ -142,6 +142,57 @@ REFERENCE_CATEGORIES: Dict[str, List[dict[str, str]]] = {
             "url": "https://doi.org/10.1002/eqe.2622",
             "use": "Discusses Rayleigh damping choices and their implications for nonlinear response-history analysis.",
             "limit": "Damping coefficients and formulation should be sensitivity-checked for this model; avoid double-counting explicit FVD energy dissipation.",
+        },
+    ],
+    "damped_outriggers_and_device_research": [
+        {
+            "id": "Smith-Willford-2007-damped-outrigger",
+            "title": "Smith, R. J., & Willford, M. R. (2007). The damped outrigger concept for tall buildings. The Structural Design of Tall and Special Buildings, 16(4), 501–517.",
+            "url": "https://doi.org/10.1002/tal.413",
+            "use": "Conceptual and analytical basis for coupling a perimeter outrigger to supplemental damping.",
+            "limit": "Study-specific results; its reported damping improvement is not a transferable damping multiplier for this building.",
+        },
+        {
+            "id": "Chen-et-al-2010-damped-outriggers",
+            "title": "Chen, Y., McFarland, D. M., Wang, Z., Spencer, B. F., & Bergman, L. A. (2010). Analysis of Tall Buildings with Damped Outriggers. Journal of Structural Engineering, 136(11), 1435–1443.",
+            "url": "https://doi.org/10.1061/(ASCE)ST.1943-541X.0000247",
+            "use": "Analytical screening method for damper-outrigger location, size, and modal response.",
+            "limit": "Simplified analytical model; not experimental validation of this 3D asymmetric RC building.",
+        },
+        {
+            "id": "Huang-Takeuchi-2017-damped-outrigger-height",
+            "title": "Huang, B., & Takeuchi, T. (2017). Dynamic Response Evaluation of Damped-Outrigger Systems with Various Heights. Earthquake Spectra, 33(2), 665–685.",
+            "url": "https://doi.org/10.1193/051816EQS082M",
+            "use": "Method for screening damper-outrigger elevation and damper size using analytical and member models.",
+            "limit": "The simplified cantilever/SDOF results are not floor prescriptions for a different building.",
+        },
+        {
+            "id": "Lin-Takeuchi-Matsui-2018-BRB-outrigger",
+            "title": "Lin, P.-C., Takeuchi, T., & Matsui, R. (2018). Seismic performance evaluation of single damped-outrigger system incorporating buckling-restrained braces. Earthquake Engineering & Structural Dynamics, 47(12), 2343–2365.",
+            "url": "https://doi.org/10.1002/eqe.3072",
+            "use": "BRB-outrigger elevation and stiffness relationships evaluated with nonlinear response-history analysis.",
+            "limit": "The modeled heights and idealized system differ from this 25-storey asymmetric RC building; do not copy its optimum elevation or BRB properties.",
+        },
+        {
+            "id": "Lin-Takeuchi-Matsui-2019-multiple-BRB-outrigger",
+            "title": "Lin, P.-C., Takeuchi, T., & Matsui, R. (2019). Optimal design of multiple damped-outrigger system incorporating buckling-restrained braces. Engineering Structures, 194, 441–457.",
+            "url": "https://doi.org/10.1016/j.engstruct.2019.05.078",
+            "use": "Supports treating multiple outrigger elevations and relative core, perimeter-column, and BRB stiffness as coupled design variables.",
+            "limit": "Study-specific idealized buildings; use as a search methodology, not a direct project design.",
+        },
+        {
+            "id": "Lin-Takeuchi-2019-BRB-configurations",
+            "title": "Lin, P.-C., & Takeuchi, T. (2019). Seismic performance of buckling-restrained brace outrigger system in various configurations. Japan Architectural Review, 2(4), 392–408.",
+            "url": "https://doi.org/10.1002/2475-8876.12120",
+            "use": "Compares BRB-outrigger configurations and elevation-selection methods for preliminary design.",
+            "limit": "Charts and numerical recommendations depend on the studied building/system assumptions.",
+        },
+        {
+            "id": "Lin-Chen-2024-BRB-outrigger-test",
+            "title": "Lin, P.-C., & Chen, P.-H. (2024). Shaking table test of a buckling-restrained brace outrigger system. Journal of Constructional Steel Research, 213, 108415.",
+            "url": "https://doi.org/10.1016/j.jcsr.2023.108415",
+            "use": "Relevant experimental reference for BRB-outrigger behavior and model-validation planning.",
+            "limit": "Use detailed test values only after reviewing the full paper and matching specimen, scale, setup, and loading; this is not validation of the present model.",
         },
     ],
     "video_learning_only": [

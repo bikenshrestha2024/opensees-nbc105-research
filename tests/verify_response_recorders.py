@@ -13,6 +13,8 @@ from components.modal.analysis import (
 )
 from components.shared.response_recorders import (
     append_base_shear,
+    frame_solver_tag_catalog,
+    selected_member_response,
     support_resultants,
     write_base_shear_roof_curve,
 )
@@ -144,6 +146,56 @@ class ResponseRecorderTests(unittest.TestCase):
             self.assertTrue((Path(folder) / "Gravity_Support_Reactions.csv").is_file())
             self.assertTrue((Path(folder) / "Gravity_Node_Displacements.csv").is_file())
             self.assertTrue((Path(folder) / "Response_Recorder_Index.json").is_file())
+
+    def test_selected_member_force_and_gravity_relative_axial_extension(self):
+        class MemberOps:
+            def nodeDisp(self, node):
+                return {1: [0.1, 0., 0., 0., 0., 0.],
+                        2: [0.3, 0., 0., 0., 0., 0.]}[node]
+
+            def eleResponse(self, tag, response):
+                self.assertion = (tag, response)
+                return [125., -125.]
+
+        ops = MemberOps()
+        response = selected_member_response(
+            ops, 42, [1, 2],
+            {"1": [0., 0., 0.], "2": [2., 0., 0.]},
+            {1: [0., 0., 0., 0., 0., 0.],
+             2: [0.05, 0., 0., 0., 0., 0.]},
+        )
+        self.assertAlmostEqual(response["axial_extension_m"], .15)
+        self.assertEqual(response["local_end_forces_kN_kNm"], [125., -125.])
+        self.assertEqual(ops.assertion, (42, "localForce"))
+
+    def test_selected_truss_can_use_axial_force_response(self):
+        class TrussOps:
+            def nodeDisp(self, node):
+                return [0., 0., 0., 0., 0., 0.]
+
+            def eleResponse(self, tag, response):
+                return [] if response == "localForce" else 85.
+
+        response = selected_member_response(
+            TrussOps(), 7, [1, 2], {1: [0., 0., 0.], 2: [0., 3., 0.]},
+            {1: [0., 0., 0., 0., 0., 0.],
+             2: [0., 0., 0., 0., 0., 0.]},
+        )
+        self.assertEqual(response["local_end_forces_kN_kNm"], [85., -85.])
+        self.assertEqual(response["axial_extension_m"], 0.)
+
+    def test_frame_solver_tag_catalog_maps_to_source_objects(self):
+        catalog = frame_solver_tag_catalog([
+            {"object": "ETABS-1", "category": "BRACE",
+             "properties": {"section": "SHS"}, "nodes": [10, 11],
+             "release_i": True, "release_j": True},
+            {"object": "ETABS-2", "category": "BEAM",
+             "properties": {"section": "RC"}, "nodes": [11, 12]},
+        ])
+        self.assertEqual(catalog[0]["solver_tag"], 100001)
+        self.assertEqual(catalog[0]["source_object"], "ETABS-1")
+        self.assertEqual(catalog[1]["solver_tag"], 100002)
+        self.assertEqual(catalog[1]["release_i"], False)
 
 
 if __name__ == "__main__":
