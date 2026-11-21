@@ -1,0 +1,28 @@
+name: Rayleigh kernel regression
+
+on:
+  push:
+    paths:
+      - "components/modal/rayleigh.py"
+      - "components/modal/rayleigh_kernel.py"
+      - "tests/test_rayleigh_kernel_regression.py"
+      - ".github/workflows/rayleigh-kernel-regression.yml"
+  pull_request:
+    paths:
+      - "components/modal/rayleigh.py"
+      - "components/modal/rayleigh_kernel.py"
+      - "tests/test_rayleigh_kernel_regression.py"
+      - ".github/workflows/rayleigh-kernel-regression.yml"
+
+jobs:
+  rayleigh-kernel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check kernel and production module syntax
+        run: python -m py_compile components/modal/rayleigh.py components/modal/rayleigh_kernel.py
+      - name: Run independent Rayleigh regression tests
+        run: python -m unittest discover -s tests -p "test_rayleigh_kernel_regression.py" -v
