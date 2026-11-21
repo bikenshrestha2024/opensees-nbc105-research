@@ -77,12 +77,11 @@ def run(folder, awx, awy, reference_fraction=.01, limit_state='ULS',
         ops.integrator('LoadControl',.1)
         if ops.analyze(10)!=0:raise RuntimeError(f'{axis} preliminary lateral analysis did not converge; no Rayleigh value was accepted.')
         u=[ops.nodeDisp(n,dof)-b for n,b in zip(masters,baseline)]
-        denominator=9.81*sum(f*d for f,d in zip(forces,u))
-        numerator=sum(w*d*d for w,d in zip(weights,u))
-        if not math.isfinite(denominator) or denominator<=0:raise ValueError(f'{axis} Rayleigh denominator is nonpositive or non-finite; inspect displacement signs and constraints.')
-        if not math.isfinite(numerator) or numerator<=0:raise ValueError(f'{axis} Rayleigh numerator is nonpositive or non-finite; inspect seismic weights and displacements.')
-        period=2*math.pi*math.sqrt(numerator/denominator)
-        if not math.isfinite(period) or period<=0:raise ValueError(f'{axis} Rayleigh period is nonpositive or non-finite.')
+        from components.modal.rayleigh_kernel import rayleigh_period_s
+        try:
+            period=rayleigh_period_s(weights,forces,u)
+        except ValueError as exc:
+            raise ValueError(f'{axis} Rayleigh quotient rejected: {exc}') from exc
         result[axis]=dict(Aw_m2=aw,empirical_period_s=empirical,amplified_empirical_s=1.25*empirical,period_s=period,adopted_period_s=min(period,1.25*empirical),rows=[dict(story=r['story_name'],height_m=float(r['height_m']),master_node=n,weight_kN=w,force_kN=f,displacement_m=d) for r,n,w,f,d in zip(rows,masters,weights,forces,u)])
         sheet=wb.create_sheet(axis+' Rayleigh');sheet.append(['Story','Height (m)','Master node','Wi (kN)','Fi (kN)','di (m)','Wi di2 (kN m2)','Fi di (kN m)'])
         for r in result[axis]['rows']:sheet.append([r['story'],r['height_m'],r['master_node'],r['weight_kN'],r['force_kN'],r['displacement_m'],r['weight_kN']*r['displacement_m']**2,r['force_kN']*r['displacement_m']])
